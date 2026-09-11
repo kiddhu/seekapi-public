@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+const publicIndexing = process.env.NEXT_PUBLIC_PUBLIC_INDEXING === '1';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://seekapi.ai'),
   title: {
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
     siteName: 'SeekAPI',
     type: 'website',
   },
-  robots: { index: true, follow: true },
+  robots: publicIndexing ? { index: true, follow: true } : { index: false, follow: false, noarchive: true },
 };
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, colorScheme: 'light' };
@@ -28,12 +30,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: 'https://seekapi.ai',
     description: 'Machine capability and accountable China-side human execution for companies, agents and developers.',
   };
-  return (
-    <html lang="en">
-      <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
-        {children}
-      </body>
-    </html>
-  );
+  return <html lang="en"><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />{children}</body></html>;
 }
