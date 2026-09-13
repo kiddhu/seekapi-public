@@ -1,2 +1,3 @@
 import type { MetadataRoute } from 'next';
-export default function sitemap():MetadataRoute.Sitemap{const base='https://seekapi.ai';return ['','/apis','/china-supply-chain','/china-desk','/for-agents','/how-it-works','/proof','/trust','/start'].map((path)=>({url:`${base}${path}`,lastModified:new Date(),changeFrequency:path===''?'weekly':'monthly',priority:path===''?1:0.8}));}
+import { isPublicProduction, publicRoutes, siteUrl } from '@/lib/site';
+export default function sitemap():MetadataRoute.Sitemap{if(!isPublicProduction)return [];return publicRoutes.map((path)=>({url:`${siteUrl}${path}`,changeFrequency:path===''?'weekly':'monthly',priority:path===''?1:0.8}));}
