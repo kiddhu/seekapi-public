@@ -1,29 +1,40 @@
-# SeekAPI Public Surface — Product Direction Retired
+# SeekAPI Website V0.1
 
-The previous SeekAPI public product direction is no longer maintained.
+A full rebuild of the public SeekAPI website around three first-class surfaces:
 
-```yaml
-status: LEGACY_PUBLIC_CONTENT__DO_NOT_MAINTAIN_AS_CURRENT_PRODUCT
-changed_at: 2026-08-15
-new_project: CatalogFlow / China Offer Graph
-canonical_governance_repo: kiddhu/aion-governance
-canonical_project_root: projects/catalogflow
-implementation_control: https://github.com/kiddhu/aion-governance/issues/879
-public_domain_target: seekapi.ai
+- For Companies — China Supply Chain Desk
+- For Agents — Human Execution Layer
+- APIs — machine capability surface
+
+## Run locally
+
+```bash
+npm install
+npm run dev
 ```
 
-## Current direction
+Open http://localhost:3000.
 
-`seekapi.ai` is being reassigned as the public developer/Agent-data surface for CatalogFlow's China Offer Graph and Agent-callable data primitives.
+## Production boundary
 
-The first candidate Primitive is `compare_china_offers_v0`: given a procurement requirement and multiple China-source offers, return which offers satisfy the requirement, which are fairly comparable, normalized unit prices, material differences, missing fields, confidence and evidence.
+This branch is preview-only until accepted. It does not enable payment, sensitive file upload, customer data handling, or live Agent task APIs.
 
-## Historical content
+## Preview validation
 
-Existing historical blog/SEO/SDK assets are preserved for audit/history or selective reuse. They must not be treated or maintained as current SeekAPI product claims.
+```bash
+npm ci
+npm run build
+```
 
-Do not add new content for the retired model-gateway/runtime product direction unless it is separately reactivated by the Monarch.
+Preview deployments stay non-indexable. Public indexing requires both
+`VERCEL_ENV=production` and `NEXT_PUBLIC_PUBLIC_INDEXING=1`, after public
+content acceptance and domain cutover approval.
 
-## Boundary
+Before public informational launch:
 
-This public repository is not the canonical source for private product logic, data rights, credentials, internal workflows or production secrets. Canonical project decisions and implementation control remain under `kiddhu/aion-governance/projects/catalogflow` and Issue #879.
+- verify the legal entity, responsible contact and public contact route;
+- connect a real non-sensitive intake destination and publish its data handling;
+- confirm Search Console and Bing Webmaster ownership;
+- submit the approved sitemap and IndexNow notifications after publication;
+- verify Googlebot, Bingbot and OAI-SearchBot access through the production WAF;
+- record Core Web Vitals and form delivery evidence.

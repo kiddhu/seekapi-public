@@ -1,0 +1,12 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { CommercialLocalizedPage, RussianPage } from '@/components/localized-page';
+import { commercialLocales, commercialPages, localeInfo, localizedCopy, pagePath, russianCopy, type CommercialLocale, type CommercialPage } from '@/lib/localized-content';
+import { localizedMetadata } from '@/lib/site';
+
+type Params={locale:string;slug?:string[]};
+const commercialSet=new Set<string>(commercialLocales);
+function resolve(params:Params){const joined=(params.slug||[]).join('/');if(commercialSet.has(params.locale)){const page=(joined||'home') as CommercialPage;if(commercialPages.includes(page))return {kind:'commercial' as const,locale:params.locale as CommercialLocale,page};}if(params.locale==='ru'){const map:Record<string,'home'|'sourcing'|'compliance'|'start'>={'':'home','china-sourcing':'sourcing','compliance-logistics':'compliance','start':'start'};if(joined in map)return {kind:'ru' as const,page:map[joined]};}return null;}
+export function generateStaticParams(){return [...commercialLocales.flatMap(locale=>commercialPages.map(page=>({locale,slug:page==='home'?undefined:[page]}))),{locale:'ru',slug:undefined},{locale:'ru',slug:['china-sourcing']},{locale:'ru',slug:['compliance-logistics']},{locale:'ru',slug:['start']}];}
+export async function generateMetadata({params}:{params:Promise<Params>}):Promise<Metadata>{const p=resolve(await params);if(!p)return{};if(p.kind==='commercial'){const copy=localizedCopy[p.locale].pages[p.page];return localizedMetadata(copy.title,copy.description,pagePath(p.locale,p.page),p.locale,p.page);}const copy=russianCopy.pages[p.page];const path=p.page==='home'?'/ru':p.page==='sourcing'?'/ru/china-sourcing':p.page==='compliance'?'/ru/compliance-logistics':'/ru/start';return {title:copy.title,description:copy.description,alternates:{canonical:path,languages:{ru:path,en:p.page==='sourcing'?'/china-supply-chain':p.page==='compliance'?'/china-compliance-logistics':p.page==='start'?'/start':'/','x-default':'/'}},openGraph:{title:copy.title,description:copy.description,url:`https://seekapi.ai${path}`,siteName:'SeekAPI',type:'website',locale:localeInfo.ru.ogLocale}};}
+export default async function Page({params}:{params:Promise<Params>}){const p=resolve(await params);if(!p)notFound();return p.kind==='commercial'?<CommercialLocalizedPage locale={p.locale} page={p.page}/>:<RussianPage page={p.page}/>;}

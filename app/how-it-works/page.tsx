@@ -1,0 +1,18 @@
+import { CTA, Eyebrow, PageShell, SectionTitle } from '@/components/site';
+import { pageMetadata } from '@/lib/site';
+export const metadata=pageMetadata('How SeekAPI Works','Seven controlled steps from one issue to China-side execution, evidence and an ongoing Desk.','/how-it-works');
+const steps=[
+ ['01','One issue','A concrete problem, component or blocked task.','Clarify outcome and timing.','Confirm the problem is worth solving.','A bounded starting point.','Stop if there is no decision value.'],
+ ['02','Fit and scope','Non-sensitive context and commercial objective.','Return fit, no-go or missing information.','Approve the proposed scope.','Defined work package.','Stop if SeekAPI is not the right role.'],
+ ['03','Inputs and rights','Files, revisions, owners and sharing rights.','Separate internal review from external authorization.','Approve recipients and purpose.','Controlled input set.','Stop if rights are unclear.'],
+ ['04','Supplier, RFQ or recovery','Approved action and named parties.','Contact, source, compare or recover facts.','Resolve commercial choices.','Responses and explicit unknowns.','Stop at unapproved commitment or spend.'],
+ ['05','Sample, NPI and quality','Acceptance criteria and current revision.','Track evidence, deviations and issue closure.','Approve or reject the next state.','Decision-ready sample or quality record.','Stop when evidence is insufficient.'],
+ ['06','Production and delivery','Approved order context and milestones.','Coordinate status, packaging and readiness.','Make qualified product and shipment decisions.','Current status and exceptions.','Stop at role, compliance or authority boundary.'],
+ ['07','Repeat or Desk','Evidence from completed work.','Review recurring task pattern.','Choose project close, repeat or monthly Desk.','Clear operating model.','Stop if in-house becomes the better structure.'],
+];
+export default function Page(){return <PageShell>
+  <section className="page-hero"><div className="container"><Eyebrow>Operating model</Eyebrow><h1>Context in. Bounded action out. Evidence back.</h1><p>SeekAPI separates understanding, authorization, execution and evidence so that a company or Agent can see who decides, what happened and where the work must stop.</p></div></section>
+  <section className="section"><div className="container"><SectionTitle eyebrow="Company path" title="Seven steps from one issue to an operating relationship."/><div className="process-grid">{steps.map(([n,title,input,action,decision,output,stop])=><article className="process-step" key={n}><span>{n}</span><div><h3>{title}</h3><div className="facts"><div className="fact"><strong>Input</strong><span>{input}</span></div><div className="fact"><strong>SeekAPI action</strong><span>{action}</span></div><div className="fact"><strong>Buyer decision</strong><span>{decision}</span></div><div className="fact"><strong>Output</strong><span>{output}</span></div><div className="fact"><strong>Stop condition</strong><span>{stop}</span></div></div></div></article>)}</div></div></section>
+  <section className="section section-dark"><div className="container"><SectionTitle eyebrow="Agent path" title="The same control model, with a structured return." body="An Agent completes machine work, identifies a human trigger, supplies bounded permissions and evidence requirements, then resumes from a structured human result. Human review can return NEEDS_INFO, DECLINED or APPROVAL_REQUIRED without pretending a task was accepted."/></div></section>
+  <CTA title="Start from one real task." body="The preview validates a non-sensitive draft locally and sends nothing." primaryHref="/start" secondaryLabel="Trust and permissions" secondaryHref="/trust"/>
+</PageShell>}
