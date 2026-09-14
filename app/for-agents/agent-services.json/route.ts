@@ -8,7 +8,7 @@ export async function GET(){return Response.json({
   handoff_requires:['requester_type','requester_identity','organization','objective','task_type','context_summary','allowed_actions','prohibited_actions','recipient_permissions','max_budget','currency','deadline','required_evidence','completion_definition','human_approval_contact'],
   requires_human_approval_for:['RFQ authorization','spending','contracts','production approval','accepting quality deviations'],
   output_states:['NEEDS_INFO','ACCEPTED','HUMAN_REVIEW_REQUIRED','IN_PROGRESS','BLOCKED','APPROVAL_REQUIRED','EVIDENCE_READY','COMPLETED','DECLINED'],
-  data_policy_url:'https://seekapi.ai/trust#data-ip',handoff_spec_url:'https://seekapi.ai/for-agents#handoff-spec',start_url:'https://seekapi.ai/start?audience=agent',evidence_return_spec_url:'https://seekapi.ai/for-agents#evidence-return',
+  data_policy_url:'https://seekapi.ai/trust#data-ip',handoff_spec_url:'https://seekapi.ai/for-agents#handoff-spec',start_url:'https://seekapi.ai/start?audience=agent',evidence_return_spec_url:'https://seekapi.ai/for-agents#evidence-return',compliance_logistics_url:'https://seekapi.ai/china-compliance-logistics',manual_scope_contact:'mailto:support@seekapi.ai',
   integrations:{task_api:'planned_not_live',mcp:'planned_not_live',webmcp:'planned_not_live'},updated_at:'2026-09-13',
-  notes:['SeekAPI-defined preview manifest, not an industry standard.','No public human-task intake or universal live coverage is claimed.']
+  notes:['SeekAPI-defined preview manifest, not an industry standard.','Manual email scope review is available; no public task API, automatic acceptance or universal live coverage is claimed.']
 });}

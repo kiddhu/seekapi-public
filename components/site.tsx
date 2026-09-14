@@ -4,6 +4,7 @@ import { MobileNav } from './mobile-nav';
 
 export const navItems = [
   { href: '/china-supply-chain', label: 'For Companies' },
+  { href: '/china-compliance-logistics', label: 'Compliance' },
   { href: '/for-agents', label: 'For Agents' },
   { href: '/apis', label: 'APIs' },
   { href: '/proof', label: 'Proof' },
@@ -34,7 +35,8 @@ export function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div><div className="brand footer-brand"><span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span></div><p className="muted footer-copy">Machine capability when software is enough. Accountable human execution in China when reality still needs people.</p></div>
-        <div className="footer-links"><Link href="/china-supply-chain">For Companies</Link><Link href="/china-desk">China Desk</Link><Link href="/for-agents">For Agents</Link><Link href="/apis">APIs</Link><Link href="/how-it-works">How it works</Link><Link href="/proof">Proof</Link><Link href="/trust">Trust</Link><Link href="/start">Start</Link></div>
+        <div className="footer-links"><Link href="/china-supply-chain">For Companies</Link><Link href="/china-desk">China Desk</Link><Link href="/china-compliance-logistics">Compliance & logistics</Link><Link href="/for-agents">For Agents</Link><Link href="/apis">APIs</Link><Link href="/how-it-works">How it works</Link><Link href="/proof">Proof</Link><Link href="/trust">Trust</Link><Link href="/start">Start</Link></div>
+        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a></address>
       </div>
       <div className="container footer-bottom"><span>© 2026 SeekAPI</span><span>Evidence-gated claims</span></div>
     </footer>
