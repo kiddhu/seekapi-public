@@ -7,19 +7,26 @@ export function StartForm() {
   const initialIntent = params.get('intent') || '';
   const [audience, setAudience] = useState<'company'|'agent'>(initialAudience);
   const [message, setMessage] = useState('');
-  function validate(event: FormEvent<HTMLFormElement>) {
+  const [preparedHref, setPreparedHref] = useState('');
+  function prepare(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    if (!form.checkValidity()) { setMessage('Complete the required fields shown below. Nothing has been sent.'); form.reportValidity(); return; }
-    setMessage('Preview draft validated locally — nothing has been sent or accepted.');
+    if (!form.checkValidity()) { setPreparedHref(''); setMessage('Complete the required fields shown below. Nothing has been sent.'); form.reportValidity(); return; }
+    const values=new FormData(form);
+    const lines=[`Request type: ${audience === 'agent' ? 'Agent / AI team handoff' : 'Company service request'}`];
+    for(const [key,value] of values.entries()){if(String(value).trim())lines.push(`${key.replaceAll('_',' ')}: ${String(value).trim()}`);}
+    lines.push('','This email is a request for scope review. It is not task acceptance, a contract or payment authorization.');
+    const subject=audience==='agent'?'SeekAPI Agent handoff scope review':'SeekAPI company scope review';
+    setPreparedHref(`mailto:support@seekapi.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`);
+    setMessage('Your request is ready. Review it, then open it in your email application to send.');
   }
   return <div className="form-card">
     <div className="notice" id="sensitive-note"><strong>Do not include confidential drawings, credentials or supplier secrets.</strong> This preview validates a draft in your browser and sends nothing.</div>
     <fieldset className="mode-switch"><legend>Who is starting the request?</legend>
-      <button type="button" className={audience === 'company' ? 'mode-active' : ''} aria-pressed={audience === 'company'} onClick={() => {setAudience('company');setMessage('')}}>Company</button>
-      <button type="button" className={audience === 'agent' ? 'mode-active' : ''} aria-pressed={audience === 'agent'} onClick={() => {setAudience('agent');setMessage('')}}>Agent / AI team</button>
+      <button type="button" className={audience === 'company' ? 'mode-active' : ''} aria-pressed={audience === 'company'} onClick={() => {setAudience('company');setMessage('');setPreparedHref('')}}>Company</button>
+      <button type="button" className={audience === 'agent' ? 'mode-active' : ''} aria-pressed={audience === 'agent'} onClick={() => {setAudience('agent');setMessage('');setPreparedHref('')}}>Agent / AI team</button>
     </fieldset>
-    <form aria-label={audience === 'agent' ? 'Agent handoff draft' : 'Company issue draft'} aria-describedby="sensitive-note" onSubmit={validate} onReset={() => setMessage('Draft cleared. Nothing was sent.')} noValidate>
+    <form aria-label={audience === 'agent' ? 'Agent handoff draft' : 'Company issue draft'} aria-describedby="sensitive-note" onSubmit={prepare} onReset={() => {setMessage('Draft cleared. Nothing was sent.');setPreparedHref('')}} noValidate>
       <h2>{audience === 'agent' ? 'Agent handoff draft' : 'Company issue draft'}</h2>
       <div className="form-grid">
         <div className="field"><label htmlFor="organization">Company or project</label><input id="organization" name="organization" required autoComplete="organization" /></div>
@@ -41,9 +48,9 @@ export function StartForm() {
         </>}
         <div className="field full"><label htmlFor="data_sensitivity">Data sensitivity</label><select id="data_sensitivity" name="data_sensitivity" required defaultValue=""><option value="">Select one</option><option>Public / non-sensitive</option><option>Business information — discuss handling first</option><option>Sensitive — do not share in this preview</option></select></div>
       </div>
-      <div className="button-row form-actions"><button className="button" type="submit">Validate preview draft</button><button className="button button-ghost" type="reset">Clear draft</button><a className="button button-ghost" href="mailto:support@seekapi.ai?subject=SeekAPI%20scope%20review%20request">Email SeekAPI</a></div>
+      <div className="button-row form-actions"><button className="button" type="submit">Prepare email request</button><button className="button button-ghost" type="reset">Clear draft</button>{preparedHref?<a className="button button-success" href={preparedHref}>Open prepared email</a>:null}</div>
       <p className="form-status" role="status" aria-live="polite">{message}</p>
-      <p className="form-note">Email opens your mail application. Form fields are not transmitted by this preview. Sending a request does not mean the task is accepted or that a fee is due.</p>
+      <p className="form-note">The website sends nothing by itself. After validation, you review the prepared email and choose whether to send it. Sending a request does not mean the task is accepted or that a fee is due.</p>
     </form>
   </div>;
 }
