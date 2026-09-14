@@ -4,6 +4,7 @@ import { MobileNav } from './mobile-nav';
 import { LanguageSwitch } from './language-switch';
 import { DocumentLanguage } from './document-language';
 import { localeInfo, localizedCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
+import { isPublicProduction } from '@/lib/site';
 
 export const navItems = [
   { href: '/china-supply-chain', label: 'For Companies' },
@@ -21,10 +22,12 @@ function localeUi(locale:SiteLocale){
 }
 export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
   const ui=localeUi(locale); const startHref=locale==='ru'?'/ru/start':pagePath(locale,'start');
+  const productionNotices:Record<SiteLocale,string>={en:'Service requests require human scope confirmation · Website payments are not enabled',ja:'サービス依頼は人が範囲を確認してから受諾 · ウェブサイト決済は未対応',es:'Las solicitudes requieren confirmación humana del alcance · Los pagos web no están habilitados',ar:'تتطلب الطلبات مراجعة بشرية للنطاق · الدفع عبر الموقع غير مفعّل',de:'Serviceanfragen erfordern eine menschliche Umfangsprüfung · Website-Zahlungen sind nicht aktiviert','pt-br':'Solicitações exigem revisão humana do escopo · Pagamentos no site não estão habilitados',ru:'Запросы принимаются после ручной проверки объёма · Оплата на сайте не включена'};
+  const notice=isPublicProduction?productionNotices[locale]:ui.preview;
   return (
     <header className="site-header">
       <a className="skip-link" href="#main-content">{ui.skip}</a>
-      <div className="preview-bar">{ui.preview}</div>
+      <div className="preview-bar">{notice}</div>
       <div className="container nav-wrap">
         <Link href={ui.home} className="brand" aria-label="SeekAPI home">
           <span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span>
