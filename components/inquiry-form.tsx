@@ -1,7 +1,7 @@
 'use client';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { copy,fieldOrder,fieldLabel } from '@/lib/inquiries/translations';
+import { copy,fieldOrder,fieldLabel,policyLabels,previewLabels } from '@/lib/inquiries/translations';
 import { extensions,parseFiles,type Locale } from '@/lib/inquiries/core';
 const englishServices=['Sourcing / RFQ','Supplier verification / communication','Samples / NPI','Production / quality','Compliance / registration','Trademark / IP','Customs / tax / documentation','Logistics / warehousing','Returns / claims','Ongoing China Desk','Agent handoff','Other / not sure'];
 export function InquiryForm({locale='en',services=englishServices}:{locale?:Locale;services?:string[]}){
@@ -24,7 +24,7 @@ export function InquiryForm({locale='en',services=englishServices}:{locale?:Loca
  function field(key:typeof fieldOrder[number],required=false){const long=['product','suppliers','certification','logistics','allowed_actions','prohibited_actions','required_evidence'].includes(key);return <div key={key} className={'field'+(long?' full':'')}><label htmlFor={'inq-'+key}>{fieldLabel(locale,key)}{required?' *':''}</label>{long?<textarea id={'inq-'+key} name={key} maxLength={key.endsWith('actions')||key==='required_evidence'?4000:2000} required={required}/>:<input id={'inq-'+key} name={key} maxLength={2000} required={required} type={key==='website'?'url':'text'}/>}</div>;}
  return <div className="form-card inquiry-card" lang={locale} dir={locale==='ar'?'rtl':'ltr'}>
   {receipt?<div className="inquiry-receipt" role="status" tabIndex={-1} ref={result}><h2>{c.received}</h2><p>{c.reference}: <strong>{receipt}</strong></p><p>{c.boundary}</p><a href="mailto:support@seekapi.ai">support@seekapi.ai</a></div>:<>
-  <h2>{c.title}</h2>{process.env.NEXT_PUBLIC_INQUIRY_PREVIEW==='1'?<p className="notice">Preview · Online submission is not connected. Use synthetic test data only.</p>:null}<p>{c.intro}</p>
+  <h2>{c.title}</h2>{process.env.NEXT_PUBLIC_INQUIRY_PREVIEW==='1'?<p className="notice">{previewLabels[locale]}</p>:null}<p>{c.intro}</p>
   <form onSubmit={submit} aria-label={c.title}>
    <fieldset disabled={locked||busy} className="inquiry-fields">
    {locale==='en'?<div className="mode-switch"><button type="button" aria-pressed={audience==='company'} onClick={()=>setAudience('company')}>{c.company}</button><button type="button" aria-pressed={audience==='agent'} onClick={()=>setAudience('agent')}>{c.agent}</button></div>:null}
@@ -42,7 +42,7 @@ export function InquiryForm({locale='en',services=englishServices}:{locale?:Loca
     <ul>{files.map((f,i)=><li key={i}><span>{f.name} · {(f.size/1024/1024).toFixed(1)} MB</span><button type="button" onClick={()=>setFiles(files.filter((_,j)=>j!==i))} aria-label={c.remove+' '+f.name}>{c.remove}</button></li>)}</ul>
    </section>
    {locale==='ru'?<label className="inquiry-consent"><input type="checkbox" name="compliance" required/><span>{c.compliance}</span></label>:null}
-   <label className="inquiry-consent"><input type="checkbox" name="consent" required/><span>{c.consent} <a href={'/inquiry-privacy?lang='+locale} target="_blank" rel="noopener">↗</a></span></label>
+   <label className="inquiry-consent"><input type="checkbox" name="consent" required/><span>{c.consent} <a href={'/inquiry-privacy?lang='+locale} target="_blank" rel="noopener">{policyLabels[locale]} ↗</a></span></label>
    <div className="inquiry-honeypot" aria-hidden="true"><label>Website check<input name="website_check" tabIndex={-1} autoComplete="off"/></label></div>
    </fieldset>
    {locked&&files.length?<ul className="inquiry-progress">{files.map((f,i)=><li key={i}>{f.name}<progress max={100} value={progress[i]||0} aria-label={f.name}/><span>{progress[i]||0}%</span></li>)}</ul>:null}
