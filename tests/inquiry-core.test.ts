@@ -1,0 +1,18 @@
+import { strict as assert } from 'node:assert';
+import { test } from 'node:test';
+import { parseInquiry,parseFiles,validId,validToken,csvCell,MAX_FILE,MAX_TOTAL } from '../lib/inquiries/core';
+import { copy,fieldOrder,fieldLabel } from '../lib/inquiries/translations';
+const base={name:'Sample Buyer',email:'buyer@example.test',country:'Japan',message:'Need help reviewing sample packaging.',locale:'en',audience:'company',services:[],details:{},consent:true,source:'/start'};
+test('minimal inquiry needs no company or budget',()=>assert.equal(parseInquiry(base).details.budget,''));
+test('email header injection and malformed addresses rejected',()=>{for(const email of ['x@y.test\r\nBcc: x@y.test','not-an-email','<x@y.test>'])assert.throws(()=>parseInquiry({...base,email}));});
+test('consent required and unknown fields are discarded',()=>{assert.throws(()=>parseInquiry({...base,consent:false}));assert.equal('privilege' in parseInquiry({...base,privilege:'admin'}),false);});
+test('Russian intake preserves explicit compliance acknowledgement',()=>{assert.throws(()=>parseInquiry({...base,locale:'ru'}));assert.equal(parseInquiry({...base,locale:'ru',compliance:true}).compliance,true);});
+test('agent request cannot omit permission and human approval fields',()=>{assert.throws(()=>parseInquiry({...base,audience:'agent'}));assert.equal(parseInquiry({...base,audience:'agent',details:{allowed_actions:'Research',prohibited_actions:'No payments',required_evidence:'Sources',approval_contact:'owner@example.test'}}).audience,'agent');});
+test('oversized and nested payloads rejected',()=>{assert.throws(()=>parseInquiry({...base,message:'x'.repeat(12001)}));assert.throws(()=>parseInquiry({...base,details:{wechat:{id:'a'}}}));});
+test('source cannot capture external URLs or query secrets',()=>{for(const source of ['https://example.test','//example.test','/start?token=private'])assert.throws(()=>parseInquiry({...base,source}));});
+test('allowed attachments support all chosen office and image extensions',()=>{for(const name of ['sample.jpg','sample.png','sample.webp','brief.pdf','spec.docx','quote.xlsx','slides.pptx','notes.txt','items.csv'])assert.equal(parseFiles([{name,size:1}]).length,1);});
+test('reject executables, archives, SVG, macros and disguised filenames',()=>{for(const name of ['script.exe','file.zip','file.svg','macro.xlsm','../brief.pdf','file\u202epdf.exe','a\\b.pdf','a.pdf\n'])assert.throws(()=>parseFiles([{name,size:1}]));});
+test('file quotas enforce count, total, integer size and nonempty files',()=>{for(const size of [0,1.5,-1,MAX_FILE+1])assert.throws(()=>parseFiles([{name:'a.pdf',size}]));assert.throws(()=>parseFiles(Array.from({length:11},()=>({name:'a.pdf',size:1}))));assert.throws(()=>parseFiles(Array.from({length:6},()=>({name:'a.pdf',size:MAX_FILE}))));assert.equal(MAX_TOTAL,5*MAX_FILE);});
+test('unpredictable session shape required',()=>{assert.equal(validId('00000000-0000-4000-8000-000000000000'),true);assert.equal(validId('../admin'),false);assert.equal(validToken('a'.repeat(64)),true);assert.equal(validToken('a'.repeat(32)),false);});
+test('export cells cannot become spreadsheet formulas',()=>{assert.equal(csvCell(' =HYPERLINK("x")'),'"\' =HYPERLINK(""x"")"');});
+test('all seven languages have complete UI and confirmation copy',()=>{assert.equal(Object.keys(copy).length,7);for(const [locale,c] of Object.entries(copy)){for(const v of Object.values(c))assert.ok(v&&v.length>0);for(const k of fieldOrder)assert.ok(fieldLabel(locale as keyof typeof copy,k));assert.ok(c.received.length>30);}});
