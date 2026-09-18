@@ -61,6 +61,13 @@ def delete_objects(bucket,paths):
 
 def now(): return dt.datetime.now(dt.timezone.utc)
 
+def tick_headers():
+    headers={'Authorization':'Bearer '+os.environ['INQUIRY_WORKER_TOKEN'],'Content-Type':'application/json'}
+    bypass=os.environ.get('INQUIRY_VERCEL_AUTOMATION_BYPASS_SECRET','').strip()
+    if bypass:
+        headers['x-vercel-protection-bypass']=bypass
+    return headers
+
 def maintenance():
     # Require a successful scan, including signature DB availability, before heartbeat.
     if scan_file(b'SeekAPI scanner health check\n','txt')!='clean': raise RuntimeError('scanner health')
@@ -103,7 +110,7 @@ def maintenance():
     # Upsert heartbeat through REST with explicit merge preference.
     existing=api('/rest/v1/inquiry_worker_health?select=id')
     api('/rest/v1/inquiry_worker_health'+('?id=eq.true' if existing else ''),'PATCH' if existing else 'POST',{'id':True,'last_ok':now().isoformat()})
-    request=urllib.request.Request(os.environ['INQUIRY_SITE_URL']+'/api/internal/inquiries/tick',data=b'{}',method='POST',headers={'Authorization':'Bearer '+os.environ['INQUIRY_WORKER_TOKEN'],'Content-Type':'application/json'})
+    request=urllib.request.Request(os.environ['INQUIRY_SITE_URL']+'/api/internal/inquiries/tick',data=b'{}',method='POST',headers=tick_headers())
     with urllib.request.urlopen(request,timeout=60) as response:
         if response.status!=200: raise RuntimeError('mail maintenance')
 
