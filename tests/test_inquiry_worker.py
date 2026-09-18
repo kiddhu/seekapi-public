@@ -44,5 +44,10 @@ class FileBoundaryTests(unittest.TestCase):
         with patch.dict(worker.os.environ,{'INQUIRY_WORKER_TOKEN':'worker-token','INQUIRY_VERCEL_AUTOMATION_BYPASS_SECRET':''},clear=False):
             headers=worker.tick_headers()
         self.assertNotIn('x-vercel-protection-bypass',headers)
+    def test_query_value_encodes_positive_timezone_offset(self):
+        encoded=worker.query_value('2026-09-18T20:43:04+00:00')
+        self.assertEqual(encoded,'2026-09-18T20:43:04%2B00:00')
+        self.assertNotIn('+',encoded)
+        self.assertNotIn(' ',encoded)
 
 if __name__=='__main__': unittest.main()
