@@ -35,5 +35,14 @@ class FileBoundaryTests(unittest.TestCase):
     def test_malware_result_rejected(self):
         with patch.object(worker.subprocess,'run',return_value=type('R',(),{'returncode':1})()):
             self.assertEqual(worker.scan_file(b'plain text','txt'),'rejected')
+    def test_tick_headers_add_optional_vercel_automation_bypass(self):
+        with patch.dict(worker.os.environ,{'INQUIRY_WORKER_TOKEN':'worker-token','INQUIRY_VERCEL_AUTOMATION_BYPASS_SECRET':'preview-bypass'},clear=False):
+            headers=worker.tick_headers()
+        self.assertEqual(headers['Authorization'],'Bearer worker-token')
+        self.assertEqual(headers['x-vercel-protection-bypass'],'preview-bypass')
+    def test_tick_headers_do_not_invent_bypass(self):
+        with patch.dict(worker.os.environ,{'INQUIRY_WORKER_TOKEN':'worker-token','INQUIRY_VERCEL_AUTOMATION_BYPASS_SECRET':''},clear=False):
+            headers=worker.tick_headers()
+        self.assertNotIn('x-vercel-protection-bypass',headers)
 
 if __name__=='__main__': unittest.main()
