@@ -26,6 +26,11 @@ until enabled in a reviewed deployment. A build or PR is not live acceptance.
    `INQUIRY_ALLOWED_ORIGINS` is an exact comma-separated list, no wildcards.
    `INQUIRY_SITE_URL` is the public canonical origin, without trailing slash.
    `INQUIRY_STORAGE_REGION_LABEL` must describe the chosen, verified region.
+   Protected Preview automation must use Vercel's project-scoped Protection Bypass
+   for Automation. Bind it to the worker host as
+   `INQUIRY_VERCEL_AUTOMATION_BYPASS_SECRET`; the worker sends it only as the
+   `x-vercel-protection-bypass` header. Do not disable Preview protection merely
+   to make the worker reachable, and never expose the bypass value in logs/chat.
    Rate limiting relies on Vercel's overwritten `x-vercel-forwarded-for`; another
    host requires a verified trusted ingress header before use. No proxy bypass.
 5. On an existing approved compute host, install official Python 3 and ClamAV,
