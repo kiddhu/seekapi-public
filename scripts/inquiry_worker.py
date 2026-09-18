@@ -11,6 +11,7 @@ import pathlib
 import subprocess
 import tempfile
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 
@@ -61,6 +62,11 @@ def delete_objects(bucket,paths):
 
 def now(): return dt.datetime.now(dt.timezone.utc)
 
+def query_value(value):
+    # Query strings treat '+' as a space. Encode timezone offsets such as +00:00
+    # before embedding them in PostgREST filter expressions.
+    return urllib.parse.quote(str(value), safe=':-.')
+
 def tick_headers():
     headers={'Authorization':'Bearer '+os.environ['INQUIRY_WORKER_TOKEN'],'Content-Type':'application/json'}
     bypass=os.environ.get('INQUIRY_VERCEL_AUTOMATION_BYPASS_SECRET','').strip()
@@ -89,7 +95,7 @@ def maintenance():
         api('/rest/v1/inquiry_attachments?id=eq.'+a['id'],'PATCH',update)
 
     # Draft upload tokens last 2h. Do not remove raw objects while replay is possible.
-    expired=api('/rest/v1/inquiry_drafts?expires_at=lt.'+now().isoformat()+'&limit=50&select=id,files')
+    expired=api('/rest/v1/inquiry_drafts?expires_at=lt.'+query_value(now().isoformat())+'&limit=50&select=id,files')
     for d in expired:
         remaining=api('/rest/v1/inquiry_attachments?inquiry_id=eq.'+d['id']+'&scan_status=eq.pending&select=id')
         if remaining: continue
@@ -99,14 +105,14 @@ def maintenance():
     # Requests for deletion are held 24h, ensuring draft upload tokens have expired.
     cutoff=(now()-dt.timedelta(hours=24)).isoformat()
     retention=(now()-dt.timedelta(days=365)).isoformat()
-    doomed=api('/rest/v1/inquiries?or=(deletion_requested_at.lt.'+cutoff+',and(status.in.(closed,spam),updated_at.lt.'+retention+'))&limit=30&select=id')
+    doomed=api('/rest/v1/inquiries?or=(deletion_requested_at.lt.'+query_value(cutoff)+',and(status.in.(closed,spam),updated_at.lt.'+query_value(retention)+'))&limit=30&select=id')
     for i in doomed:
         rows=api('/rest/v1/inquiry_attachments?inquiry_id=eq.'+i['id']+'&select=object_path,clean_path')
         delete_objects('inquiry-quarantine',[a['object_path'] for a in rows])
         delete_objects('inquiry-clean',[a['clean_path'] for a in rows if a['clean_path']])
         api('/rest/v1/inquiry_drafts?id=eq.'+i['id'],'DELETE')
         api('/rest/v1/inquiries?id=eq.'+i['id'],'DELETE')
-    api('/rest/v1/inquiry_rate_limits?window_start=lt.'+cutoff,'DELETE')
+    api('/rest/v1/inquiry_rate_limits?window_start=lt.'+query_value(cutoff),'DELETE')
     # Upsert heartbeat through REST with explicit merge preference.
     existing=api('/rest/v1/inquiry_worker_health?select=id')
     api('/rest/v1/inquiry_worker_health'+('?id=eq.true' if existing else ''),'PATCH' if existing else 'POST',{'id':True,'last_ok':now().isoformat()})
