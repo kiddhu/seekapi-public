@@ -75,9 +75,10 @@ def tick_headers():
     return headers
 
 def maintenance():
-    # Require a successful scan, including signature DB availability, before heartbeat.
-    if scan_file(b'SeekAPI scanner health check\n','txt')!='clean': raise RuntimeError('scanner health')
     attachments=api('/rest/v1/inquiry_attachments?scan_status=eq.pending&limit=10&select=*')
+    # V0.1 is text-only. ClamAV is required only to finish a legacy Preview
+    # attachment created before the text-only scope amendment.
+    if attachments and scan_file(b'SeekAPI scanner health check\n','txt')!='clean': raise RuntimeError('scanner health')
     for a in attachments:
         data=api('/storage/v1/object/authenticated/inquiry-quarantine/'+a['object_path'],raw=True)
         status=scan_file(data,a['extension']) if len(data)==a['expected_size'] else 'rejected'
@@ -94,7 +95,8 @@ def maintenance():
             update.update(clean_path=path,sha256=digest)
         api('/rest/v1/inquiry_attachments?id=eq.'+a['id'],'PATCH',update)
 
-    # Draft upload tokens last 2h. Do not remove raw objects while replay is possible.
+    # Historical Preview drafts expire after 24h per the applied schema. Do not
+    # remove raw objects while replay is still possible.
     expired=api('/rest/v1/inquiry_drafts?expires_at=lt.'+query_value(now().isoformat())+'&limit=50&select=id,files')
     for d in expired:
         remaining=api('/rest/v1/inquiry_attachments?inquiry_id=eq.'+d['id']+'&scan_status=eq.pending&select=id')
@@ -125,5 +127,5 @@ if __name__=='__main__':
         maintenance()
         print('Inquiry maintenance pass completed')
     except Exception:
-        print('Inquiry maintenance failed; files remain quarantined. Inspect provider status securely.')
+        print('Inquiry maintenance failed; inspect provider status securely.')
         raise SystemExit(1)
