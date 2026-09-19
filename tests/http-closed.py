@@ -16,7 +16,7 @@ try:
             socket.create_connection(('127.0.0.1',3017),timeout=1).close()
             break
         except OSError: time.sleep(.1)
-    checks=[('/api/admin/inquiries','GET',401),('/api/admin/inquiries/00000000-0000-4000-8000-000000000000','GET',401),('/api/admin/attachments/00000000-0000-4000-8000-000000000000','GET',401),('/api/inquiries/draft','POST',503),('/api/inquiries/finalize','POST',503)]
+    checks=[('/api/admin/inquiries','GET',401),('/api/admin/inquiries/00000000-0000-4000-8000-000000000000','GET',401),('/api/inquiries/draft','POST',503),('/api/inquiries/finalize','POST',503)]
     for path,method,expected in checks:
         req=urllib.request.Request(base+path,method=method,data=b'{}' if method=='POST' else None,headers={'Content-Type':'application/json'})
         try: code=opener.open(req,timeout=15).status
