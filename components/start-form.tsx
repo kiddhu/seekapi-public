@@ -1,7 +1,9 @@
 'use client';
+import { InquiryForm } from './inquiry-form';
 import { FormEvent, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-export function StartForm() {
+export function StartForm() { return process.env.NEXT_PUBLIC_INQUIRIES_ENABLED==='1'?<InquiryForm/>:<LegacyStartForm/>; }
+function LegacyStartForm() {
   const params = useSearchParams();
   const initialAudience = params.get('audience') === 'agent' ? 'agent' : 'company';
   const initialIntent = params.get('intent') || '';

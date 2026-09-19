@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "tsc tests/inquiry-core.test.ts --outDir .test-build --module commonjs --target ES2021 --esModuleInterop --skipLibCheck && node --test .test-build/tests/inquiry-core.test.js && python3 -m unittest discover -s tests -p \"test_*.py\""
   },
   "dependencies": {
     "next": "16.3.3",
