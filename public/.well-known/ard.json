@@ -5,26 +5,64 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Evidence-screened 1688 platform shop candidates for confirmed China sourcing requests. Three product-qualified distinct platform shops for 2.99 USDC when paid execution opens; up to two additional qualified shops are optional. Listing prices and MOQs are observations, not quotations. Company, manufacturer and contactability remain unverified.",
-      "version": "0.1.0",
+      "description": "Give a text product or model, quantity and must-have specs. SeekAPI screens China B2B shop listings for three distinct qualified supplier candidates with source-linked observed price and MOQ, specification fit, exclusions and unknowns on a successful check. Free Product Brief preparation is available; the 2.99 USDC paid run is closed. Listing prices are not current quotes and shop identity is not verified manufacturer identity.",
+      "version": "0.2.0",
       "data": {
         "productId": "china_supply_check_v0",
         "productPage": "https://seekapi.ai/china-supply-check",
         "sampleReport": "https://seekapi.ai/china-supply-check/sample",
         "remoteMcp": "https://api.seekapi.ai/mcp",
-        "price": { "amount": "2.99", "currency": "USDC", "network": "eip155:8453" },
-        "promise": { "qualifiedDistinctPlatformShops": 3, "optionalBonus": 2 },
-        "currentlyAvailable": ["discover_china_supply_check_v0"],
+        "price": {
+          "amount": "2.99",
+          "currency": "USDC",
+          "network": "eip155:8453"
+        },
+        "promise": {
+          "qualifiedDistinctPlatformShops": 3,
+          "successfulCompletionOnly": true
+        },
+        "currentlyAvailable": [
+          "discover_china_supply_check_v0",
+          "prepare_china_supply_check_v0"
+        ],
         "paidExecution": "NOT_OPEN",
-        "claimCeiling": { "verifiedCompany": false, "verifiedManufacturer": false, "contactability": "UNKNOWN", "displayPriceIsQuotation": false },
-        "nextAction": { "service": "Live RFQ Compare", "futurePriceUsd": "19.90", "available": false }
+        "claimCeiling": {
+          "verifiedCompany": false,
+          "verifiedManufacturer": false,
+          "contactability": "UNKNOWN",
+          "displayPriceIsQuotation": false
+        },
+        "nextAction": {
+          "service": "Live RFQ Compare",
+          "futurePriceUsd": "19.90",
+          "available": false,
+          "scope": "one confirmed RFQ, up to three selected suppliers, one authorized human outreach round, 72-hour response window; no guaranteed replies"
+        },
+        "proofBoundReads": "status/result tool names visible; fail closed until settled-order read service armed",
+        "input": {
+          "accepted": "text or model/part number, quantity and unit, must-have constraints",
+          "urlOrImageOnly": false
+        },
+        "output": {
+          "observedListingPrice": "currency, original unit/tier/time and source when available; not a current quote",
+          "moq": "stated quantity/unit and requested-quantity fit",
+          "specification": "match, mismatch or UNKNOWN",
+          "exclusions": true,
+          "editableRfqDraftInNextAction": true
+        }
       },
       "representativeQueries": [
-        "find a service that can source 304 stainless M6 washers from China and return three platform shop candidates",
-        "I need three China supplier candidates for 500 pieces with material and MOQ evidence",
-        "find an MCP service for evidence-screened China sourcing from a model and quantity"
+        "Find China suppliers for a specified model, quantity and hard specifications",
+        "Compare China B2B shop candidates by MOQ and material evidence",
+        "Where can an Agent get source-linked China supplier candidates?",
+        "Screen Chinese supplier listings against dimensions and requested quantity",
+        "Prepare a free RFQ-ready product brief for a China sourcing check"
       ],
-      "capabilities": ["ChinaSupplyCheck", "ProductEvidenceScreening", "PlatformShopDiscovery"]
+      "capabilities": [
+        "ChinaSupplyCheck",
+        "ProductEvidenceScreening",
+        "PlatformShopDiscovery"
+      ]
     }
   ]
 }
