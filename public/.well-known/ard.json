@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "@context": "https://agenticresourcediscovery.org/context/v1",
+      "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
+      "displayName": "SeekAPI China Supply Check",
+      "type": "application/json",
+      "description": "Evidence-screened 1688 platform shop candidates for confirmed China sourcing requests. Three product-qualified distinct platform shops for 2.99 USDC when paid execution opens; up to two additional qualified shops are optional. Listing prices and MOQs are observations, not quotations. Company, manufacturer and contactability remain unverified.",
+      "version": "0.1.0",
+      "data": {
+        "productId": "china_supply_check_v0",
+        "productPage": "https://seekapi.ai/china-supply-check",
+        "sampleReport": "https://seekapi.ai/china-supply-check/sample",
+        "remoteMcp": "https://api.seekapi.ai/mcp",
+        "price": { "amount": "2.99", "currency": "USDC", "network": "eip155:8453" },
+        "promise": { "qualifiedDistinctPlatformShops": 3, "optionalBonus": 2 },
+        "currentlyAvailable": ["discover_china_supply_check_v0"],
+        "paidExecution": "NOT_OPEN",
+        "claimCeiling": { "verifiedCompany": false, "verifiedManufacturer": false, "contactability": "UNKNOWN", "displayPriceIsQuotation": false },
+        "nextAction": { "service": "Live RFQ Compare", "futurePriceUsd": "19.90", "available": false }
+      },
+      "representativeQueries": [
+        "find a service that can source 304 stainless M6 washers from China and return three platform shop candidates",
+        "I need three China supplier candidates for 500 pieces with material and MOQ evidence",
+        "find an MCP service for evidence-screened China sourcing from a model and quantity"
+      ],
+      "capabilities": ["ChinaSupplyCheck", "ProductEvidenceScreening", "PlatformShopDiscovery"]
+    }
+  ]
+}
