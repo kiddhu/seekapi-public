@@ -15,8 +15,8 @@ export function StartForm() {
     const values=new FormData(form);
     const lines=[`Request type: ${audience === 'agent' ? 'Agent / AI team handoff' : 'Company service request'}`];
     for(const [key,value] of values.entries()){if(String(value).trim())lines.push(`${key.replaceAll('_',' ')}: ${String(value).trim()}`);}
-    lines.push('','This email is a request for scope review. It is not task acceptance, a contract or payment authorization.');
-    const subject=audience==='agent'?'SeekAPI Agent handoff scope review':'SeekAPI company scope review';
+    lines.push('','This email requests an order or scope confirmation. SeekAPI will confirm the accepted scope and payment before execution.');
+    const subject=audience==='agent'?'SeekAPI Agent order / handoff':'SeekAPI service order / scope confirmation';
     setPreparedHref(`mailto:support@seekapi.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`);
     setMessage('Your request is ready. Review it, then open it in your email application to send.');
   }
@@ -50,7 +50,7 @@ export function StartForm() {
       </div>
       <div className="button-row form-actions"><button className="button" type="submit">Prepare email request</button><button className="button button-ghost" type="reset">Clear draft</button>{preparedHref?<a className="button button-success" href={preparedHref}>Open prepared email</a>:null}</div>
       <p className="form-status" role="status" aria-live="polite">{message}</p>
-      <p className="form-note">The website sends nothing by itself. After validation, you review the prepared email and choose whether to send it. Sending a request does not mean the task is accepted or that a fee is due.</p>
+      <p className="form-note">The website sends nothing by itself. After validation, you review the prepared email and choose whether to send it. SeekAPI confirms the accepted scope and any fee before paid execution begins.</p>
     </form>
   </div>;
 }
