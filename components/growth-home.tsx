@@ -35,7 +35,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
       <Link className="text-link" href="/china-supply-check/sample">Inspect original source and limits</Link>
     </div> : <div className="growth-result">
-      <span className="growth-label">On a successful future check</span>
+      <span className="growth-label">On a successful check</span>
       <strong>Three distinct shop candidates</strong>
       <p>Source links · observed price basis · MOQ/spec fit · exclusions · UNKNOWNs</p>
       <p className="growth-small">Fewer qualify? The report states the shortage. It does not pad the shortlist.</p>
