@@ -14,13 +14,13 @@ export const navItems = [
 ];
 
 function localeUi(locale:SiteLocale){
-  if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'View sample',items:navItems,home:'/',footer:'China supplier listing evidence for a specific product, with source links, limitations and explicit unknowns. Broader China Desk support is scoped separately.',evidence:'Evidence-gated claims'};
+  if(locale==='en')return {preview:'Internal preview · confirm scope and payment before execution',skip:'Skip to main content',menu:'Menu',close:'Close',start:'View sample',items:navItems,home:'/',footer:'China supplier listing evidence for a specific product, with source links, limitations and explicit unknowns. Broader China Desk support is scoped separately.',evidence:'Evidence-gated claims'};
   if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:c.start,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
   const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:c.start,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
 }
 export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
   const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':locale==='ru'?'/ru/start':pagePath(locale,'start');
-  const productionNotices:Record<SiteLocale,string>={en:'Service requests require human scope confirmation · Website payments are not enabled',ja:'サービス依頼は人が範囲を確認してから受諾 · ウェブサイト決済は未対応',es:'Las solicitudes requieren confirmación humana del alcance · Los pagos web no están habilitados',ar:'تتطلب الطلبات مراجعة بشرية للنطاق · الدفع عبر الموقع غير مفعّل',de:'Serviceanfragen erfordern eine menschliche Umfangsprüfung · Website-Zahlungen sind nicht aktiviert','pt-br':'Solicitações exigem revisão humana do escopo · Pagamentos no site não estão habilitados',ru:'Запросы принимаются после ручной проверки объёма · Оплата на сайте не включена'};
+  const productionNotices:Record<SiteLocale,string>={en:'Paid services require scope and payment confirmation before execution',ja:'有料サービスは実行前に範囲と支払いを確認します',es:'Los servicios de pago requieren confirmar alcance y pago antes de la ejecución',ar:'تتطلب الخدمات المدفوعة تأكيد النطاق والدفع قبل التنفيذ',de:'Bezahlte Leistungen erfordern vor Ausführung die Bestätigung von Umfang und Zahlung','pt-br':'Serviços pagos exigem confirmação de escopo e pagamento antes da execução',ru:'Платные услуги выполняются после подтверждения объёма и оплаты'};
   const notice=isPublicProduction?productionNotices[locale]:ui.preview;
   return (
     <header className="site-header">
@@ -49,7 +49,7 @@ export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
       <div className="container footer-grid">
         <div><div className="brand footer-brand"><span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span></div><p className="muted footer-copy">{ui.footer}</p></div>
         <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link>{locale === 'en' ? <><Link href="/for-agents">For Agents</Link><Link href="/apis">Machine interfaces</Link><Link href="/proof">Proof</Link><Link href="/china-compliance-logistics">Compliance and logistics</Link></> : null}</div>
-        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/support">Support</Link></address>
+        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/support">Support</Link></address>
       </div>
       <div className="container footer-bottom"><span>© 2026 SeekAPI</span><span>{ui.evidence}</span></div>
     </footer>
