@@ -12,7 +12,7 @@ const variants = {
     lead: 'Start with a product or model, quantity and must-have specifications. On a successful future check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
   },
   c: {
-    heading: 'Compare China supplier listings before you request a quote.',
+    heading: 'Compare China listings before a quote.',
     lead: 'Screen a product or model, quantity and hard specifications. A successful check documents three qualifying shop candidates; it honestly reports a shortage if fewer qualify.',
   },
 } satisfies Record<HomepageVariant, { heading: string; lead: string }>;
@@ -24,7 +24,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <div><dt>Product / model</dt><dd>M6 flat washer</dd></div>
       <div><dt>Quantity + unit</dt><dd>500 pieces</dd></div>
       <div><dt>Must-have specification</dt><dd>304 stainless steel</dd></div>
-    </dl> : <p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p>}
+    </dl> : <><p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p><p className="growth-outcome">On future success: three distinct shop candidates. Fewer qualify? We report the shortage.</p></>}
     {variant === 'c' ? <div className="growth-result">
       <span className="growth-label">Historical V4 prefix · full run TECHNICAL_BLOCKED</span>
       <dl className="growth-inputs">

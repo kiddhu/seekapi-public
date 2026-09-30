@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify actual first-screen candidate content; never substitutes for a buyer study."""
+"""Verify actual first-screen candidate content; never substitutes for owner acceptance."""
 import argparse
 import json
 import subprocess
@@ -32,6 +32,7 @@ expression = """JSON.stringify({
  briefFields:Array.from(document.querySelectorAll('.growth-inputs>div')).map(row=>({
   label:row.querySelector('dt').innerText,bottom:row.getBoundingClientRect().bottom})),
  resultText:document.querySelector('.growth-result').innerText,
+ outcome:(()=>{const e=document.querySelector('.growth-outcome');if(!e)return null;const r=e.getBoundingClientRect();return {text:e.innerText,visible:r.width>0&&r.height>0&&getComputedStyle(e).visibility!=='hidden',top:r.top,bottom:r.bottom}})(),
  paidNoteBottom:document.querySelector('.growth-availability').getBoundingClientRect().bottom,
  limitsBottom:document.querySelector('.growth-limits').getBoundingClientRect().bottom,
  errorOverlay:!!document.querySelector('[data-nextjs-dialog]')
@@ -56,6 +57,8 @@ try:
                 assert [field["label"] for field in data["briefFields"]] == ["Product / model", "Quantity + unit", "Must-have specification"], data
                 assert "Three distinct shop candidates" in data["resultText"] and "shortage" in data["resultText"], data
             if variant == "c":
+                assert data["outcome"]["visible"] and 0 <= data["outcome"]["top"] < data["outcome"]["bottom"] <= height, data
+                assert "three distinct shop candidates" in data["outcome"]["text"] and "shortage" in data["outcome"]["text"], data
                 for term in ["TECHNICAL_BLOCKED", "29 Sep 2026", "CNY 0.01 per 个", "MOQ 100 个", "UNKNOWN", "Price-tier applicability at 500 pieces", "exact pack conversion", "not a confirmed price for 500 pieces"]:
                     assert term.lower() in data["resultText"].lower(), (term, data)
             data.update(variant=variant, viewport=label, page_errors=run("errors"))
@@ -69,7 +72,8 @@ finally:
     "records": records,
     "mobile_menu_navigation": "Separately verified: keyboard menu activation and Source from China destination",
     "skip_link": "Separately verified: Tab focuses skip link, Enter reaches #main-content",
-    "buyer_study": "NOT_RUN; browser geometry is not buyer comprehension",
-    "review_repair": "5364732399: B/C content visible in first screen; C price-tier and pack uncertainty adjacent",
+    "buyer_study": "CANCELED_BY_OWNER; governance decision 5909261935",
+    "review_repair": "5364732399: B/C content visible in first screen; C price-tier and pack uncertainty adjacent; stopped re-review C success/shortage regression repaired",
+    "owner_acceptance": "PENDING; browser geometry is not owner candidate acceptance",
 }, indent=2) + "\n")
-print(json.dumps({"candidate_viewport_checks": len(records), "errors": [], "buyer_study": "NOT_RUN"}))
+print(json.dumps({"candidate_viewport_checks": len(records), "errors": [], "owner_acceptance": "PENDING"}))

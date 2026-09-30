@@ -23,6 +23,7 @@
         }
       ],
       "resultText": "ON A SUCCESSFUL FUTURE CHECK\nThree distinct shop candidates\n\nSource links \u00b7 observed price basis \u00b7 MOQ/spec fit \u00b7 exclusions \u00b7 UNKNOWNs\n\nFewer qualify? The report states the shortage. It does not pad the shortlist.",
+      "outcome": null,
       "paidNoteBottom": 712.4375,
       "limitsBottom": 759.8125,
       "errorOverlay": false,
@@ -53,6 +54,7 @@
         }
       ],
       "resultText": "ON A SUCCESSFUL FUTURE CHECK\nThree distinct shop candidates\n\nSource links \u00b7 observed price basis \u00b7 MOQ/spec fit \u00b7 exclusions \u00b7 UNKNOWNs\n\nFewer qualify? The report states the shortage. It does not pad the shortlist.",
+      "outcome": null,
       "paidNoteBottom": 670.625,
       "limitsBottom": 699.265625,
       "errorOverlay": false,
@@ -83,6 +85,7 @@
         }
       ],
       "resultText": "ON A SUCCESSFUL FUTURE CHECK\nThree distinct shop candidates\n\nSource links \u00b7 observed price basis \u00b7 MOQ/spec fit \u00b7 exclusions \u00b7 UNKNOWNs\n\nFewer qualify? The report states the shortage. It does not pad the shortlist.",
+      "outcome": null,
       "paidNoteBottom": 736.390625,
       "limitsBottom": 783.765625,
       "errorOverlay": false,
@@ -113,6 +116,7 @@
         }
       ],
       "resultText": "ON A SUCCESSFUL FUTURE CHECK\nThree distinct shop candidates\n\nSource links \u00b7 observed price basis \u00b7 MOQ/spec fit \u00b7 exclusions \u00b7 UNKNOWNs\n\nFewer qualify? The report states the shortage. It does not pad the shortlist.",
+      "outcome": null,
       "paidNoteBottom": 634.71875,
       "limitsBottom": 663.359375,
       "errorOverlay": false,
@@ -143,6 +147,7 @@
         }
       ],
       "resultText": "ON A SUCCESSFUL FUTURE CHECK\nThree distinct shop candidates\n\nSource links \u00b7 observed price basis \u00b7 MOQ/spec fit \u00b7 exclusions \u00b7 UNKNOWNs\n\nFewer qualify? The report states the shortage. It does not pad the shortlist.",
+      "outcome": null,
       "paidNoteBottom": 736.390625,
       "limitsBottom": 783.765625,
       "errorOverlay": false,
@@ -154,27 +159,33 @@
       "width": 375,
       "height": 812,
       "overflow": false,
-      "h1": "Compare China supplier listings before you request a quote.",
+      "h1": "Compare China listings before a quote.",
       "h1Count": 1,
-      "briefBottom": 647.5,
-      "resultBottom": 632.5,
+      "briefBottom": 648.25,
+      "resultBottom": 633.25,
       "briefFields": [
         {
           "label": "Source / observation",
-          "bottom": 416
+          "bottom": 416.75
         },
         {
           "label": "Observed price basis / MOQ",
-          "bottom": 464.828125
+          "bottom": 465.578125
         },
         {
           "label": "UNKNOWN",
-          "bottom": 551.71875
+          "bottom": 552.46875
         }
       ],
       "resultText": "HISTORICAL V4 PREFIX \u00b7 FULL RUN TECHNICAL_BLOCKED\nSource / observation\n1688 listing \u00b7 29 Sep 2026\nObserved price basis / MOQ\nCNY 0.01 per \u4e2a \u00b7 MOQ 100 \u4e2a\nUNKNOWN\nPrice-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote\n\n304/M6 appear in the listing title; not a confirmed price for 500 pieces.\n\nInspect original source and limits",
-      "paidNoteBottom": 752.65625,
-      "limitsBottom": 800.03125,
+      "outcome": {
+        "text": "On future success: three distinct shop candidates. Fewer qualify? We report the shortage.",
+        "visible": true,
+        "top": 262.328125,
+        "bottom": 295.921875
+      },
+      "paidNoteBottom": 753.40625,
+      "limitsBottom": 800.78125,
       "errorOverlay": false,
       "variant": "c",
       "viewport": "mobile",
@@ -184,27 +195,33 @@
       "width": 1440,
       "height": 900,
       "overflow": false,
-      "h1": "Compare China supplier listings before you request a quote.",
+      "h1": "Compare China listings before a quote.",
       "h1Count": 1,
-      "briefBottom": 712.65625,
-      "resultBottom": 683.65625,
+      "briefBottom": 762.0625,
+      "resultBottom": 733.0625,
       "briefFields": [
         {
           "label": "Source / observation",
-          "bottom": 383.796875
+          "bottom": 433.203125
         },
         {
           "label": "Observed price basis / MOQ",
-          "bottom": 459.515625
+          "bottom": 508.921875
         },
         {
           "label": "UNKNOWN",
-          "bottom": 583.234375
+          "bottom": 632.640625
         }
       ],
       "resultText": "HISTORICAL V4 PREFIX \u00b7 FULL RUN TECHNICAL_BLOCKED\nSource / observation\n1688 listing \u00b7 29 Sep 2026\nObserved price basis / MOQ\nCNY 0.01 per \u4e2a \u00b7 MOQ 100 \u4e2a\nUNKNOWN\nPrice-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote\n\n304/M6 appear in the listing title; not a confirmed price for 500 pieces.\n\nInspect original source and limits",
-      "paidNoteBottom": 633.8125,
-      "limitsBottom": 662.453125,
+      "outcome": {
+        "text": "On future success: three distinct shop candidates. Fewer qualify? We report the shortage.",
+        "visible": true,
+        "top": 236.078125,
+        "bottom": 275.484375
+      },
+      "paidNoteBottom": 654.03125,
+      "limitsBottom": 682.671875,
       "errorOverlay": false,
       "variant": "c",
       "viewport": "desktop",
@@ -214,27 +231,33 @@
       "width": 375,
       "height": 900,
       "overflow": false,
-      "h1": "Compare China supplier listings before you request a quote.",
+      "h1": "Compare China listings before a quote.",
       "h1Count": 1,
-      "briefBottom": 647.5,
-      "resultBottom": 632.5,
+      "briefBottom": 648.25,
+      "resultBottom": 633.25,
       "briefFields": [
         {
           "label": "Source / observation",
-          "bottom": 416
+          "bottom": 416.75
         },
         {
           "label": "Observed price basis / MOQ",
-          "bottom": 464.828125
+          "bottom": 465.578125
         },
         {
           "label": "UNKNOWN",
-          "bottom": 551.71875
+          "bottom": 552.46875
         }
       ],
       "resultText": "HISTORICAL V4 PREFIX \u00b7 FULL RUN TECHNICAL_BLOCKED\nSource / observation\n1688 listing \u00b7 29 Sep 2026\nObserved price basis / MOQ\nCNY 0.01 per \u4e2a \u00b7 MOQ 100 \u4e2a\nUNKNOWN\nPrice-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote\n\n304/M6 appear in the listing title; not a confirmed price for 500 pieces.\n\nInspect original source and limits",
-      "paidNoteBottom": 752.65625,
-      "limitsBottom": 800.03125,
+      "outcome": {
+        "text": "On future success: three distinct shop candidates. Fewer qualify? We report the shortage.",
+        "visible": true,
+        "top": 262.328125,
+        "bottom": 295.921875
+      },
+      "paidNoteBottom": 753.40625,
+      "limitsBottom": 800.78125,
       "errorOverlay": false,
       "variant": "c",
       "viewport": "mobile-tall",
@@ -243,6 +266,7 @@
   ],
   "mobile_menu_navigation": "Separately verified: keyboard menu activation and Source from China destination",
   "skip_link": "Separately verified: Tab focuses skip link, Enter reaches #main-content",
-  "buyer_study": "NOT_RUN; browser geometry is not buyer comprehension",
-  "review_repair": "5364732399: B/C content visible in first screen; C price-tier and pack uncertainty adjacent"
+  "buyer_study": "CANCELED_BY_OWNER; governance decision 5909261935",
+  "review_repair": "5364732399: B/C content visible in first screen; C price-tier and pack uncertainty adjacent; stopped re-review C success/shortage regression repaired",
+  "owner_acceptance": "PENDING; browser geometry is not owner candidate acceptance"
 }

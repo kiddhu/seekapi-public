@@ -118,7 +118,7 @@ def verify(base, production=False):
         urls = [path(node.text) for node in ET.fromstring(sitemap).findall(".//{*}loc")]
         check(set(urls) == set(baseline["routes"]), f"sitemap: mismatch {len(urls)} URLs")
     check("https://api.seekapi.ai/mcp" in cache["/for-agents"].text, "Agent: endpoint missing")
-    return {"mode": "production-equivalent" if production else "preview", "base_url": base, "routes_verified": len(records), "locale_routes": sum(r["lang"] != "en" for r in records), "errors": errors, "records": records, "live_acceptance": False, "human_study": "NOT_RUN", "search_benchmark": "NOT_RUN"}
+    return {"mode": "production-equivalent" if production else "preview", "base_url": base, "routes_verified": len(records), "locale_routes": sum(r["lang"] != "en" for r in records), "errors": errors, "records": records, "live_acceptance": False, "human_study": "CANCELED_BY_OWNER; governance decision 5909261935", "owner_acceptance": "PENDING", "search_benchmark": "NOT_RUN"}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

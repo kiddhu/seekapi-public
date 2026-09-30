@@ -46,3 +46,7 @@ The new source files add no dependency, tracking system, task database, dispatch
 - C now states that applicability of the price tier at 500 pieces and exact pack conversion are UNKNOWN, directly beside the historical listing excerpt. The excerpt says it is not a confirmed price for 500 pieces.
 - `scripts/verify_growth_browser.py` asserts the actual result and field bounds plus availability/limits, checks C's relevant uncertainty text, and re-records all six screenshots. It also tests B/C at 375×900 in addition to 375×812 and desktop 1440×900.
 - Reproduce with `python3 scripts/verify_growth_browser.py http://127.0.0.1:3221 --browser <agent-browser-path> --executable-path <chromium-path>` after a fresh preview build/start. The eight viewport cases and route evidence are refreshed for this repair.
+
+## C first-screen outcome regression repair
+
+Re-review session `20260930_182337_73cdd259` independently confirmed both original repairs, then stopped without verdict because the owner gate commit moved the head. It also identified C’s hidden mobile lead as removing the only first-screen success/shortage explanation. C now includes a compact, always-visible future-success/shortage statement beside its illustrative brief; its shorter heading preserves the evidence and limitations within the fixed screen. The browser verifier checks actual visibility and bounds for that statement at both mobile heights and desktop. Source comments and evidence status follow owner decision 5909261935; no owner candidate acceptance is claimed.

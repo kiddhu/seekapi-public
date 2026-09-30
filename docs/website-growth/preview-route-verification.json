@@ -557,6 +557,7 @@
     }
   ],
   "live_acceptance": false,
-  "human_study": "NOT_RUN",
+  "human_study": "CANCELED_BY_OWNER; governance decision 5909261935",
+  "owner_acceptance": "PENDING",
   "search_benchmark": "NOT_RUN"
 }

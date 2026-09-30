@@ -7,8 +7,8 @@ export const metadata = pageMetadata(
   '/',
 );
 
-// Candidate A is provisional in this implementation PR. The frozen ten-buyer
-// study must select a variant before this branch is released to production.
+// Candidate A is provisional. Owner preview acceptance must select a variant
+// before release (governance decision 5909261935 supersedes the buyer study).
 export default function HomePage() {
   return <GrowthHome variant="a" />;
 }
