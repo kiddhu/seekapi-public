@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     default: 'SeekAPI — China supplier listing evidence',
     template: '%s | SeekAPI',
   },
-  description: 'China supplier listing evidence, free MCP brief preparation and separately scoped China Desk support. Paid China Supply Check is currently closed.',
+  description: 'China supplier listing evidence, free MCP brief preparation and separately scoped China Desk support. China Supply Check is a paid sourcing-screening service.',
   openGraph: {
     title: 'SeekAPI — China supplier listing evidence',
-    description: 'Inspect China supplier listing evidence and prepare a free brief through MCP. Paid China Supply Check is currently closed.',
+    description: 'Inspect China supplier listing evidence and prepare a free brief through MCP. China Supply Check is a paid sourcing-screening service.',
     url: 'https://seekapi.ai',
     siteName: 'SeekAPI',
     type: 'website',
