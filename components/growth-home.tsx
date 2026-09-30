@@ -9,7 +9,7 @@ const variants = {
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
-    lead: 'Start with a product or model, quantity and must-have specifications. On a successful future check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
+    lead: 'Start with a product or model, quantity and must-have specifications. On a successful check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
   },
   c: {
     heading: 'Compare China listings before a quote.',
@@ -58,7 +58,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
           <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
           <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a historical sample">{variant === 'a' ? 'View a historical sample' : 'Historical sample'}</Link>
         </div>
-        <p className="growth-availability"><strong>Paid checks are not yet open.</strong> Free brief preparation is available through an MCP-capable client.</p>
+        <p className="growth-availability"><strong>China Supply Check is 2.99 USDC.</strong> Free brief preparation is available through an MCP-capable client; accepted orders may use automated or human-assisted fulfillment.</p>
         <p className="growth-limits">Listing prices are observations, not quotes; shop identity is not manufacturer verification.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
@@ -73,15 +73,15 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
     <section className="section"><div className="container">
       <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
       <div className="grid-3">
-        <FeatureCard index="01" title="Describe the exact requirement" body="Product or model, positive quantity and unit, must-have specifications and permitted substitutions. Free preparation now requires an MCP-capable client." />
-        <FeatureCard index="02" title="Screen the listing evidence" body="A future paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
+        <FeatureCard index="01" title="Describe the exact requirement" body="Product or model, positive quantity and unit, must-have specifications and permitted substitutions. Free preparation is available through an MCP-capable client." />
+        <FeatureCard index="02" title="Screen the listing evidence" body="A paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
         <FeatureCard index="03" title="Review the candidates and gaps" body="Three distinct documented shop candidates on success, with dated source evidence, observed price basis, exclusions and an RFQ starting point. A shortage is reported honestly." />
       </div>
       <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link></div>
     </div></section>
     <section className="section section-dark"><div className="container">
       <SectionTitle eyebrow="Before requesting a quote" title="Know what a listing can — and cannot — establish." body="An observed listing price is not a current quote. A stated MOQ does not prove stock. A platform shop is not an independently verified legal company or manufacturer." />
-      <p>Live RFQ Compare is a separate planned human outreach step after you edit and confirm an RFQ and select up to three suppliers. Its planned 72-hour window seeks current answers; replies are not guaranteed. It is not open for purchase or public supplier outreach.</p>
+      <p>Live RFQ Compare is a separate USD 19.90 human outreach step after you edit and confirm an RFQ and select up to three suppliers. Its 72-hour window seeks current answers; replies are not guaranteed.</p>
       <div className="link-list">
         <Link className="text-link" href="/china-supply-check/listing-price-vs-quote">Listing price or supplier quote?</Link>
         <Link className="text-link" href="/china-supply-check/moq-specification-screening">Does MOQ fit your quantity and unit?</Link>
