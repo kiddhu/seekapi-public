@@ -58,7 +58,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
           <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
           <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a historical sample">{variant === 'a' ? 'View a historical sample' : 'Historical sample'}</Link>
         </div>
-        <p className="growth-availability"><strong>Paid checks are not yet open.</strong> Free brief preparation is available through an MCP-capable client.</p>
+        <p className="growth-availability"><strong>China Supply Check: 2.99 USDC per accepted order.</strong> Free brief preparation is available through an MCP-capable client. SeekAPI confirms scope and a supported payment path before accepting an order; website checkout is not enabled.</p>
         <p className="growth-limits">Listing prices are observations, not quotes; shop identity is not manufacturer verification.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
@@ -74,7 +74,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
       <div className="grid-3">
         <FeatureCard index="01" title="Describe the exact requirement" body="Product or model, positive quantity and unit, must-have specifications and permitted substitutions. Free preparation now requires an MCP-capable client." />
-        <FeatureCard index="02" title="Screen the listing evidence" body="A future paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
+        <FeatureCard index="02" title="Screen the listing evidence" body="A paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
         <FeatureCard index="03" title="Review the candidates and gaps" body="Three distinct documented shop candidates on success, with dated source evidence, observed price basis, exclusions and an RFQ starting point. A shortage is reported honestly." />
       </div>
       <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link></div>

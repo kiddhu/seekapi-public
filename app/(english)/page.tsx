@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
   'Find China Supplier Candidates with Listing Evidence',
-  'Describe a product or model, quantity and must-have specifications. Inspect China Supply Check and its historical sample. Free preparation requires an MCP-capable client; paid checks are closed.',
+  'Describe a product or model, quantity and must-have specifications. Inspect China Supply Check and its historical sample. Free preparation requires an MCP-capable client. China Supply Check costs 2.99 USDC per accepted order; order and payment are confirmed separately.',
   '/',
 );
 
