@@ -49,7 +49,7 @@ export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
       <div className="container footer-grid">
         <div><div className="brand footer-brand"><span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span></div><p className="muted footer-copy">{ui.footer}</p></div>
         <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link>{locale === 'en' ? <><Link href="/for-agents">For Agents</Link><Link href="/apis">Machine interfaces</Link><Link href="/proof">Proof</Link><Link href="/china-compliance-logistics">Compliance and logistics</Link></> : null}</div>
-        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/support">Support</Link></address>
+        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/support">Support</Link><Link href="/privacy">Privacy (English)</Link><Link href="/terms">Terms (English)</Link></address>
       </div>
       <div className="container footer-bottom"><span>© 2026 SeekAPI</span><span>{ui.evidence}</span></div>
     </footer>
