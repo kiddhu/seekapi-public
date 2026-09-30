@@ -1,0 +1,78 @@
+{
+  "records": [
+    {
+      "width": 375,
+      "overflow": false,
+      "h1": "Find China supplier candidates for the exact product you need.",
+      "h1Count": 1,
+      "paidNoteBottom": 688.4375,
+      "limitsBottom": 735.8125,
+      "errorOverlay": false,
+      "variant": "a",
+      "viewport": "mobile",
+      "page_errors": ""
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "h1": "Find China supplier candidates for the exact product you need.",
+      "h1Count": 1,
+      "paidNoteBottom": 670.625,
+      "limitsBottom": 699.265625,
+      "errorOverlay": false,
+      "variant": "a",
+      "viewport": "desktop",
+      "page_errors": ""
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "h1": "Turn a China sourcing brief into an evidence-screened shortlist.",
+      "h1Count": 1,
+      "paidNoteBottom": 619.59375,
+      "limitsBottom": 666.96875,
+      "errorOverlay": false,
+      "variant": "b",
+      "viewport": "mobile",
+      "page_errors": ""
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "h1": "Turn a China sourcing brief into an evidence-screened shortlist.",
+      "h1Count": 1,
+      "paidNoteBottom": 624.234375,
+      "limitsBottom": 652.875,
+      "errorOverlay": false,
+      "variant": "b",
+      "viewport": "desktop",
+      "page_errors": ""
+    },
+    {
+      "width": 375,
+      "overflow": false,
+      "h1": "Compare China supplier listings before you request a quote.",
+      "h1Count": 1,
+      "paidNoteBottom": 594.796875,
+      "limitsBottom": 642.171875,
+      "errorOverlay": false,
+      "variant": "c",
+      "viewport": "mobile",
+      "page_errors": ""
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "h1": "Compare China supplier listings before you request a quote.",
+      "h1Count": 1,
+      "paidNoteBottom": 686.953125,
+      "limitsBottom": 715.59375,
+      "errorOverlay": false,
+      "variant": "c",
+      "viewport": "desktop",
+      "page_errors": ""
+    }
+  ],
+  "mobile_menu_navigation": "PASS: observed Source from China link reached /china-supply-check",
+  "buyer_study": "NOT_RUN; browser geometry is not buyer comprehension"
+}

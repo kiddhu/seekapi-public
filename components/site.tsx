@@ -2,32 +2,30 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { MobileNav } from './mobile-nav';
 import { LanguageSwitch } from './language-switch';
-import { DocumentLanguage } from './document-language';
 import { localeInfo, localizedCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
 import { isPublicProduction } from '@/lib/site';
 
 export const navItems = [
-  { href: '/china-supply-chain', label: 'For Companies' },
-  { href: '/china-compliance-logistics', label: 'Compliance' },
-  { href: '/for-agents', label: 'For Agents' },
-  { href: '/apis', label: 'APIs' },
-  { href: '/proof', label: 'Proof' },
+  { href: '/china-supply-check', label: 'Source from China' },
+  { href: '/china-supply-check/sample', label: 'Sample Report' },
+  { href: '/how-it-works', label: 'How it works' },
+  { href: '/china-supply-chain', label: 'China Desk' },
   { href: '/trust', label: 'Trust' },
 ];
 
 function localeUi(locale:SiteLocale){
-  if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'Start with one issue',items:navItems,home:'/',footer:'Machine capability when software is enough. Accountable human execution in China when reality still needs people.',evidence:'Evidence-gated claims'};
+  if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'View sample',items:navItems,home:'/',footer:'China supplier listing evidence for a specific product, with source links, limitations and explicit unknowns. Broader China Desk support is scoped separately.',evidence:'Evidence-gated claims'};
   if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:c.start,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
   const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:c.start,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
 }
 export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='ru'?'/ru/start':pagePath(locale,'start');
+  const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':locale==='ru'?'/ru/start':pagePath(locale,'start');
   const productionNotices:Record<SiteLocale,string>={en:'Service requests require human scope confirmation · Website payments are not enabled',ja:'サービス依頼は人が範囲を確認してから受諾 · ウェブサイト決済は未対応',es:'Las solicitudes requieren confirmación humana del alcance · Los pagos web no están habilitados',ar:'تتطلب الطلبات مراجعة بشرية للنطاق · الدفع عبر الموقع غير مفعّل',de:'Serviceanfragen erfordern eine menschliche Umfangsprüfung · Website-Zahlungen sind nicht aktiviert','pt-br':'Solicitações exigem revisão humana do escopo · Pagamentos no site não estão habilitados',ru:'Запросы принимаются после ручной проверки объёма · Оплата на сайте не включена'};
   const notice=isPublicProduction?productionNotices[locale]:ui.preview;
   return (
     <header className="site-header">
       <a className="skip-link" href="#main-content">{ui.skip}</a>
-      <div className="preview-bar">{notice}</div>
+      {locale !== 'en' ? <div className="preview-bar">{notice}</div> : null}
       <div className="container nav-wrap">
         <Link href={ui.home} className="brand" aria-label="SeekAPI home">
           <span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span>
@@ -35,6 +33,7 @@ export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
         <nav className="nav-links" aria-label="Primary navigation">
           {ui.items.map((item) => <Link key={item.href} href={item.href} className="nav-link">{item.label}</Link>)}
         </nav>
+        {locale === 'en' ? <Link className="growth-utility" href="/for-agents">For Agents</Link> : null}
         <LanguageSwitch locale={locale}/>
         <Link href={startHref} className="button button-small">{ui.start}</Link>
         <MobileNav items={ui.items} menuLabel={ui.menu} closeLabel={ui.close} startHref={startHref} startLabel={ui.start}/>
@@ -44,12 +43,12 @@ export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
 }
 
 export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='ru'?'/ru/start':pagePath(locale,'start');
+  const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':locale==='ru'?'/ru/start':pagePath(locale,'start');
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div><div className="brand footer-brand"><span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span></div><p className="muted footer-copy">{ui.footer}</p></div>
-        <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link></div>
+        <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link>{locale === 'en' ? <><Link href="/for-agents">For Agents</Link><Link href="/apis">Machine interfaces</Link><Link href="/proof">Proof</Link><Link href="/china-compliance-logistics">Compliance and logistics</Link></> : null}</div>
         <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/support">Support</Link></address>
       </div>
       <div className="container footer-bottom"><span>© 2026 SeekAPI</span><span>{ui.evidence}</span></div>
@@ -57,7 +56,7 @@ export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
   );
 }
 
-export function PageShell({ children, locale = 'en' }: { children: ReactNode; locale?: SiteLocale }) { const info=localeInfo[locale];return <><DocumentLanguage locale={locale}/><div lang={info.htmlLang} dir={info.dir}><Header locale={locale}/><main id="main-content">{children}</main><Footer locale={locale}/></div></>; }
+export function PageShell({ children, locale = 'en' }: { children: ReactNode; locale?: SiteLocale }) { const info=localeInfo[locale];return <><div lang={info.htmlLang} dir={info.dir}><Header locale={locale}/><main id="main-content">{children}</main><Footer locale={locale}/></div></>; }
 export function Eyebrow({ children }: { children: ReactNode }) { return <div className="eyebrow">{children}</div>; }
 export function SectionTitle({ eyebrow, title, body }: { eyebrow?: string; title: string; body?: string }) { return <div className="section-heading">{eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}<h2>{title}</h2>{body ? <p>{body}</p> : null}</div>; }
 export function Pill({ children }: { children: ReactNode }) { return <span className="pill">{children}</span>; }

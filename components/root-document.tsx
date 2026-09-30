@@ -1,18 +1,20 @@
 import type { Metadata, Viewport } from 'next';
-import './globals.css';
-import './enhancements.css';
+import '@/app/globals.css';
+import '@/app/enhancements.css';
+import '@/app/growth.css';
+import { localeInfo, type SiteLocale } from '@/lib/localized-content';
 import { isPublicProduction, siteUrl } from '@/lib/site';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'SeekAPI — Machine capability. Human execution in China.',
+    default: 'SeekAPI — China supplier listing evidence',
     template: '%s | SeekAPI',
   },
-  description: 'APIs for machines, a China Supply Chain Desk for companies, and accountable human execution for AI agents when real-world work cannot stop at software.',
+  description: 'China supplier listing evidence, free MCP brief preparation and separately scoped China Desk support. Paid China Supply Check is currently closed.',
   openGraph: {
-    title: 'SeekAPI — Machine capability. Human execution in China.',
-    description: 'For companies, agents and developers that need China-side sourcing, supplier communication, verification and execution.',
+    title: 'SeekAPI — China supplier listing evidence',
+    description: 'Inspect China supplier listing evidence and prepare a free brief through MCP. Paid China Supply Check is currently closed.',
     url: 'https://seekapi.ai',
     siteName: 'SeekAPI',
     type: 'website',
@@ -23,7 +25,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, colorScheme: 'light' };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export function RootDocument({ children, locale }: Readonly<{ children: React.ReactNode; locale: SiteLocale }>) {
+  const info = localeInfo[locale];
   const organizationJsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,5 +34,5 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       { '@type': 'WebSite', '@id': `${siteUrl}/#website`, name: 'SeekAPI', url: siteUrl, publisher: { '@id': `${siteUrl}/#organization` }, inLanguage: ['en','ja','es','ar','de','pt-BR','ru'] },
     ],
   };
-  return <html lang="en"><head><link rel="ard" href="/.well-known/ard.json" type="application/json" /></head><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />{children}</body></html>;
+  return <html lang={info.htmlLang} dir={info.dir}><head><link rel="ard" href="/.well-known/ard.json" type="application/json" /></head><body><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />{children}</body></html>;
 }

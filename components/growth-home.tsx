@@ -1,0 +1,102 @@
+import Link from 'next/link';
+import { Eyebrow, FeatureCard, Footer, Header, SectionTitle } from '@/components/site';
+
+export type HomepageVariant = 'a' | 'b' | 'c';
+const variants = {
+  a: {
+    heading: 'Find China supplier candidates for the exact product you need.',
+    lead: 'Tell us the product or model, quantity and must-have specifications. A successful China Supply Check screens China B2B shop listings and returns three distinct candidates with source evidence, observed price basis, MOQ fit and unknowns.',
+  },
+  b: {
+    heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
+    lead: 'Start with a product or model, quantity and must-have specifications. On a successful future check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
+  },
+  c: {
+    heading: 'Compare China supplier listings before you request a quote.',
+    lead: 'Screen a product or model, quantity and hard specifications. A successful check documents three qualifying shop candidates; it honestly reports a shortage if fewer qualify.',
+  },
+} satisfies Record<HomepageVariant, { heading: string; lead: string }>;
+
+function BriefIllustration({ variant }: { variant: HomepageVariant }) {
+  return <aside className="growth-brief" aria-label="Static product brief illustration; no submission">
+    <span className="growth-label">Illustrative brief · no submission</span>
+    <dl className="growth-inputs">
+      <div><dt>Product / model</dt><dd>M6 flat washer</dd></div>
+      <div><dt>Quantity + unit</dt><dd>500 pieces</dd></div>
+      <div><dt>Must-have specification</dt><dd>304 stainless steel</dd></div>
+    </dl>
+    {variant === 'c' ? <div className="growth-result">
+      <span className="growth-label">Historical V4 prefix · full run TECHNICAL_BLOCKED</span>
+      <dl className="growth-inputs">
+        <div><dt>Source / observation</dt><dd>1688 listing · 29 Sep 2026</dd></div>
+        <div><dt>Price basis / MOQ</dt><dd>CNY 0.01 per 个 · MOQ 100 个</dd></div>
+        <div><dt>Evidence / UNKNOWN</dt><dd>304 and M6 in listing title; certificate, dimensions, stock and quote UNKNOWN</dd></div>
+      </dl>
+      <Link className="text-link" href="/china-supply-check/sample">Inspect original source and limits</Link>
+    </div> : <div className="growth-result">
+      <span className="growth-label">On a successful future check</span>
+      <strong>Three distinct shop candidates</strong>
+      <p>Source links · observed price basis · MOQ/spec fit · exclusions · UNKNOWNs</p>
+      <p className="growth-small">Fewer qualify? The report states the shortage. It does not pad the shortlist.</p>
+    </div>}
+  </aside>;
+}
+
+export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
+  const copy = variants[variant];
+  return <><Header /><main id="main-content">
+    <section className="growth-hero"><div className="container growth-hero-grid">
+      <div>
+        <Eyebrow>Source from China</Eyebrow>
+        <h1>{copy.heading}</h1>
+        <p className="growth-lead">{copy.lead}</p>
+        <div className="button-row">
+          <Link className="button" href="/china-supply-check">See China Supply Check</Link>
+          <Link className="button button-ghost" href="/china-supply-check/sample">View a historical sample</Link>
+        </div>
+        <p className="growth-availability"><strong>Paid checks are not yet open.</strong> Free brief preparation is available through an MCP-capable client.</p>
+        <p className="growth-limits">Listing prices are observations, not quotes; shop identity is not manufacturer verification.</p>
+        <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
+      </div>
+      <BriefIllustration variant={variant} />
+    </div></section>
+    <section className="section growth-proof"><div className="container">
+      <SectionTitle eyebrow="Inspect the evidence" title="A real historical sample, with its limits visible." body="The M6 304 washer example shows three primary documented platform shops, source-linked observations and explicit unknowns. It demonstrates the report format." />
+      <div className="growth-proof-row">
+        <p><strong>Historical V4 prefix · full run TECHNICAL_BLOCKED.</strong> This is not a completed paid customer check, a current quote, verified manufacturers or stock.</p>
+        <Link className="button" href="/china-supply-check/sample">Read the sample report</Link>
+      </div>
+    </div></section>
+    <section className="section"><div className="container">
+      <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
+      <div className="grid-3">
+        <FeatureCard index="01" title="Describe the exact requirement" body="Product or model, positive quantity and unit, must-have specifications and permitted substitutions. Free preparation now requires an MCP-capable client." />
+        <FeatureCard index="02" title="Screen the listing evidence" body="A future paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
+        <FeatureCard index="03" title="Review the candidates and gaps" body="Three distinct documented shop candidates on success, with dated source evidence, observed price basis, exclusions and an RFQ starting point. A shortage is reported honestly." />
+      </div>
+      <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link></div>
+    </div></section>
+    <section className="section section-dark"><div className="container">
+      <SectionTitle eyebrow="Before requesting a quote" title="Know what a listing can — and cannot — establish." body="An observed listing price is not a current quote. A stated MOQ does not prove stock. A platform shop is not an independently verified legal company or manufacturer." />
+      <p>Live RFQ Compare is a separate planned human outreach step after you edit and confirm an RFQ and select up to three suppliers. Its planned 72-hour window seeks current answers; replies are not guaranteed. It is not open for purchase or public supplier outreach.</p>
+      <div className="link-list">
+        <Link className="text-link" href="/china-supply-check/listing-price-vs-quote">Listing price or supplier quote?</Link>
+        <Link className="text-link" href="/china-supply-check/moq-specification-screening">Does MOQ fit your quantity and unit?</Link>
+        <Link className="text-link" href="/china-supply-check/live-rfq-compare">How would the separate RFQ step work?</Link>
+      </div>
+    </div></section>
+    <section className="section"><div className="container">
+      <SectionTitle eyebrow="Sourcing knowledge" title="Different products. Different screening questions." body="Worked decision examples explain category-specific errors. Synthetic examples are labeled; they do not claim current suppliers, prices or stock." />
+      <div className="growth-question-grid">
+        <Link href="/china-supply-check/fasteners"><span>Fasteners</span><h3>Does the grade, size and piece count match?</h3><p>Material, standard, dimensions and pack units.</p></Link>
+        <Link href="/china-supply-check/packaging"><span>Packaging</span><h3>Does custom print change MOQ and setup?</h3><p>Box dimensions, artwork, tooling and cartons versus pieces.</p></Link>
+        <Link href="/china-supply-check/connectors"><span>Connectors</span><h3>Is this the exact part and mating fit?</h3><p>MPN, pin count, pitch and unapproved substitutions.</p></Link>
+      </div>
+    </div></section>
+    <section className="section growth-next"><div className="container">
+      <SectionTitle eyebrow="Choose the next usable action" title="Start with the product and its evidence." body="Inspect the product scope and historical sample now. An MCP-capable Agent can prepare a free brief; preparation does not buy a check or contact a supplier." />
+      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">View a historical sample</Link></div>
+      <div className="link-list"><Link className="text-link" href="/for-agents">Agent connection guide</Link><Link className="text-link" href="/china-supply-chain">Need broader China Desk support?</Link><Link className="text-link" href="/trust">Evidence and role boundaries</Link><Link className="text-link" href="/support">Contact support</Link><Link className="text-link" href="/discovery-status">Dated discovery status</Link></div>
+    </div></section>
+  </main><Footer /></>;
+}
