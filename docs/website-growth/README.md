@@ -39,3 +39,10 @@ Reproduce with `npm ci --ignore-scripts`, `npm run build`, then `npm run start -
 4. **Public release and outside-in acceptance: NOT_RUN.** Apply P01–P12 after the selected implementation receives review and its owner releases it. #1034 supplies its own WAF/MCP evidence; this branch does not change that workstream. Paid activation, provider calls, supplier contact, Registry and platform submissions are outside this PR.
 
 The new source files add no dependency, tracking system, task database, dispatcher, payment module or new control plane.
+
+## Bounded repair of implementation review 5364732399
+
+- B/C mobile hierarchy places the brief/evidence block between the heading and action links. All three B input fields and its result, and C source/date/unit/MOQ/UNKNOWN/status and relevant price qualifications, must appear in the fixed first screen before the five-second study. A remains provisional; no buyer results are inferred.
+- C now states that applicability of the price tier at 500 pieces and exact pack conversion are UNKNOWN, directly beside the historical listing excerpt. The excerpt says it is not a confirmed price for 500 pieces.
+- `scripts/verify_growth_browser.py` asserts the actual result and field bounds plus availability/limits, checks C's relevant uncertainty text, and re-records all six screenshots. It also tests B/C at 375×900 in addition to 375×812 and desktop 1440×900.
+- Reproduce with `python3 scripts/verify_growth_browser.py http://127.0.0.1:3221 --browser <agent-browser-path> --executable-path <chromium-path>` after a fresh preview build/start. The eight viewport cases and route evidence are refreshed for this repair.

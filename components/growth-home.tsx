@@ -20,18 +20,19 @@ const variants = {
 function BriefIllustration({ variant }: { variant: HomepageVariant }) {
   return <aside className="growth-brief" aria-label="Static product brief illustration; no submission">
     <span className="growth-label">Illustrative brief · no submission</span>
-    <dl className="growth-inputs">
+    {variant !== 'c' ? <dl className="growth-inputs">
       <div><dt>Product / model</dt><dd>M6 flat washer</dd></div>
       <div><dt>Quantity + unit</dt><dd>500 pieces</dd></div>
       <div><dt>Must-have specification</dt><dd>304 stainless steel</dd></div>
-    </dl>
+    </dl> : <p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p>}
     {variant === 'c' ? <div className="growth-result">
       <span className="growth-label">Historical V4 prefix · full run TECHNICAL_BLOCKED</span>
       <dl className="growth-inputs">
         <div><dt>Source / observation</dt><dd>1688 listing · 29 Sep 2026</dd></div>
-        <div><dt>Price basis / MOQ</dt><dd>CNY 0.01 per 个 · MOQ 100 个</dd></div>
-        <div><dt>Evidence / UNKNOWN</dt><dd>304 and M6 in listing title; certificate, dimensions, stock and quote UNKNOWN</dd></div>
+        <div><dt>Observed price basis / MOQ</dt><dd>CNY 0.01 per 个 · MOQ 100 个</dd></div>
+        <div><dt>UNKNOWN</dt><dd>Price-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote</dd></div>
       </dl>
+      <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
       <Link className="text-link" href="/china-supply-check/sample">Inspect original source and limits</Link>
     </div> : <div className="growth-result">
       <span className="growth-label">On a successful future check</span>
@@ -45,20 +46,22 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
 export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
   const copy = variants[variant];
   return <><Header /><main id="main-content">
-    <section className="growth-hero"><div className="container growth-hero-grid">
-      <div>
+    <section className={'growth-hero growth-variant-' + variant}><div className="container growth-hero-grid">
+      <div className="growth-copy">
         <Eyebrow>Source from China</Eyebrow>
         <h1>{copy.heading}</h1>
         <p className="growth-lead">{copy.lead}</p>
+      </div>
+      <BriefIllustration variant={variant} />
+      <div className="growth-actions">
         <div className="button-row">
-          <Link className="button" href="/china-supply-check">See China Supply Check</Link>
-          <Link className="button button-ghost" href="/china-supply-check/sample">View a historical sample</Link>
+          <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
+          <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a historical sample">{variant === 'a' ? 'View a historical sample' : 'Historical sample'}</Link>
         </div>
         <p className="growth-availability"><strong>Paid checks are not yet open.</strong> Free brief preparation is available through an MCP-capable client.</p>
         <p className="growth-limits">Listing prices are observations, not quotes; shop identity is not manufacturer verification.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
-      <BriefIllustration variant={variant} />
     </div></section>
     <section className="section growth-proof"><div className="container">
       <SectionTitle eyebrow="Inspect the evidence" title="A real historical sample, with its limits visible." body="The M6 304 washer example shows three primary documented platform shops, source-linked observations and explicit unknowns. It demonstrates the report format." />
