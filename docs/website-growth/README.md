@@ -14,7 +14,7 @@ The English homepage leads with the specific sourcing task, source-linked histor
 | B: brief to evidence | /website-growth-preview/b | [mobile](screenshots/b-mobile.png), [desktop](screenshots/b-desktop.png) |
 | C: decision clarity | /website-growth-preview/c | [mobile](screenshots/c-mobile.png), [desktop](screenshots/c-desktop.png) |
 
-Candidate A is provisionally wired to / for implementation preview; it is **not a selected production winner**. Candidate routes are noindex, absent from the public sitemap and return 404 in production builds. No input illustration submits a brief. Free preparation requires an MCP-capable client. Paid CSC and Live RFQ Compare remain closed; historical V4 full-run TECHNICAL_BLOCKED is visible.
+Candidate A is provisionally wired to / for implementation preview; it is **not a selected production winner**. The owner canceled the ten-person study and will personally inspect and accept a concrete candidate before release; see [governance decision 5909261935](https://github.com/kiddhu/aion-governance/pull/1090#issuecomment-5909261935). Candidate routes are noindex, absent from the public sitemap and return 404 in production builds. No input illustration submits a brief. Free preparation requires an MCP-capable client. Paid CSC and Live RFQ Compare remain closed; historical V4 full-run TECHNICAL_BLOCKED is visible.
 
 English routes move under Next.js's native (english) group with no public path changes. Separate English and locale root layouts share RootDocument. All 34 existing localized pages now have correct initial HTML lang/dir without a client-side language mutation. Crossing root layouts causes a full page navigation, which is deliberate so the document language is correct immediately.
 
@@ -33,7 +33,7 @@ Reproduce with `npm ci --ignore-scripts`, `npm run build`, then `npm run start -
 
 ## Remaining selection and release gates
 
-1. **Real target-buyer study: NOT_RUN.** Recruit ten uncoached overseas target buyers; the implementation team and LLM scorers are not substitutes. Show the candidates for five seconds on the frozen mobile/desktop widths, counterbalance order, and record each participant's input, successful output, non-promise, paid/current availability and next usable action answers. Also record first click and phantom-web-form expectation. Report every participant/question; the selected candidate must meet the frozen ≥8/10 full-comprehension gate. No winner is selected from visual opinion or synthetic responses.
+1. **Owner homepage acceptance: PENDING.** Monarch canceled the ten-uncoached-target-buyer study and ≥8/10 threshold on 2026-09-30. Show the repaired A/B/C preview to the owner, record the chosen candidate and explicit acceptance before merge or production release. No buyer-study result or owner selection is claimed yet.
 2. **Independent implementation exact-head review.** Design approval does not approve this code.
 3. **Website human-search baseline: NOT_RUN.** Reuse governance's unchanged preregistered manifest and SHA-256 `9e75e7b1a541ada72c82f5d24ffc16f39d47eb28b3099f91344926912068db19`, Google/Bing × US/UK, D0/D1 and fixed queries. Keep the earlier 0/25 and 0/22 observations separate. Do not create a second benchmark or claim a lift.
 4. **Public release and outside-in acceptance: NOT_RUN.** Apply P01–P12 after the selected implementation receives review and its owner releases it. #1034 supplies its own WAF/MCP evidence; this branch does not change that workstream. Paid activation, provider calls, supplier contact, Registry and platform submissions are outside this PR.
@@ -42,7 +42,7 @@ The new source files add no dependency, tracking system, task database, dispatch
 
 ## Bounded repair of implementation review 5364732399
 
-- B/C mobile hierarchy places the brief/evidence block between the heading and action links. All three B input fields and its result, and C source/date/unit/MOQ/UNKNOWN/status and relevant price qualifications, must appear in the fixed first screen before the five-second study. A remains provisional; no buyer results are inferred.
+- B/C mobile hierarchy places the brief/evidence block between the heading and action links. All three B input fields and its result, and C source/date/unit/MOQ/UNKNOWN/status and relevant price qualifications, must appear in the fixed first screen for owner preview review. A remains provisional; no buyer results are inferred.
 - C now states that applicability of the price tier at 500 pieces and exact pack conversion are UNKNOWN, directly beside the historical listing excerpt. The excerpt says it is not a confirmed price for 500 pieces.
 - `scripts/verify_growth_browser.py` asserts the actual result and field bounds plus availability/limits, checks C's relevant uncertainty text, and re-records all six screenshots. It also tests B/C at 375×900 in addition to 375×812 and desktop 1440×900.
 - Reproduce with `python3 scripts/verify_growth_browser.py http://127.0.0.1:3221 --browser <agent-browser-path> --executable-path <chromium-path>` after a fresh preview build/start. The eight viewport cases and route evidence are refreshed for this repair.
