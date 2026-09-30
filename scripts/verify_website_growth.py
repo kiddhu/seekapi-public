@@ -100,7 +100,7 @@ def verify(base, production=False):
                 check(target.fragment in cache[target_path].ids, f"{route}: missing link fragment {link}")
     for route in ["/", "/china-supply-check", "/china-supply-check/sample"]:
         check("TECHNICAL_BLOCKED" in cache[route].text, f"{route}: historical status missing")
-    check("Paid checks are not yet open." in cache["/"].text, "home: paid-closed note missing")
+    check("China Supply Check is 2.99 USDC." in cache["/"].text, "home: paid product price missing")
     check("MCP-capable client" in cache["/"].text, "home: MCP-only preparation unclear")
     for variant in ["a", "b", "c"]:
         route = "/website-growth-preview/" + variant
