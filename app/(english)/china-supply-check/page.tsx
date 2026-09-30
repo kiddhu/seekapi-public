@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
   'China Supplier Candidates with Price, MOQ and Spec Evidence | SeekAPI',
-  'Describe a product or model, quantity and must-have specs. A successful check returns three source-linked China B2B shop candidates. Listing prices are observations, not quotes. Free preparation now; paid check closed.',
+  'Describe a product or model, quantity and must-have specs. A successful check returns three source-linked China B2B shop candidates. Listing prices are observations, not quotes. Free preparation plus a 2.99 USDC paid check.',
   '/china-supply-check',
 );
 
@@ -15,7 +15,7 @@ const serviceSchema = {
   serviceType: 'China supplier listing comparison',
   url: 'https://seekapi.ai/china-supply-check',
   provider: { '@id': 'https://seekapi.ai/#organization' },
-  description: 'Screen China B2B shop listings for a specified product or model, requested quantity and must-have specifications. A successful completed check returns three distinct qualified candidates with source-linked observed listing price, MOQ, specification fit, exclusions and unknowns. Public paid execution is currently closed.',
+  description: 'Screen China B2B shop listings for a specified product or model, requested quantity and must-have specifications. A successful completed check returns three distinct qualified candidates with source-linked observed listing price, MOQ, specification fit, exclusions and unknowns. Orders may be completed through supported automated or human-assisted fulfillment.',
 };
 
 export default function ChinaSupplyCheckPage() {
@@ -25,11 +25,11 @@ export default function ChinaSupplyCheckPage() {
       <Eyebrow>China Supply Check · Agent-ready sourcing research</Eyebrow>
       <h1>Find China supplier candidates with evidence you can inspect.</h1>
       <p>Give SeekAPI a written product description or model, requested quantity and must-have specifications. On a successful completed check, it screens China B2B shop listings and returns three distinct qualified candidates with source-linked observed listing price, MOQ, specification fit, exclusion reasons and unknowns.</p>
-      <div className="button-row"><Link className="button" href="/china-supply-check/sample">Inspect a historical evidence sample</Link><Link className="button button-ghost" href="/for-agents#china-supply-check-mcp">Prepare via an MCP client</Link></div>
-      <p className="hero-note">Planned price: 2.99 USDC on Base per check. Free Product Brief preparation requires an MCP-capable client using public MCP; the paid run is not open. This page does not collect payment or contact suppliers.</p>
+      <div className="button-row"><Link className="button" href="/start?intent=sourcing">Start a China Supply Check</Link><Link className="button button-ghost" href="/for-agents#china-supply-check-mcp">Prepare via an MCP client</Link></div>
+      <p className="hero-note">Price: 2.99 USDC on Base per check. Prepare a Product Brief through public MCP or start an order with SeekAPI. Accepted orders may be completed through automated or human-assisted fulfillment. China Supply Check does not authorize supplier contact.</p>
     </div></section>
     <section className="section"><div className="container">
-      <article className="definition"><h2>What is China Supply Check?</h2><p>China Supply Check screens China B2B platform-shop listings against a buyer’s product or model, quantity and hard specifications. On a successful paid check, it returns three distinct documented shop candidates with source links, observed listing-price basis, MOQ and quantity fit, specification matches, exclusions and unknowns. If three cannot be supported, it reports the shortage. A listing price is not a current supplier quote, and a platform shop is not an independently verified manufacturer. Free Product Brief preparation is open through an MCP-capable client; paid checks are currently closed.</p></article><SectionTitle eyebrow="The sourcing decision" title="One product brief. Three qualified shop candidates on success." body="The fee buys a bounded, source-linked comparison: search and duplicate screening, hard-specification and MOQ checks, observed price normalization, explicit exclusions and an editable RFQ starting point. If fewer than three qualify, SeekAPI reports the shortage rather than inventing suppliers."/>
+      <article className="definition"><h2>What is China Supply Check?</h2><p>China Supply Check screens China B2B platform-shop listings against a buyer’s product or model, quantity and hard specifications. On a successful paid check, it returns three distinct documented shop candidates with source links, observed listing-price basis, MOQ and quantity fit, specification matches, exclusions and unknowns. If three cannot be supported, it reports the shortage. A listing price is not a current supplier quote, and a platform shop is not an independently verified manufacturer. Free Product Brief preparation is available through an MCP-capable client; China Supply Check is available as a paid 2.99 USDC service.</p></article><SectionTitle eyebrow="The sourcing decision" title="One product brief. Three qualified shop candidates on success." body="The fee buys a bounded, source-linked comparison: search and duplicate screening, hard-specification and MOQ checks, observed price normalization, explicit exclusions and an editable RFQ starting point. If fewer than three qualify, SeekAPI reports the shortage rather than inventing suppliers."/>
       <div className="grid-3">
         <FeatureCard index="01" title="State what must match" body="Provide a text product specification or model/part number, positive quantity and unit, up to five hard attribute requirements and whether substitutions are permitted."/>
         <FeatureCard index="02" title="Screen listing evidence" body="Compare the named item, material or other required specifications, minimum order quantity and compatible units. Exclude hard mismatches and duplicate documented shop IDs."/>
@@ -43,7 +43,7 @@ export default function ChinaSupplyCheckPage() {
       <div className="link-list"><Link className="text-link" href="/china-supply-check/listing-price-vs-quote">Read the price and quotation example</Link><Link className="text-link" href="/china-supply-check/sample">See the source-linked historical sample</Link><Link className="text-link" href="/china-supply-check/fasteners">Fastener screening</Link><Link className="text-link" href="/china-supply-check/packaging">Packaging screening</Link><Link className="text-link" href="/china-supply-check/connectors">Connector screening</Link></div>
     </div></section>
     <section className="section"><div className="container">
-      <SectionTitle eyebrow="Next action" title="Need a current answer? Live RFQ Compare is a separate future service." body="The planned USD 19.90 Live RFQ Compare would use one RFQ that you edit and confirm, with up to three selected recipients. After separate payment and authorization, one human outreach round over a 72-hour response window would request current price, availability, MOQ and lead time. Replies are not guaranteed, and this service is not open for purchase."/>
+      <SectionTitle eyebrow="Next action" title="Need a current answer? Use Live RFQ Compare." body="The USD 19.90 Live RFQ Compare uses one RFQ that you edit and confirm, with up to three selected recipients. After separate payment and authorization, one human outreach round over a 72-hour response window requests current price, availability, MOQ and lead time. Replies are not guaranteed."/>
       <div className="link-list"><Link className="text-link" href="/china-supply-check/live-rfq-compare">How the RFQ handoff would work</Link></div>
     </div></section>
     <CTA title="Inspect the evidence before deciding." body="The sample is a historical V4-prefix projection. Its underlying full execution ended TECHNICAL_BLOCKED; it is not a completed customer paid check." primaryLabel="View sample report" primaryHref="/china-supply-check/sample" secondaryLabel="Connect free MCP" secondaryHref="/for-agents#china-supply-check-mcp"/>
