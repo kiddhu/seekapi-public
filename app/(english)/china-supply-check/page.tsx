@@ -47,6 +47,7 @@ export default function ChinaSupplyCheckPage() {
       <SectionTitle eyebrow="Next action" title="Need a current answer? Live RFQ Compare is a separate future service." body="The planned USD 19.90 Live RFQ Compare would use one RFQ that you edit and confirm, with up to three selected recipients. After separate payment and authorization, one human outreach round over a 72-hour response window would request current price, availability, MOQ and lead time. Replies are not guaranteed, and this service is not open for purchase."/>
       <div className="link-list"><Link className="text-link" href="/china-supply-check/live-rfq-compare">How the RFQ handoff would work</Link></div>
     </div></section>
+    <section className="section"><div className="container"><p>Before placing an order, read the <Link className="text-link" href="/terms">Service Terms</Link> and <Link className="text-link" href="/privacy">Privacy Notice</Link>. A free brief or support question does not accept an order.</p></div></section>
     <CTA title="Inspect the evidence before deciding." body="The sample is a historical V4-prefix projection. Its underlying full execution ended TECHNICAL_BLOCKED; it is not a completed customer paid check." primaryLabel="View sample report" primaryHref="/china-supply-check/sample" secondaryLabel="Connect free MCP" secondaryHref="/for-agents#china-supply-check-mcp"/>
   </PageShell>;
 }
