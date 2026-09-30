@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     default: 'SeekAPI — China supplier listing evidence',
     template: '%s | SeekAPI',
   },
-  description: 'China supplier listing evidence, free MCP brief preparation and separately scoped China Desk support. Paid China Supply Check is currently closed.',
+  description: 'China supplier listing evidence, free MCP brief preparation and a 2.99 USDC China Supply Check for accepted orders. Website checkout is not enabled.',
   openGraph: {
     title: 'SeekAPI — China supplier listing evidence',
-    description: 'Inspect China supplier listing evidence and prepare a free brief through MCP. Paid China Supply Check is currently closed.',
+    description: 'Inspect China supplier listing evidence and prepare a free brief through MCP. China Supply Check costs 2.99 USDC per accepted order; payment is confirmed separately.',
     url: 'https://seekapi.ai',
     siteName: 'SeekAPI',
     type: 'website',

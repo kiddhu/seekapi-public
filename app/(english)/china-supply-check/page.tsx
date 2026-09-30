@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
   'China Supplier Candidates with Price, MOQ and Spec Evidence | SeekAPI',
-  'Describe a product or model, quantity and must-have specs. A successful check returns three source-linked China B2B shop candidates. Listing prices are observations, not quotes. Free preparation now; paid check closed.',
+  'Describe a product or model, quantity and must-have specs. A successful check returns three source-linked China B2B shop candidates. Listing prices are observations, not quotes. Free MCP preparation; 2.99 USDC per accepted check with separate order and payment confirmation.',
   '/china-supply-check',
 );
 
@@ -15,7 +15,7 @@ const serviceSchema = {
   serviceType: 'China supplier listing comparison',
   url: 'https://seekapi.ai/china-supply-check',
   provider: { '@id': 'https://seekapi.ai/#organization' },
-  description: 'Screen China B2B shop listings for a specified product or model, requested quantity and must-have specifications. A successful completed check returns three distinct qualified candidates with source-linked observed listing price, MOQ, specification fit, exclusions and unknowns. Public paid execution is currently closed.',
+  description: 'Screen China B2B shop listings for a specified product or model, requested quantity and must-have specifications. A successful completed check returns three distinct qualified candidates with source-linked observed listing price, MOQ, specification fit, exclusions and unknowns. An order requires confirmed scope and a supported payment path before execution.',
 };
 
 export default function ChinaSupplyCheckPage() {
@@ -26,10 +26,11 @@ export default function ChinaSupplyCheckPage() {
       <h1>Find China supplier candidates with evidence you can inspect.</h1>
       <p>Give SeekAPI a written product description or model, requested quantity and must-have specifications. On a successful completed check, it screens China B2B shop listings and returns three distinct qualified candidates with source-linked observed listing price, MOQ, specification fit, exclusion reasons and unknowns.</p>
       <div className="button-row"><Link className="button" href="/china-supply-check/sample">Inspect a historical evidence sample</Link><Link className="button button-ghost" href="/for-agents#china-supply-check-mcp">Prepare via an MCP client</Link></div>
-      <p className="hero-note">Planned price: 2.99 USDC on Base per check. Free Product Brief preparation requires an MCP-capable client using public MCP; the paid run is not open. This page does not collect payment or contact suppliers.</p>
+      <p><a className="text-link" href="mailto:support@seekapi.ai?subject=China%20Supply%20Check%20order%20question">Ask support about an order</a>. Sending a message does not accept an order or authorize payment.</p>
+      <p className="hero-note">China Supply Check costs 2.99 USDC on Base per accepted check. Free Product Brief preparation uses public MCP. SeekAPI confirms scope and a supported payment path before accepting an order; this page does not collect payment or contact suppliers. An accepted order may be manually fulfilled.</p>
     </div></section>
     <section className="section"><div className="container">
-      <article className="definition"><h2>What is China Supply Check?</h2><p>China Supply Check screens China B2B platform-shop listings against a buyer’s product or model, quantity and hard specifications. On a successful paid check, it returns three distinct documented shop candidates with source links, observed listing-price basis, MOQ and quantity fit, specification matches, exclusions and unknowns. If three cannot be supported, it reports the shortage. A listing price is not a current supplier quote, and a platform shop is not an independently verified manufacturer. Free Product Brief preparation is open through an MCP-capable client; paid checks are currently closed.</p></article><SectionTitle eyebrow="The sourcing decision" title="One product brief. Three qualified shop candidates on success." body="The fee buys a bounded, source-linked comparison: search and duplicate screening, hard-specification and MOQ checks, observed price normalization, explicit exclusions and an editable RFQ starting point. If fewer than three qualify, SeekAPI reports the shortage rather than inventing suppliers."/>
+      <article className="definition"><h2>What is China Supply Check?</h2><p>China Supply Check screens China B2B platform-shop listings against a buyer’s product or model, quantity and hard specifications. On a successful paid check, it returns three distinct documented shop candidates with source links, observed listing-price basis, MOQ and quantity fit, specification matches, exclusions and unknowns. If three cannot be supported, it reports the shortage. A listing price is not a current supplier quote, and a platform shop is not an independently verified manufacturer. Free Product Brief preparation is available through an MCP-capable client. A paid order requires separate scope and payment confirmation; supplier outreach is not included in this check.</p></article><SectionTitle eyebrow="The sourcing decision" title="One product brief. Three qualified shop candidates on success." body="The fee buys a bounded, source-linked comparison: search and duplicate screening, hard-specification and MOQ checks, observed price normalization, explicit exclusions and an editable RFQ starting point. If fewer than three qualify, SeekAPI reports the shortage rather than inventing suppliers."/>
       <div className="grid-3">
         <FeatureCard index="01" title="State what must match" body="Provide a text product specification or model/part number, positive quantity and unit, up to five hard attribute requirements and whether substitutions are permitted."/>
         <FeatureCard index="02" title="Screen listing evidence" body="Compare the named item, material or other required specifications, minimum order quantity and compatible units. Exclude hard mismatches and duplicate documented shop IDs."/>
