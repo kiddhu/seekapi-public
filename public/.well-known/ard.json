@@ -5,8 +5,8 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Give a text product or model, quantity and must-have specs. SeekAPI screens China B2B shop listings for three distinct qualified supplier candidates with source-linked observed price and MOQ, specification fit, exclusions and unknowns on a successful check. Free Product Brief preparation is available; the 2.99 USDC paid run is closed. Listing prices are not current quotes and shop identity is not verified manufacturer identity.",
-      "version": "0.2.0",
+      "description": "Give a text product or model, quantity and must-have specs. A successful China Supply Check returns three evidence-backed China B2B platform-shop supplier candidates worth advancing to RFQ, separating product fit from supplier capability. Free brief preparation is available; the bounded paid check costs 2.99 USDC on Base. Listing prices are not current quotes and shops are not verified manufacturers.",
+      "version": "0.2.1",
       "data": {
         "productId": "china_supply_check_v0",
         "productPage": "https://seekapi.ai/china-supply-check",
@@ -23,9 +23,13 @@
         },
         "currentlyAvailable": [
           "discover_china_supply_check_v0",
-          "prepare_china_supply_check_v0"
+          "prepare_china_supply_check_v0",
+          "purchase_china_supply_check_v0",
+          "run_china_supply_check_v0",
+          "status_china_supply_check_v0",
+          "result_china_supply_check_v0"
         ],
-        "paidExecution": "NOT_OPEN",
+        "paidExecution": "OPEN",
         "claimCeiling": {
           "verifiedCompany": false,
           "verifiedManufacturer": false,
@@ -38,7 +42,7 @@
           "available": false,
           "scope": "one confirmed RFQ, up to three selected suppliers, one authorized human outreach round, 72-hour response window; no guaranteed replies"
         },
-        "proofBoundReads": "status/result tool names visible; fail closed until settled-order read service armed",
+        "proofBoundReads": "Status and result require independent signed wallet authentication bound to the settled order; a payment proof alone is not authentication.",
         "input": {
           "accepted": "text or model/part number, quantity and unit, must-have constraints",
           "urlOrImageOnly": false
@@ -49,6 +53,12 @@
           "specification": "match, mismatch or UNKNOWN",
           "exclusions": true,
           "editableRfqDraftInNextAction": true
+        },
+        "availabilityEvidence": {
+          "observedAt": "2026-10-03T05:48:24.848968+00:00",
+          "source": "https://github.com/kiddhu/aion-governance/issues/1034#issuecomment-5965752864",
+          "liveContractTool": "discover_china_supply_check_v0",
+          "note": "Availability is a timestamped snapshot. Read the live discovery tool before purchase."
         }
       },
       "representativeQueries": [
