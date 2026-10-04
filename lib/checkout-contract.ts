@@ -29,7 +29,7 @@ const txt=(x:unknown,max=2000)=>typeof x==="string"?x.slice(0,max):"";
 const lines=(x:unknown)=>Array.isArray(x)?x.slice(0,20).map(v=>txt(v)).filter(Boolean):[];
 const labels:Record<string,string> = {
  MATCH:"Matches the recorded evidence", MISMATCH:"Does not match", UNKNOWN:"Not established",
- EXACT_EVIDENCED:"Exact product supported by evidence", PARTIAL_EVIDENCED:"Some product requirements supported", 
+ EXACT_EVIDENCED:"Exact product supported by evidence", PARTIAL_EVIDENCED:"Some product requirements supported",
  STRONG_CANDIDATE:"Strong candidate to contact", PLAUSIBLE_CANDIDATE:"Plausible candidate to contact",
  INSUFFICIENT_EVIDENCE:"More evidence is needed", EXCLUDED:"Excluded from the shortlist", QUALIFIED:"Recorded product requirements supported",
  DUPLICATE_SUPPLIER:"Repeated supplier", SPEC_MISMATCH:"Specification mismatch", MOQ_MISMATCH:"Minimum order mismatch",
