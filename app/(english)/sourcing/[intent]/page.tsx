@@ -1,0 +1,20 @@
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { Eyebrow, PageShell, SectionTitle, ServiceFaqSchema } from '@/components/site';
+import { pageMetadata } from '@/lib/site';
+import { procurementIntents } from '@/lib/procurement-intents';
+export const dynamicParams = false;
+export function generateStaticParams(){ return procurementIntents.map(({slug})=>({intent:slug})); }
+export async function generateMetadata({params}:{params:Promise<{intent:string}>}){const {intent}=await params;const guide=procurementIntents.find(x=>x.slug===intent);if(!guide)return {};return pageMetadata(guide.title,guide.description,`/sourcing/${guide.slug}`);}
+export default async function ProcurementGuide({params}:{params:Promise<{intent:string}>}){
+ const {intent}=await params;const guide=procurementIntents.find(x=>x.slug===intent);if(!guide)notFound();
+ const contract='A successful China Supply Check returns three distinct evidence-backed China supplier candidates worth advancing to RFQ. x402 payment is live at 2.99 USDC on Base. Stripe Checkout USD 2.99 is being enabled and is not available to buy.';
+ return <PageShell><ServiceFaqSchema name="China Supply Check" description={contract} path={`/sourcing/${guide.slug}`} faqs={[{question:guide.question,answer:guide.lead},{question:'What does China Supply Check cost?',answer:contract}]}/>
+ <section className="page-hero"><div className="container"><Eyebrow>China sourcing guide</Eyebrow><h1>{guide.title}</h1><p>{guide.lead}</p><div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">Inspect the acceptance example</Link></div><p>{contract} Free brief preparation uses MCP; preparation does not purchase a check.</p></div></section>
+ <section className="section section-dark"><div className="container"><SectionTitle eyebrow="The decision" title={guide.question}/><p>{guide.example}</p></div></section>
+ {guide.sections.map(section=><section className="section" key={section.title}><div className="container"><SectionTitle title={section.title} body={section.body}/></div></section>)}
+ <section className="section section-dark"><div className="container"><SectionTitle eyebrow="Compare evidence" title="What to read before the next step"/><div style={{overflowX:'auto'}}><table><caption>Evidence fields for this sourcing decision</caption><thead><tr><th scope="col">Field</th><th scope="col">Decision use</th></tr></thead><tbody>{guide.evidence.map(([field,use])=><tr key={field}><th scope="row">{field}</th><td>{use}</td></tr>)}</tbody></table></div></div></section>
+ <section className="section"><div className="container"><SectionTitle title="What to ask next"/><ol>{guide.next.map(question=><li key={question}>{question}</li>)}</ol><h2>Keep unknowns specific</h2><p>{guide.unknowns}</p><p>No suppliers are contacted by reading this guide or preparing a brief. Supplier outreach and RFQ execution are separate from the screening purchase.</p><div className="link-list">{guide.links.map(([href,label])=><Link className="text-link" key={href} href={href}>{label}</Link>)}</div></div></section>
+ <section className="cta-band"><div className="container"><SectionTitle title="Turn your requirement into a reviewable brief" body={contract}/><div className="button-row"><Link className="button" href="/for-agents#china-supply-check-mcp">Connect and prepare via MCP</Link><Link className="button button-ghost" href="/china-supply-check">Product and current purchase path</Link></div><p><Link className="text-link" href="/sourcing">All eight sourcing guides</Link></p></div></section>
+ </PageShell>;
+}

@@ -9,7 +9,7 @@ const variants = {
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
-    lead: 'Start with a product or model, quantity and must-have specifications. On a successful future check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
+    lead: 'Start with a product or model, quantity and must-have specifications. On a successful check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
   },
   c: {
     heading: 'Compare China listings before a quote.',
@@ -24,7 +24,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <div><dt>Product / model</dt><dd>M6 flat washer</dd></div>
       <div><dt>Quantity + unit</dt><dd>500 pieces</dd></div>
       <div><dt>Must-have specification</dt><dd>304 stainless steel</dd></div>
-    </dl> : <><p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p><p className="growth-outcome">On future success: three distinct shop candidates. Fewer qualify? We report the shortage.</p></>}
+    </dl> : <><p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p><p className="growth-outcome">On success: three distinct shop candidates. Fewer qualify? We report the shortage.</p></>}
     {variant === 'c' ? <div className="growth-result">
       <span className="growth-label">Archived historical example · V4 prefix</span>
       <dl className="growth-inputs">
@@ -35,7 +35,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
       <Link className="text-link" href="/china-supply-check/sample/archived-v4">Inspect the archived example</Link>
     </div> : <div className="growth-result">
-      <span className="growth-label">On a successful future check</span>
+      <span className="growth-label">On a successful check</span>
       <strong>Three distinct shop candidates</strong>
       <p>Source links · observed price basis · MOQ/spec fit · exclusions · UNKNOWNs</p>
       <p className="growth-small">Fewer qualify? The report states the shortage. It does not pad the shortlist.</p>
@@ -77,7 +77,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
         <FeatureCard index="02" title="Screen the listing evidence" body="A paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
         <FeatureCard index="03" title="Review the candidates and gaps" body="Three distinct documented shop candidates on success, with dated source evidence, observed price basis, exclusions and an RFQ starting point. A shortage is reported honestly." />
       </div>
-      <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link></div>
+      <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link><Link className="text-link" href="/sourcing">Find, screen and compare China suppliers: eight guides</Link></div>
     </div></section>
     <section className="section section-dark"><div className="container">
       <SectionTitle eyebrow="Before requesting a quote" title="Know what a listing can — and cannot — establish." body="An observed listing price is published supplier commercial evidence with its currency, unit, tier and MOQ conditions; a stated MOQ is not a stock promise. Certification, company-registration and production-versus-trade identity evidence is reported per candidate when available." />

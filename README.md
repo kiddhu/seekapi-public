@@ -2,6 +2,8 @@
 
 SeekAPI provides **China Supply Check**: three evidence-backed China supplier candidates worth advancing to RFQ, with dated product/specification, published sales-price and quantity/MOQ evidence, contact paths and candidate-specific gaps.
 
+- [China supplier sourcing guides](https://seekapi.ai/sourcing)
+- [Current entity and operator](https://seekapi.ai/about)
 - [Current product and purchase requirements](https://seekapi.ai/china-supply-check)
 - [Agent connection and free discovery](https://seekapi.ai/for-agents)
 - [Real production paid acceptance summary — INTERNAL_ACCEPTANCE](https://seekapi.ai/china-supply-check/sample)
