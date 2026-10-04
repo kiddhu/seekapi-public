@@ -26,14 +26,14 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <div><dt>Must-have specification</dt><dd>304 stainless steel</dd></div>
     </dl> : <><p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p><p className="growth-outcome">On future success: three distinct shop candidates. Fewer qualify? We report the shortage.</p></>}
     {variant === 'c' ? <div className="growth-result">
-      <span className="growth-label">Historical V4 prefix · full run TECHNICAL_BLOCKED</span>
+      <span className="growth-label">Archived historical example · V4 prefix</span>
       <dl className="growth-inputs">
-        <div><dt>Source / observation</dt><dd>1688 listing · 29 Sep 2026</dd></div>
+        <div><dt>Source / observation</dt><dd>China B2B platform listing · 29 Sep 2026</dd></div>
         <div><dt>Observed price basis / MOQ</dt><dd>CNY 0.01 per 个 · MOQ 100 个</dd></div>
         <div><dt>UNKNOWN</dt><dd>Price-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote</dd></div>
       </dl>
       <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
-      <Link className="text-link" href="/china-supply-check/sample">Inspect original source and limits</Link>
+      <Link className="text-link" href="/china-supply-check/sample/archived-v4">Inspect the archived example</Link>
     </div> : <div className="growth-result">
       <span className="growth-label">On a successful future check</span>
       <strong>Three distinct shop candidates</strong>
@@ -56,18 +56,18 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="growth-actions">
         <div className="button-row">
           <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
-          <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a historical sample">{variant === 'a' ? 'View a historical sample' : 'Historical sample'}</Link>
+          <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'View the sample summary' : 'Sample summary'}</Link>
         </div>
-        <p className="growth-availability"><strong>China Supply Check: 2.99 USDC per accepted order.</strong> Free brief preparation is available through an MCP-capable client. SeekAPI confirms scope and a supported payment path before accepting an order; website checkout is not enabled.</p>
-        <p className="growth-limits">Listing prices are observations, not quotes; shop identity is not manufacturer verification.</p>
+        <p className="growth-availability"><strong>China Supply Check: 2.99 USDC per accepted order.</strong> Free brief preparation is available through an MCP-capable client. Agent payment via x402 is live; Stripe card checkout is being enabled. SeekAPI confirms scope and a supported payment path before accepting an order.</p>
+        <p className="growth-limits">Published listing prices are dated supplier commercial evidence with scope and quantity conditions; certification and company or production-versus-trade identity evidence is reported per candidate when available.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
     </div></section>
     <section className="section growth-proof"><div className="container">
-      <SectionTitle eyebrow="Inspect the evidence" title="A real historical sample, with its limits visible." body="The M6 304 washer example shows three primary documented platform shops, source-linked observations and explicit unknowns. It demonstrates the report format." />
+      <SectionTitle eyebrow="Inspect the evidence" title="A production acceptance summary, with an archived example." body="The sample summary records an authorized completed paid check. The separately archived M6 304 washer example shows three primary documented platform shops and source-linked observations; it demonstrates the report format and is preserved for provenance." />
       <div className="growth-proof-row">
-        <p><strong>Historical V4 prefix · full run TECHNICAL_BLOCKED.</strong> This is not a completed paid customer check, a current quote, verified manufacturers or stock.</p>
-        <Link className="button" href="/china-supply-check/sample">Read the sample report</Link>
+        <p><strong>Archived historical example · V4 prefix.</strong> This is not a completed paid customer check, a current quote or stock. See the current <Link className="text-link" href="/china-supply-check/sample">production acceptance summary</Link>.</p>
+        <Link className="button" href="/china-supply-check/sample">Read the sample summary</Link>
       </div>
     </div></section>
     <section className="section"><div className="container">
@@ -80,7 +80,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link></div>
     </div></section>
     <section className="section section-dark"><div className="container">
-      <SectionTitle eyebrow="Before requesting a quote" title="Know what a listing can — and cannot — establish." body="An observed listing price is not a current quote. A stated MOQ does not prove stock. A platform shop is not an independently verified legal company or manufacturer." />
+      <SectionTitle eyebrow="Before requesting a quote" title="Know what a listing can — and cannot — establish." body="An observed listing price is published supplier commercial evidence with its currency, unit, tier and MOQ conditions; a stated MOQ is not a stock promise. Certification, company-registration and production-versus-trade identity evidence is reported per candidate when available." />
       <p>Live RFQ Compare is a separate planned human outreach step after you edit and confirm an RFQ and select up to three suppliers. Its planned 72-hour window seeks current answers; replies are not guaranteed. It is not open for purchase or public supplier outreach.</p>
       <div className="link-list">
         <Link className="text-link" href="/china-supply-check/listing-price-vs-quote">Listing price or supplier quote?</Link>
@@ -97,8 +97,8 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       </div>
     </div></section>
     <section className="section growth-next"><div className="container">
-      <SectionTitle eyebrow="Choose the next usable action" title="Start with the product and its evidence." body="Inspect the product scope and historical sample now. An MCP-capable Agent can prepare a free brief; preparation does not buy a check or contact a supplier." />
-      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">View a historical sample</Link></div>
+      <SectionTitle eyebrow="Choose the next usable action" title="Start with the product and its evidence." body="Inspect the product scope and sample summary now. An MCP-capable Agent can prepare a free brief; preparation does not buy a check or contact a supplier." />
+      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">View the sample summary</Link></div>
       <div className="link-list"><Link className="text-link" href="/for-agents">Agent connection guide</Link><Link className="text-link" href="/china-supply-chain">Need broader China Desk support?</Link><Link className="text-link" href="/trust">Evidence and role boundaries</Link><Link className="text-link" href="/support">Contact support</Link><Link className="text-link" href="/discovery-status">Dated discovery status</Link></div>
     </div></section>
   </main><Footer /></>;

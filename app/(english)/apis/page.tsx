@@ -23,7 +23,7 @@ export default function Page() {
     </div></section>
 
     <section className="section" id="product-search"><div className="container">
-      <SectionTitle eyebrow="Public product-data discovery" title="Connect without credentials or payment." body="Use a standard MCP client with Streamable HTTP. Leave automatic payment disabled and do not attach a wallet, signature or payment metadata. These free steps do not call OneBound or return live product results."/>
+      <SectionTitle eyebrow="Public product-data discovery" title="Connect without credentials or payment." body="Use a standard MCP client with Streamable HTTP. Leave automatic payment disabled and do not attach a wallet, signature or payment metadata. These free steps do not trigger any paid provider call or return live product results."/>
       <div className="grid-3">
         <FeatureCard title="Public MCP endpoint" body="https://api.seekapi.ai/mcp — Streamable HTTP. No account or API key is needed to initialize, list tools or inspect discovery."/>
         <FeatureCard title="Current search terms" body="0.022 USDC for a successful useful result, on Base mainnet (eip155:8453). That is 22,000 atomic units of six-decimal USDC. The official x402 challenge is authoritative."/>

@@ -5,21 +5,34 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Give a text product or model, quantity and must-have specs. A successful China Supply Check returns three evidence-backed China B2B platform-shop supplier candidates worth advancing to RFQ, separating product fit from supplier capability. Free brief preparation is available; the bounded paid check costs 2.99 USDC on Base. Listing prices are not current quotes and shops are not verified manufacturers.",
-      "version": "0.2.1",
+      "description": "Give a text product or model, quantity and must-have specs. A successful China Supply Check returns three evidence-backed China B2B platform-shop supplier candidates worth advancing to RFQ, separating product fit from supplier capability. Free brief preparation is available; the bounded paid check costs 2.99 USDC on Base via x402, and Stripe card checkout is being enabled. Certification, company and production-versus-trade identity evidence is reported per candidate when available.",
+      "version": "0.2.2",
       "data": {
         "productId": "china_supply_check_v0",
         "productPage": "https://seekapi.ai/china-supply-check",
         "sampleReport": "https://seekapi.ai/china-supply-check/sample",
         "remoteMcp": "https://api.seekapi.ai/mcp",
         "price": {
-          "amount": "2.99",
-          "currency": "USDC",
-          "network": "eip155:8453"
+          "usdc": "2.99",
+          "network": "eip155:8453",
+          "cardUsd": "2.99",
+          "cardState": "BEING_ENABLED_NOT_LIVE"
+        },
+        "payment": {
+          "x402Live": true,
+          "x402Network": "eip155:8453",
+          "stripeCheckout": "BEING_ENABLED_NOT_LIVE"
         },
         "promise": {
-          "qualifiedDistinctPlatformShops": 3,
+          "rfqWorthyDistinctShopCandidates": 3,
           "successfulCompletionOnly": true
+        },
+        "candidateEvidence": {
+          "companyRegistration": "FIELD_SCOPED_IF_AVAILABLE",
+          "platformCertification": "FIELD_SCOPED_IF_AVAILABLE",
+          "productionVsTradeIdentity": "FIELD_SCOPED_IF_AVAILABLE",
+          "contactPath": "FIELD_SCOPED_IF_AVAILABLE",
+          "priceBasis": "OBSERVED_LISTING_PRICE_OR_SUPPLIER_REPLY_WHEN_CONFIRMED"
         },
         "currentlyAvailable": [
           "discover_china_supply_check_v0",
@@ -30,12 +43,6 @@
           "result_china_supply_check_v0"
         ],
         "paidExecution": "OPEN",
-        "claimCeiling": {
-          "verifiedCompany": false,
-          "verifiedManufacturer": false,
-          "contactability": "UNKNOWN",
-          "displayPriceIsQuotation": false
-        },
         "nextAction": {
           "service": "Live RFQ Compare",
           "futurePriceUsd": "19.90",
@@ -48,7 +55,7 @@
           "urlOrImageOnly": false
         },
         "output": {
-          "observedListingPrice": "currency, original unit/tier/time and source when available; not a current quote",
+          "observedListingPrice": "dated currency, original unit/tier/time and source when available; a confirmed reply is a separate step",
           "moq": "stated quantity/unit and requested-quantity fit",
           "specification": "match, mismatch or UNKNOWN",
           "exclusions": true,
@@ -56,7 +63,7 @@
         },
         "availabilityEvidence": {
           "observedAt": "2026-10-03T05:48:24.848968+00:00",
-          "source": "https://github.com/kiddhu/aion-governance/issues/1034#issuecomment-5965752864",
+          "source": "https://api.seekapi.ai/mcp",
           "liveContractTool": "discover_china_supply_check_v0",
           "note": "Availability is a timestamped snapshot. Read the live discovery tool before purchase."
         }
