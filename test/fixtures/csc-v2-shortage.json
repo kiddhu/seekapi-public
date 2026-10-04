@@ -1,0 +1,107 @@
+{
+  "schema_version": "seekapi.csc-public-report.v2",
+  "projection_version": "v2",
+  "product_id": "china_supply_check_v0",
+  "source_answer_digest": "c3db946b2ecc147bae06a2647ad1911349945383644c14dfbdb3729d852e8d49",
+  "request_digest": "a1bc8fa6791c254cff999ddde55f8f7dcd7b11266d49d7f59db9cd626f873405",
+  "request": {
+    "product_name": "304 stainless M6 flat washer",
+    "model_or_reference": "M6",
+    "quantity": 500,
+    "unit": "pcs",
+    "must_match": [
+      {
+        "attribute": "material",
+        "expected": "304"
+      }
+    ],
+    "substitution_allowed": false,
+    "buyer_unknowns": [],
+    "source_reference": null
+  },
+  "summary": {
+    "status": "NOT_ENOUGH_EVIDENCE",
+    "distinct_supplier_count": 0,
+    "conclusion": "0 evidence-backed supplier candidates are worth advancing to RFQ; exact supply, price and lead time remain unconfirmed.",
+    "critical_unknowns": [
+      "Comparable observed unit price unavailable",
+      "Comparable MOQ unavailable",
+      "Only 0 distinct eligible suppliers evidenced",
+      "No supplier quotation has been confirmed"
+    ],
+    "product_qualified_candidate_count": 0,
+    "distinct_platform_supplier_count": 0,
+    "profile_enriched_supplier_count": 0,
+    "observed_price_range": null,
+    "observed_moq_range": null,
+    "quality_policy": "csc.product-quality.v1",
+    "supplier_policy": "csc.supplier-discovery.v1",
+    "request_sanity": {
+      "must_have": [
+        {
+          "attribute": "material",
+          "expected": "304"
+        }
+      ],
+      "preferred": [],
+      "unknown": [
+        "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+        "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+      ],
+      "contradictions": [],
+      "rfq_questions": [
+        "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+        "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+      ]
+    },
+    "excluded_count": 0,
+    "unknown_count": 0,
+    "buyer_questions": [
+      "Can the required material be confirmed?"
+    ],
+    "promising_count": 1
+  },
+  "suppliers": [],
+  "promising_candidates": [
+    {
+      "status": "PROMISING_NEEDS_CONFIRMATION",
+      "supplier_id": "b2b-4",
+      "offer_id": "4",
+      "product_title": "M6 washer requiring material confirmation",
+      "product_url": "https://detail.1688.com/offer/4.html",
+      "matched_facts": [
+        "M6 size observed."
+      ],
+      "evidence_gaps": [
+        "Material grade not established."
+      ],
+      "variant_options": [
+        "Ask for a 304 variant."
+      ],
+      "observed_at": "2026-10-01T18:55:00Z",
+      "evidence_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "counts_as_qualified": false
+    }
+  ],
+  "exclusion_summary": [
+    {
+      "reason": "MANDATORY_FACT_UNKNOWN",
+      "count": 1
+    }
+  ],
+  "next_action": {
+    "type": "LIVE_RFQ_COMPARE",
+    "service_id": "live_rfq_compare_v0",
+    "price_usd": 19.9,
+    "response_window_hours": 72,
+    "max_suppliers": 3,
+    "rfq_count": 1,
+    "execution": "HUMAN_OPERATED_SUPPLIER_OUTREACH",
+    "rfq_draft": "Subject: RFQ for 304 stainless M6 flat washer (M6)\n\nHello,\n\nPlease quote the following product:\nProduct: 304 stainless M6 flat washer\nModel/reference: M6\nQuantity: 500 pcs\nMust-have requirements:\n- material: 304\nSubstitutions: Not permitted\nSource/reference: None supplied\n\nPlease confirm unit price at the stated quantity, MOQ, sample availability, production lead time, customization options, packaging and payment terms. Please identify any unmet requirement.\n\nThank you.\n\nEvidence gaps to confirm:\n- Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed\n- Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions",
+    "rfq_digest": "362c8eb8787057c9b01a175974c0d6ae664062311d66c820373026a984593dca",
+    "customer_editable": true,
+    "selected_supplier_ids": [],
+    "availability": "FUTURE_NOT_ENABLED"
+  },
+  "projection_digest": "9e7ef1b8cf2732d35479139ff1d0d5795d01e5f3b18acddcf94371958ff7d90d"
+}

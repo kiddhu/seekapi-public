@@ -1,18 +1,38 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { checkoutJson } from '@/lib/checkout-reader';
 import { copy, customerState, isOrderPointer, orderPointerKey, type CustomerReport, type CustomerState } from '@/lib/checkout-contract';
 
+function EvidenceList({title,items}:{title:string;items:string[]}){
+  return items.length>0?<div><h4>{title}</h4><ul>{items.map((v,i)=><li key={i}>{v}</li>)}</ul></div>:null;
+}
+function EvidenceGates({items}:{items:{attribute:string;expected:string;observed:string;verdict:string}[]}){
+  return items.length>0?<ul>{items.map((v,i)=><li key={i}><strong>{v.attribute}</strong>: requested {v.expected}; observed {v.observed}. {v.verdict}.</li>)}</ul>:null;
+}
 export function ReportView({report}:{report:CustomerReport}){
   return <section className="checkout-report" aria-label="Your China Supply Check result">
-    <div className="checkout-report-head"><p className="eyebrow">Your China Supply Check</p><h2>{report.product}</h2><p>{report.quantity} {report.unit}</p><p>{report.conclusion}</p></div>
-    {report.unknowns.length>0&&<div className="checkout-note"><h3>Points to confirm</h3><ul>{report.unknowns.map((v,i)=><li key={i}>{v}</li>)}</ul></div>}
+    <div className="checkout-report-head"><p className="eyebrow">Your China Supply Check</p><h2>{report.product}</h2><p>{report.quantity} {report.unit}{report.model&&<> · Reference: {report.model}</>}</p>
+      <EvidenceList title="Your must-have requirements" items={report.requirements}/><p>{report.substitutions?'Substitutions were allowed in your brief.':'Substitutions were not allowed in your brief.'}</p>
+      <EvidenceList title="Questions about your brief" items={report.buyerUnknowns}/><p>{report.conclusion}</p>
+    </div>
+    {(report.unknowns.length>0||report.questions.length>0||report.contradictions.length>0)&&<div className="checkout-note">
+      <EvidenceList title="Points to confirm" items={report.unknowns}/><EvidenceList title="Questions for your next step" items={report.questions}/><EvidenceList title="Requirements to resolve" items={report.contradictions}/>
+    </div>}
     {report.suppliers.map((supplier,i)=><article className="checkout-supplier" key={i}><p className="eyebrow">Candidate {i+1}</p><h3>{supplier.name}</h3><p>{supplier.title}</p><p>{supplier.reason}</p>
-      <dl><dt>Published price</dt><dd>{supplier.price||'Not captured in this report'}</dd><dt>Minimum order quantity</dt><dd>{supplier.moq||'Not captured in this report'}</dd><dt>Observed</dt><dd>{supplier.observedAt||'Not recorded'}</dd></dl>
-      {supplier.matches.length>0&&<><h4>Matching evidence</h4><ul>{supplier.matches.map((v,n)=><li key={n}>{v}</li>)}</ul></>}
-      {supplier.mismatches.length>0&&<><h4>Differences to review</h4><ul>{supplier.mismatches.map((v,n)=><li key={n}>{v}</li>)}</ul></>}
-      {supplier.unknowns.length>0&&<><h4>Confirm with the supplier</h4><ul>{supplier.unknowns.map((v,n)=><li key={n}>{v}</li>)}</ul></>}
+      <dl><dt>Published price</dt><dd>{supplier.price||'Not captured in this report'}</dd><dt>Minimum order quantity</dt><dd>{supplier.moq||'Not captured in this report'}</dd><dt>Requested quantity fit</dt><dd>{supplier.quantityFit}</dd><dt>Observed</dt><dd>{supplier.observedAt||'Not recorded'}</dd></dl>
+      <EvidenceList title="Matching evidence" items={supplier.matches}/><EvidenceList title="Differences to review" items={supplier.mismatches}/><EvidenceList title="Confirm with the supplier" items={supplier.unknowns}/>
+      {supplier.qualification&&<div><h4>Product evidence assessment</h4><p>{supplier.qualification.verdict}</p><EvidenceGates items={supplier.qualification.gates}/><EvidenceList title="Risks to review" items={supplier.qualification.risks}/></div>}
+      {supplier.assessment&&<div><h4>Why consider this supplier?</h4><p>{supplier.assessment.productFit}. {supplier.assessment.supplierFit}.</p><p>{supplier.assessment.why}</p><EvidenceGates items={supplier.assessment.gates}/>
+        <EvidenceList title="Supplier capability evidence" items={supplier.assessment.capability}/><EvidenceList title="Customization evidence" items={supplier.assessment.customization}/><EvidenceList title="Uncertainties" items={supplier.assessment.uncertainties}/><EvidenceList title="Questions for an RFQ" items={supplier.assessment.questions}/><EvidenceList title="Requirements to resolve" items={supplier.assessment.contradictions}/>
+      </div>}
+      {supplier.certifications.length>0&&<div><h4>Recorded third-party evidence</h4><ul>{supplier.certifications.map((c,n)=><li key={n}>{c.issuer}: {c.scope} · Observed {c.observedAt}{c.url&&<> · <a href={c.url} target="_blank" rel="noopener noreferrer">Source</a></>}</li>)}</ul></div>}
       <div className="button-row">{supplier.url&&<a className="button button-ghost" href={supplier.url} target="_blank" rel="noopener noreferrer">View source listing</a>}{supplier.contact&&supplier.contact!==supplier.url&&<a className="text-link" href={supplier.contact} target="_blank" rel="noopener noreferrer">Supplier contact page</a>}</div>
     </article>)}
+    {report.promising.length>0&&<div className="checkout-note"><h3>Other leads needing confirmation</h3><p>These leads have evidence gaps and do not count as qualified candidates.</p>
+      {report.promising.map((p,i)=><article key={i}><h4>{p.title}</h4><p>Observed {p.observedAt||'not recorded'}</p><EvidenceList title="Observed matches" items={p.matches}/><EvidenceList title="Evidence gaps" items={p.gaps}/><EvidenceList title="Variants to discuss" items={p.variants}/>{p.url&&<a href={p.url} target="_blank" rel="noopener noreferrer">View source listing</a>}</article>)}
+    </div>}
+    {report.exclusions.length>0&&<div className="checkout-note"><h3>Why other candidates were excluded</h3><ul>{report.exclusions.map((e,i)=><li key={i}>{e.reason}{e.count!==null&&<>: {e.count}</>}</li>)}</ul></div>}
+    {report.rfqDraft&&<div className="checkout-note"><h3>Your draft request for quotation</h3><p>Review and adapt this draft before contacting a supplier yourself. No message has been sent. Assisted supplier outreach is not available from this page.</p><pre className="checkout-rfq">{report.rfqDraft}</pre></div>}
     <p className="checkout-note">Use the source evidence to decide which candidates to contact. A listed price and a supplier’s confirmed offer for your exact request are different steps. Supplier outreach is not included in this check.</p>
   </section>;
 }
@@ -32,23 +52,18 @@ export function CheckoutExperience({showResult=false}:{showResult?:boolean}){
     let order:string|null=null;
     try{order=sessionStorage.getItem(orderPointerKey)}catch{}
     if(!isOrderPointer(order)){setState('NO_ACCESS');return};
-    const post=async(operation:string)=>{
-      const timeout=setTimeout(()=>controller.abort(),10000);
-      try{return await fetch('/checkout/stripe/'+operation,{method:'POST',credentials:'same-origin',cache:'no-store',headers:{'content-type':'application/json','x-seekapi-card-claim':'1'},body:JSON.stringify({order_id:order}),signal:controller.signal})}finally{clearTimeout(timeout)}
-    };
     const check=async()=>{
       if(stopped||Date.now()-started>=60000)return;
       if(document.visibilityState==='hidden'){timer=setTimeout(check,5000);return;}
       setBusy(true);
       try{
-        const response=await post('customer-status');
-        const data=await response.json();
+        const {response,data}=await checkoutJson('customer-status',order!,controller.signal);
         if(stopped)return;
         const next=response.ok?customerState(data.state):[401,403].includes(response.status)?'NO_ACCESS':'UNKNOWN';
         setState(next);setTestMode(data.test_mode===true);setExpires(typeof data.access_expires_at==='string'?data.access_expires_at:null);
         if(next!=='READY')setReport(null);
         if(next==='READY'&&showResult){
-          const result=await post('result'),body=await result.json();
+          const {response:result,data:body}=await checkoutJson('result',order!,controller.signal);
           if(stopped)return;
           if(result.ok&&body.report&&Array.isArray(body.report.suppliers))setReport(body.report);
           else{setReport(null);setState('RESULT_UNAVAILABLE')}
