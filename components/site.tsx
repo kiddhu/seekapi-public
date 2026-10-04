@@ -2,24 +2,24 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { MobileNav } from './mobile-nav';
 import { LanguageSwitch } from './language-switch';
-import { localeInfo, localizedCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
+import { localeInfo, localizedCopy, localizedCscCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
 import { isPublicProduction } from '@/lib/site';
 
 export const navItems = [
   { href: '/china-supply-check', label: 'Source from China' },
   { href: '/china-supply-check/sample', label: 'Sample Report' },
-  { href: '/how-it-works', label: 'How it works' },
+  { href: '/sourcing', label: 'Sourcing guides' },
   { href: '/china-supply-chain', label: 'China Desk' },
   { href: '/trust', label: 'Trust' },
 ];
 
 function localeUi(locale:SiteLocale){
   if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'View sample',items:navItems,home:'/',footer:'China supplier listing evidence for a specific product, with source links, limitations and explicit unknowns. Broader China Desk support is scoped separately.',evidence:'Evidence-gated claims'};
-  if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:c.start,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
-  const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:c.start,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
+  if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy.ru.cta,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
+  const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy[locale].cta,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
 }
 export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':locale==='ru'?'/ru/start':pagePath(locale,'start');
+  const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':'/china-supply-check';
   const productionNotices:Record<SiteLocale,string>={'en':'China Supply Check: x402 live · Stripe Checkout being enabled · Human services require scope confirmation','ja':'China Supply Check：x402 決済は利用可能 · Stripe Checkout は有効化中 · 人によるサービスは範囲確認が必要','es':'China Supply Check: x402 disponible · Stripe Checkout en preparación · Los servicios humanos requieren confirmar el alcance','ar':'China Supply Check: دفع x402 متاح · Stripe Checkout قيد التفعيل · الخدمات البشرية تتطلب تأكيد النطاق','de':'China Supply Check: x402 verfügbar · Stripe Checkout wird aktiviert · Menschliche Services erfordern Umfangsbestätigung','pt-br':'China Supply Check: x402 disponível · Stripe Checkout em preparação · Serviços humanos exigem confirmação do escopo','ru':'China Supply Check: x402 доступен · Stripe Checkout подключается · Для услуг специалистов нужно согласовать объём'};
   const notice=isPublicProduction?productionNotices[locale]:ui.preview;
   return (
@@ -43,12 +43,12 @@ export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
 }
 
 export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':locale==='ru'?'/ru/start':pagePath(locale,'start');
+  const ui=localeUi(locale); const startHref=locale==='en'?'/china-supply-check/sample':'/china-supply-check';
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div><div className="brand footer-brand"><span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span></div><p className="muted footer-copy">{ui.footer}</p></div>
-        <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link>{locale === 'en' ? <><Link href="/for-agents">For Agents</Link><Link href="/apis">Machine interfaces</Link><Link href="/proof">Proof</Link><Link href="/china-compliance-logistics">Compliance and logistics</Link></> : null}</div>
+        <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link>{locale === 'en' ? <><Link href="/for-agents">For Agents</Link><Link href="/apis">Machine interfaces</Link><Link href="/proof">Proof</Link><Link href="/about">About SeekAPI</Link><Link href="/how-it-works">How it works</Link><Link href="/china-compliance-logistics">Compliance and logistics</Link></> : null}</div>
         <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/support">Support</Link><Link href="/privacy">Privacy (English)</Link><Link href="/terms">Terms (English)</Link></address>
       </div>
       <div className="container footer-bottom"><span>© 2026 SeekAPI</span><span>{ui.evidence}</span></div>

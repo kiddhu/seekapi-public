@@ -2,11 +2,11 @@ import Link from 'next/link';
 import { Eyebrow, PageShell, SectionTitle } from '@/components/site';
 import { pageMetadata } from '@/lib/site';
 
-export const metadata = pageMetadata(
+export const metadata = { ...pageMetadata(
   'Archived historical China Supply Check sample (V4) — 304 stainless M6 washers',
   'An archived historical V4-prefix evidence-format example. Its full run ended TECHNICAL_BLOCKED and is not a completed customer paid check. Preserved for provenance only.',
   '/china-supply-check/sample/archived-v4',
-);
+), robots: { index: false, follow: true } };
 
 const candidates = [
   { sid: 'b2b-2213157682282259ee', offer: '671663794075', title: '304不锈钢垫片加厚平垫金属超薄平垫圈螺丝圆形华司五金介子M6M8', unit: '个', moq: 100, observedAt: '2026-09-29T06:07:02.202Z', digest: '98d5e2cf296f94a7f8aa30245283f1f196478d7bcf68d17caf9b0e16091bbaca', role: 'Primary · best overall' },
