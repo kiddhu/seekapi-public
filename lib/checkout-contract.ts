@@ -80,7 +80,11 @@ export type PrivatePurchaseContext = { draft: Record<string,unknown>; draft_dige
 export function privatePurchaseContext(raw:unknown):PrivatePurchaseContext|null{
   if(!raw||typeof raw!=="object")return null;
   const x=raw as Record<string,unknown>,d=x.draft as Record<string,unknown>|null;
+  const input=d?.input as Record<string,unknown>|null;
   if(!d||typeof d!=="object"||typeof d.product_name!=="string"||d.product_name.length>200
+    ||!input||typeof input!=="object"||Array.isArray(input)||Object.keys(input).length!==1
+    ||!((typeof input.text==="string"&&input.text.length>0&&input.text.length<=200)||(typeof input.model==="string"&&input.model.length>0&&input.model.length<=200))
+    ||!(d.model_or_reference===null||(typeof d.model_or_reference==="string"&&d.model_or_reference.length<=200))
     ||typeof d.quantity!=="number"||!Number.isSafeInteger(d.quantity)||d.quantity<1
     ||typeof d.unit!=="string"||d.unit.length>32||d.substitution_allowed!==false
     ||!Array.isArray(d.must_match)||d.must_match.length>5
