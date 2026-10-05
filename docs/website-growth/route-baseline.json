@@ -1,5 +1,5 @@
 {
-  "source": "kiddhu/aion-governance#1090@832b6ea8ce8a1bd2d40af514493eeb0efe61824a 52-route crawl + merged seekapi-public#10 three pilots",
+  "source": "current public route contract plus the three published category guides",
   "routes": [
     "/",
     "/apis",
