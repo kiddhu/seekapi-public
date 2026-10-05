@@ -1,0 +1,685 @@
+{
+  "schema_version": "seekapi.csc-public-report.v2",
+  "projection_version": "v2",
+  "product_id": "china_supply_check_v0",
+  "source_answer_digest": "7419e1576e4851b68b19b45308e412857721c17357f7985ebfde673ab1c9b3bf",
+  "request_digest": "a1bc8fa6791c254cff999ddde55f8f7dcd7b11266d49d7f59db9cd626f873405",
+  "request": {
+    "product_name": "304 stainless M6 flat washer",
+    "model_or_reference": "M6",
+    "quantity": 500,
+    "unit": "pcs",
+    "must_match": [
+      {
+        "attribute": "material",
+        "expected": "304"
+      }
+    ],
+    "substitution_allowed": false,
+    "buyer_unknowns": [],
+    "source_reference": null
+  },
+  "summary": {
+    "status": "FOUND",
+    "distinct_supplier_count": 3,
+    "conclusion": "3 evidence-backed supplier candidates are worth advancing to RFQ; exact supply, price and lead time remain unconfirmed.",
+    "critical_unknowns": [
+      "No supplier quotation has been confirmed"
+    ],
+    "product_qualified_candidate_count": 3,
+    "distinct_platform_supplier_count": 3,
+    "profile_enriched_supplier_count": 0,
+    "observed_price_range": {
+      "minimum": "0.01",
+      "maximum": "0.01",
+      "currency": "CNY",
+      "unit": "pcs",
+      "basis": "OFFER_DISPLAY_NOT_QUANTITY_QUOTE"
+    },
+    "observed_moq_range": {
+      "minimum": 100,
+      "maximum": 100,
+      "unit": "pcs"
+    },
+    "quality_policy": "csc.product-quality.v1",
+    "supplier_policy": "csc.supplier-discovery.v1",
+    "request_sanity": {
+      "must_have": [
+        {
+          "attribute": "material",
+          "expected": "304"
+        }
+      ],
+      "preferred": [],
+      "unknown": [
+        "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+        "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+      ],
+      "contradictions": [],
+      "rfq_questions": [
+        "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+        "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+      ]
+    },
+    "excluded_count": 0,
+    "unknown_count": 0,
+    "buyer_questions": [
+      "Confirm the packaging for 500 pieces."
+    ],
+    "promising_count": 0
+  },
+  "suppliers": [
+    {
+      "role": "PRIMARY",
+      "label": "BEST_OVERALL",
+      "supplier_id": "b2b-1",
+      "supplier_name": null,
+      "product_title": "304 stainless M6 flat washer supports OEM",
+      "product_url": null,
+      "inclusion_reason": "Observed listing supports the requested product; exact quote and availability still require RFQ",
+      "matches": [
+        {
+          "attribute": "product type",
+          "expected": "flat washer",
+          "observed": "304 stainless M6 flat washer supports OEM"
+        },
+        {
+          "attribute": "model/size",
+          "expected": "M6",
+          "observed": "304 stainless M6 flat washer supports OEM"
+        },
+        {
+          "attribute": "material",
+          "expected": "304",
+          "observed": "304"
+        },
+        {
+          "attribute": "quantity/MOQ/unit",
+          "expected": "500 pcs",
+          "observed": "100 pcs"
+        }
+      ],
+      "mismatches": [],
+      "observed_moq": {
+        "quantity": 100,
+        "unit": "pcs"
+      },
+      "quantity_fit": "MATCH",
+      "unknowns": [
+        "Shop identity is source-observed; registration and production/trade certification fields were not captured in this report",
+        "Supplier-published sales price is recorded with its observed unit; a supplier-confirmed RFQ price has not been recorded",
+        "Supplier display name UNKNOWN",
+        "Supplier profile enrichment UNKNOWN",
+        "Production or trade identity evidence: not captured in this report",
+        "Supplier reply: not recorded; use the candidate listing or shop contact path",
+        "Product link unavailable",
+        "Supplier quotation not requested or confirmed"
+      ],
+      "evidence_source": "Marketplace listing",
+      "observed_at": "2026-10-01T18:55:00Z",
+      "evidence_digest": "5adb8c3d42601f14dc3c467830d23dcc75ffae17236d02c6bb26c6e31b1c3c8e",
+      "supplier_assessment": {
+        "policy": "csc.supplier-discovery.v1",
+        "product_fit": "EXACT_EVIDENCED",
+        "supplier_fit": "STRONG_CANDIDATE",
+        "product_evidence": [
+          {
+            "attribute": "material",
+            "expected": "304",
+            "observed": "304",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          }
+        ],
+        "supplier_capability_evidence": [
+          "Listing describes washer production."
+        ],
+        "customization_evidence": [
+          "OEM described in the listing."
+        ],
+        "uncertainties": [
+          "Lead time needs confirmation."
+        ],
+        "rfq_questions": [
+          "Can you supply 500 pieces in one batch?"
+        ],
+        "why_worth_contacting": "Recorded material and minimum quantity fit the request.",
+        "request_sanity": {
+          "must_have": [
+            {
+              "attribute": "material",
+              "expected": "304"
+            }
+          ],
+          "preferred": [],
+          "unknown": [],
+          "contradictions": [],
+          "rfq_questions": [
+            "Please confirm packaging."
+          ]
+        }
+      },
+      "qualification": {
+        "policy": "csc.product-quality.v1",
+        "verdict": "QUALIFIED",
+        "gates": [
+          {
+            "attribute": "product type",
+            "expected": "flat washer",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "model/size",
+            "expected": "M6",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "material",
+            "expected": "304",
+            "observed": "304",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          },
+          {
+            "attribute": "quantity/MOQ/unit",
+            "expected": "500 pcs",
+            "observed": "100 pcs",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          }
+        ],
+        "risks": []
+      },
+      "supplier_identity": {
+        "platform_shop_sid": "b2b-1",
+        "status": "OBSERVED_FROM_ITEM_DETAIL",
+        "distinct_supplier": true
+      },
+      "supplier_profile": {
+        "name": null,
+        "shop_url": null,
+        "status": "UNKNOWN_PROFILE_ENRICHMENT",
+        "unknown_reason": "NOT_ATTEMPTED"
+      },
+      "contact_path": {
+        "state": "NOT_CAPTURED_IN_REPORT"
+      },
+      "published_sales_price": {
+        "amount": "0.01",
+        "currency": "CNY",
+        "unit": "pcs",
+        "price_kind": "SUPPLIER_PUBLISHED_LISTING",
+        "source_url": null,
+        "observed_at": "2026-10-01T18:55:00Z",
+        "moq": {
+          "quantity": 100,
+          "unit": "pcs"
+        },
+        "sku": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "quantity_tiers": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "tax": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "freight": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "orderability": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "supplier_confirmed_rfq_price": {
+          "state": "NOT_RECORDED"
+        }
+      },
+      "company_registration": {
+        "state": "NOT_CAPTURED_IN_REPORT"
+      },
+      "certifications": [],
+      "certification_capture": {
+        "state": "NOT_CAPTURED_IN_STORED_REPORT"
+      }
+    },
+    {
+      "role": "PRIMARY",
+      "label": "RFQ_CANDIDATE",
+      "supplier_id": "b2b-2",
+      "supplier_name": null,
+      "product_title": "304 stainless M6 flat washer supports OEM",
+      "product_url": null,
+      "inclusion_reason": "Observed listing supports the requested product; exact quote and availability still require RFQ",
+      "matches": [
+        {
+          "attribute": "product type",
+          "expected": "flat washer",
+          "observed": "304 stainless M6 flat washer supports OEM"
+        },
+        {
+          "attribute": "model/size",
+          "expected": "M6",
+          "observed": "304 stainless M6 flat washer supports OEM"
+        },
+        {
+          "attribute": "material",
+          "expected": "304",
+          "observed": "304"
+        },
+        {
+          "attribute": "quantity/MOQ/unit",
+          "expected": "500 pcs",
+          "observed": "100 pcs"
+        }
+      ],
+      "mismatches": [],
+      "observed_moq": {
+        "quantity": 100,
+        "unit": "pcs"
+      },
+      "quantity_fit": "MATCH",
+      "unknowns": [
+        "Shop identity is source-observed; registration and production/trade certification fields were not captured in this report",
+        "Supplier-published sales price is recorded with its observed unit; a supplier-confirmed RFQ price has not been recorded",
+        "Supplier display name UNKNOWN",
+        "Supplier profile enrichment UNKNOWN",
+        "Production or trade identity evidence: not captured in this report",
+        "Supplier reply: not recorded; use the candidate listing or shop contact path",
+        "Product link unavailable",
+        "Supplier quotation not requested or confirmed"
+      ],
+      "evidence_source": "Marketplace listing",
+      "observed_at": "2026-10-01T18:55:00Z",
+      "evidence_digest": "5adb8c3d42601f14dc3c467830d23dcc75ffae17236d02c6bb26c6e31b1c3c8e",
+      "supplier_assessment": {
+        "policy": "csc.supplier-discovery.v1",
+        "product_fit": "EXACT_EVIDENCED",
+        "supplier_fit": "STRONG_CANDIDATE",
+        "product_evidence": [
+          {
+            "attribute": "product type",
+            "expected": "flat washer",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "model/size",
+            "expected": "M6",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "material",
+            "expected": "304",
+            "observed": "304",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          },
+          {
+            "attribute": "quantity/MOQ/unit",
+            "expected": "500 pcs",
+            "observed": "100 pcs",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          }
+        ],
+        "supplier_capability_evidence": [
+          "Observed product family/type: 304 stainless M6 flat washer supports OEM",
+          "model/size: 304 stainless M6 flat washer supports OEM",
+          "material: 304",
+          "Advertised material domain supports requested grade/family (not selected variant): 304"
+        ],
+        "customization_evidence": [
+          "304 stainless M6 flat washer supports OEM"
+        ],
+        "uncertainties": [
+          "Shop identity is source-observed; registration and production/trade certification fields were not captured in this report",
+          "Supplier-published sales price is recorded with its observed unit; a supplier-confirmed RFQ price has not been recorded"
+        ],
+        "rfq_questions": [
+          "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+          "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions",
+          "Confirm customization feasibility for the exact drawing/specification",
+          "Confirm actual MOQ, price at requested quantity, stock, and lead time"
+        ],
+        "why_worth_contacting": "Observed listing supports the requested product; exact quote and availability still require RFQ",
+        "request_sanity": {
+          "must_have": [
+            {
+              "attribute": "material",
+              "expected": "304"
+            }
+          ],
+          "preferred": [],
+          "unknown": [
+            "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+            "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+          ],
+          "contradictions": [],
+          "rfq_questions": [
+            "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+            "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+          ]
+        }
+      },
+      "qualification": {
+        "policy": "csc.product-quality.v1",
+        "verdict": "QUALIFIED",
+        "gates": [
+          {
+            "attribute": "product type",
+            "expected": "flat washer",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "model/size",
+            "expected": "M6",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "material",
+            "expected": "304",
+            "observed": "304",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          },
+          {
+            "attribute": "quantity/MOQ/unit",
+            "expected": "500 pcs",
+            "observed": "100 pcs",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          }
+        ],
+        "risks": []
+      },
+      "supplier_identity": {
+        "platform_shop_sid": "b2b-2",
+        "status": "OBSERVED_FROM_ITEM_DETAIL",
+        "distinct_supplier": true
+      },
+      "supplier_profile": {
+        "name": null,
+        "shop_url": null,
+        "status": "UNKNOWN_PROFILE_ENRICHMENT",
+        "unknown_reason": "NOT_ATTEMPTED"
+      },
+      "contact_path": {
+        "state": "NOT_CAPTURED_IN_REPORT"
+      },
+      "published_sales_price": {
+        "amount": "0.01",
+        "currency": "CNY",
+        "unit": "pcs",
+        "price_kind": "SUPPLIER_PUBLISHED_LISTING",
+        "source_url": null,
+        "observed_at": "2026-10-01T18:55:00Z",
+        "moq": {
+          "quantity": 100,
+          "unit": "pcs"
+        },
+        "sku": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "quantity_tiers": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "tax": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "freight": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "orderability": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "supplier_confirmed_rfq_price": {
+          "state": "NOT_RECORDED"
+        }
+      },
+      "company_registration": {
+        "state": "NOT_CAPTURED_IN_REPORT"
+      },
+      "certifications": [],
+      "certification_capture": {
+        "state": "NOT_CAPTURED_IN_STORED_REPORT"
+      }
+    },
+    {
+      "role": "PRIMARY",
+      "label": "RFQ_CANDIDATE",
+      "supplier_id": "b2b-3",
+      "supplier_name": null,
+      "product_title": "304 stainless M6 flat washer supports OEM",
+      "product_url": null,
+      "inclusion_reason": "Observed listing supports the requested product; exact quote and availability still require RFQ",
+      "matches": [
+        {
+          "attribute": "product type",
+          "expected": "flat washer",
+          "observed": "304 stainless M6 flat washer supports OEM"
+        },
+        {
+          "attribute": "model/size",
+          "expected": "M6",
+          "observed": "304 stainless M6 flat washer supports OEM"
+        },
+        {
+          "attribute": "material",
+          "expected": "304",
+          "observed": "304"
+        },
+        {
+          "attribute": "quantity/MOQ/unit",
+          "expected": "500 pcs",
+          "observed": "100 pcs"
+        }
+      ],
+      "mismatches": [],
+      "observed_moq": {
+        "quantity": 100,
+        "unit": "pcs"
+      },
+      "quantity_fit": "MATCH",
+      "unknowns": [
+        "Shop identity is source-observed; registration and production/trade certification fields were not captured in this report",
+        "Supplier-published sales price is recorded with its observed unit; a supplier-confirmed RFQ price has not been recorded",
+        "Supplier display name UNKNOWN",
+        "Supplier profile enrichment UNKNOWN",
+        "Production or trade identity evidence: not captured in this report",
+        "Supplier reply: not recorded; use the candidate listing or shop contact path",
+        "Product link unavailable",
+        "Supplier quotation not requested or confirmed"
+      ],
+      "evidence_source": "Marketplace listing",
+      "observed_at": "2026-10-01T18:55:00Z",
+      "evidence_digest": "5adb8c3d42601f14dc3c467830d23dcc75ffae17236d02c6bb26c6e31b1c3c8e",
+      "supplier_assessment": {
+        "policy": "csc.supplier-discovery.v1",
+        "product_fit": "EXACT_EVIDENCED",
+        "supplier_fit": "STRONG_CANDIDATE",
+        "product_evidence": [
+          {
+            "attribute": "product type",
+            "expected": "flat washer",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "model/size",
+            "expected": "M6",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "material",
+            "expected": "304",
+            "observed": "304",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          },
+          {
+            "attribute": "quantity/MOQ/unit",
+            "expected": "500 pcs",
+            "observed": "100 pcs",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          }
+        ],
+        "supplier_capability_evidence": [
+          "Observed product family/type: 304 stainless M6 flat washer supports OEM",
+          "model/size: 304 stainless M6 flat washer supports OEM",
+          "material: 304",
+          "Advertised material domain supports requested grade/family (not selected variant): 304"
+        ],
+        "customization_evidence": [
+          "304 stainless M6 flat washer supports OEM"
+        ],
+        "uncertainties": [
+          "Shop identity is source-observed; registration and production/trade certification fields were not captured in this report",
+          "Supplier-published sales price is recorded with its observed unit; a supplier-confirmed RFQ price has not been recorded"
+        ],
+        "rfq_questions": [
+          "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+          "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions",
+          "Confirm customization feasibility for the exact drawing/specification",
+          "Confirm actual MOQ, price at requested quantity, stock, and lead time"
+        ],
+        "why_worth_contacting": "Observed listing supports the requested product; exact quote and availability still require RFQ",
+        "request_sanity": {
+          "must_have": [
+            {
+              "attribute": "material",
+              "expected": "304"
+            }
+          ],
+          "preferred": [],
+          "unknown": [
+            "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+            "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+          ],
+          "contradictions": [],
+          "rfq_questions": [
+            "Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed",
+            "Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions"
+          ]
+        }
+      },
+      "qualification": {
+        "policy": "csc.product-quality.v1",
+        "verdict": "QUALIFIED",
+        "gates": [
+          {
+            "attribute": "product type",
+            "expected": "flat washer",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "model/size",
+            "expected": "M6",
+            "observed": "304 stainless M6 flat washer supports OEM",
+            "verdict": "MATCH",
+            "source": "TITLE"
+          },
+          {
+            "attribute": "material",
+            "expected": "304",
+            "observed": "304",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          },
+          {
+            "attribute": "quantity/MOQ/unit",
+            "expected": "500 pcs",
+            "observed": "100 pcs",
+            "verdict": "MATCH",
+            "source": "DETAIL_PROPERTIES"
+          }
+        ],
+        "risks": []
+      },
+      "supplier_identity": {
+        "platform_shop_sid": "b2b-3",
+        "status": "OBSERVED_FROM_ITEM_DETAIL",
+        "distinct_supplier": true
+      },
+      "supplier_profile": {
+        "name": null,
+        "shop_url": null,
+        "status": "UNKNOWN_PROFILE_ENRICHMENT",
+        "unknown_reason": "NOT_ATTEMPTED"
+      },
+      "contact_path": {
+        "state": "NOT_CAPTURED_IN_REPORT"
+      },
+      "published_sales_price": {
+        "amount": "0.01",
+        "currency": "CNY",
+        "unit": "pcs",
+        "price_kind": "SUPPLIER_PUBLISHED_LISTING",
+        "source_url": null,
+        "observed_at": "2026-10-01T18:55:00Z",
+        "moq": {
+          "quantity": 100,
+          "unit": "pcs"
+        },
+        "sku": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "quantity_tiers": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "tax": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "freight": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "orderability": {
+          "state": "NOT_CAPTURED_IN_REPORT"
+        },
+        "supplier_confirmed_rfq_price": {
+          "state": "NOT_RECORDED"
+        }
+      },
+      "company_registration": {
+        "state": "NOT_CAPTURED_IN_REPORT"
+      },
+      "certifications": [],
+      "certification_capture": {
+        "state": "NOT_CAPTURED_IN_STORED_REPORT"
+      }
+    }
+  ],
+  "promising_candidates": [],
+  "exclusion_summary": [],
+  "next_action": {
+    "type": "LIVE_RFQ_COMPARE",
+    "service_id": "live_rfq_compare_v0",
+    "price_usd": 19.9,
+    "response_window_hours": 72,
+    "max_suppliers": 3,
+    "rfq_count": 1,
+    "execution": "HUMAN_OPERATED_SUPPLIER_OUTREACH",
+    "rfq_draft": "Subject: RFQ for 304 stainless M6 flat washer (M6)\n\nHello,\n\nPlease quote the following product:\nProduct: 304 stainless M6 flat washer\nModel/reference: M6\nQuantity: 500 pcs\nMust-have requirements:\n- material: 304\nSubstitutions: Not permitted\nSource/reference: None supplied\n\nPlease confirm unit price at the stated quantity, MOQ, sample availability, production lead time, customization options, packaging and payment terms. Please identify any unmet requirement.\n\nThank you.\n\nEvidence gaps to confirm:\n- Confirm selected variant, pack quantity, unit price at requested quantity, current stock and lead time; these have not been supplier-confirmed\n- Confirm flat-washer standard, outer diameter and thickness; M size alone does not define these dimensions\n- Confirm customization feasibility for the exact drawing/specification\n- Confirm actual MOQ, price at requested quantity, stock, and lead time",
+    "rfq_digest": "b7ea1f10a524ac92ce73c1dd0c0140826d7dd8e70d0aee3a18c8cdba6ea625fe",
+    "customer_editable": true,
+    "selected_supplier_ids": [],
+    "availability": "FUTURE_NOT_ENABLED"
+  },
+  "projection_digest": "07346bf43a05cbb0ecb662454bc45aae410b7702217045c7257f26f6b4ab7795"
+}

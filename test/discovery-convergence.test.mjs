@@ -35,11 +35,12 @@ test('legacy entry redirects are explicit 301 and history stays noindex outside 
 });
 test('new and revised navigation has no dead internal destination',()=>{
  const redirects=new Set(JSON.parse(read('.next/routes-manifest.json')).redirects.map(x=>x.source));
+ const compiledPages=new Set(Object.keys(JSON.parse(read('.next/server/app-paths-manifest.json'))).filter(x=>x.endsWith('/page')).map(x=>x.replace(/\/\([^/]+\)/g,'').replace(/\/page$/,'')));
  for(const route of changedRoutes)for(const href of hrefs(html(route))){
   if(!href.startsWith('/')||href.startsWith('//')||href.startsWith('/_next/'))continue;
   const path=href.split(/[?#]/)[0];
   const stem=root+(path==='/'?'index':path.slice(1));
-  assert.ok(existsSync(new URL('../'+stem+'.html',import.meta.url))||existsSync(new URL('../'+stem+'.body',import.meta.url))||existsSync(new URL('../public'+path,import.meta.url))||redirects.has(path),route+' -> '+href);
+  assert.ok(existsSync(new URL('../'+stem+'.html',import.meta.url))||existsSync(new URL('../'+stem+'.body',import.meta.url))||existsSync(new URL('../public'+path,import.meta.url))||redirects.has(path)||compiledPages.has(path),route+' -> '+href);
  }
 });
 test('localized home product CTA and metadata match current commercial identity',()=>{
