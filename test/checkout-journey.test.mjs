@@ -23,7 +23,7 @@ test('public entry is frozen OFF in both page and server',async()=>{
  const html=renderToStaticMarkup(React.createElement(CheckoutEntry,{enabled:publicCardEntryEnabled}));
  assert.match(html,/card purchases are not open yet/);assert.doesNotMatch(html,/Confirm brief &amp; continue to Stripe/);
  for(const op of ['card-session','card-prepare','card-order','session']){
-  let calls=0;const r=await checkoutProxy(request({enabled:true,live:true}),op,async()=>{calls++;throw Error();});
+  let calls=0;const r=await checkoutProxy(request({enabled:true,live:true},{cookie:""}),op,async()=>{calls++;throw Error();});
   assert.equal(r.status,503);assert.equal(calls,0);
  }
 });

@@ -1,10 +1,10 @@
 'use client';
 import { useState } from 'react';
-import { orderPointerKey, intentKey, isOrderPointer } from '@/lib/checkout-contract';
-export function CheckoutEntry({enabled}:{enabled:boolean}){
-  const [draft,setDraft]=useState<Record<string,unknown>|null>(null),[digest,setDigest]=useState('');
+import { orderPointerKey, intentKey, isOrderPointer, type PrivatePurchaseContext } from '@/lib/checkout-contract';
+export function CheckoutEntry({enabled,privatePurchase}:{enabled:boolean;privatePurchase?:PrivatePurchaseContext}){
+  const [draft,setDraft]=useState<Record<string,unknown>|null>(privatePurchase?.draft??null),[digest,setDigest]=useState(privatePurchase?.draft_digest??'');
   const [busy,setBusy]=useState(false),[message,setMessage]=useState('');
-  const [review,setReview]=useState(false);
+  const [review,setReview]=useState(!!privatePurchase);
   async function api(path:string,body:unknown){
     const r=await fetch('/checkout/stripe/'+path,{method:'POST',credentials:'same-origin',cache:'no-store',
       headers:{'content-type':'application/json','x-seekapi-card-claim':'1'},body:JSON.stringify(body),signal:AbortSignal.timeout(10000)});
@@ -30,10 +30,11 @@ export function CheckoutEntry({enabled}:{enabled:boolean}){
     if(!enabled||!draft||!digest||busy)return;
     setBusy(true);setMessage('');
     try{
-      const intent=sessionStorage.getItem(intentKey);if(!intent)throw Error('STORAGE');
+      const intent=privatePurchase?.intent_id??sessionStorage.getItem(intentKey);if(!intent)throw Error('STORAGE');
+      if(privatePurchase)sessionStorage.setItem(intentKey,intent);
       const saved=sessionStorage.getItem('seekapi.checkout.confirmation.v1');
-      const payload=saved?JSON.parse(saved):{intent_id:intent,draft,draft_digest:digest,customer_confirmed_digest:digest,confirmed_at:new Date().toISOString()};
-      if(payload.draft_digest!==digest)throw Error('PREVIOUS_CONFIRMATION');
+      const payload=saved?JSON.parse(saved):{intent_id:intent,draft,draft_digest:digest,customer_confirmed_digest:digest,confirmed_at:privatePurchase?.confirmed_at??new Date().toISOString()};
+      if(payload.draft_digest!==digest||payload.intent_id!==intent||(privatePurchase&&payload.confirmed_at!==privatePurchase.confirmed_at))throw Error('PREVIOUS_CONFIRMATION');
       if(!saved)sessionStorage.setItem('seekapi.checkout.confirmation.v1',JSON.stringify(payload));
       const order=await api('card-order',payload);if(!isOrderPointer(order.order_id))throw Error('ORDER');
       sessionStorage.setItem(orderPointerKey,order.order_id);
@@ -54,7 +55,10 @@ export function CheckoutEntry({enabled}:{enabled:boolean}){
       <label>Unit<input name="unit" required maxLength={32} defaultValue="pieces"/></label>
       <label>Must-have specification <span>(optional)</span><textarea name="specs" maxLength={100} placeholder="For example, 304 stainless steel"/></label>
       <button className="button" disabled={busy} type="submit">{busy?'Preparing…':'Review your brief'}</button>
-    </form>:<div className="checkout-review"><h2>Review your supply check</h2><p><strong>{String(draft?.product_name)}</strong> · {String(draft?.quantity)} {String(draft?.unit)}</p><p>Must-have specification: {String((draft?.must_match as {expected:string}[]|undefined)?.[0]?.expected||"None added")}</p><p>Exact product requested; substitutions are not permitted.</p><p className="checkout-price">USD $2.99</p><p>One supply check. No subscription. Supplier outreach and a confirmed supplier quotation are separate steps.</p>
+    </form>:<div className="checkout-review"><h2>Review your supply check</h2><p><strong>{String(draft?.product_name)}</strong> · {String(draft?.quantity)} {String(draft?.unit)}</p><p>Search brief: {String((draft?.input as {text?:string;model?:string}|undefined)?.text??(draft?.input as {model?:string}|undefined)?.model??'')}</p>
+      {draft?.model_or_reference!=null&&<p>Model or reference: {String(draft.model_or_reference)}</p>}
+      <h3>Must-have requirements</h3>
+      {(draft?.must_match as {attribute:string;expected:string}[]|undefined)?.length?<ul>{(draft!.must_match as {attribute:string;expected:string}[]).map((item,index)=><li key={index}><strong>{item.attribute}:</strong> {item.expected}</li>)}</ul>:<p>None added.</p>}<p>Exact product requested; substitutions are not permitted.</p><p className="checkout-price">USD $2.99</p><p>One supply check. No subscription. Supplier outreach and a confirmed supplier quotation are separate steps.</p>
       {enabled?<button className="button" disabled={busy} onClick={pay}>{busy?'Opening securely…':'Confirm brief & continue to Stripe'}</button>:<p>Card checkout is not open yet. Contact us for help with this brief.</p>}
       <p><a className="text-link" href="mailto:support@seekapi.ai?subject=China%20Supply%20Check%20purchase">Contact support</a></p>
     </div>}

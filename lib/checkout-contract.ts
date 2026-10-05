@@ -73,3 +73,25 @@ export function customerReport(raw:unknown){
   };
 }
 export type CustomerReport = NonNullable<ReturnType<typeof customerReport>>;
+
+export type PrivatePurchaseContext = { draft: Record<string,unknown>; draft_digest: string;
+  intent_id: string; confirmed_at: string; payment_available: boolean };
+/** Display contract only; the backend independently authenticates and freezes every field. */
+export function privatePurchaseContext(raw:unknown):PrivatePurchaseContext|null{
+  if(!raw||typeof raw!=="object")return null;
+  const x=raw as Record<string,unknown>,d=x.draft as Record<string,unknown>|null;
+  const input=d?.input as Record<string,unknown>|null;
+  if(!d||typeof d!=="object"||typeof d.product_name!=="string"||d.product_name.length>200
+    ||!input||typeof input!=="object"||Array.isArray(input)||Object.keys(input).length!==1
+    ||!((typeof input.text==="string"&&input.text.length>0&&input.text.length<=200)||(typeof input.model==="string"&&input.model.length>0&&input.model.length<=200))
+    ||!(d.model_or_reference===null||(typeof d.model_or_reference==="string"&&d.model_or_reference.length<=200))
+    ||typeof d.quantity!=="number"||!Number.isSafeInteger(d.quantity)||d.quantity<1
+    ||typeof d.unit!=="string"||d.unit.length>32||d.substitution_allowed!==false
+    ||!Array.isArray(d.must_match)||d.must_match.length>5
+    ||d.must_match.some(y=>!y||typeof y.attribute!=="string"||typeof y.expected!=="string"||y.attribute.length>100||y.expected.length>100)
+    ||typeof x.draft_digest!=="string"||!/^[0-9a-f]{64}$/.test(x.draft_digest)
+    ||typeof x.intent_id!=="string"||!/^[0-9a-f-]{36}$/.test(x.intent_id)
+    ||typeof x.confirmed_at!=="string"||!Number.isFinite(Date.parse(x.confirmed_at))
+    ||typeof x.payment_available!=="boolean")return null;
+  return {draft:d,draft_digest:x.draft_digest,intent_id:x.intent_id,confirmed_at:x.confirmed_at,payment_available:x.payment_available};
+}
