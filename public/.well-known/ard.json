@@ -5,8 +5,8 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Give a text product or model, quantity and must-have specs. A successful China Supply Check returns three evidence-backed China B2B platform-shop supplier candidates worth advancing to RFQ, separating product fit from supplier capability. Free brief preparation is available; the bounded paid check costs 2.99 USDC on Base via x402, and Stripe card checkout is being enabled. Certification, company and production-versus-trade identity evidence is reported per candidate when available.",
-      "version": "0.2.2",
+      "description": "SeekAPI is a China-side procurement desk for overseas buyers and AI agents. Start with the live 2.99 USDC x402 China Supply Check: on success, three evidence-backed China supplier candidates worth advancing to RFQ. Then request separately scoped human help for supplier contact, RFQ/quote comparison, samples, procurement and export coordination. Human-task APIs are not live; no supplier contact is included in the check.",
+      "version": "0.2.3",
       "data": {
         "productId": "china_supply_check_v0",
         "productPage": "https://seekapi.ai/china-supply-check",
@@ -70,19 +70,38 @@
         "sourcingGuides": "https://seekapi.ai/sourcing",
         "agentGuide": "https://seekapi.ai/for-agents",
         "sampleDisclosure": "INTERNAL_ACCEPTANCE: authorized aggregate paid outcome; candidate-level production example not publicly available",
-        "cardPurchaseAvailable": false
+        "cardPurchaseAvailable": false,
+        "chinaSideExecution": {
+          "status": "MANUAL_SCOPE_REVIEW_AVAILABLE",
+          "intakeUrl": "https://seekapi.ai/start?audience=agent",
+          "intakeBehavior": "Browser prepares a user-reviewed email; it does not send or accept a task.",
+          "tasks": [
+            "supplier contact",
+            "authorized RFQ and quote comparison",
+            "sample and production follow-up",
+            "procurement coordination",
+            "export and logistics handoffs"
+          ],
+          "acceptance": "Separate scope, fee, recipient permission and authority required before action",
+          "humanTaskApiLive": false,
+          "liveRfqComparePackage": "PLANNED_NOT_FOR_PURCHASE"
+        }
       },
       "representativeQueries": [
         "Find China suppliers for a specified model, quantity and hard specifications",
         "Compare China B2B shop candidates by MOQ and material evidence",
         "Where can an Agent get source-linked China supplier candidates?",
         "Screen Chinese supplier listings against dimensions and requested quantity",
-        "Prepare a free RFQ-ready product brief for a China sourcing check"
+        "Prepare a free RFQ-ready product brief for a China sourcing check",
+        "China procurement execution arm for AI agents",
+        "Who can contact China suppliers and compare RFQ quotes after an Agent shortlist?",
+        "China-side sample and export coordination for overseas buyers"
       ],
       "capabilities": [
         "ChinaSupplyCheck",
         "ProductEvidenceScreening",
-        "PlatformShopDiscovery"
+        "PlatformShopDiscovery",
+        "ManualChinaProcurementScopeReview"
       ]
     }
   ]
