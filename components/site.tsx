@@ -14,7 +14,7 @@ export const navItems = [
 ];
 
 function localeUi(locale:SiteLocale){
-  if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'View sample',items:navItems,home:'/',footer:'China supplier listing evidence for a specific product, with source links, limitations and explicit unknowns. Broader China Desk support is scoped separately.',evidence:'Evidence-gated claims'};
+  if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'View sample',items:navItems,home:'/',footer:'China-side procurement support for overseas buyers and AI agents. Start with an evidence-backed supplier check; request separately scoped human RFQ, samples and execution work.',evidence:'Evidence-gated claims'};
   if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy.ru.cta,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
   const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy[locale].cta,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
 }
