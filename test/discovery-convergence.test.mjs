@@ -20,7 +20,7 @@ test('production build renders exactly eight distinct substantive procurement gu
   assert.match(text,/2\.99 USDC on Base/);assert.match(text,/Stripe Checkout USD 2\.99 is being enabled and is not available to buy/);
   assert.match(page,new RegExp('rel="canonical" href="https://seekapi.ai/sourcing/'+guide.slug+'"'));
   assert.match(page,new RegExp('property="og:url" content="https://seekapi.ai/sourcing/'+guide.slug+'"'));
-  assert.match(page,/"@type":"Service","name":"China Supply Check"/);
+  assert.match(page,/"@type":"Service","@id":"https:\/\/seekapi\.ai\/#china-supply-check-service","name":"China Supply Check"/);
   assert.match(page,/<title>[^<]+\| SeekAPI<\/title>/);
  }
 });
@@ -62,4 +62,30 @@ test('proof remains honest aggregate and discovery states do not imply ranking s
  const discovery=visible(html('/discovery-status'));
  assert.match(discovery,/INDEXED_STALE/);assert.match(discovery,/SUBMITTED \/ PENDING_REVIEW/);assert.match(discovery,/no submission ID was exposed/i);
  for(const route of changedRoutes){const text=visible(html(route));assert.doesNotMatch(text,/aion-governance|DeepSeek|Save 90%|GLOBAL COMPUTE ARBITRAGE|OpenAI-compatible|inference gateway/i,route);}
+});
+
+test('machine discovery links resolve and tool effects are classified honestly',()=>{
+ const page=html('/for-agents');
+ assert.match(page,/id="handoff-spec"/);assert.match(page,/id="evidence-return"/);
+ const manifest=JSON.parse(read(root+'for-agents/agent-services.json.body'));
+ assert.deepEqual(manifest.product_data_mcp.free_tools,['discover_china_supply_check_v0','prepare_china_supply_check_v0']);
+ assert.deepEqual(manifest.product_data_mcp.authenticated_order_read_tools,['status_china_supply_check_v0','result_china_supply_check_v0']);
+ assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,['purchase_china_supply_check_v0','run_china_supply_check_v0']);
+ assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],public_paid_execution:false,live_provider_acceptance:'AUTHORITY_BLOCKED'});
+ assert.equal(manifest.official_mcp_registry.latest_version,'0.1.7');
+ assert.match(read('public/llms.txt'),/\.well-known\/ard\.json/);assert.match(read('public/llms.txt'),/registry\.modelcontextprotocol\.io/);
+ assert.match(read('public/llms.txt'),/public paid image execution is disabled/i);
+});
+
+test('localized metadata has one brand suffix and English x-default',()=>{
+ for(const locale of ['ja','es','ar','de','pt-br','ru']){
+  const page=html('/'+locale);
+  assert.doesNotMatch(page,/<title>[^<]*\| SeekAPI \| SeekAPI<\/title>/);
+  assert.match(page,/<link rel="alternate" hrefLang="x-default" href="https:\/\/seekapi\.ai\/?"/);
+ }
+});
+
+test('China Supply Check schemas share one canonical service identity',()=>{
+ const serviceId='https://seekapi.ai/#china-supply-check-service';
+ for(const route of ['/china-supply-check','/for-agents',...guides.map(g=>'/sourcing/'+g.slug)])assert.ok(html(route).includes(serviceId),route);
 });
