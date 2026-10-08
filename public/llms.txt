@@ -2,7 +2,7 @@
 
 SeekAPI is a China-side procurement desk. It helps find and screen China suppliers for a specified product, quantity and requirements. A successful China Supply Check returns three distinct evidence-backed China supplier candidates worth advancing to RFQ. Supplier RFQ-worthiness is separate from exact product qualification. Reports preserve observed price basis, MOQ fit, available identity evidence, source/time and field-specific unknowns; unsupported shortages are reported honestly.
 
-Current payment: x402 live, 2.99 USDC on Base. Stripe Checkout USD 2.99 is being enabled and is not available to purchase. Free discovery and brief preparation use MCP. The existing confirmed purchase/run path is documented by live discovery. Status/result require independent signed-wallet authentication bound to the settled order. Supplier contact and RFQ execution are not included in the check.
+Current payment: x402 live, 2.99 USDC on Base for the text/model path. Stripe Checkout USD 2.99 is being enabled and is not available to purchase. Free discovery and brief preparation use MCP. Bounded PNG reference-image preparation is available with no payment or Provider effect; public paid image execution is disabled pending separate live Provider acceptance. Do not purchase on the assumption that an image-only request will run. The existing confirmed text/model purchase/run path is documented by live discovery. Status/result require independent signed-wallet authentication bound to the settled order. Supplier contact and RFQ execution are not included in the check.
 
 ## Continue after the shortlist
 A buyer or Agent may request a separate human scope review for contacting selected suppliers, an authorized RFQ and real quote comparison, sample or production follow-up, procurement coordination and China-side export/logistics handoffs. SeekAPI can take on agreed tasks after scope, fee, recipient permissions and authority are confirmed. This is a manual request and acceptance path, not a live autonomous human-task API. The proposed USD 19.90 Live RFQ Compare package is not currently open for purchase; no fixed price is advertised for other scoped work.
@@ -16,6 +16,8 @@ A buyer or Agent may request a separate human scope review for contacting select
 - Public paid acceptance example: https://seekapi.ai/china-supply-check/sample
 - MCP guide: https://seekapi.ai/for-agents
 - Streamable HTTP MCP: https://api.seekapi.ai/mcp
+- Agent Resource Discovery document: https://seekapi.ai/.well-known/ard.json
+- Official MCP Registry latest record: https://registry.modelcontextprotocol.io/v0.1/servers/io.github.kiddhu%2Fseekapi/versions/latest
 - Current entity: https://seekapi.ai/about
 - Directory status: https://seekapi.ai/discovery-status
 - Sourcing guide index: https://seekapi.ai/sourcing

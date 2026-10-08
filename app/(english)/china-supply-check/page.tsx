@@ -11,6 +11,7 @@ export const metadata = pageMetadata(
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
+  '@id': 'https://seekapi.ai/#china-supply-check-service',
   name: 'SeekAPI China Supply Check',
   serviceType: 'China supplier listing comparison',
   url: 'https://seekapi.ai/china-supply-check',
