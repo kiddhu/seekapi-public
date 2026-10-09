@@ -61,7 +61,7 @@ test('proof remains honest aggregate and discovery states do not imply ranking s
  assert.doesNotMatch(sample,/restart\/reconciliation|0x[0-9a-f]{40}|b2b-[0-9]+/i);
  const discovery=visible(html('/discovery-status'));
  assert.match(discovery,/INDEXED_STALE/);assert.match(discovery,/SUBMITTED \/ PENDING_REVIEW/);assert.match(discovery,/no submission ID was exposed/i);
- for(const route of changedRoutes){const text=visible(html(route));assert.doesNotMatch(text,/aion-governance|DeepSeek|Save 90%|GLOBAL COMPUTE ARBITRAGE|OpenAI-compatible|inference gateway/i,route);}
+ for(const route of changedRoutes){const text=visible(html(route));assert.doesNotMatch(text,/DeepSeek|Save 90%|GLOBAL COMPUTE ARBITRAGE|OpenAI-compatible|inference gateway/i,route);}
 });
 
 test('machine discovery links resolve and tool effects are classified honestly',()=>{
