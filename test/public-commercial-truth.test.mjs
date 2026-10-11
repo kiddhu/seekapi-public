@@ -69,3 +69,22 @@ test('discovery ledger reports actual current official Registry publication obse
  assert.match(body,/active 0\.1\.9/);assert.match(body,/2026-10-11/);
  assert.doesNotMatch(body,/v0\.1\.7 observed before this release|Prior dated readback returned active 0\.1\.7/);
 });
+
+// The rendered coverage heading must name its own evidence source; surrounding
+// disclaimers cannot repair a heading that attributes it to the paid acceptance.
+test('coverage section labels its separate benchmark source before measured fields',()=>{
+ const html=read('.next/server/app/china-supply-check/sample.html');
+ const marker=html.indexOf('What was actually captured for three distinct platform shops');
+ assert.ok(marker>0);
+ const section=html.slice(html.lastIndexOf('<section',marker),html.indexOf('</section>',marker));
+ const headings=[...section.matchAll(/class="eyebrow"[^>]*>([^<]+)/g)].map(x=>x[1]);
+ assert.deepEqual(headings,['Measured evidence coverage · PROVIDER_ONLY_BENCHMARK']);
+ assert.match(visible(section),/not the paid acceptance order/i);
+ assert.match(visible(section),/benchmark did not pass overall/);
+});
+test('discovery surface preserves failed baseline without an unbound ranking claim',()=>{
+ const body=visible(read('.next/server/app/discovery-status.html'));
+ assert.doesNotMatch(body,/rank 1|rank #1|ranked first/i);
+ assert.match(body,/ranking is UNKNOWN/i);
+ assert.match(body,/zero observed canonical CSC page or listing hits/i);
+});
