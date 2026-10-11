@@ -72,7 +72,7 @@ test('machine discovery links resolve and tool effects are classified honestly',
  assert.deepEqual(manifest.product_data_mcp.authenticated_order_read_tools,['status_china_supply_check_v0','result_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,['purchase_china_supply_check_v0','run_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],public_paid_execution:false,purchase_state:'PUBLIC_OFF'});
- assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.8');
+ assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.9');
  assert.match(read('public/llms.txt'),/\.well-known\/ard\.json/);assert.match(read('public/llms.txt'),/registry\.modelcontextprotocol\.io/);
  assert.match(read('public/llms.txt'),/public image purchase is OFF/i);
 });
