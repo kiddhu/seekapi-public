@@ -56,3 +56,16 @@ test('public API and supplier guide expose no owner-only search price or payer t
   assert.match(body,/2\.99 USDC/);assert.match(body,/credit-card checkout is OFF/i);
  }
 });
+
+test('proof entrance links current measured evidence and distinguishes demonstration from customer proof',()=>{
+ const html=read('.next/server/app/proof.html');const body=visible(html);
+ assert.ok(html.includes('/china-supply-check/sample'));
+ assert.ok(html.includes('/china-supply-check-field-coverage.json'));
+ assert.match(body,/provider-only benchmark/i);assert.match(body,/not an independent customer case/i);
+ assert.match(body,/0 of 3/);assert.match(body,/credit-card checkout is OFF/i);
+});
+test('discovery ledger reports actual current official Registry publication observation',()=>{
+ const body=visible(read('.next/server/app/discovery-status.html'));
+ assert.match(body,/active 0\.1\.9/);assert.match(body,/2026-10-11/);
+ assert.doesNotMatch(body,/v0\.1\.7 observed before this release|Prior dated readback returned active 0\.1\.7/);
+});
