@@ -326,11 +326,11 @@ export const procurementIntents: ProcurementIntent[] = [
     "sections": [
       {
         "title": "Discover and prepare before spending",
-        "body": "Use https://api.seekapi.ai/mcp with a standard MCP client. Initialize and list tools, then call discover_china_supply_check_v0 with empty arguments. prepare_china_supply_check_v0 normalizes the product brief. Review the exact draft and digest with the buyer or delegated agent before proceeding. Discovery and preparation are free."
+        "body": "Use https://api.seekapi.ai/mcp with a standard MCP client. Initialize and list tools, then call discover_china_supply_check_v0 with empty arguments. prepare_china_supply_check_v0 normalizes the product brief. Review the exact draft and digest with the buyer or delegated agent before proceeding. Discovery and preparation are free. Before authorizing payment, check the published price, the current payment route and the prepared requirements. Confirm whether dimensions, material and quantity are mandatory; preserve any unknowns for the supplier RFQ."
       },
       {
         "title": "Preserve confirmation and access boundaries",
-        "body": "The existing purchase_china_supply_check_v0 and run_china_supply_check_v0 flow requires separate scope and payment confirmation. The current x402 price is 2.99 USDC on Base; Stripe Checkout USD 2.99 is being enabled and is not live. status_china_supply_check_v0 and result_china_supply_check_v0 require independent signed-wallet authentication bound to the settled order."
+        "body": "The existing purchase_china_supply_check_v0 and run_china_supply_check_v0 flow requires separate scope and payment confirmation. The current x402 price is 2.99 USDC on Base; Public credit-card checkout is OFF and is not live. status_china_supply_check_v0 and result_china_supply_check_v0 require independent signed-wallet authentication bound to the settled order."
       }
     ],
     "evidence": [
@@ -408,7 +408,7 @@ export const procurementIntents: ProcurementIntent[] = [
       "Keep unknowns distinct from false, zero or an empty commercial claim.",
       "Use signed-wallet authentication for current order reads; never treat an ID as a credential."
     ],
-    "unknowns": "Separate raw product-data capabilities can have different prices and access states. Their 0.022 USDC keyword-search terms do not describe China Supply Check. Read each capability's current discovery contract.",
+    "unknowns": "Raw product-data capabilities are not available for public purchase and do not describe China Supply Check. Read the current sourcing discovery contract for supported inputs, payment and delivery states.",
     "links": [
       [
         "/for-agents",

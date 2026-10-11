@@ -10,7 +10,7 @@ test('current linked CSC routes preserve paid-on and card-not-live truth', () =>
  }
  for (const path of current.slice(1,3)) {
   assert.match(source(path), /live via x402 at 2.99 USDC/, path);
-  assert.match(source(path), /Stripe Checkout USD 2.99 is being enabled/, path);
+  assert.match(source(path), /Public credit-card checkout is OFF/, path);
  }
 });
 test('supplier RFQ-worthiness never implies three exact product-qualified offers', () => {
