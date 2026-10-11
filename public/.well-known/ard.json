@@ -126,7 +126,7 @@
             ]
           },
           "versions": {
-            "registry_package_version": "0.1.8",
+            "registry_package_version": "0.1.9",
             "mcp_server_version": "0.1.2",
             "csc_contract_version": "seekapi.csc-public-contract.v2",
             "commercial_state_version": "2026-10-11.1"
@@ -147,14 +147,14 @@
           }
         },
         "versions": {
-          "registry_package_version": "0.1.8",
+          "registry_package_version": "0.1.9",
           "mcp_server_version": "0.1.2",
           "csc_contract_version": "seekapi.csc-public-contract.v2",
           "commercial_state_version": "2026-10-11.1"
         },
         "contract_updated_at": "2026-10-11T03:00:00Z",
         "observed_at": "2026-10-11T03:00:00Z",
-        "registryPackageVersion": "0.1.8"
+        "registryPackageVersion": "0.1.9"
       },
       "representativeQueries": [
         "Find China suppliers for a specified model, quantity and hard specifications",

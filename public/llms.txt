@@ -35,5 +35,5 @@ A buyer or Agent may request a separate human scope review for contacting select
 
 The acceptance example is INTERNAL_ACCEPTANCE, not an independent customer testimonial. It contains the authorized aggregate outcome of a completed paid check, not candidate-level production supplier rows. Historical examples are separate and archived.
 
-Version namespaces: Registry package 0.1.8; MCP server 0.1.2; CSC contract seekapi.csc-public-contract.v2; commercial state 2026-10-11.1. Contract updated 2026-10-11T03:00:00Z. Package versions describe components, not proof of indexing; check the official Registry latest endpoint.
+Version namespaces: Registry package 0.1.9; MCP server 0.1.2; CSC contract seekapi.csc-public-contract.v2; commercial state 2026-10-11.1. Contract updated 2026-10-11T03:00:00Z. Package versions describe components, not proof of indexing; check the official Registry latest endpoint.
 Current measured field coverage: https://seekapi.ai/china-supply-check-field-coverage.json — INTERNAL_ACCEPTANCE / provider-only benchmark, not a paid customer order or testimonial. Three distinct selected suppliers in the shown subset; the full five-case benchmark includes two shortages. Listing prices are observations, not supplier-confirmed RFQ quotes. Quantity-tier match is UNKNOWN without a recorded tier.
