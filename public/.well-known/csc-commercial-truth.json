@@ -38,7 +38,7 @@
     ]
   },
   "versions": {
-    "registry_package_version": "0.1.8",
+    "registry_package_version": "0.1.9",
     "mcp_server_version": "0.1.2",
     "csc_contract_version": "seekapi.csc-public-contract.v2",
     "commercial_state_version": "2026-10-11.1"
