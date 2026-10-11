@@ -1,0 +1,187 @@
+{
+  "schema_version": "seekapi.public-source-observations.v1",
+  "evidence_kind": "INTERNAL_PROVIDER_ONLY_BENCHMARK",
+  "publication_scope": "PUBLIC_SOURCE_OBSERVATIONS_ONLY",
+  "disclaimer": "These rows are public source observations from an internal provider-only benchmark. They are not supplier recommendations, verified quotations, confirmed manufacturers, or completed RFQ candidates.",
+  "benchmark_observed_at": "2026-10-09T10:28:14.240Z",
+  "qualification_summary": {
+    "strict_product_model_material_confirmation": {
+      "confirmed": 0,
+      "total": 3
+    },
+    "observed_specification_signals": {
+      "observed": 3,
+      "total": 3
+    },
+    "final_qualification": {
+      "status": "UNKNOWN",
+      "unknown": 3,
+      "total": 3
+    },
+    "five_case_benchmark_overall": "NOT_PASS"
+  },
+  "rows": [
+    {
+      "product": {
+        "short_title": "304不锈钢平垫金属垫圈加大介子螺丝加厚圆形不锈钢垫片M4m5m6m8",
+        "public_id": "876803043112",
+        "source_url": "https://detail.1688.com/offer/876803043112.html"
+      },
+      "shop": {
+        "display_name": "UNKNOWN",
+        "public_id": "b2b-220691320759005447",
+        "source_url": "UNKNOWN"
+      },
+      "observed_at": "2026-10-07T17:30:00.653Z",
+      "observed_facts": {
+        "observed_listing_price": {
+          "amount": "0.01",
+          "currency": "CNY",
+          "unit": "件",
+          "supplier_confirmation": "UNKNOWN"
+        },
+        "observed_minimum_order_quantity": {
+          "quantity": 1,
+          "unit": "件"
+        }
+      },
+      "observed_specification_signals": [
+        {
+          "attribute": "product type",
+          "observation": "304不锈钢平垫金属垫圈加大介子螺丝加厚圆形不锈钢垫片M4m5m6m8",
+          "confirmation_status": "UNKNOWN"
+        },
+        {
+          "attribute": "model/size",
+          "observation": "304不锈钢平垫金属垫圈加大介子螺丝加厚圆形不锈钢垫片M4m5m6m8",
+          "confirmation_status": "UNKNOWN"
+        },
+        {
+          "attribute": "material",
+          "observation": "304不锈钢",
+          "confirmation_status": "UNKNOWN"
+        }
+      ],
+      "missing_evidence": [
+        "STRICT_PRODUCT_MODEL_MATERIAL_CONFIRMATION",
+        "COMPANY_REGISTRATION",
+        "MANUFACTURER_OR_TRADER_IDENTITY",
+        "CERTIFICATION",
+        "QUANTITY_PRICE_TIER",
+        "SUPPLIER_CONFIRMED_QUOTE",
+        "PUBLIC_SHOP_DISPLAY_NAME",
+        "PUBLIC_SHOP_SOURCE_URL"
+      ],
+      "qualification_status": "UNKNOWN",
+      "evidence_status": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "product": {
+        "short_title": "304不锈钢沉头螺丝碗型垫圈实心锥型凹凸装饰鱼眼垫片M3M4M5M6M8",
+        "public_id": "768495653666",
+        "source_url": "https://detail.1688.com/offer/768495653666.html"
+      },
+      "shop": {
+        "display_name": "UNKNOWN",
+        "public_id": "b2b-2217314326357a0afc",
+        "source_url": "UNKNOWN"
+      },
+      "observed_at": "2026-10-09T10:28:14.173Z",
+      "observed_facts": {
+        "observed_listing_price": {
+          "amount": "0.30",
+          "currency": "CNY",
+          "unit": "件",
+          "supplier_confirmation": "UNKNOWN"
+        },
+        "observed_minimum_order_quantity": {
+          "quantity": 5,
+          "unit": "件"
+        }
+      },
+      "observed_specification_signals": [
+        {
+          "attribute": "product type",
+          "observation": "304不锈钢沉头螺丝碗型垫圈实心锥型凹凸装饰鱼眼垫片M3M4M5M6M8",
+          "confirmation_status": "UNKNOWN"
+        },
+        {
+          "attribute": "model/size",
+          "observation": "304不锈钢沉头螺丝碗型垫圈实心锥型凹凸装饰鱼眼垫片M3M4M5M6M8",
+          "confirmation_status": "UNKNOWN"
+        },
+        {
+          "attribute": "material",
+          "observation": "304不锈钢",
+          "confirmation_status": "UNKNOWN"
+        }
+      ],
+      "missing_evidence": [
+        "STRICT_PRODUCT_MODEL_MATERIAL_CONFIRMATION",
+        "COMPANY_REGISTRATION",
+        "MANUFACTURER_OR_TRADER_IDENTITY",
+        "CERTIFICATION",
+        "QUANTITY_PRICE_TIER",
+        "SUPPLIER_CONFIRMED_QUOTE",
+        "PUBLIC_SHOP_DISPLAY_NAME",
+        "PUBLIC_SHOP_SOURCE_URL"
+      ],
+      "qualification_status": "UNKNOWN",
+      "evidence_status": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+      "product": {
+        "short_title": "厂家直销304不锈钢加大垫片圆形不锈钢平垫圈金属螺丝平垫直发",
+        "public_id": "1011689226398",
+        "source_url": "https://detail.1688.com/offer/1011689226398.html"
+      },
+      "shop": {
+        "display_name": "UNKNOWN",
+        "public_id": "b2b-2212765959751f1eb5",
+        "source_url": "UNKNOWN"
+      },
+      "observed_at": "2026-10-07T17:29:54.767Z",
+      "observed_facts": {
+        "observed_listing_price": {
+          "amount": "0.02",
+          "currency": "CNY",
+          "unit": "个",
+          "supplier_confirmation": "UNKNOWN"
+        },
+        "observed_minimum_order_quantity": {
+          "quantity": 1,
+          "unit": "个"
+        }
+      },
+      "observed_specification_signals": [
+        {
+          "attribute": "product type",
+          "observation": "厂家直销304不锈钢加大垫片圆形不锈钢平垫圈金属螺丝平垫直发",
+          "confirmation_status": "UNKNOWN"
+        },
+        {
+          "attribute": "model/size",
+          "observation": "厂家直销304不锈钢加大垫片圆形不锈钢平垫圈金属螺丝平垫直发",
+          "confirmation_status": "UNKNOWN"
+        },
+        {
+          "attribute": "material",
+          "observation": "304不锈钢",
+          "confirmation_status": "UNKNOWN"
+        }
+      ],
+      "missing_evidence": [
+        "STRICT_PRODUCT_MODEL_MATERIAL_CONFIRMATION",
+        "COMPANY_REGISTRATION",
+        "MANUFACTURER_OR_TRADER_IDENTITY",
+        "CERTIFICATION",
+        "QUANTITY_PRICE_TIER",
+        "SUPPLIER_CONFIRMED_QUOTE",
+        "PUBLIC_SHOP_DISPLAY_NAME",
+        "PUBLIC_SHOP_SOURCE_URL"
+      ],
+      "qualification_status": "UNKNOWN",
+      "evidence_status": "INSUFFICIENT_EVIDENCE"
+    }
+  ]
+}

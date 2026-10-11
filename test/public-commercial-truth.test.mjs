@@ -40,10 +40,10 @@ test('sample presents measured real coverage and does not imply a full passing b
  assert.equal(coverage.coverage.find(x=>x.field==='recorded_specification_observations').observed_candidates,3);
  assert.match(coverage.field_definitions.specification_evidence,/Quantity\/MOQ\/unit does not count/);
  assert.match(body,/quantity\/MOQ matches do not count as specification matches/);
- assert.deepEqual(coverage.benchmark_summary.map(x=>x.qualified_distinct_suppliers),[3,3,2,3,0]);
+ assert.deepEqual(coverage.benchmark_summary.map(x=>x.recorded_distinct_shop_count),[3,3,2,3,0]);
  for(const row of coverage.coverage){assert.equal(row.observed_candidates+row.unknown_candidates,row.total_candidates);assert.ok(body.includes(row.field==='specification_evidence'?'Confirmed product/model/material match':row.field.replaceAll('_',' ')),row.field);}
  assert.match(body,/provider-only benchmark/i);assert.match(body,/not the paid acceptance order/i);
- assert.match(body,/publication rights remain unconfirmed/i);assert.match(body,/UNKNOWN/);
+ assert.match(body,/Public source observations are disclosed only/i);assert.match(body,/UNKNOWN/);
  assert.match(body,/Confirmed supplier quote/);assert.match(body,/Requested-quantity tier match/);
  assert.doesNotMatch(html,/<a[^>]*class="button[^\"]*"[^>]*href="[^\"]*archived-v4/);
  assert.doesNotMatch(JSON.stringify(coverage),/b2b-|detail\.1688|wallet|signature|api_key|provider_calls|reserved_millicny/);

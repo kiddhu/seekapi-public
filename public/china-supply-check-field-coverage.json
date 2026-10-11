@@ -2,9 +2,8 @@
   "schema_version": "seekapi.csc-sample-field-coverage.v1",
   "provenance": "INTERNAL_ACCEPTANCE",
   "evidence_kind": "PROVIDER_ONLY_BENCHMARK",
-  "sample_scope": "Three distinct selected supplier candidates from one recorded washer benchmark. Not a paid customer order or testimonial.",
+  "sample_scope": "Three public source observations from one internal provider-only washer benchmark. Not recommendations, qualified RFQ candidates or a paid customer order.",
   "evidence_observed_at": "2026-10-09T10:28:14.240Z",
-  "source_receipt_sha256": "0d4e3da40faa43c10a956f58b81050943f36848813e46fc550d9f0575a3b0f04",
   "field_definitions": {
     "specification_evidence": "Confirmed core specification match: all recorded product type, model/size and material gates must explicitly be MATCH with nonempty recorded source observations. Quantity/MOQ/unit does not count. This is not a claim that every buyer requirement is confirmed.",
     "recorded_specification_observations": "A nonempty recorded product type/model/size/material observation, including variant evidence. An observation is not a confirmed match.",
@@ -149,32 +148,35 @@
   "benchmark_summary": [
     {
       "case": "washer",
-      "qualified_distinct_suppliers": 3,
+      "recorded_distinct_shop_count": 3,
       "shortage": false
     },
     {
       "case": "hex-bolt",
-      "qualified_distinct_suppliers": 3,
+      "recorded_distinct_shop_count": 3,
       "shortage": false
     },
     {
       "case": "terminal-block",
-      "qualified_distinct_suppliers": 2,
+      "recorded_distinct_shop_count": 2,
       "shortage": true
     },
     {
       "case": "corrugated-carton",
-      "qualified_distinct_suppliers": 3,
+      "recorded_distinct_shop_count": 3,
       "shortage": false
     },
     {
       "case": "deep-groove-bearing",
-      "qualified_distinct_suppliers": 0,
+      "recorded_distinct_shop_count": 0,
       "shortage": true
     }
   ],
   "benchmark_overall_pass": false,
-  "candidate_row_publication_rights": "NOT_ESTABLISHED",
+  "candidate_row_publication_rights": "PUBLIC_SOURCE_OBSERVATIONS_ONLY",
+  "public_source_observations_url": "https://seekapi.ai/china-supply-check-source-observations.json",
+  "final_qualification_status": "UNKNOWN",
+  "benchmark_overall_status": "NOT_PASS",
   "coverage_is_not_a_per_run_guarantee": true,
   "price_interpretation": "Observed listing prices are not confirmed supplier quotes; requested-quantity tier match is UNKNOWN without a recorded tier."
 }
