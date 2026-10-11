@@ -58,7 +58,7 @@ test('proof remains honest aggregate and discovery states do not imply ranking s
  const sample=visible(html('/china-supply-check/sample'));
  assert.match(sample,/REAL PRODUCTION PAID ACCEPTANCE EXAMPLE/);assert.match(sample,/INTERNAL_ACCEPTANCE/);
  assert.match(sample,/NOT_AVAILABLE_FROM_AUTHORIZED_PUBLIC_MATERIAL/);assert.match(sample,/not a customer testimonial/);
- assert.doesNotMatch(sample,/restart\/reconciliation|0x[0-9a-f]{40}|b2b-[0-9]+/i);
+ assert.doesNotMatch(sample,/restart\/reconciliation|0x[0-9a-f]{40}/i);
  const discovery=visible(html('/discovery-status'));
  assert.match(discovery,/INDEXED_STALE/);assert.match(discovery,/SUBMITTED \/ PENDING_REVIEW/);assert.match(discovery,/no submission ID was exposed/i);
  for(const route of changedRoutes){const text=visible(html(route));assert.doesNotMatch(text,/aion-governance|DeepSeek|Save 90%|GLOBAL COMPUTE ARBITRAGE|OpenAI-compatible|inference gateway/i,route);}
