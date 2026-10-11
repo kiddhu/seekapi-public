@@ -13,7 +13,7 @@ export const copy: Record<CustomerState,{title:string;body:string}> = {
   NO_ACCESS:{title:"We couldn’t open this purchase",body:"Use the same browser and tab you used to pay, or contact us for help. Do not pay again yet."},
   RESULT_UNAVAILABLE:{title:"Your report couldn’t be loaded",body:"Do not pay again. Check your purchase status or contact us to recover access to your existing report."},
 };
-export const publicCardEntryEnabled = false; // Separate reviewed Live admission required.
+export const publicCardEntryEnabled = false; // Legacy text/model route only. Image Stripe is live at api.seekapi.ai/checkout/stripe/image.
 export const orderPointerKey = "seekapi.checkout.order.v1";
 export const intentKey = "seekapi.checkout.intent.v1";
 export const isOrderPointer = (x: unknown): x is string => typeof x==="string" && /^[A-Za-z0-9._:-]{1,128}$/.test(x);

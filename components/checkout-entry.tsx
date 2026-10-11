@@ -48,7 +48,7 @@ export function CheckoutEntry({enabled,privatePurchase}:{enabled:boolean;private
     <div className="checkout-kicker"><span>CHINA SUPPLY CHECK</span><span>USD $2.99 · One time</span></div>
     <h1 style={{marginTop:32}}>One product brief.<br/>A clearer supplier shortlist.</h1>
     <p className="checkout-lead">Find three evidence-backed supplier candidates worth advancing to RFQ on a successful check. Compare source listings, specifications, minimum quantities and observed prices. If the evidence falls short, your report explains the gaps.</p>
-    {!enabled&&<div className="checkout-note"><h2>Card checkout is being prepared</h2><p>You can review a brief here, but card purchases are not open yet. Nothing will be charged or sent for sourcing.</p><a href="/for-agents#china-supply-check-mcp" className="text-link">Use the available Agent purchase path</a></div>}
+    {!enabled&&<div className="checkout-note"><h2>Legacy text/model card checkout is closed</h2><p>Image Stripe hosted Checkout is live for USD 2.99. <a href="https://api.seekapi.ai/checkout/stripe/image">Start with a product photo</a>. Free editable confirmation comes before payment; automatic sourcing delivers an English report and Agent JSON with recovery without repayment.</p><p>You can review a brief here, but legacy text/model card purchases remain closed. Nothing will be charged or sent for sourcing.</p><a href="/for-agents#china-supply-check-mcp" className="text-link">Use the available Agent purchase path</a></div>}
     {!review?<form className="checkout-form" onSubmit={prepare}>
       <label>What product do you need?<input name="product" required maxLength={200} placeholder="For example, M6 stainless steel washers"/></label>
       <label>Quantity<input name="quantity" type="number" min={1} max={1000000000} step={1} required/></label>
@@ -59,7 +59,7 @@ export function CheckoutEntry({enabled,privatePurchase}:{enabled:boolean;private
       {draft?.model_or_reference!=null&&<p>Model or reference: {String(draft.model_or_reference)}</p>}
       <h3>Must-have requirements</h3>
       {(draft?.must_match as {attribute:string;expected:string}[]|undefined)?.length?<ul>{(draft!.must_match as {attribute:string;expected:string}[]).map((item,index)=><li key={index}><strong>{item.attribute}:</strong> {item.expected}</li>)}</ul>:<p>None added.</p>}<p>Exact product requested; substitutions are not permitted.</p><p className="checkout-price">USD $2.99</p><p>One supply check. No subscription. Supplier outreach and a confirmed supplier quotation are separate steps.</p>
-      {enabled?<button className="button" disabled={busy} onClick={pay}>{busy?'Opening securely…':'Confirm brief & continue to Stripe'}</button>:<p>Card checkout is not open yet. Contact us for help with this brief.</p>}
+      {enabled?<button className="button" disabled={busy} onClick={pay}>{busy?'Opening securely…':'Confirm brief & continue to Stripe'}</button>:<p>Legacy text/model card checkout is closed. Use the live image checkout for a new card purchase.</p>}
       <p><a className="text-link" href="mailto:support@seekapi.ai?subject=China%20Supply%20Check%20purchase">Contact support</a></p>
     </div>}
     <p role="status" aria-live="polite">{message}</p>

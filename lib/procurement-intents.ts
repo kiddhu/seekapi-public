@@ -270,7 +270,7 @@ export const procurementIntents: ProcurementIntent[] = [
     "sections": [
       {
         "title": "Buy a bounded pre-RFQ comparison",
-        "body": "China Supply Check screens a product brief and returns three evidence-backed supplier candidates worth advancing to RFQ on success. The current price is 2.99 USDC via x402. The USD 2.99 Stripe Checkout target is being enabled and is not available to buy. Free MCP preparation lets you inspect a normalized brief before authorizing a paid run."
+        "body": "China Supply Check screens a product brief and returns three evidence-backed supplier candidates worth advancing to RFQ on success. The current price is 2.99 USDC via x402. Image Stripe hosted Checkout is live for USD 2.99 after free editable confirmation. Free MCP preparation lets you inspect a normalized brief before authorizing a paid run."
       },
       {
         "title": "Scope execution separately",
@@ -330,7 +330,7 @@ export const procurementIntents: ProcurementIntent[] = [
       },
       {
         "title": "Preserve confirmation and access boundaries",
-        "body": "The existing purchase_china_supply_check_v0 and run_china_supply_check_v0 flow requires separate scope and payment confirmation. The current x402 price is 2.99 USDC on Base; Public credit-card checkout is OFF and is not live. status_china_supply_check_v0 and result_china_supply_check_v0 require independent signed-wallet authentication bound to the settled order."
+        "body": "The existing purchase_china_supply_check_v0 and run_china_supply_check_v0 flow requires separate scope and payment confirmation. The current x402 price is 2.99 USDC on Base; Image Stripe hosted Checkout is live for USD 2.99; legacy text/model Stripe is OFF. status_china_supply_check_v0 and result_china_supply_check_v0 require independent signed-wallet authentication bound to the settled order."
       }
     ],
     "evidence": [

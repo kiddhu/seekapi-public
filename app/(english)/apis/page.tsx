@@ -18,7 +18,7 @@ export default function Page() {
     <section className="page-hero"><div className="container">
       <Eyebrow>For developers and machines</Eyebrow>
       <h1>China supplier screening through a typed MCP interface.</h1>
-      <p>China Supply Check is the current sourcing product: three distinct evidence-backed China supplier candidates worth advancing to RFQ on success. Free discovery and preparation use public MCP; the existing confirmed x402 purchase path is live at 2.99 USDC on Base. Public credit-card checkout is OFF and is not available to buy.</p><p>Other raw product-data capabilities are not available for public purchase. Their test access does not describe China Supply Check. Human-task APIs are a separate, planned service.</p>
+      <p>China Supply Check is the current sourcing product: three distinct evidence-backed China supplier candidates worth advancing to RFQ on success. Free discovery and preparation use public MCP; the existing confirmed x402 purchase path is live at 2.99 USDC on Base. Image Stripe hosted Checkout is live for USD 2.99; legacy text/model Stripe is OFF.</p><p>Other raw product-data capabilities are not available for public purchase. Their test access does not describe China Supply Check. Human-task APIs are a separate, planned service.</p>
       <div className="button-row"><a className="button" href="/for-agents#china-supply-check-mcp">China Supply Check MCP guide</a><a className="button button-ghost" href="/sourcing/china-supplier-api">Evidence response semantics</a></div>
     </div></section>
 
@@ -27,7 +27,7 @@ export default function Page() {
       <SectionTitle eyebrow="Public MCP discovery" title="Connect without credentials or payment." body="Use a standard MCP client with Streamable HTTP. Discovery and preparation are free. Keep automatic payment disabled while reading the contract and preparing your sourcing brief."/>
       <div className="grid-3">
         <FeatureCard title="Public MCP endpoint" body="https://api.seekapi.ai/mcp — Streamable HTTP. No account or API key is needed to initialize, list tools or inspect discovery."/>
-        <FeatureCard title="Current sourcing product" body="China Supply Check costs 2.99 USDC on Base through live x402. Public credit-card checkout is OFF. Successful delivery provides three distinct RFQ-worthy supplier candidates with evidence and explicit unknowns."/>
+        <FeatureCard title="Current sourcing product" body="China Supply Check costs 2.99 USDC on Base through live x402. Image Stripe hosted Checkout is live for USD 2.99; legacy text/model Stripe is OFF. Successful delivery provides three distinct RFQ-worthy supplier candidates with evidence and explicit unknowns."/>
         <FeatureCard title="Other capability states" body="Raw product-data capabilities are not available for public purchase. Human-task execution remains planned. Inspect current discovery before using a capability."/>
       </div>
       <div className="link-list"><a className="text-link" href={registryUrl}>Find SeekAPI in the official MCP Registry</a><a className="text-link" href="https://api.seekapi.ai/mcp">Public MCP endpoint</a><a className="text-link" href="#unpaid-quickstart">Free discovery quickstart</a></div>

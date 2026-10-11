@@ -1,5 +1,5 @@
 {
-  "schema_version": "seekapi.csc-public-commercial-truth.v1",
+  "schema_version": "seekapi.csc-public-commercial-truth.v2",
   "product_id": "china_supply_check_v0",
   "name": "SeekAPI China Supply Check",
   "price": {
@@ -7,14 +7,11 @@
     "currency": "USDC",
     "atomic_units": "2990000",
     "network": "eip155:8453",
-    "card_usd": "2.99",
-    "card_state": "PUBLIC_OFF"
+    "card_usd": "2.99"
   },
   "payment": {
     "x402_live": true,
-    "x402_version": 2,
-    "public_card": "OFF",
-    "public_card_scope": "TEXT_MODEL_LEGACY_ONLY"
+    "x402_version": 2
   },
   "promise": {
     "rfq_worthy_distinct_shop_candidates": 3,
@@ -39,12 +36,12 @@
     ]
   },
   "versions": {
-    "registry_package_version": "0.1.9",
+    "registry_package_version": "0.1.10",
     "mcp_server_version": "0.1.2",
     "csc_contract_version": "seekapi.csc-public-contract.v2",
-    "commercial_state_version": "2026-10-11.1"
+    "commercial_state_version": "2026-10-11.2"
   },
-  "contract_updated_at": "2026-10-11T03:00:00Z",
+  "contract_updated_at": "2026-10-11T12:30:00Z",
   "price_semantics": {
     "observed_listing_price": "Dated platform listing evidence, not an RFQ quote.",
     "confirmed_supplier_quote": "Only a supplier reply explicitly confirming the requested RFQ.",
@@ -56,13 +53,54 @@
   },
   "image_intake": {
     "free_prepare": true,
-    "paid_execution": "CHECK_LIVE_MCP_DISCOVERY",
+    "paid_execution": "LIVE",
     "discovery_tool": "discover_china_supply_check_v0",
     "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
-    "card_availability": "CHECK_LIVE_ENTRY",
+    "card_availability": "LIVE",
     "card_usd": "2.99",
     "result_contract": "csc.delivery.v4",
     "scope": "MAIN_PRODUCT_ONLY",
-    "completed_candidate_count": { "minimum": 1, "maximum": 3 }
+    "completed_candidate_count": {
+      "minimum": 1,
+      "maximum": 3
+    },
+    "delivery_chain": [
+      "VERIFIED_PAYMENT",
+      "ONE_ORDER_AND_ENTITLEMENT",
+      "AUTOMATIC_SOURCING",
+      "ENGLISH_REPORT_AND_AGENT_JSON",
+      "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
+    ],
+    "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK"
+  },
+  "payments": {
+    "image_first": {
+      "stripe": {
+        "status": "LIVE",
+        "amount_usd": "2.99",
+        "hosted_checkout": true,
+        "entry": "https://api.seekapi.ai/checkout/stripe/image",
+        "payment_to_delivery": "LIVE"
+      },
+      "x402": {
+        "status": "LIVE",
+        "amount_usdc": "2.99",
+        "network": "Base",
+        "network_id": "eip155:8453",
+        "version": 2
+      }
+    },
+    "text_model_legacy": {
+      "stripe": {
+        "status": "OFF"
+      },
+      "x402": {
+        "status": "LIVE",
+        "amount_usdc": "2.99",
+        "network": "Base",
+        "network_id": "eip155:8453",
+        "version": 2
+      }
+    }
   }
 }

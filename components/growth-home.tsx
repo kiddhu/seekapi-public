@@ -60,7 +60,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
           <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'View the sample summary' : 'Sample summary'}</Link>
           <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
         </div>
-        <p className="growth-availability"><strong>Photo check: $2.99 via Stripe; Agent check: 2.99 USDC on Base.</strong> Start from the product page, review your free brief, and confirm before payment. Each payment entry checks its current availability. Text/model: Public credit-card checkout is OFF. Already paid? Use your saved result; do not buy the same order again.</p>
+        <p className="growth-availability">{cscPaymentCopy}</p>
         <p className="growth-limits">Published listing prices are dated supplier commercial evidence with scope and quantity conditions; certification and company or production-versus-trade identity evidence is reported per candidate when available.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>

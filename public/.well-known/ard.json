@@ -5,8 +5,8 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "SeekAPI is a China-side procurement desk for overseas buyers and AI agents. Start with the live 2.99 USDC x402 China Supply Check: on success, three evidence-backed China supplier candidates worth advancing to RFQ. Then request separately scoped human help for supplier contact, RFQ/quote comparison, samples, procurement and export coordination. Human-task APIs are not live; no supplier contact is included in the check.",
-      "version": "0.2.3",
+      "description": "Image Stripe hosted Checkout is live for USD 2.99. Free editable confirmation comes first; verified payment creates one order and entitlement, followed by automatic sourcing, 1–3 distinct source-backed suppliers, an English report and Agent JSON, and durable recovery without repayment. Image and text/model Agent payments use live x402 v2 for 2.99 USDC on Base. Legacy text/model Stripe is OFF. Main product only; accessories are not promised; shortages and UNKNOWN stay explicit.",
+      "version": "0.2.4",
       "data": {
         "productId": "china_supply_check_v0",
         "productPage": "https://seekapi.ai/china-supply-check",
@@ -15,14 +15,7 @@
         "price": {
           "usdc": "2.99",
           "network": "eip155:8453",
-          "cardUsd": "2.99",
-          "cardState": "PUBLIC_OFF"
-        },
-        "payment": {
-          "x402Live": true,
-          "x402Network": "eip155:8453",
-          "stripeCheckout": "PUBLIC_OFF",
-          "stripeCheckoutScope": "TEXT_MODEL_LEGACY_ONLY"
+          "cardUsd": "2.99"
         },
         "promise": {
           "rfqWorthyDistinctShopCandidates": 3,
@@ -50,10 +43,10 @@
           "available": false,
           "scope": "one confirmed RFQ, up to three selected suppliers, one authorized human outreach round, 72-hour response window; no guaranteed replies"
         },
-        "proofBoundReads": "Status and result require independent signed wallet authentication bound to the settled order; a payment proof alone is not authentication.",
+        "proofBoundReads": "Agent x402: independent signed wallet bound to settled order. Stripe: secure recovery link. Existing paid result recovery never requires repayment.",
         "input": {
-          "accepted": "text or model/part number, quantity and unit, must-have constraints",
-          "urlOrImageOnly": false
+          "accepted": "Reference product image with optional notes, or legacy text/model with quantity, unit and must-match constraints",
+          "freeEditableConfirmation": true
         },
         "output": {
           "observedListingPrice": "dated currency, original unit/tier/time and source when available; a confirmed reply is a separate step",
@@ -63,7 +56,7 @@
           "editableRfqDraftInNextAction": true
         },
         "availabilityEvidence": {
-          "observedAt": "2026-10-03T05:48:24.848968+00:00",
+          "observedAt": "2026-10-11T12:30:00Z",
           "source": "https://api.seekapi.ai/mcp",
           "liveContractTool": "discover_china_supply_check_v0",
           "note": "Availability is a timestamped snapshot. Read the live discovery tool before purchase."
@@ -71,7 +64,6 @@
         "sourcingGuides": "https://seekapi.ai/sourcing",
         "agentGuide": "https://seekapi.ai/for-agents",
         "sampleDisclosure": "INTERNAL_ACCEPTANCE: authorized aggregate paid outcome; candidate-level production example not publicly available",
-        "cardPurchaseAvailable": false,
         "chinaSideExecution": {
           "status": "MANUAL_SCOPE_REVIEW_AVAILABLE",
           "intakeUrl": "https://seekapi.ai/start?audience=agent",
@@ -88,7 +80,7 @@
           "liveRfqComparePackage": "PLANNED_NOT_FOR_PURCHASE"
         },
         "commercialTruth": {
-          "schema_version": "seekapi.csc-public-commercial-truth.v1",
+          "schema_version": "seekapi.csc-public-commercial-truth.v2",
           "product_id": "china_supply_check_v0",
           "name": "SeekAPI China Supply Check",
           "price": {
@@ -96,14 +88,11 @@
             "currency": "USDC",
             "atomic_units": "2990000",
             "network": "eip155:8453",
-            "card_usd": "2.99",
-            "card_state": "PUBLIC_OFF"
+            "card_usd": "2.99"
           },
           "payment": {
             "x402_live": true,
-            "x402_version": 2,
-            "public_card": "OFF",
-            "public_card_scope": "TEXT_MODEL_LEGACY_ONLY"
+            "x402_version": 2
           },
           "promise": {
             "rfq_worthy_distinct_shop_candidates": 3,
@@ -128,12 +117,12 @@
             ]
           },
           "versions": {
-            "registry_package_version": "0.1.9",
+            "registry_package_version": "0.1.10",
             "mcp_server_version": "0.1.2",
             "csc_contract_version": "seekapi.csc-public-contract.v2",
-            "commercial_state_version": "2026-10-11.1"
+            "commercial_state_version": "2026-10-11.2"
           },
-          "contract_updated_at": "2026-10-11T03:00:00Z",
+          "contract_updated_at": "2026-10-11T12:30:00Z",
           "price_semantics": {
             "observed_listing_price": "Dated platform listing evidence, not an RFQ quote.",
             "confirmed_supplier_quote": "Only a supplier reply explicitly confirming the requested RFQ.",
@@ -145,25 +134,118 @@
           },
           "image_intake": {
             "free_prepare": true,
-            "paid_execution": "CHECK_LIVE_MCP_DISCOVERY",
+            "paid_execution": "LIVE",
             "discovery_tool": "discover_china_supply_check_v0",
             "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
-            "card_availability": "CHECK_LIVE_ENTRY",
+            "card_availability": "LIVE",
             "card_usd": "2.99",
             "result_contract": "csc.delivery.v4",
             "scope": "MAIN_PRODUCT_ONLY",
-            "completed_candidate_count": { "minimum": 1, "maximum": 3 }
+            "completed_candidate_count": {
+              "minimum": 1,
+              "maximum": 3
+            },
+            "delivery_chain": [
+              "VERIFIED_PAYMENT",
+              "ONE_ORDER_AND_ENTITLEMENT",
+              "AUTOMATIC_SOURCING",
+              "ENGLISH_REPORT_AND_AGENT_JSON",
+              "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
+            ],
+            "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK"
+          },
+          "payments": {
+            "image_first": {
+              "stripe": {
+                "status": "LIVE",
+                "amount_usd": "2.99",
+                "hosted_checkout": true,
+                "entry": "https://api.seekapi.ai/checkout/stripe/image",
+                "payment_to_delivery": "LIVE"
+              },
+              "x402": {
+                "status": "LIVE",
+                "amount_usdc": "2.99",
+                "network": "Base",
+                "network_id": "eip155:8453",
+                "version": 2
+              }
+            },
+            "text_model_legacy": {
+              "stripe": {
+                "status": "OFF"
+              },
+              "x402": {
+                "status": "LIVE",
+                "amount_usdc": "2.99",
+                "network": "Base",
+                "network_id": "eip155:8453",
+                "version": 2
+              }
+            }
           }
         },
         "versions": {
-          "registry_package_version": "0.1.9",
+          "registry_package_version": "0.1.10",
           "mcp_server_version": "0.1.2",
           "csc_contract_version": "seekapi.csc-public-contract.v2",
-          "commercial_state_version": "2026-10-11.1"
+          "commercial_state_version": "2026-10-11.2"
         },
-        "contract_updated_at": "2026-10-11T03:00:00Z",
-        "observed_at": "2026-10-11T03:00:00Z",
-        "registryPackageVersion": "0.1.9"
+        "contract_updated_at": "2026-10-11T12:30:00Z",
+        "observed_at": "2026-10-11T12:30:00Z",
+        "registryPackageVersion": "0.1.10",
+        "payments": {
+          "image_first": {
+            "stripe": {
+              "status": "LIVE",
+              "amount_usd": "2.99",
+              "hosted_checkout": true,
+              "entry": "https://api.seekapi.ai/checkout/stripe/image",
+              "payment_to_delivery": "LIVE"
+            },
+            "x402": {
+              "status": "LIVE",
+              "amount_usdc": "2.99",
+              "network": "Base",
+              "network_id": "eip155:8453",
+              "version": 2
+            }
+          },
+          "text_model_legacy": {
+            "stripe": {
+              "status": "OFF"
+            },
+            "x402": {
+              "status": "LIVE",
+              "amount_usdc": "2.99",
+              "network": "Base",
+              "network_id": "eip155:8453",
+              "version": 2
+            }
+          }
+        },
+        "imageIntake": {
+          "free_prepare": true,
+          "paid_execution": "LIVE",
+          "discovery_tool": "discover_china_supply_check_v0",
+          "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
+          "card_availability": "LIVE",
+          "card_usd": "2.99",
+          "result_contract": "csc.delivery.v4",
+          "scope": "MAIN_PRODUCT_ONLY",
+          "completed_candidate_count": {
+            "minimum": 1,
+            "maximum": 3
+          },
+          "delivery_chain": [
+            "VERIFIED_PAYMENT",
+            "ONE_ORDER_AND_ENTITLEMENT",
+            "AUTOMATIC_SOURCING",
+            "ENGLISH_REPORT_AND_AGENT_JSON",
+            "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
+          ],
+          "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK"
+        }
       },
       "representativeQueries": [
         "Find China suppliers for a specified model, quantity and hard specifications",
