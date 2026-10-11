@@ -4,6 +4,14 @@ import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const truth=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
 const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
+test('published model guide version namespaces agree with current canonical commercial truth',()=>{
+ const llms=read('public/llms.txt');
+ const versions=truth.versions;
+ for(const [label,key] of [['Registry package','registry_package_version'],['MCP server','mcp_server_version'],['CSC contract','csc_contract_version'],['commercial state','commercial_state_version']]){
+  assert.ok(llms.includes(label+' '+versions[key]),label+' drift');
+ }
+ assert.ok(llms.includes('Contract updated '+truth.contract_updated_at),'contract timestamp drift');
+});
 test('official generated Agent surfaces carry the same live image Stripe and scoped legacy OFF',()=>{
  const manifest=JSON.parse(read('.next/server/app/for-agents/agent-services.json.body'));
  const ard=JSON.parse(read('public/.well-known/ard.json')).entries[0].data;
