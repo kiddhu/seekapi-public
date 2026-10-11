@@ -2,10 +2,11 @@ import { cscCommercialTruth, cscPaymentCopy } from '@/lib/csc-commercial-truth';
 import Link from 'next/link';
 import { CTA, Eyebrow, FeatureCard, PageShell, SectionTitle } from '@/components/site';
 import { pageMetadata } from '@/lib/site';
+import { ImageSupplyCheckEntry } from '@/components/image-supply-check-entry';
 
 export const metadata = pageMetadata(
   'China Supplier Candidates with Price, MOQ and Spec Evidence | SeekAPI',
-  'Describe a product or model, quantity and must-have specs. A successful check returns three source-linked China B2B shop candidates with dated price evidence and certification fields when available. Free MCP preparation; 2.99 USDC per accepted check via x402, with public credit-card checkout OFF and separate order and payment confirmation.',
+  'Start with a product photo and optional notes. Free editable confirmation, then USD 2.99 Stripe image checkout or 2.99 USDC x402. Completed image checks deliver 1–3 source-backed supplier candidates, an English report and Agent JSON, with shortages and unknowns explicit.',
   '/china-supply-check',
 );
 
@@ -17,7 +18,7 @@ const serviceSchema = {
   serviceType: 'China supplier listing comparison',
   url: 'https://seekapi.ai/china-supply-check',
   provider: { '@id': 'https://seekapi.ai/#organization' },
-  description: 'Screen China B2B shop listings for a specified product or model, requested quantity and must-have specifications. A successful completed check returns three distinct evidence-backed candidates worth advancing to RFQ with source-linked observed listing price, MOQ, specification fit, exclusions and unknowns. An order requires confirmed scope and a supported payment path before execution.',
+  description: 'Start from a product photo or written product/model brief. A completed image check returns1–3 distinct source-backed supplier candidates, an English report and Agent JSON. Listing prices, units, specification evidence, exclusions and unknowns remain explicit. Free editable confirmation precedes separate payment. No supplier outreach is included.',
 };
 
 export default function ChinaSupplyCheckPage() {
@@ -26,12 +27,13 @@ export default function ChinaSupplyCheckPage() {
     <section className="page-hero"><div className="container">
       <Eyebrow>China Supply Check · Agent-ready sourcing research</Eyebrow>
       <h1>Find China supplier candidates with evidence you can inspect.</h1>
-      <p>Give SeekAPI a written product description or model, requested quantity and must-have specifications. On a successful completed check, it screens China B2B shop listings and returns three distinct evidence-backed candidates worth advancing to RFQ with source-linked observed listing price, MOQ, specification fit, exclusion reasons and unknowns.</p>
-      <div className="button-row"><Link className="button" href="/china-supply-check/sample">Inspect the sample summary</Link><Link className="button button-ghost" href="/for-agents#china-supply-check-mcp">Prepare via an MCP client</Link></div>
+      <p>Start with a product photo and optional notes, or use the existing written product/model brief. A completed image check returns 1–3 distinct source-backed supplier candidates, an English report and Agent JSON. Inspect image-match evidence, price units, exclusions and unknowns before deciding.</p>
+      <div className="button-row"><a className="button" href="https://api.seekapi.ai/checkout/stripe/image">Start with a product photo — $2.99</a><Link className="button button-ghost" href="/for-agents#china-supply-check-mcp">Prepare via an MCP client</Link></div>
       <p><a className="text-link" href="mailto:support@seekapi.ai?subject=China%20Supply%20Check%20order%20question">Ask support about an order</a>. Sending a message does not accept an order or authorize payment.</p>
       <p><Link className="text-link" href="/checkout">Card checkout &amp; purchase help</Link></p>
-      <p className="hero-note">China Supply Check costs 2.99 USDC on Base per accepted check. Free Product Brief preparation uses public MCP. SeekAPI confirms scope and a supported payment path before accepting an order; this page does not collect payment or contact suppliers. Current accepted CSC orders use the Agent MCP x402 path. Public credit-card checkout is OFF; card checkout is not open for purchase.</p>
+      <p className="hero-note">Image checkout is $2.99 via Stripe after free editable confirmation; its entry checks live availability before payment. Agent purchases use 2.99 USDC on Base via x402 and signed confirmation. Opening an entry or preparing a brief does not charge or contact suppliers. Text/model: Public credit-card checkout is OFF; that legacy card entry remains closed.</p>
     </div></section>
+    <ImageSupplyCheckEntry />
     <section className="section"><div className="container"><p>Supplier RFQ-worthiness and exact product qualification are separate. The successful check delivers three evidence-backed supplier candidates worth advancing to RFQ; exact product specifications and requested-quantity fit are reported with their supporting evidence or remaining gaps.</p>
       <article className="definition"><h2>What is China Supply Check?</h2><p>China Supply Check screens China B2B platform-shop listings against a buyer’s product or model, quantity and hard specifications. On a successful paid check, it returns three distinct documented shop candidates with source links, observed listing-price basis, MOQ and quantity fit, specification matches, exclusions and unknowns. If three cannot be supported, it reports the shortage. Certification, company-registration and production-versus-trade identity evidence is reported per candidate when the listing or a bound source provides it; a published listing price is dated supplier commercial evidence with its currency, unit, tier and MOQ conditions, while a confirmed reply for your exact RFQ is a separate step. Free Product Brief preparation is available through an MCP-capable client. A paid order requires separate scope and payment confirmation; supplier outreach is not included in this check.</p></article><SectionTitle eyebrow="The sourcing decision" title="One product brief. Three shop candidates worth advancing to RFQ on success." body="The fee buys a bounded, source-linked comparison: search and duplicate screening, hard-specification and MOQ checks, observed price normalization, explicit exclusions and an editable RFQ starting point. If fewer than three qualify, SeekAPI reports the shortage rather than inventing suppliers."/>
       <div className="grid-3">

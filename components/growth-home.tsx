@@ -6,7 +6,7 @@ export type HomepageVariant = 'a' | 'b' | 'c';
 const variants = {
   a: {
     heading: 'Your China procurement desk, from supplier search to execution.',
-    lead: 'SeekAPI helps overseas buyers and AI agents handle China-side procurement. Start with a live China Supply Check for evidence-backed supplier candidates; request separately scoped human help for RFQs, samples and execution.',
+    lead: 'SeekAPI helps overseas buyers and AI agents handle China-side procurement. Start with a product photo or written brief for source-backed supplier candidates, an English report and Agent JSON; request separately scoped human help for RFQs, samples and execution.',
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
@@ -34,7 +34,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
         <div><dt>UNKNOWN</dt><dd>Price-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote</dd></div>
       </dl>
       <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
-      <Link className="text-link" href="/china-supply-check/sample/archived-v4">Inspect the archived example</Link>
+      <Link className="text-link" href="/china-supply-check/sample">Inspect the current acceptance summary</Link>
     </div> : <div className="growth-result">
       <span className="growth-label">On a successful check</span>
       <strong>Three distinct shop candidates</strong>
@@ -60,7 +60,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
           <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'View the sample summary' : 'Sample summary'}</Link>
           <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
         </div>
-        <p className="growth-availability"><strong>China Supply Check: 2.99 USDC per accepted order.</strong> Free brief preparation is available through an MCP-capable client. Agent payment via x402 is live; Public credit-card checkout is OFF. SeekAPI confirms scope and a supported payment path before accepting an order.</p>
+        <p className="growth-availability"><strong>Photo check: $2.99 via Stripe; Agent check: 2.99 USDC on Base.</strong> Start from the product page, review your free brief, and confirm before payment. Each payment entry checks its current availability. Text/model: Public credit-card checkout is OFF. Already paid? Use your saved result; do not buy the same order again.</p>
         <p className="growth-limits">Published listing prices are dated supplier commercial evidence with scope and quantity conditions; certification and company or production-versus-trade identity evidence is reported per candidate when available.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
