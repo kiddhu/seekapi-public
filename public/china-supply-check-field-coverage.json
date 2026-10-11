@@ -5,6 +5,11 @@
   "sample_scope": "Three distinct selected supplier candidates from one recorded washer benchmark. Not a paid customer order or testimonial.",
   "evidence_observed_at": "2026-10-09T10:28:14.240Z",
   "source_receipt_sha256": "0d4e3da40faa43c10a956f58b81050943f36848813e46fc550d9f0575a3b0f04",
+  "field_definitions": {
+    "specification_evidence": "Confirmed core specification match: all recorded product type, model/size and material gates must explicitly be MATCH with nonempty recorded source observations. Quantity/MOQ/unit does not count. This is not a claim that every buyer requirement is confirmed.",
+    "recorded_specification_observations": "A nonempty recorded product type/model/size/material observation, including variant evidence. An observation is not a confirmed match.",
+    "supplier_capability_observations": "Recorded supplier capability/variant observations; not proof of the selected product variant or manufacturer identity."
+  },
   "candidate_count": 3,
   "distinct_supplier_count": 3,
   "coverage": [
@@ -16,8 +21,20 @@
     },
     {
       "field": "specification_evidence",
-      "observed_candidates": 2,
-      "unknown_candidates": 1,
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    },
+    {
+      "field": "recorded_specification_observations",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "supplier_capability_observations",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
       "total_candidates": 3
     },
     {

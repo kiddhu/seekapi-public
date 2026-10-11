@@ -35,8 +35,13 @@ test('sample presents measured real coverage and does not imply a full passing b
  const body=visible(html);
  assert.equal(coverage.candidate_count,coverage.distinct_supplier_count);
  assert.equal(coverage.benchmark_overall_pass,false);
+ assert.equal(coverage.coverage.find(x=>x.field==='specification_evidence').observed_candidates,0);
+ assert.equal(coverage.coverage.find(x=>x.field==='specification_evidence').unknown_candidates,3);
+ assert.equal(coverage.coverage.find(x=>x.field==='recorded_specification_observations').observed_candidates,3);
+ assert.match(coverage.field_definitions.specification_evidence,/Quantity\/MOQ\/unit does not count/);
+ assert.match(body,/quantity\/MOQ matches do not count as specification matches/);
  assert.deepEqual(coverage.benchmark_summary.map(x=>x.qualified_distinct_suppliers),[3,3,2,3,0]);
- for(const row of coverage.coverage){assert.equal(row.observed_candidates+row.unknown_candidates,row.total_candidates);assert.ok(body.includes(row.field.replaceAll('_',' ')),row.field);}
+ for(const row of coverage.coverage){assert.equal(row.observed_candidates+row.unknown_candidates,row.total_candidates);assert.ok(body.includes(row.field==='specification_evidence'?'Confirmed product/model/material match':row.field.replaceAll('_',' ')),row.field);}
  assert.match(body,/provider-only benchmark/i);assert.match(body,/not the paid acceptance order/i);
  assert.match(body,/publication rights remain unconfirmed/i);assert.match(body,/UNKNOWN/);
  assert.match(body,/Confirmed supplier quote/);assert.match(body,/Requested-quantity tier match/);
