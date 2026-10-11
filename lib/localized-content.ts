@@ -155,7 +155,7 @@ export const localizedCscCopy: Record<Exclude<SiteLocale, 'en'>, {title:string;h
     "title": "中国サプライヤー調達・候補比較 | SeekAPI",
     "heading": "中国サプライヤーを、根拠とともに絞り込む。",
     "lead": "China Supply Check は製品・数量・必須仕様をもとに候補を調べ、成功時に RFQ に進める価値のある中国サプライヤー3候補と出典付きの根拠を返します。",
-    "payment": "x402 決済は Base 上で 2.99 USDC。Stripe Checkout の USD 2.99 決済は有効化中で、現在は購入できません。MCP での概要確認と要件の準備は無料です。",
+    "payment": "画像の Stripe Checkout は USD 2.99 で利用できます。無料で内容を確認・編集した後に支払います。画像と従来のテキスト／型番の x402 決済は Base 上で 2.99 USDC。従来のテキスト／型番のカード決済は停止中です。",
     "boundary": "サプライヤーへの連絡や RFQ 送信は含まれません。以下の人的支援は別途、範囲と権限の合意が必要です。",
     "cta": "China Supply Check を見る"
   },
@@ -163,7 +163,7 @@ export const localizedCscCopy: Record<Exclude<SiteLocale, 'en'>, {title:string;h
     "title": "Proveedores de China: búsqueda y evaluación | SeekAPI",
     "heading": "Encuentra proveedores chinos con evidencia para decidir.",
     "lead": "China Supply Check parte del producto, la cantidad y las especificaciones. Una comprobación completada con éxito entrega tres candidatos distintos de China que merece la pena llevar a una RFQ, con fuentes e incógnitas explícitas.",
-    "payment": "x402 está disponible: 2.99 USDC en Base. Stripe Checkout por USD 2.99 se está habilitando y aún no está disponible para comprar. La consulta y preparación del brief mediante MCP son gratuitas.",
+    "payment": "Stripe Checkout para imágenes está disponible por USD 2.99, después de confirmar y editar gratis. x402 está disponible para imágenes y texto/modelo: 2.99 USDC en Base. La tarjeta para texto/modelo heredado sigue desactivada.",
     "boundary": "No incluye contactar proveedores ni enviar RFQ. El apoyo humano descrito a continuación tiene alcance y autorización independientes.",
     "cta": "Ver China Supply Check"
   },
@@ -171,7 +171,7 @@ export const localizedCscCopy: Record<Exclude<SiteLocale, 'en'>, {title:string;h
     "title": "البحث عن مورّدين في الصين وتقييمهم | SeekAPI",
     "heading": "اعثر على مورّدين في الصين بأدلة تساعدك على القرار.",
     "lead": "يبدأ China Supply Check بالمنتج والكمية والمواصفات المطلوبة. عند نجاح الفحص تحصل على ثلاثة مرشحين مختلفين من الصين يستحقون الانتقال إلى طلب عرض سعر، مع المصادر والفجوات الواضحة.",
-    "payment": "الدفع عبر x402 متاح بسعر 2.99 USDC على Base. دفع Stripe Checkout بسعر USD 2.99 قيد التفعيل وغير متاح للشراء حالياً. الاستكشاف وإعداد المتطلبات عبر MCP مجانيان.",
+    "payment": "Stripe Checkout للصور متاح بسعر USD 2.99 بعد تأكيد وتعديل مجانيين. دفع x402 للصور والنص أو الطراز متاح بسعر 2.99 USDC على Base. دفع البطاقة لمسار النص أو الطراز القديم متوقف.",
     "boundary": "لا يشمل الفحص الاتصال بالمورّدين أو إرسال طلب عرض سعر. الخدمات البشرية التالية تحتاج إلى نطاق وتفويض منفصلين.",
     "cta": "عرض China Supply Check"
   },
@@ -179,7 +179,7 @@ export const localizedCscCopy: Record<Exclude<SiteLocale, 'en'>, {title:string;h
     "title": "China-Lieferanten finden und prüfen | SeekAPI",
     "heading": "China-Lieferanten finden, mit Nachweisen vergleichen.",
     "lead": "China Supply Check beginnt mit Produkt, Menge und Pflichtspezifikationen. Ein erfolgreicher Check liefert drei unterschiedliche, durch Quellen belegte China-Lieferantenkandidaten, bei denen sich eine RFQ lohnt, mit klar benannten Lücken.",
-    "payment": "x402 ist live: 2.99 USDC auf Base. Stripe Checkout für USD 2.99 wird aktiviert und ist noch nicht zum Kauf verfügbar. Erkundung und Vorbereitung des Briefings über MCP sind kostenlos.",
+    "payment": "Stripe Checkout für Bilder ist für USD 2.99 verfügbar, nach kostenloser Bestätigung und Bearbeitung. x402 für Bilder und Text/Modell kostet 2.99 USDC auf Base. Kartenzahlung für den bisherigen Text/Modell-Pfad bleibt deaktiviert.",
     "boundary": "Lieferantenkontakt und RFQ-Versand sind nicht enthalten. Die folgenden menschlichen Services benötigen einen eigenen vereinbarten Umfang und eine eigene Freigabe.",
     "cta": "China Supply Check ansehen"
   },
@@ -187,7 +187,7 @@ export const localizedCscCopy: Record<Exclude<SiteLocale, 'en'>, {title:string;h
     "title": "Encontrar e avaliar fornecedores na China | SeekAPI",
     "heading": "Encontre fornecedores chineses com evidências para decidir.",
     "lead": "O China Supply Check começa com produto, quantidade e especificações obrigatórias. Uma verificação concluída com sucesso entrega três candidatos distintos da China que merecem avançar para uma RFQ, com fontes e lacunas explícitas.",
-    "payment": "x402 está disponível: 2.99 USDC na Base. Stripe Checkout por USD 2.99 está sendo habilitado e ainda não está disponível para compra. Descoberta e preparação do briefing via MCP são gratuitas.",
+    "payment": "Stripe Checkout para imagens está disponível por USD 2.99 após confirmação e edição gratuitas. x402 para imagens e texto/modelo custa 2.99 USDC na Base. O cartão para o fluxo antigo de texto/modelo continua desativado.",
     "boundary": "Contato com fornecedores e envio de RFQ não estão incluídos. Os serviços humanos abaixo exigem escopo e autorização próprios.",
     "cta": "Ver China Supply Check"
   },
@@ -195,7 +195,7 @@ export const localizedCscCopy: Record<Exclude<SiteLocale, 'en'>, {title:string;h
     "title": "Поиск и оценка поставщиков в Китае | SeekAPI",
     "heading": "Поставщики из Китая — с доказательствами для следующего решения.",
     "lead": "China Supply Check использует описание товара, количество и обязательные характеристики. Успешная проверка возвращает трёх разных поставщиков из Китая, которым стоит направить RFQ, с источниками и явно указанными пробелами.",
-    "payment": "Оплата x402 доступна: 2.99 USDC в сети Base. Stripe Checkout за USD 2.99 подключается и пока недоступен для покупки. Ознакомление и подготовка задания через MCP бесплатны.",
+    "payment": "Stripe Checkout для изображений доступен за USD 2.99 после бесплатного подтверждения и редактирования. x402 для изображений и текста/модели доступен за 2.99 USDC в сети Base. Карта для прежнего пути текста/модели отключена.",
     "boundary": "Контакт с поставщиками и отправка RFQ не входят в проверку. Отдельные услуги специалистов требуют согласования; сохраняются ограничения по законным гражданским товарам и прозрачному конечному использованию.",
     "cta": "Открыть China Supply Check"
   }

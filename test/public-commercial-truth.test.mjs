@@ -14,7 +14,7 @@ test('official manifest and ARD expose the same current commercial facts with cl
  assert.deepEqual(manifest.versions,truth.versions);
  assert.deepEqual(ard.versions,truth.versions);
  assert.equal(manifest.product_data_mcp.price_usdc,truth.price.amount);
- assert.equal(manifest.product_data_mcp.stripe_checkout,truth.price.card_state);
+ assert.deepEqual(manifest.product_data_mcp.payments,truth.payments);
  assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,truth.tools.paid);
  assert.ok(Number.isFinite(Date.parse(manifest.observed_at)));
  assert.ok(Number.isFinite(Date.parse(ard.observed_at)));
@@ -24,7 +24,7 @@ test('current rendered product paths preserve live x402, card off and current sa
  for(const [route,i] of [['index',0],['china-supply-check',1],['china-supply-check/sample',2],['for-agents',3],['trust',4]]){
   const html=baseline?readFileSync(`${baseline}/${i}.body`,'utf8'):read('.next/server/app/'+route+'.html');
   const body=visible(html);
-  assert.match(body,/2\.99/);assert.match(body,/x402/i);assert.match(body,/credit-card checkout is OFF/i,route);
+  assert.match(body,/2\.99/);assert.match(body,/x402/i);assert.match(body,/Legacy text\/model Stripe is OFF/i,route);
   assert.ok(html.includes('/china-supply-check/sample'),route);
   assert.doesNotMatch(body,/CSC_PUBLIC_PAID_OFF|x402.{0,20}disabled|Agent x402 payment is currently disabled|AH0[1-8]|provider_effects/);
  }
@@ -53,7 +53,7 @@ test('public API and supplier guide expose no owner-only search price or payer t
  for(const route of ['apis','sourcing/china-supplier-api']){
   const body=visible(read('.next/server/app/'+route+'.html'));
   assert.doesNotMatch(body,/0\.022|22[,.]?000|bound (?:owner|payer)|owner wallet|owner test wallet|invoke_product_keyword_search_v0/,route);
-  assert.match(body,/2\.99 USDC/);assert.match(body,/credit-card checkout is OFF/i);
+  assert.match(body,/2\.99 USDC/);assert.match(body,/Legacy text\/model Stripe is OFF/i);
  }
 });
 
@@ -62,7 +62,7 @@ test('proof entrance links current measured evidence and distinguishes demonstra
  assert.ok(html.includes('/china-supply-check/sample'));
  assert.ok(html.includes('/china-supply-check-field-coverage.json'));
  assert.match(body,/provider-only benchmark/i);assert.match(body,/not an independent customer case/i);
- assert.match(body,/0 of 3/);assert.match(body,/credit-card checkout is OFF/i);
+ assert.match(body,/0 of 3/);assert.match(body,/Legacy text\/model Stripe is OFF/i);
 });
 test('discovery ledger reports actual current official Registry publication observation',()=>{
  const body=visible(read('.next/server/app/discovery-status.html'));

@@ -1,3 +1,4 @@
+import { cscPaymentCopy } from '@/lib/csc-commercial-truth';
 import { PublicSourceObservations } from '@/components/public-source-observations';
 import coverage from '@/public/china-supply-check-field-coverage.json';
 import Link from 'next/link';
@@ -53,7 +54,7 @@ export default function SampleSummaryPage() {
  ].map(([field,meaning])=><tr key={field}><th scope="row">{field}</th><td>{meaning}</td></tr>)}</tbody></table></div><p>Paid-order candidate-level production example: <strong style={{ overflowWrap: 'anywhere' }}>NOT_AVAILABLE_FROM_AUTHORIZED_PUBLIC_MATERIAL</strong>. The public proof includes the separate benchmark observations above, an aggregate paid acceptance, measured field coverage, and this reading guide. No Candidate A/B/C values are invented.</p></div></section>
     <section className="section section-dark"><div className="container">
       <SectionTitle eyebrow="Disclosure boundary" title="Paid-order candidate details remain private." body="This summary deliberately omits the customer's wallet address, order reference, payment signature and identity, and it does not infer supplier details from the archived historical sample. The archived sample is a separate evidence-format example and is not the real paid order." />
-      <p>The current purchase path is 2.99 USDC via live x402 on Base. Public credit-card checkout is OFF and is not available to buy. <Link className="text-link" href="/for-agents">Read the MCP preparation and purchase guide</Link>.</p><p>SeekAPI does not present this record as an independent external customer or as a testimonial. It is an internal acceptance summary of an authorized production run.</p>
+      <p>{cscPaymentCopy} <Link className="text-link" href="/for-agents">Read the MCP preparation and purchase guide</Link>.</p><p>SeekAPI does not present this record as an independent external customer or as a testimonial. It is an internal acceptance summary of an authorized production run.</p>
     </div></section>
 
     <section className="section"><div className="container">

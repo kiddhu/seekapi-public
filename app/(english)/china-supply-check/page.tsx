@@ -31,7 +31,7 @@ export default function ChinaSupplyCheckPage() {
       <div className="button-row"><a className="button" href="https://api.seekapi.ai/checkout/stripe/image">Start with a product photo — $2.99</a><Link className="button button-ghost" href="/for-agents#china-supply-check-mcp">Prepare via an MCP client</Link></div>
       <p><a className="text-link" href="mailto:support@seekapi.ai?subject=China%20Supply%20Check%20order%20question">Ask support about an order</a>. Sending a message does not accept an order or authorize payment.</p>
       <p><Link className="text-link" href="/checkout">Card checkout &amp; purchase help</Link></p>
-      <p className="hero-note">Image checkout is $2.99 via Stripe after free editable confirmation; its entry checks live availability before payment. Agent purchases use 2.99 USDC on Base via x402 and signed confirmation. Opening an entry or preparing a brief does not charge or contact suppliers. Text/model: Public credit-card checkout is OFF; that legacy card entry remains closed.</p>
+      <p className="hero-note">Image checkout is $2.99 via Stripe after free editable confirmation; its entry checks live availability before payment. Agent purchases use 2.99 USDC on Base via x402 and signed confirmation. Opening an entry or preparing a brief does not charge or contact suppliers. Legacy text/model Stripe is OFF.</p>
     </div></section>
     <ImageSupplyCheckEntry />
     <section className="section"><div className="container"><p>Supplier RFQ-worthiness and exact product qualification are separate. The successful check delivers three evidence-backed supplier candidates worth advancing to RFQ; exact product specifications and requested-quantity fit are reported with their supporting evidence or remaining gaps.</p>
