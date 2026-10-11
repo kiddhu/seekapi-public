@@ -71,10 +71,11 @@ test('machine discovery links resolve and tool effects are classified honestly',
  assert.deepEqual(manifest.product_data_mcp.free_tools,['discover_china_supply_check_v0','prepare_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.authenticated_order_read_tools,['status_china_supply_check_v0','result_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,['purchase_china_supply_check_v0','run_china_supply_check_v0']);
- assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],public_paid_execution:false,purchase_state:'PUBLIC_OFF'});
+ assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],purchase_state:'CHECK_LIVE_MCP_DISCOVERY',discovery_tool:'discover_china_supply_check_v0',card_entry:'https://api.seekapi.ai/checkout/stripe/image',card_availability:'CHECK_LIVE_ENTRY',card_usd:'2.99',result_contract:'csc.delivery.v4',completed_candidate_count:{minimum:1,maximum:3},scope:'MAIN_PRODUCT_ONLY'});
  assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.9');
  assert.match(read('public/llms.txt'),/\.well-known\/ard\.json/);assert.match(read('public/llms.txt'),/registry\.modelcontextprotocol\.io/);
- assert.match(read('public/llms.txt'),/public image purchase is OFF/i);
+ assert.match(read('public/llms.txt'),/CHECK_LIVE_ENTRY/);
+ assert.match(read('public/llms.txt'),/do not pay again/i);
 });
 
 test('localized metadata has one brand suffix and English x-default',()=>{

@@ -13,7 +13,8 @@
   "payment": {
     "x402_live": true,
     "x402_version": 2,
-    "public_card": "OFF"
+    "public_card": "OFF",
+    "public_card_scope": "TEXT_MODEL_LEGACY_ONLY"
   },
   "promise": {
     "rfq_worthy_distinct_shop_candidates": 3,
@@ -55,6 +56,13 @@
   },
   "image_intake": {
     "free_prepare": true,
-    "paid_execution": "PUBLIC_OFF"
+    "paid_execution": "CHECK_LIVE_MCP_DISCOVERY",
+    "discovery_tool": "discover_china_supply_check_v0",
+    "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
+    "card_availability": "CHECK_LIVE_ENTRY",
+    "card_usd": "2.99",
+    "result_contract": "csc.delivery.v4",
+    "scope": "MAIN_PRODUCT_ONLY",
+    "completed_candidate_count": { "minimum": 1, "maximum": 3 }
   }
 }
