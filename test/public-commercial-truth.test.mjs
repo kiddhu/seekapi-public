@@ -66,7 +66,9 @@ test('proof entrance links current measured evidence and distinguishes demonstra
 });
 test('discovery ledger reports actual current official Registry publication observation',()=>{
  const body=visible(read('.next/server/app/discovery-status.html'));
- assert.match(body,/active 0\.1\.9/);assert.match(body,/2026-10-11/);
+ const current=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
+ assert.ok(body.includes('active '+current.versions.registry_package_version));
+ assert.match(body,/published 2026-10-11 13:28:47\.923862Z/);
  assert.doesNotMatch(body,/v0\.1\.7 observed before this release|Prior dated readback returned active 0\.1\.7/);
 });
 
