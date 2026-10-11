@@ -1,3 +1,4 @@
+import { cscPaymentCopy } from '@/lib/csc-commercial-truth';
 import Link from 'next/link';
 import { Eyebrow, FeatureCard, Footer, Header, SectionTitle } from '@/components/site';
 
@@ -59,7 +60,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
           <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'View the sample summary' : 'Sample summary'}</Link>
           <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
         </div>
-        <p className="growth-availability"><strong>China Supply Check: 2.99 USDC per accepted order.</strong> Free brief preparation is available through an MCP-capable client. Agent payment via x402 is live; Stripe card checkout is being enabled. SeekAPI confirms scope and a supported payment path before accepting an order.</p>
+        <p className="growth-availability"><strong>China Supply Check: 2.99 USDC per accepted order.</strong> Free brief preparation is available through an MCP-capable client. Agent payment via x402 is live; Public credit-card checkout is OFF. SeekAPI confirms scope and a supported payment path before accepting an order.</p>
         <p className="growth-limits">Published listing prices are dated supplier commercial evidence with scope and quantity conditions; certification and company or production-versus-trade identity evidence is reported per candidate when available.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>

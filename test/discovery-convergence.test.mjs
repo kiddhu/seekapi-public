@@ -17,7 +17,7 @@ test('production build renders exactly eight distinct substantive procurement gu
   assert.ok(guide.sections.map(s=>s.body).join(' ').split(/\s+/).length>=85,guide.slug+': thin decision body');
   assert.match(page,/<caption>Evidence fields for this sourcing decision<\/caption>/);
   assert.match(text,/three distinct evidence-backed China supplier candidates worth advancing to RFQ/);
-  assert.match(text,/2\.99 USDC on Base/);assert.match(text,/Stripe Checkout USD 2\.99 is being enabled and is not available to buy/);
+  assert.match(text,/2\.99 USDC on Base/);assert.match(text,/Public credit-card checkout is OFF and is not available to buy/);
   assert.match(page,new RegExp('rel="canonical" href="https://seekapi.ai/sourcing/'+guide.slug+'"'));
   assert.match(page,new RegExp('property="og:url" content="https://seekapi.ai/sourcing/'+guide.slug+'"'));
   assert.match(page,/"@type":"Service","@id":"https:\/\/seekapi\.ai\/#china-supply-check-service","name":"China Supply Check"/);
@@ -71,10 +71,10 @@ test('machine discovery links resolve and tool effects are classified honestly',
  assert.deepEqual(manifest.product_data_mcp.free_tools,['discover_china_supply_check_v0','prepare_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.authenticated_order_read_tools,['status_china_supply_check_v0','result_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,['purchase_china_supply_check_v0','run_china_supply_check_v0']);
- assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],public_paid_execution:false,live_provider_acceptance:'AUTHORITY_BLOCKED'});
- assert.equal(manifest.official_mcp_registry.latest_version,'0.1.7');
+ assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],public_paid_execution:false,purchase_state:'PUBLIC_OFF'});
+ assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.8');
  assert.match(read('public/llms.txt'),/\.well-known\/ard\.json/);assert.match(read('public/llms.txt'),/registry\.modelcontextprotocol\.io/);
- assert.match(read('public/llms.txt'),/public paid image execution is disabled/i);
+ assert.match(read('public/llms.txt'),/public image purchase is OFF/i);
 });
 
 test('localized metadata has one brand suffix and English x-default',()=>{

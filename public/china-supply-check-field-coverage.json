@@ -1,0 +1,163 @@
+{
+  "schema_version": "seekapi.csc-sample-field-coverage.v1",
+  "provenance": "INTERNAL_ACCEPTANCE",
+  "evidence_kind": "PROVIDER_ONLY_BENCHMARK",
+  "sample_scope": "Three distinct selected supplier candidates from one recorded washer benchmark. Not a paid customer order or testimonial.",
+  "evidence_observed_at": "2026-10-09T10:28:14.240Z",
+  "source_receipt_sha256": "0d4e3da40faa43c10a956f58b81050943f36848813e46fc550d9f0575a3b0f04",
+  "candidate_count": 3,
+  "distinct_supplier_count": 3,
+  "coverage": [
+    {
+      "field": "product_title",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "specification_evidence",
+      "observed_candidates": 2,
+      "unknown_candidates": 1,
+      "total_candidates": 3
+    },
+    {
+      "field": "supplier_shop_name",
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    },
+    {
+      "field": "manufacturer_or_trader",
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    },
+    {
+      "field": "platform_shop_identity",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "source_url",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "observed_moq",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "requested_quantity_fit",
+      "observed_candidates": 2,
+      "unknown_candidates": 1,
+      "total_candidates": 3
+    },
+    {
+      "field": "observed_listing_price",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "price_currency",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "price_unit",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "quantity_tier",
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    },
+    {
+      "field": "observed_at",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "contact_path",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "rfq_worthy_reason",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "risks_or_unknowns",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "evidence_provenance",
+      "observed_candidates": 3,
+      "unknown_candidates": 0,
+      "total_candidates": 3
+    },
+    {
+      "field": "company_registration",
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    },
+    {
+      "field": "certification_evidence",
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    },
+    {
+      "field": "confirmed_supplier_quote",
+      "observed_candidates": 0,
+      "unknown_candidates": 3,
+      "total_candidates": 3
+    }
+  ],
+  "benchmark_summary": [
+    {
+      "case": "washer",
+      "qualified_distinct_suppliers": 3,
+      "shortage": false
+    },
+    {
+      "case": "hex-bolt",
+      "qualified_distinct_suppliers": 3,
+      "shortage": false
+    },
+    {
+      "case": "terminal-block",
+      "qualified_distinct_suppliers": 2,
+      "shortage": true
+    },
+    {
+      "case": "corrugated-carton",
+      "qualified_distinct_suppliers": 3,
+      "shortage": false
+    },
+    {
+      "case": "deep-groove-bearing",
+      "qualified_distinct_suppliers": 0,
+      "shortage": true
+    }
+  ],
+  "benchmark_overall_pass": false,
+  "candidate_row_publication_rights": "NOT_ESTABLISHED",
+  "coverage_is_not_a_per_run_guarantee": true,
+  "price_interpretation": "Observed listing prices are not confirmed supplier quotes; requested-quantity tier match is UNKNOWN without a recorded tier."
+}

@@ -16,12 +16,12 @@
           "usdc": "2.99",
           "network": "eip155:8453",
           "cardUsd": "2.99",
-          "cardState": "BEING_ENABLED_NOT_LIVE"
+          "cardState": "PUBLIC_OFF"
         },
         "payment": {
           "x402Live": true,
           "x402Network": "eip155:8453",
-          "stripeCheckout": "BEING_ENABLED_NOT_LIVE"
+          "stripeCheckout": "PUBLIC_OFF"
         },
         "promise": {
           "rfqWorthyDistinctShopCandidates": 3,
@@ -85,7 +85,76 @@
           "acceptance": "Separate scope, fee, recipient permission and authority required before action",
           "humanTaskApiLive": false,
           "liveRfqComparePackage": "PLANNED_NOT_FOR_PURCHASE"
-        }
+        },
+        "commercialTruth": {
+          "schema_version": "seekapi.csc-public-commercial-truth.v1",
+          "product_id": "china_supply_check_v0",
+          "name": "SeekAPI China Supply Check",
+          "price": {
+            "amount": "2.99",
+            "currency": "USDC",
+            "atomic_units": "2990000",
+            "network": "eip155:8453",
+            "card_usd": "2.99",
+            "card_state": "PUBLIC_OFF"
+          },
+          "payment": {
+            "x402_live": true,
+            "x402_version": 2,
+            "public_card": "OFF"
+          },
+          "promise": {
+            "rfq_worthy_distinct_shop_candidates": 3,
+            "successful_completion_only": true,
+            "shortage_and_unknowns_disclosed": true
+          },
+          "product_page": "https://seekapi.ai/china-supply-check",
+          "sample_report": "https://seekapi.ai/china-supply-check/sample",
+          "remote_mcp": "https://api.seekapi.ai/mcp",
+          "tools": {
+            "free": [
+              "discover_china_supply_check_v0",
+              "prepare_china_supply_check_v0"
+            ],
+            "paid": [
+              "purchase_china_supply_check_v0",
+              "run_china_supply_check_v0"
+            ],
+            "authenticated_reads": [
+              "status_china_supply_check_v0",
+              "result_china_supply_check_v0"
+            ]
+          },
+          "versions": {
+            "registry_package_version": "0.1.8",
+            "mcp_server_version": "0.1.2",
+            "csc_contract_version": "seekapi.csc-public-contract.v2",
+            "commercial_state_version": "2026-10-11.1"
+          },
+          "contract_updated_at": "2026-10-11T03:00:00Z",
+          "price_semantics": {
+            "observed_listing_price": "Dated platform listing evidence, not an RFQ quote.",
+            "confirmed_supplier_quote": "Only a supplier reply explicitly confirming the requested RFQ.",
+            "requested_quantity_tier_match": [
+              "MATCHED",
+              "OUTSIDE_TIER",
+              "UNKNOWN"
+            ]
+          },
+          "image_intake": {
+            "free_prepare": true,
+            "paid_execution": "PUBLIC_OFF"
+          }
+        },
+        "versions": {
+          "registry_package_version": "0.1.8",
+          "mcp_server_version": "0.1.2",
+          "csc_contract_version": "seekapi.csc-public-contract.v2",
+          "commercial_state_version": "2026-10-11.1"
+        },
+        "contract_updated_at": "2026-10-11T03:00:00Z",
+        "observed_at": "2026-10-11T03:00:00Z",
+        "registryPackageVersion": "0.1.8"
       },
       "representativeQueries": [
         "Find China suppliers for a specified model, quantity and hard specifications",
