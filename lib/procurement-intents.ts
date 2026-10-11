@@ -408,7 +408,7 @@ export const procurementIntents: ProcurementIntent[] = [
       "Keep unknowns distinct from false, zero or an empty commercial claim.",
       "Use signed-wallet authentication for current order reads; never treat an ID as a credential."
     ],
-    "unknowns": "Separate raw product-data capabilities can have different prices and access states. Their 0.022 USDC keyword-search terms do not describe China Supply Check. Read each capability's current discovery contract.",
+    "unknowns": "Raw product-data capabilities are not available for public purchase and do not describe China Supply Check. Read the current sourcing discovery contract for supported inputs, payment and delivery states.",
     "links": [
       [
         "/for-agents",

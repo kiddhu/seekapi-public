@@ -48,3 +48,11 @@ test('sample presents measured real coverage and does not imply a full passing b
  assert.doesNotMatch(html,/<a[^>]*class="button[^\"]*"[^>]*href="[^\"]*archived-v4/);
  assert.doesNotMatch(JSON.stringify(coverage),/b2b-|detail\.1688|wallet|signature|api_key|provider_calls|reserved_millicny/);
 });
+
+test('public API and supplier guide expose no owner-only search price or payer tutorial',()=>{
+ for(const route of ['apis','sourcing/china-supplier-api']){
+  const body=visible(read('.next/server/app/'+route+'.html'));
+  assert.doesNotMatch(body,/0\.022|22[,.]?000|bound (?:owner|payer)|owner wallet|owner test wallet|invoke_product_keyword_search_v0/,route);
+  assert.match(body,/2\.99 USDC/);assert.match(body,/credit-card checkout is OFF/i);
+ }
+});

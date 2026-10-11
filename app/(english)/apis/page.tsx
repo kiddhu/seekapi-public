@@ -9,8 +9,8 @@ export const metadata = pageMetadata(
 
 const registryUrl = 'https://registry.modelcontextprotocol.io/v0.1/servers?search=io.github.kiddhu%2Fseekapi';
 const unpaidExample = JSON.stringify({
-  name: 'invoke_product_keyword_search_v0',
-  arguments: { request: { q: 'desk lamp', page: 1, page_size: 3 } },
+  name: 'discover_china_supply_check_v0',
+  arguments: {},
 }, null, 2);
 
 export default function Page() {
@@ -18,32 +18,31 @@ export default function Page() {
     <section className="page-hero"><div className="container">
       <Eyebrow>For developers and machines</Eyebrow>
       <h1>China supplier screening through a typed MCP interface.</h1>
-      <p>China Supply Check is the current sourcing product: three distinct evidence-backed China supplier candidates worth advancing to RFQ on success. Free discovery and preparation use public MCP; the existing confirmed x402 purchase path is live at 2.99 USDC on Base. Public credit-card checkout is OFF and is not available to buy.</p><p>The following raw product-data capabilities are separate products with separate prices and access states. The public product-data MCP endpoint supports free tool discovery and an unpaid search payment challenge. Paid search remains a limited test for one bound owner wallet. The other four product capabilities return sandbox fixtures. Human-task APIs are a separate, planned service.</p>
+      <p>China Supply Check is the current sourcing product: three distinct evidence-backed China supplier candidates worth advancing to RFQ on success. Free discovery and preparation use public MCP; the existing confirmed x402 purchase path is live at 2.99 USDC on Base. Public credit-card checkout is OFF and is not available to buy.</p><p>Other raw product-data capabilities are not available for public purchase. Their test access does not describe China Supply Check. Human-task APIs are a separate, planned service.</p>
       <div className="button-row"><a className="button" href="/for-agents#china-supply-check-mcp">China Supply Check MCP guide</a><a className="button button-ghost" href="/sourcing/china-supplier-api">Evidence response semantics</a></div>
     </div></section>
 
     <section className="section"><div className="container"><SectionTitle title="Use the live CSC tool contract" body="Read discover_china_supply_check_v0 and prepare_china_supply_check_v0 before the confirmed purchase/run flow. status_china_supply_check_v0 and result_china_supply_check_v0 require signed-wallet authentication bound to the settled order. This site does not document a separate CSC REST endpoint."/><a className="text-link" href="/china-supply-check">Product and current purchase path</a></div></section>
     <section className="section" id="product-search"><div className="container">
-      <SectionTitle eyebrow="Public product-data discovery" title="Connect without credentials or payment." body="Use a standard MCP client with Streamable HTTP. Leave automatic payment disabled and do not attach a wallet, signature or payment metadata. These free steps do not trigger any paid provider call or return live product results."/>
+      <SectionTitle eyebrow="Public MCP discovery" title="Connect without credentials or payment." body="Use a standard MCP client with Streamable HTTP. Discovery and preparation are free. Keep automatic payment disabled while reading the contract and preparing your sourcing brief."/>
       <div className="grid-3">
         <FeatureCard title="Public MCP endpoint" body="https://api.seekapi.ai/mcp — Streamable HTTP. No account or API key is needed to initialize, list tools or inspect discovery."/>
-        <FeatureCard title="Separate raw keyword-search terms" body="0.022 USDC for a successful useful result, on Base mainnet (eip155:8453). That is 22,000 atomic units of six-decimal USDC. The official x402 challenge is authoritative."/>
-        <FeatureCard title="Paid access is restricted" body="Only the bound owner test wallet can pay for live search. This is not open paid access for external buyers. Product detail, public offer snapshots, shop product pages and seller public profiles remain sandbox-only."/>
+        <FeatureCard title="Current sourcing product" body="China Supply Check costs 2.99 USDC on Base through live x402. Public credit-card checkout is OFF. Successful delivery provides three distinct RFQ-worthy supplier candidates with evidence and explicit unknowns."/>
+        <FeatureCard title="Other capability states" body="Raw product-data capabilities are not available for public purchase. Human-task execution remains planned. Inspect current discovery before using a capability."/>
       </div>
-      <div className="link-list"><a className="text-link" href={registryUrl}>Find SeekAPI in the official MCP Registry</a><a className="text-link" href="https://api.seekapi.ai/mcp">Public MCP endpoint</a><a className="text-link" href="#unpaid-quickstart">No-payment quickstart</a></div>
+      <div className="link-list"><a className="text-link" href={registryUrl}>Find SeekAPI in the official MCP Registry</a><a className="text-link" href="https://api.seekapi.ai/mcp">Public MCP endpoint</a><a className="text-link" href="#unpaid-quickstart">Free discovery quickstart</a></div>
     </div></section>
 
     <section className="section section-dark" id="unpaid-quickstart"><div className="container">
-      <SectionTitle eyebrow="No-payment quickstart" title="Find the tool, read its contract, stop at the payment request." body="The Registry identifies the endpoint. Read the live discovery response for the current capability mode, wallet restriction and terms; a listing does not authorize a purchase."/>
+      <SectionTitle eyebrow="Free discovery quickstart" title="Read the current contract, then prepare your brief." body="The Registry identifies the endpoint. Discovery explains the current product, payment state and tool schemas. Preparation lets you inspect the brief before authorizing a purchase."/>
       <ProcessSteps steps={[
         { title: 'Connect and list tools', body: 'Connect to the public MCP endpoint with Streamable HTTP, initialize the session and request tools/list. Use the client’s normal MCP transport and default headers.' },
-        { title: 'Read the search contract', body: 'Call discover_product_keyword_search_v0 with empty arguments. Inspect its input contract, example request, pricing, payment network, bound payer and invocation instructions.' },
-        { title: 'Request an unpaid challenge', body: 'Call invoke_product_keyword_search_v0 with the request shown below and no payment metadata. Expect an x402 payment-required tool error, not product data. Confirm exact, eip155:8453, amount 22000 and the USDC asset match discovery. Stop here; do not approve or sign a payment.' },
+        { title: 'Read the sourcing contract', body: 'Call discover_china_supply_check_v0 with empty arguments. Inspect the input contract, example brief, current availability, price and supported payment method.' },
+        { title: 'Prepare without paying', body: 'Call prepare_china_supply_check_v0 using the current schema and your product requirements. Review the normalized brief, delivery promise and remaining unknowns. Preparation does not purchase or execute a supplier check.' },
       ]}/>
-      <pre className="code-block" aria-label="Unpaid MCP tools/call parameters">{unpaidExample}</pre>
-      <p>Verified no-payment clients: Python MCP 1.30.0 with x402 2.24.0 using <code>x402MCPSession</code> and <code>auto_payment=False</code>; JavaScript MCP SDK 1.30.1 without a payment client. A Python MCP 2.2.0 high-level client paired with the generic x402 wrapper has a known call-interface mismatch; use the verified session-based combination for this check.</p>
-      <p>This is the parameters object for MCP <code>tools/call</code>, after initialization. The client handles the JSON-RPC envelope and session. An idempotency key is optional for this unpaid check; any later authorized paid call requires the stable key documented by discovery.</p>
-      <p>MCP returns an isError=true tool result containing structured x402 requirements; its HTTP transport can still return 200. A REST payment challenge uses HTTP 402. A 403 HTML page is an ingress failure, not an x402 payment request. Record the time, client version and Cloudflare Ray ID, then contact <a href="mailto:support@seekapi.ai">support@seekapi.ai</a>. Do not send wallet material or attempt payment to resolve a connection error.</p>
+      <pre className="code-block" aria-label="Free discovery MCP tools/call parameters">{unpaidExample}</pre>
+      <p>This is the parameters object for MCP <code>tools/call</code>, after initialization. Your MCP client handles the JSON-RPC envelope and session. See the <a href="/for-agents#china-supply-check-mcp">China Supply Check MCP guide</a> for preparation and the confirmed purchase/run flow.</p>
+      <p>A connection error does not authorize payment. Contact <a href="mailto:support@seekapi.ai">support@seekapi.ai</a> with the time and client version if discovery fails. Do not send wallet secrets or payment credentials.</p>
     </div></section>
 
     <section className="section" id="human-task-status"><div className="container">
