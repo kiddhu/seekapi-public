@@ -1,6 +1,8 @@
+import {readPublicSamplePublication,publicSampleMetadata} from '@/lib/public-agent-sample';
 import { cscCommercialTruth as truth } from '@/lib/csc-commercial-truth';
 export const dynamic='force-static';
 export async function GET(){return Response.json({
+  selection_transparency:publicSampleMetadata(readPublicSamplePublication()),
   public_source_observations:{url:"https://seekapi.ai/china-supply-check-source-observations.json",publication_scope:"PUBLIC_SOURCE_OBSERVATIONS_ONLY",qualification_status:"UNKNOWN",strict_confirmation:"0/3",observed_specification_signals:"3/3",final_qualification:"3/3 UNKNOWN",benchmark_overall:"NOT_PASS",recommendations:false},
   commercial_truth:truth,versions:truth.versions,contract_updated_at:truth.contract_updated_at,observed_at:new Date().toISOString(),current_sample_url:truth.sample_report,
   provider:'SeekAPI',service_family:'human_execution_china_supply_chain',version:'0.1-preview',status:'manual_review_preview',

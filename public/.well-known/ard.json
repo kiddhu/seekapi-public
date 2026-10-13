@@ -245,6 +245,13 @@
             "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
           ],
           "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK"
+        },
+        "selectionTransparency": {
+          "qualification_contract": "QUALIFIED_RFQ_CANDIDATE_V1",
+          "ranking_contract": "SEEKAPI_BALANCED_SUPPLIER_RANKING_V1",
+          "selection_trace_contract": "CSC_SELECTION_TRACE_V1",
+          "publication_readiness": "PENDING_SOURCE",
+          "publication_status": "PREPARED_NOT_DEPLOYED"
         }
       },
       "representativeQueries": [

@@ -1,3 +1,5 @@
+import {QualifiedPublicSample} from '@/components/qualified-public-sample';
+import {readPublicSamplePublication} from '@/lib/public-agent-sample';
 import { cscPaymentCopy } from '@/lib/csc-commercial-truth';
 import { PublicSourceObservations } from '@/components/public-source-observations';
 import coverage from '@/public/china-supply-check-field-coverage.json';
@@ -5,13 +7,19 @@ import Link from 'next/link';
 import { Eyebrow, PageShell, SectionTitle } from '@/components/site';
 import { pageMetadata } from '@/lib/site';
 
-export const metadata = pageMetadata(
+export const metadata = readPublicSamplePublication() ? pageMetadata(
+  'Qualified supplier example and selection evidence',
+  'A privacy-safe existing acceptance result with verified source-scoped qualifications, current-policy scorecards, unknowns and an editable RFQ draft.',
+  '/china-supply-check/sample',
+) : pageMetadata(
   'Public Source Observations and Evidence Limits',
   'Three public source observations from an internal provider-only benchmark, with UNKNOWN qualification and explicit evidence limits. Paid-order candidate details remain private.',
   '/china-supply-check/sample',
 );
 
 export default function SampleSummaryPage() {
+  const publication=readPublicSamplePublication();
+  if(publication)return <PageShell><QualifiedPublicSample publication={publication}/></PageShell>;
   return <PageShell>
     <section className="page-hero"><div className="container">
       <Eyebrow>PUBLIC SOURCE OBSERVATIONS · INTERNAL PROVIDER-ONLY BENCHMARK</Eyebrow>

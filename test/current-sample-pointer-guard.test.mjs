@@ -25,6 +25,8 @@ const destination = href => {
 const isSample = href => destination(href).path === current || destination(href).path.startsWith(current + '/');
 const isCurrent = href => destination(href).origin === origin && destination(href).path === current;
 const isArchive = href => destination(href).path === archive;
+const agentJson='/china-supply-check/sample.json';
+const isAgentJson=href=>destination(href).origin===origin&&destination(href).path===agentJson;
 function assertSurface(route, page, required = false) {
   const links = anchors(page);
   for (const link of links.filter(link => isSample(link.href))) {
@@ -49,11 +51,11 @@ function assertArchiveReport(page) {
   assert.match(page, /<meta\b[^>]*name="robots"[^>]*content="noindex, follow"/);
   assertSurface(archive, page, true);
 }
-function assertMachine(value, label) {
+function assertMachine(value, label, ready = false) {
   if (typeof value === 'string') {
     for (const m of value.matchAll(/(?:https?:\/\/[^\s"<>]+)?\/china-supply-check\/sample[^\s"<>]*/g))
-      assert.ok(isCurrent(m[0]), label + ': obsolete/noncanonical sample pointer ' + m[0]);
-  } else if (value && typeof value === 'object') for (const child of Object.values(value)) assertMachine(child, label);
+      assert.ok(isCurrent(m[0]) || ready && isAgentJson(m[0]), label + ': obsolete/noncanonical sample pointer ' + m[0]);
+  } else if (value && typeof value === 'object') for (const child of Object.values(value)) assertMachine(child, label, ready);
 }
 function assertManifest(value) {
   assert.equal(value.provider, 'SeekAPI');
@@ -61,7 +63,7 @@ function assertManifest(value) {
   assert.equal(value.product_data_mcp.csc_public_paid_on, true);
   assert.equal(value.live_human_task_api, false);
   // No sample field exists today; guard any current/future nested sample pointers.
-  assertMachine(value, 'agent-services.json');
+  assertMachine(value, 'agent-services.json', value.selection_transparency?.publication_readiness === 'VALIDATED_READY_FOR_RELEASE');
 }
 function pages(directory = root) {
   return readdirSync(new URL('../' + directory, import.meta.url), { withFileTypes: true }).flatMap(entry => {
@@ -122,10 +124,14 @@ test('built Agent manifest and served machine responses preserve current sample 
     assert.deepEqual(servedManifest, manifest());
     const llms = await get('/llms.txt');
     assert.ok(llms.includes('Public paid acceptance example: ' + origin + current));
-    assertMachine(llms, 'llms.txt');
+    assertMachine(llms, 'llms.txt', servedManifest.selection_transparency?.publication_readiness === 'VALIDATED_READY_FOR_RELEASE');
     const ard = JSON.parse(await get('/.well-known/ard.json'));
     assert.equal(ard.entries[0].data.sampleReport, origin + current);
-    assertMachine(ard, 'ard.json');
+    assertMachine(ard, 'ard.json', servedManifest.selection_transparency?.publication_readiness === 'VALIDATED_READY_FOR_RELEASE');
+    const sampleResponse=await fetch('http://127.0.0.1:'+port+agentJson);
+    assert.equal(sampleResponse.status,404,'missing reviewed sample artifact remains unavailable');
+    assert.equal(servedManifest.selection_transparency.publication_readiness,'PENDING_SOURCE');
+    assert.equal('public_agent_sample' in servedManifest.selection_transparency,false);
   } finally {
     server.kill('SIGTERM');
     await exited;
@@ -158,4 +164,10 @@ test('negative cases fail for missing rendered disclosures and anchors despite h
   assert.throws(() => assertArchiveReport(content(historical).replaceAll('href="' + current + '"', 'href="/china-supply-check"')));
   assert.throws(() => assertCurrentReport(content(sample).replaceAll('href="' + archive + '"', 'href="/china-supply-check"')));
   assert.throws(() => assertManifest({ ...manifest(), product_data_mcp: { ...manifest().product_data_mcp, csc_public_paid_on: false } }));
+});
+
+test('machine JSON pointer is accepted only with a ready publication and canonical origin',()=>{
+ assert.throws(()=>assertMachine(origin+agentJson,'not ready'),/obsolete\/noncanonical/);
+ assert.doesNotThrow(()=>assertMachine(origin+agentJson,'ready',true));
+ assert.throws(()=>assertMachine('https://other.example'+agentJson,'wrong origin',true),/obsolete\/noncanonical/);
 });

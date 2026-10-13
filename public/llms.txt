@@ -42,3 +42,5 @@ Current measured field coverage: https://seekapi.ai/china-supply-check-field-cov
 
 Public source observation rows: https://seekapi.ai/china-supply-check-source-observations.json
 Scope: internal provider-only benchmark public source observations, not recommendations or completed RFQ candidates. Strict confirmation 0/3; observed specification signals 3/3; final qualification 3/3 UNKNOWN; five-case benchmark overall NOT_PASS. Paid-order candidate details remain private.
+## Qualified public sample publication
+Qualified sample publication: PENDING_SOURCE. The selection transparency contracts are prepared, not deployed. The current sample page remains the recorded source-observation and acceptance summary; no qualified Agent JSON or MCP sample resource is claimed live.
