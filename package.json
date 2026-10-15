@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "tsx scripts/sync-public-agent-sample.mjs && next build",
     "start": "next start",
-    "test": "tsx --test test/*.test.mjs"
+    "test": "tsx --test test/*.test.mjs",
+    "prepare:public-sample": "tsx scripts/prepare-public-agent-sample.mjs"
   },
   "dependencies": {
     "next": "16.3.8",

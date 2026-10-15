@@ -25,7 +25,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <div><dt>Product / model</dt><dd>M6 flat washer</dd></div>
       <div><dt>Quantity + unit</dt><dd>500 pieces</dd></div>
       <div><dt>Must-have specification</dt><dd>304 stainless steel</dd></div>
-    </dl> : <><p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p><p className="growth-outcome">On success: three distinct shop candidates. Fewer qualify? We report the shortage.</p></>}
+    </dl> : <><p className="growth-example-request">M6 flat washer · 500 pieces · 304 stainless steel</p><p className="growth-outcome">On success: three distinct actionable supplier candidates. Fewer qualify? We report the shortage.</p></>}
     {variant === 'c' ? <div className="growth-result">
       <span className="growth-label">Archived historical example · V4 prefix</span>
       <dl className="growth-inputs">
@@ -37,7 +37,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <Link className="text-link" href="/china-supply-check/sample">Inspect the current acceptance summary</Link>
     </div> : <div className="growth-result">
       <span className="growth-label">On a successful check</span>
-      <strong>Three distinct shop candidates</strong>
+      <strong>Three actionable supplier candidates</strong>
       <p>Source links · observed price basis · MOQ/spec fit · exclusions · UNKNOWNs</p>
       <p className="growth-small">Fewer qualify? The report states the shortage. It does not pad the shortlist.</p>
     </div>}
@@ -84,7 +84,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
     <section className="section"><div className="container">
       <SectionTitle eyebrow="One China-side partner" title="Keep moving after the supplier shortlist." body="China Supply Check is the live, low-cost entry. For the next China-side task, ask SeekAPI to review a separate human-service scope. No supplier outreach or spending is authorized by the screening purchase." />
       <div className="grid-3">
-        <FeatureCard index="01 · LIVE" title="Find and screen suppliers" body="A successful 2.99 USDC China Supply Check returns three distinct candidates worth advancing to RFQ, with source evidence, price basis, MOQ fit and field-specific gaps. MCP and x402 are live." />
+        <FeatureCard index="01 · LIVE" title="Find and screen suppliers" body="A successful 2.99 USDC China Supply Check returns three distinct candidates worth advancing to RFQ, with source evidence, price basis, MOQ fit and field-specific gaps. MCP discovery is available; check current admission for each payment mode." />
         <FeatureCard index="02 · SCOPE REVIEW" title="Contact and compare" body="Request help contacting selected suppliers and obtaining current RFQ answers. SeekAPI reviews the brief, recipients, fee and authority before accepting human work. The proposed 19.90 USD Live RFQ Compare package is not open for purchase." />
         <FeatureCard index="03 · SCOPE REVIEW" title="Samples and procurement execution" body="Ask for a defined China-side assignment: sample or production follow-up, supplier communication, quality coordination and export or logistics handoffs. Delivery, price and responsibility are agreed per task; no automatic execution API is live." />
       </div>

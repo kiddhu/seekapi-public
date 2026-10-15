@@ -1,30 +1,19 @@
-# SeekAPI — China procurement for AI agents and overseas buyers
+# SeekAPI — product-first China procurement evidence
 
-SeekAPI acts as a **China-side procurement desk** for overseas buyers and AI agents. Its live entry product is **China Supply Check**: three evidence-backed China supplier candidates worth advancing to RFQ, with dated product/specification, published sales-price and quantity/MOQ evidence, contact paths and candidate-specific gaps.
+China Supply Check compares evidenced matching products from distinct suppliers. The product-first V2 policy scores comparable price45%, scoped sales35%, MOQ fit10% and freshness/activity10%; deduplicates connected legal/member/shop identities; protects at most20 suppliers within10 points of the best product; then selects source factory tiersF5→F0. Q1–Q6 is auxiliary trust, not an all-PASS admission gate. Ordinary partial results stay provisional.
 
-- [China-side procurement desk and manually scoped work](https://seekapi.ai/china-desk)
-- [Agent MCP connection and human handoff](https://seekapi.ai/for-agents)
-- [China supplier sourcing guides](https://seekapi.ai/sourcing)
-- [Current entity and operator](https://seekapi.ai/about)
-- [Current product and purchase requirements](https://seekapi.ai/china-supply-check)
-- [Real production paid acceptance summary — INTERNAL_ACCEPTANCE](https://seekapi.ai/china-supply-check/sample)
-- [Directory and discovery status](https://seekapi.ai/discovery-status)
-- [Support](https://seekapi.ai/support), [Terms](https://seekapi.ai/terms) and [Privacy](https://seekapi.ai/privacy)
+Read the [human example](https://seekapi.ai/china-supply-check/sample), [exact Agent JSON](https://seekapi.ai/china-supply-check/sample.json), [MCP guide](https://seekapi.ai/for-agents), [public HTTP read documentation](https://seekapi.ai/openapi.json), [current public contract](https://seekapi.ai/.well-known/csc-commercial-truth.json) and [discovery status](https://seekapi.ai/discovery-status). Pointer availability is independently verified at release; local preparation is not a production publication receipt.
 
-Image Stripe hosted Checkout is live for USD 2.99. Free editable confirmation comes first; verified payment creates one order and entitlement, followed by automatic sourcing, 1–3 distinct source-backed suppliers, an English report and Agent JSON, and durable recovery without repayment. Image and text/model Agent payments use live x402 v2 for 2.99 USDC on Base. Legacy text/model Stripe is OFF. Main product only; accessories are not promised; shortages and UNKNOWN stay explicit. Start image checkout: https://api.seekapi.ai/checkout/stripe/image. Agent x402 order operations require independent signed-wallet authentication; Stripe results use the secure recovery link. Payment proof or an order ID alone does not grant access.
+The public example reconstructs three DIRECT_MATCH historical products. Each commercial score is0/100 and factory tierF0: old or insufficient evidence earns no commercial credit and does not establish a current source factory role. These are not negative product ratings or proof that a supplier is not a factory. Deterministic tied display order does not establish commercial superiority. Original pool/weights are NOT_RECORDED; current V2 scores are RECOMPUTED, not the historical order's original ranking.
 
-Certification, company identity, production/trade scope, published prices and contact facts are reported per candidate and within their source scope. Missing evidence is recorded on the relevant field. A screening result does not guarantee a supplier reply, a supplier-confirmed final quotation, stock or lead time. Existing company/judicial information capability is distinct from what has actually been checked in an individual report.
+Current dated payment observation: image Stripe LIVE atUSD2.99, image x402 OFF, text/model Stripe OFF, text/model x402 LIVE at2.99USDC/Base. Call discover_china_supply_check_v0 at https://api.seekapi.ai/mcp before a new purchase. Runtime admission is authoritative; UNKNOWN never means LIVE. Existing authenticated results are free to reopen, without repayment. No new payment or supplier contact occurs by reading pages.
 
-After the shortlist, an Agent or buyer can request manual scope review for selected-supplier contact, an authorized RFQ and quote comparison, sample or production follow-up, procurement and export/logistics coordination. SeekAPI accepts only a separately agreed scope, fee, recipient permission and authority. The browser prepares a user-reviewed email request; no human-task API or automatic acceptance is live. The proposed USD 19.90 Live RFQ Compare package is not open for purchase. The current screening purchase does not authorize supplier outreach. Synthetic API fixtures are separately labelled sandbox. Historical V4 evidence is archived and is not the successful paid acceptance order or current commercial availability.
+Source certification is not a SeekAPI independent onsite audit. Source marketplace protections apply only to eligible product transactions and do not compensate the CSC fee. Exact SKU, material, dimensions, quality, stock, lead time and formal quote need RFQ confirmation. Public contacts are availability-only/null when unknown; authenticated paid report business contacts remain readable.
 
-## Develop locally
+The proposed $19.90 Live RFQ Compare service is contact, translation, follow-up and formal quotation comparison, not contact unlock, and is not currently open for purchase. Other human assignments require separately accepted scope, fee and authority.
 
-```bash
-npm ci
-npm run dev
-npm run build
-```
+## Development
 
-Open http://localhost:3000. This repository contains public website and intentionally public assets; no customer identifiers, payment proofs, credentials or internal commercial budgets belong here.
+Use Node24. `npm ci`, `npm run build`, then `npm test`. Production-indexing simulation requires `VERCEL_ENV=production NEXT_PUBLIC_PUBLIC_INDEXING=1`; previews remain noindex. The pinned, cleared public artifact is `data/public-agent-sample-publication.json`; source images, identities and private proof packets do not belong here. Removing an artifact produces honest unavailable sample behavior; it must not retain JSON/MCP sample advertisements.
 
-Preview deployments are non-indexable. Production indexing requires both `VERCEL_ENV=production` and `NEXT_PUBLIC_PUBLIC_INDEXING=1`. Intake routes remain separate from informational product and discovery pages.
+[Publication input and validation](docs/public-qualified-sample-publication.md). Historical engineering/approval notes under docs describe their recorded version; they do not override the current public contract above. They are not current deployment or purchase-availability receipts.

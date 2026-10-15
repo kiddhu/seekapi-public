@@ -1,29 +1,5 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-const source = path => readFileSync(new URL('../'+path, import.meta.url), 'utf8');
-const current = ['app/(english)/china-supply-check/page.tsx', 'app/(english)/china-supply-check/fasteners/page.tsx', 'app/(english)/china-supply-check/connectors/page.tsx', 'app/(english)/china-supply-check/moq-specification-screening/page.tsx', 'app/(english)/for-agents/page.tsx', 'public/.well-known/ard.json'];
-test('current linked CSC routes preserve paid-on and card-not-live truth', () => {
- for (const path of current) {
-  const body = source(path);
-  assert.doesNotMatch(body, /no paid run(?: or supplier contact)? is public|no paid run or supplier contact is public|verified_company.*false|verified_manufacturer.*false|claimCeiling|aion-governance/i, path);
- }
- for (const path of current.slice(1,3)) {
-  assert.match(source(path), /live via x402 at 2.99 USDC/, path);
-  assert.match(source(path), /Image Stripe hosted Checkout is live/, path);
- }
-});
-test('supplier RFQ-worthiness never implies three exact product-qualified offers', () => {
- for (const path of [current[0],current[1],current[3]]) {
-  assert.match(source(path), /Supplier RFQ-worthiness and exact product qualification are separate/, path);
-  assert.doesNotMatch(source(path), /Screen for three distinct platform shops only when hard specs and quantity are supported|completed report has three qualified candidates|missing mandatory evidence and near misses/, path);
- }
-});
-test('default acceptance summary is aggregate and historical candidate rows stay separate', () => {
- const summary = source('app/(english)/china-supply-check/sample/page.tsx');
- assert.match(summary, /INTERNAL_ACCEPTANCE/);
- assert.match(summary, /2.99 USDC/);
- assert.match(summary, /sample\/archived-v4/);
- assert.doesNotMatch(summary, /0x[0-9a-fA-F]{40}|b2b-[0-9]+|offer:|aion-governance/);
- assert.match(source('app/(english)/china-supply-check/sample/archived-v4/page.tsx'), /ARCHIVED/);
-});
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
+test('built product and Agent routes explain product admission, not six V1 trust gates',()=>{for(const r of ['china-supply-check','for-agents','apis','discovery-status']){const s=visible(read('.next/server/app/'+r+'.html'));assert.match(s,/45%/);assert.match(s,/35%/);assert.match(s,/20 unique|20 suppliers/);assert.match(s,/10 product-score/);assert.match(s,/Q1–Q6/);assert.match(s,/not six/);assert.match(s,/provisional/);assert.doesNotMatch(s,/QUALIFIED_RFQ_CANDIDATE_V1|all six.*pass|1–3/);}});
+test('current candidate report states real evidence limits without inferring material or commercial advantage',()=>{const s=visible(read('.next/server/app/china-supply-check/sample.html'));for(const pattern of [/DIRECT_MATCH/,/0\/100/,/F0/,/deterministic/,/commercial superiority/,/SKU/,/material/,/stock/,/lead time/,/RFQ/,/not a negative/,/not.*factory/])assert.match(s,pattern);});
+test('historical reconstruction cannot become the historical original decision',()=>{const s=visible(read('.next/server/app/china-supply-check/sample.html'));assert.match(s,/NOT_RECORDED/);assert.match(s,/RECOMPUTED/);assert.match(s,/not the original historical ranking/);assert.doesNotMatch(s,/0x[0-9a-fA-F]{40}|b2b-|selection_proofs_v2|member_id|offer_id/);});

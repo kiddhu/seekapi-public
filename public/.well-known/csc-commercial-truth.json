@@ -1,5 +1,5 @@
 {
-  "schema_version": "seekapi.csc-public-commercial-truth.v2",
+  "schema_version": "seekapi.csc-public-surface-truth.v3",
   "product_id": "china_supply_check_v0",
   "name": "SeekAPI China Supply Check",
   "price": {
@@ -9,14 +9,77 @@
     "network": "eip155:8453",
     "card_usd": "2.99"
   },
-  "payment": {
-    "x402_live": true,
-    "x402_version": 2
+  "payments": {
+    "image_first": {
+      "stripe": {
+        "status": "LIVE",
+        "amount_usd": "2.99",
+        "hosted_checkout": true,
+        "entry": "https://api.seekapi.ai/checkout/stripe/image",
+        "payment_to_delivery": "LIVE"
+      },
+      "x402": {
+        "status": "OFF",
+        "amount_usdc": "2.99",
+        "network": "Base",
+        "network_id": "eip155:8453",
+        "version": 2
+      }
+    },
+    "text_model_legacy": {
+      "stripe": {
+        "status": "OFF"
+      },
+      "x402": {
+        "status": "LIVE",
+        "amount_usdc": "2.99",
+        "network": "Base",
+        "network_id": "eip155:8453",
+        "version": 2
+      }
+    }
+  },
+  "image_intake": {
+    "free_prepare": true,
+    "paid_execution": "LIVE",
+    "discovery_tool": "discover_china_supply_check_v0",
+    "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
+    "card_availability": "LIVE",
+    "card_usd": "2.99",
+    "result_contract": "csc.delivery.v4",
+    "scope": "MAIN_PRODUCT_ONLY",
+    "delivery_chain": [
+      "VERIFIED_PAYMENT",
+      "ONE_ORDER_AND_ENTITLEMENT",
+      "AUTOMATIC_SOURCING",
+      "ENGLISH_REPORT_AND_AGENT_JSON",
+      "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
+    ],
+    "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK"
   },
   "promise": {
-    "rfq_worthy_distinct_shop_candidates": 3,
-    "successful_completion_only": true,
+    "target_actionable_distinct_suppliers": 3,
+    "ordinary_partial_is_provisional": true,
     "shortage_and_unknowns_disclosed": true
+  },
+  "selection": {
+    "schema_version": "csc.public-agent-sample.v3",
+    "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
+    "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
+    "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
+    "factory_tier_contract": "SOURCE_FACTORY_TIER_V1",
+    "trust_profile_contract": "SUPPLIER_TRUST_PROFILE_Q1_Q6_V2",
+    "selection_trace_contract": "CSC_SELECTION_TRACE_V2",
+    "product_weights": {
+      "comparable_price": 45,
+      "observed_sales": 35,
+      "moq_fit": 10,
+      "data_freshness_and_active_status": 10
+    },
+    "maximum_unique_suppliers": 20,
+    "maximum_product_score_gap_from_best": 10,
+    "factory_order": "F5_TO_F0_WITHIN_PROTECTED_PRODUCT_POOL",
+    "trust_role": "SECONDARY_EXPLANATION_NOT_ADMISSION_GATES"
   },
   "product_page": "https://seekapi.ai/china-supply-check",
   "sample_report": "https://seekapi.ai/china-supply-check/sample",
@@ -41,7 +104,9 @@
     "csc_contract_version": "seekapi.csc-public-contract.v2",
     "commercial_state_version": "2026-10-11.2"
   },
-  "contract_updated_at": "2026-10-11T12:30:00Z",
+  "contract_updated_at": "2026-10-15T05:56:19.322Z",
+  "availability_observed_at": "2026-10-15T05:56:19.322Z",
+  "availability_authority": "Runtime admission. Call discover_china_supply_check_v0 before a new purchase; static availability is a dated observation.",
   "price_semantics": {
     "observed_listing_price": "Dated platform listing evidence, not an RFQ quote.",
     "confirmed_supplier_quote": "Only a supplier reply explicitly confirming the requested RFQ.",
@@ -51,56 +116,29 @@
       "UNKNOWN"
     ]
   },
-  "image_intake": {
-    "free_prepare": true,
-    "paid_execution": "LIVE",
-    "discovery_tool": "discover_china_supply_check_v0",
-    "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
-    "card_availability": "LIVE",
-    "card_usd": "2.99",
-    "result_contract": "csc.delivery.v4",
-    "scope": "MAIN_PRODUCT_ONLY",
-    "completed_candidate_count": {
-      "minimum": 1,
-      "maximum": 3
-    },
-    "delivery_chain": [
-      "VERIFIED_PAYMENT",
-      "ONE_ORDER_AND_ENTITLEMENT",
-      "AUTOMATIC_SOURCING",
-      "ENGLISH_REPORT_AND_AGENT_JSON",
-      "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
-    ],
-    "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK"
+  "existing_order_reads": "FREE_AUTHENTICATED_READ_NO_REPAYMENT",
+  "live_rfq": {
+    "price_usd": "19.90",
+    "availability": "FUTURE_NOT_ENABLED",
+    "service": "Supplier contact, translation, follow-up and formal quotation comparison",
+    "contact_unlock_fee": false
   },
-  "payments": {
-    "image_first": {
-      "stripe": {
-        "status": "LIVE",
-        "amount_usd": "2.99",
-        "hosted_checkout": true,
-        "entry": "https://api.seekapi.ai/checkout/stripe/image",
-        "payment_to_delivery": "LIVE"
-      },
-      "x402": {
-        "status": "LIVE",
-        "amount_usdc": "2.99",
-        "network": "Base",
-        "network_id": "eip155:8453",
-        "version": 2
-      }
-    },
-    "text_model_legacy": {
-      "stripe": {
-        "status": "OFF"
-      },
-      "x402": {
-        "status": "LIVE",
-        "amount_usdc": "2.99",
-        "network": "Base",
-        "network_id": "eip155:8453",
-        "version": 2
-      }
-    }
+  "public_agent_sample": {
+    "human_url": "https://seekapi.ai/china-supply-check/sample",
+    "agent_json_url": "https://seekapi.ai/china-supply-check/sample.json",
+    "mcp_resource_uri": "seekapi://china-supply-check/sample/current",
+    "schema_version": "csc.public-agent-sample.v3",
+    "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
+    "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
+    "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
+    "factory_tier_contract": "SOURCE_FACTORY_TIER_V1",
+    "trust_profile_contract": "SUPPLIER_TRUST_PROFILE_Q1_Q6_V2",
+    "selection_trace_contract": "CSC_SELECTION_TRACE_V2",
+    "candidate_count": 3,
+    "generated_at": "2026-10-15T04:18:05.337Z",
+    "selection_trace_mode": "HISTORICAL_RECONSTRUCTION",
+    "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
+    "canonical_digest": "5d3e076a06c6b4eb5c9ce343d9a3c1fc966c30adfb4721f8f7ebb103f4514dd2",
+    "wire_digest": "3fe772bce6a24bc4ffce3355b04eee98129e662659d9e0f4704b1d7ec700e974"
   }
 }
