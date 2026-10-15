@@ -77,7 +77,7 @@
             "shortage_and_unknowns_disclosed": true
           },
           "selection": {
-            "schema_version": "csc.public-agent-sample.v3",
+            "schema_version": "csc.public-agent-sample.v4",
             "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
             "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
             "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
@@ -141,7 +141,7 @@
             "human_url": "https://seekapi.ai/china-supply-check/sample",
             "agent_json_url": "https://seekapi.ai/china-supply-check/sample.json",
             "mcp_resource_uri": "seekapi://china-supply-check/sample/current",
-            "schema_version": "csc.public-agent-sample.v3",
+            "schema_version": "csc.public-agent-sample.v4",
             "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
             "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
             "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
@@ -152,8 +152,8 @@
             "generated_at": "2026-10-15T04:18:05.337Z",
             "selection_trace_mode": "HISTORICAL_RECONSTRUCTION",
             "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
-            "canonical_digest": "5d3e076a06c6b4eb5c9ce343d9a3c1fc966c30adfb4721f8f7ebb103f4514dd2",
-            "wire_digest": "3fe772bce6a24bc4ffce3355b04eee98129e662659d9e0f4704b1d7ec700e974"
+            "canonical_digest": "dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5",
+            "wire_digest": "a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d"
           }
         },
         "payments": {
@@ -207,7 +207,7 @@
           }
         },
         "selectionTransparency": {
-          "schema_version": "csc.public-agent-sample.v3",
+          "schema_version": "csc.public-agent-sample.v4",
           "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
           "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
           "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
@@ -218,7 +218,7 @@
             "human_url": "https://seekapi.ai/china-supply-check/sample",
             "agent_json_url": "https://seekapi.ai/china-supply-check/sample.json",
             "mcp_resource_uri": "seekapi://china-supply-check/sample/current",
-            "schema_version": "csc.public-agent-sample.v3",
+            "schema_version": "csc.public-agent-sample.v4",
             "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
             "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
             "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
@@ -229,8 +229,8 @@
             "generated_at": "2026-10-15T04:18:05.337Z",
             "selection_trace_mode": "HISTORICAL_RECONSTRUCTION",
             "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
-            "canonical_digest": "5d3e076a06c6b4eb5c9ce343d9a3c1fc966c30adfb4721f8f7ebb103f4514dd2",
-            "wire_digest": "3fe772bce6a24bc4ffce3355b04eee98129e662659d9e0f4704b1d7ec700e974"
+            "canonical_digest": "dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5",
+            "wire_digest": "a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d"
           }
         },
         "sampleDisclosure": "Historical reconstruction using product-first V2; original pool and weights NOT_RECORDED; scores RECOMPUTED; not an independent customer testimonial.",
@@ -238,7 +238,7 @@
           "human_url": "https://seekapi.ai/china-supply-check/sample",
           "agent_json_url": "https://seekapi.ai/china-supply-check/sample.json",
           "mcp_resource_uri": "seekapi://china-supply-check/sample/current",
-          "schema_version": "csc.public-agent-sample.v3",
+          "schema_version": "csc.public-agent-sample.v4",
           "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
           "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
           "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
@@ -249,8 +249,8 @@
           "generated_at": "2026-10-15T04:18:05.337Z",
           "selection_trace_mode": "HISTORICAL_RECONSTRUCTION",
           "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
-          "canonical_digest": "5d3e076a06c6b4eb5c9ce343d9a3c1fc966c30adfb4721f8f7ebb103f4514dd2",
-          "wire_digest": "3fe772bce6a24bc4ffce3355b04eee98129e662659d9e0f4704b1d7ec700e974"
+          "canonical_digest": "dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5",
+          "wire_digest": "a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d"
         }
       }
     }

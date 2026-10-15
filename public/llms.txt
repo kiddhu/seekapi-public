@@ -24,8 +24,9 @@ Eligible source marketplace product transactions may have observed platform prot
 
 $19.90 Live RFQ Compare means contact, translation, follow-up and formal quotation comparison, not contact unlock. It is not currently open for purchase; this sample performs no purchase or contact. Public business contacts in authenticated paid results remain readable. Other human desk work requires separately agreed scope, fee, recipients and authority; no autonomous human-task API is live.
 ## Qualified public sample publication
-Public supplier example: https://seekapi.ai/china-supply-check/sample
-Agent JSON: https://seekapi.ai/china-supply-check/sample.json
-Free MCP resource: seekapi://china-supply-check/sample/current
-Historical reconstruction; original funnel and weights not recorded.
+Current complete human report: https://seekapi.ai/china-supply-check/sample
+Exact Agent JSON: https://seekapi.ai/china-supply-check/sample.json
+MCP resource: seekapi://china-supply-check/sample/current (resources/list, then resources/read; a normal browser GET is not an MCP call).
+Public sample schema: csc.public-agent-sample.v4. Wire SHA256: a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d. Canonical digest: dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5.
+Full product-first V2 method: https://seekapi.ai/china-supply-check#selection-method
 Product-first V2: comparable price 45%, scoped sales 35%, MOQ fit 10%, freshness and activity 10%. Deduplicate supplier identities, protect at most 20 within 10 points of the best product, then select F5 to F0; Q1–Q6 is auxiliary trust, not six admission gates. Scores 0 and tiers F0 in this historical example do not establish commercial inferiority. Deterministic ties do not establish superiority.
