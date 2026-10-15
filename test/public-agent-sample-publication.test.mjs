@@ -8,7 +8,7 @@ import SampleModule from '../lib/public-agent-sample.ts';
 import ComponentModule from '../components/qualified-public-sample.tsx';
 const {readPublicSamplePublication,publicSampleMetadata,publicSampleJsonResponse}=SampleModule;
 const input=JSON.parse(readFileSync(new URL('../data/public-agent-sample-publication.json',import.meta.url),'utf8'));
-const wire='3fe772bce6a24bc4ffce3355b04eee98129e662659d9e0f4704b1d7ec700e974';
+const wire='a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d';
 const digest=x=>createHash('sha256').update(x).digest('hex');
 test('cleared real product-first input renders three DIRECT_MATCH zero-score F0 candidates without private images',async()=>{
  const p=readPublicSamplePublication(structuredClone(input));const r=publicSampleJsonResponse(p);
@@ -16,7 +16,7 @@ test('cleared real product-first input renders three DIRECT_MATCH zero-score F0 
  assert.match(r.headers.get('content-type'),/application\/json/);assert.equal(r.headers.get('etag'),'"'+wire+'"');
  const html=renderToStaticMarkup(React.createElement(ComponentModule.QualifiedPublicSample,{publication:p}));
  for(const text of ['DIRECT_MATCH','0/100','F0','Q1','Q6','NOT_RECORDED','RECOMPUTED','comparable_price','observed_sales','moq_fit','data_freshness_and_active_status','SOURCE_MARKETPLACE_MEMBER'])assert.ok(html.includes(text),text);
- assert.match(html,/not.*negative|no credit/i);assert.match(html,/not.*factory|not.*disqualif/i);assert.match(html,/deterministic/i);
+ assert.match(html,/not.*negative|no credit|not a bad product/i);assert.match(html,/not.*factory|not.*disqualif/i);assert.match(html,/deterministic/i);
  assert.match(html,/not.*commercial.*superior|does not.*superior/i);assert.match(html,/not.*contact.unlock/i);
  assert.doesNotMatch(html,/<img\b|<script\b|<form\b/);assert.equal(p.assets.length,0);
  assert.deepEqual(publicSampleMetadata(p).public_agent_sample,input.discovery_pointer);

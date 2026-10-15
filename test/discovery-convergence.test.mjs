@@ -30,7 +30,7 @@ test('legacy entry redirects are explicit 301 and history stays noindex outside 
  for(const [source,destination] of Object.entries(destinations)){const r=routes.redirects.find(r=>r.source===source);assert.equal(r?.destination,destination);assert.equal(r.statusCode,301);}
  assert.match(html('/china-supply-check/sample/archived-v4'),/name="robots" content="noindex, follow"/);
  const sitemap=read(root+'sitemap.xml.body');
- assert.doesNotMatch(sitemap,/archived-v4|<loc>[^<]*\/start<\/loc>|lastmod/);
+ assert.doesNotMatch(sitemap,/archived-v4|<loc>[^<]*\/start<\/loc>/);
  for(const route of ['/about','/sourcing',...guides.map(g=>'/sourcing/'+g.slug)])assert.ok(sitemap.includes('https://seekapi.ai'+route),route);
 });
 test('new and revised navigation has no dead internal destination',()=>{

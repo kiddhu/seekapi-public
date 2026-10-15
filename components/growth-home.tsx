@@ -1,3 +1,4 @@
+import { ProductFirstMethod } from '@/components/product-first-method';
 import { cscPaymentCopy } from '@/lib/csc-commercial-truth';
 import Link from 'next/link';
 import { Eyebrow, FeatureCard, Footer, Header, SectionTitle } from '@/components/site';
@@ -57,7 +58,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="growth-actions">
         <div className="button-row">
           <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
-          <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'View the sample summary' : 'Sample summary'}</Link>
+          <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'Read the complete sample' : 'Complete sample'}</Link>
           <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
         </div>
         <p className="growth-availability">{cscPaymentCopy}</p>
@@ -66,10 +67,10 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       </div>
     </div></section>
     <section className="section growth-proof"><div className="container">
-      <SectionTitle eyebrow="Inspect the evidence" title="A production acceptance summary, with an archived example." body="The sample summary records an authorized completed paid check. The separately archived M6 304 washer example shows three primary documented platform shops and source-linked observations; it demonstrates the report format and is preserved for provenance." />
+      <SectionTitle eyebrow="Inspect the evidence" title="Read the complete three-candidate comparison." body="The current anonymous historical reconstruction includes three DIRECT_MATCH candidates, score components, source factory tiers, trust explanations and RFQ unknowns. It is a report you can inspect, not a current quote or an independent customer testimonial." />
       <div className="growth-proof-row">
-        <p><strong>Archived historical example · V4 prefix.</strong> This is not a completed paid customer check, a current quote or stock. See the current <Link className="text-link" href="/china-supply-check/sample">production acceptance summary</Link>.</p>
-        <Link className="button" href="/china-supply-check/sample">Read the sample summary</Link>
+        <p><strong>Product-first V2.</strong> All three public candidates have 0/100 commercial scores and F0 source tiers because the preserved evidence does not support those credits. Read the complete <Link className="text-link" href="/china-supply-check/sample">current three-candidate report</Link> or <a className="text-link" href="/china-supply-check/sample.json">download its exact Agent JSON</a>.</p>
+        <Link className="button" href="/china-supply-check/sample">Read the complete sample</Link>
       </div>
     </div></section>
     <section className="section"><div className="container">
@@ -107,9 +108,9 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
         <Link href="/china-supply-check/connectors"><span>Connectors</span><h3>Is this the exact part and mating fit?</h3><p>MPN, pin count, pitch and unapproved substitutions.</p></Link>
       </div>
     </div></section>
-    <section className="section growth-next"><div className="container">
+    <ProductFirstMethod/><section className="section growth-next"><div className="container">
       <SectionTitle eyebrow="Choose the next usable action" title="Start with the product; keep the China-side work together." body="Inspect the live screening product, prepare a free MCP brief, or request scope review for a separately authorized human assignment. A brief does not buy a check or contact a supplier." />
-      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">View the sample summary</Link></div>
+      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">Read the complete sample</Link></div>
       <div className="link-list"><Link className="text-link" href="/for-agents">Agent connection guide</Link><Link className="text-link" href="/china-supply-chain">Need broader China Desk support?</Link><Link className="text-link" href="/trust">Evidence and role boundaries</Link><Link className="text-link" href="/support">Contact support</Link><Link className="text-link" href="/discovery-status">Dated discovery status</Link></div>
     </div></section>
   </main><Footer /></>;

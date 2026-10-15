@@ -1,0 +1,16 @@
+{
+  "page_revised_at": "2026-10-15T17:07:47.343171Z",
+  "scope": "PUBLIC_PAGE_PRESENTATION_AND_DISCOVERY_COPY_ONLY",
+  "source_observation_times": "UNCHANGED_IN_REVIEWED_SAMPLE",
+  "reconstruction_time": "UNCHANGED_IN_REVIEWED_SAMPLE",
+  "routes": [
+    "/",
+    "/china-supply-check",
+    "/china-supply-check/sample",
+    "/for-agents",
+    "/apis",
+    "/discovery-status",
+    "/proof",
+    "/china-supply-check/live-rfq-compare"
+  ]
+}

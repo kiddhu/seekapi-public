@@ -1,3 +1,4 @@
+import revision from '@/data/public-page-revision.json';
 import { procurementIntents } from './procurement-intents';
 import type { Metadata } from 'next';
 import { commercialLocales, localeInfo, localizedPublicRoutes, pagePath, type CommercialLocale, type CommercialPage } from './localized-content';
@@ -10,6 +11,6 @@ const commercialEnglish:Record<string,CommercialPage>={'/':'home','/china-supply
 export function languageAlternates(page:CommercialPage){const en=pagePath('en',page);const languages:Record<string,string>={en,'x-default':en};for(const locale of commercialLocales)languages[localeInfo[locale].htmlLang]=pagePath(locale,page);if(page==='china-supply-chain')languages.ru='/ru/china-sourcing';if(page==='china-compliance-logistics')languages.ru='/ru/compliance-logistics';if(page==='start')languages.ru='/ru/start';return languages;}
 export function pageMetadata(title: string, description: string, path: string): Metadata {
   const canonical=path||'/'; const page=commercialEnglish[canonical];
-  return { ...(path === '/start' ? {robots:{index:false,follow:isPublicProduction}} : {}), title: title.replace(/\s*\|\s*SeekAPI$/, ''), description, alternates: { canonical, languages:page && page!=='home' && page!=='how-it-works'?languageAlternates(page):{en:canonical,'x-default':canonical} }, openGraph: { title, description, url: `${siteUrl}${path}`, siteName: 'SeekAPI', type: 'website', locale:'en_US' } };
+  return { ...(revision.routes.includes(canonical)?{other:{'seekapi:page-revised-at':revision.page_revised_at,'seekapi:revision-scope':'presentation-and-discovery-copy; source evidence times unchanged'}}:{}), ...(path === '/start' ? {robots:{index:false,follow:isPublicProduction}} : {}), title: title.replace(/\s*\|\s*SeekAPI$/, ''), description, alternates: { canonical, languages:page && page!=='home' && page!=='how-it-works'?languageAlternates(page):{en:canonical,'x-default':canonical} }, openGraph: { title, description, url: `${siteUrl}${path}`, siteName: 'SeekAPI', type: 'website', locale:'en_US' } };
 }
 export function localizedMetadata(title:string,description:string,path:string,locale:CommercialLocale,page:CommercialPage):Metadata{const cleanTitle=title.replace(/\s*\|\s*SeekAPI$/,'');return{...(page==='start'?{robots:{index:false,follow:isPublicProduction}}:{}),title:cleanTitle,description,alternates:{canonical:path,languages:languageAlternates(page)},openGraph:{title:cleanTitle,description,url:`${siteUrl}${path}`,siteName:'SeekAPI',type:'website',locale:localeInfo[locale].ogLocale}};}

@@ -17,3 +17,9 @@ The proposed $19.90 Live RFQ Compare service is contact, translation, follow-up 
 Use Node24. `npm ci`, `npm run build`, then `npm test`. Production-indexing simulation requires `VERCEL_ENV=production NEXT_PUBLIC_PUBLIC_INDEXING=1`; previews remain noindex. The pinned, cleared public artifact is `data/public-agent-sample-publication.json`; source images, identities and private proof packets do not belong here. Removing an artifact produces honest unavailable sample behavior; it must not retain JSON/MCP sample advertisements.
 
 [Publication input and validation](docs/public-qualified-sample-publication.md). Historical engineering/approval notes under docs describe their recorded version; they do not override the current public contract above. They are not current deployment or purchase-availability receipts.
+
+## Current anonymous public model
+
+The current publication candidate consumes audited `csc.public-agent-sample.v4` from WS3 PR1254/review5536718051. Human/download/MCP all expose the same reviewed JSON. `recommended_candidate_id=null`; Supplier1 is first for display only. Private numeric product-ID tie inputs stay private. Fact coverage is NOT_RECORDED/UNKNOWN/null;3/3 references measure linkage, not fact completeness. Canonical sample URLs and MCP resource URI are unchanged. The complete six-step product-first method and direct JSON/MCP paths are available on the homepage, product page and Agent guide.
+
+Native Next sitemap lastmod and page/structured metadata use the actual presentation revision, separately from preserved source/reconstruction timestamps. No search-engine submission or cache refresh is claimed; third-party search/Registry observations remain external stale until separately read. Registry0.1.10 is not republished or bumped here.
