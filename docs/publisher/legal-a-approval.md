@@ -1,3 +1,5 @@
+> Historical engineering/approval record. Its availability statements describe that recorded stage. See the [current public contract](https://seekapi.ai/.well-known/csc-commercial-truth.json) and [current Agent guide](https://seekapi.ai/for-agents) before a new purchase. This note does not alter the historical evidence or legal text below.
+
 # Legal A literal pages — exact-text publisher approval packet
 
 Status: **DRAFT PR ONLY — NOT APPROVED / NOT DEPLOYED**. Owner authority: [#1034 decision 5914767442](https://github.com/kiddhu/aion-governance/issues/1034#issuecomment-5914767442). The publisher must approve the exact PR head and resulting literal `/privacy` and `/terms` text before merge or production. The displayed version date is the drafting date; confirm whether it is the intended publication date.

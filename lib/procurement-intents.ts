@@ -288,7 +288,7 @@ export const procurementIntents: ProcurementIntent[] = [
       ],
       [
         "Payment route",
-        "Existing x402 path: 2.99 USDC on Base; card checkout not live."
+        "Image Stripe USD2.99 LIVE; image x402 OFF; text/model x4022.99USDC/Base LIVE. Check live discovery."
       ],
       [
         "Service boundary",

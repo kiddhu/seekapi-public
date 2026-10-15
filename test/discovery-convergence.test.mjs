@@ -56,25 +56,21 @@ test('localized home product CTA and metadata match current commercial identity'
 });
 test('proof remains honest aggregate and discovery states do not imply ranking success',()=>{
  const sample=visible(html('/china-supply-check/sample'));
- assert.match(sample,/REAL PRODUCTION PAID ACCEPTANCE EXAMPLE/);assert.match(sample,/INTERNAL_ACCEPTANCE/);
- assert.match(sample,/NOT_AVAILABLE_FROM_AUTHORIZED_PUBLIC_MATERIAL/);assert.match(sample,/not a customer testimonial/);
- assert.doesNotMatch(sample,/restart\/reconciliation|0x[0-9a-f]{40}/i);
- const discovery=visible(html('/discovery-status'));
- assert.match(discovery,/INDEXED_STALE/);assert.match(discovery,/SUBMITTED \/ PENDING_REVIEW/);assert.match(discovery,/no submission ID was exposed/i);
- for(const route of changedRoutes){const text=visible(html(route));assert.doesNotMatch(text,/aion-governance|DeepSeek|Save 90%|GLOBAL COMPUTE ARBITRAGE|OpenAI-compatible|inference gateway/i,route);}
+ assert.match(sample,/historical reconstruction/i);assert.match(sample,/NOT_RECORDED/);assert.match(sample,/RECOMPUTED/);assert.match(sample,/0\/100/);assert.match(sample,/not.*commercial.*superiority/);
+ const discovery=visible(html('/discovery-status'));assert.match(discovery,/external stale/);assert.match(discovery,/not proof.*corrected/);assert.match(discovery,/unverified/);
+ for(const route of changedRoutes)assert.doesNotMatch(visible(html(route)),/aion-governance|DeepSeek|Save 90%|GLOBAL COMPUTE ARBITRAGE|OpenAI-compatible|inference gateway/i,route);
 });
 
 test('machine discovery links resolve and tool effects are classified honestly',()=>{
- const page=html('/for-agents');
- assert.match(page,/id="handoff-spec"/);assert.match(page,/id="evidence-return"/);
+ const page=html('/for-agents');assert.match(page,/id="handoff-spec"/);assert.match(page,/id="evidence-return"/);
  const manifest=JSON.parse(read(root+'for-agents/agent-services.json.body'));
  assert.deepEqual(manifest.product_data_mcp.free_tools,['discover_china_supply_check_v0','prepare_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.authenticated_order_read_tools,['status_china_supply_check_v0','result_china_supply_check_v0']);
  assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,['purchase_china_supply_check_v0','run_china_supply_check_v0']);
- assert.deepEqual(manifest.product_data_mcp.image_input,{no_value_prepare:true,accepted_mime:['image/png'],purchase_state:'LIVE',discovery_tool:'discover_china_supply_check_v0',card_entry:'https://api.seekapi.ai/checkout/stripe/image',card_availability:'LIVE',card_usd:'2.99',result_contract:'csc.delivery.v4',completed_candidate_count:{minimum:1,maximum:3},scope:'MAIN_PRODUCT_ONLY'});
+ assert.equal(manifest.product_data_mcp.image_input.stripe_status,'LIVE');assert.equal(manifest.product_data_mcp.image_input.x402_status,'OFF');
+ assert.equal('completed_candidate_count'in manifest.product_data_mcp.image_input,false);
  assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.10');
- assert.match(read('public/llms.txt'),/\.well-known\/ard\.json/);assert.match(read('public/llms.txt'),/registry\.modelcontextprotocol\.io/);
- assert.match(read('public/llms.txt'),/Stripe hosted Checkout is LIVE/);
+ for(const token of ['.well-known/ard.json','registry.modelcontextprotocol.io','/sample.json'])assert.ok(read('public/llms.txt').includes(token));
  assert.match(read('public/llms.txt'),/do not pay again/i);
 });
 

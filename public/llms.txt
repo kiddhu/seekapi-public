@@ -1,46 +1,31 @@
-# SeekAPI — China procurement for AI agents and overseas buyers
+# SeekAPI — product-first China supplier comparison
 
-SeekAPI is a China-side procurement desk. It helps find and screen China suppliers for a specified product, quantity and requirements. A successful China Supply Check returns three distinct evidence-backed China supplier candidates worth advancing to RFQ. Supplier RFQ-worthiness is separate from exact product qualification. Reports preserve observed price basis, MOQ fit, available identity evidence, source/time and field-specific unknowns; unsupported shortages are reported honestly.
+China Supply Check starts from a product photo or written brief, then compares evidenced matching products from distinct supplier identities. A successful check targets three actionable suppliers; ordinary partials remain provisional. Wrong products and known hard conflicts are not rescued by badges or weak padding.
 
-Current public facts: https://seekapi.ai/.well-known/csc-commercial-truth.json
-Image purchase: open https://api.seekapi.ai/checkout/stripe/image for a product photo, optional notes, free editable confirmation and an explicit USD 2.99 Stripe-hosted payment. Stripe hosted Checkout is LIVE; verified payment creates one canonical order and entitlement, then automatic sourcing. A completed image check delivers 1–3 distinct source-backed candidates, an English report and csc.delivery.v4 Agent JSON; shortages and unknowns are explicit. MAIN_PRODUCT_ONLY: accessories are not promised. Original CNY and approximate USD prices preserve unit/tier/FX provenance; listing prices are not supplier-confirmed RFQ quotations. Source factory evidence is not an independent SeekAPI audit. Do not pay again to read or restore the same settled order.
+Selection V2: comparable price45%, scoped sales35%, MOQ fit10%, freshness and active status10%. Missing non-hard evidence scores zero and remains an RFQ question. Deduplicate connected legal business / marketplace member / shop identities; keep one primary offer per supplier and disclose the observed identity level/confidence. Protect at most20 unique suppliers within10 product-score points of the best product. Within the protected pool, select source tiers F5→F0, then product score within a tier. Q1–Q6 is auxiliary trust explanation, not six all-PASS admission gates. Source factory evidence is not an independent SeekAPI onsite audit.
 
-Agent payment: x402, 2.99 USDC on Base. Call discover_china_supply_check_v0 at https://api.seekapi.ai/mcp to check current image availability before free prepare, exact signed delegated confirmation and purchase/run. Status/result require independent signed-wallet authentication bound to the settled order. Legacy text/model Stripe is OFF. No supplier contact or paid RFQ execution is included.
-
-## Continue after the shortlist
-A buyer or Agent may request a separate human scope review for contacting selected suppliers, an authorized RFQ and real quote comparison, sample or production follow-up, procurement coordination and China-side export/logistics handoffs. SeekAPI can take on agreed tasks after scope, fee, recipient permissions and authority are confirmed. This is a manual request and acceptance path, not a live autonomous human-task API. The proposed USD 19.90 Live RFQ Compare package is not currently open for purchase; no fixed price is advertised for other scoped work.
-
-- China Desk: https://seekapi.ai/china-desk
-- Procurement scope: https://seekapi.ai/china-supply-chain
-- Agent handoff status: https://seekapi.ai/for-agents/agent-services.json
-- Prepare a reviewable request: https://seekapi.ai/start?audience=agent (browser draft, not automatic submission)
+Payment observation: image Stripe hosted Checkout LIVE at USD2.99; image x402 OFF; text/model Stripe OFF; text/model x402 LIVE at2.99USDC on Base. Runtime admission is authoritative: call discover_china_supply_check_v0 before a new purchase. UNKNOWN is not LIVE. Free preparation and editable confirmation come before payment. Existing authenticated order/result reads are free; do not pay again.
 
 - Product: https://seekapi.ai/china-supply-check
-- Public paid acceptance example: https://seekapi.ai/china-supply-check/sample
+- Human example: https://seekapi.ai/china-supply-check/sample
 - MCP guide: https://seekapi.ai/for-agents
-- Streamable HTTP MCP: https://api.seekapi.ai/mcp
-- Agent Resource Discovery document: https://seekapi.ai/.well-known/ard.json
-- Official MCP Registry latest record: https://registry.modelcontextprotocol.io/v0.1/servers/io.github.kiddhu%2Fseekapi/versions/latest
-- Current entity: https://seekapi.ai/about
-- Directory status: https://seekapi.ai/discovery-status
-- Sourcing guide index: https://seekapi.ai/sourcing
+- MCP endpoint: https://api.seekapi.ai/mcp
+- Public contract and payment observation time: https://seekapi.ai/.well-known/csc-commercial-truth.json
+- ARD: https://seekapi.ai/.well-known/ard.json
+- Agent manifest: https://seekapi.ai/for-agents/agent-services.json
+- OpenAPI for public HTTP reads: https://seekapi.ai/openapi.json
+- Official Registry latest: https://registry.modelcontextprotocol.io/v0.1/servers/io.github.kiddhu%2Fseekapi/versions/latest
+- Discovery and external stale records: https://seekapi.ai/discovery-status
+- Sourcing guides: https://seekapi.ai/sourcing
 
-## Procurement guides
-- https://seekapi.ai/sourcing/find-china-suppliers
-- https://seekapi.ai/sourcing/china-supplier-screening
-- https://seekapi.ai/sourcing/china-supplier-verification
-- https://seekapi.ai/sourcing/chinese-manufacturer-sourcing
-- https://seekapi.ai/sourcing/china-supplier-shortlist
-- https://seekapi.ai/sourcing/china-procurement-service
-- https://seekapi.ai/sourcing/china-procurement-mcp
-- https://seekapi.ai/sourcing/china-supplier-api
+The public example is HISTORICAL_RECONSTRUCTION. Original pool count and weights are NOT_RECORDED; current V2 scores are RECOMPUTED. Three DIRECT_MATCH products have commercial score0/100 and source tierF0: stale or insufficient commercial evidence earns no credit; current factory role is not established. Zero is not a negative product rating, F0 does not mean not a factory, and deterministic tied display order is not commercial superiority. Exact SKU/material/dimensions/quality/stock/lead time/formal quotation require RFQ. No private images, supplier identities, source URLs or complete contact details are public. Contact availability is null when unknown.
 
-The acceptance example is INTERNAL_ACCEPTANCE, not an independent customer testimonial. It contains the authorized aggregate outcome of a completed paid check, not candidate-level production supplier rows. Historical examples are separate and archived.
+Eligible source marketplace product transactions may have observed platform protections. These do not compensate the $2.99 screening fee or create a direct SeekAPI guarantee. Product-level applicability remains bounded by actual source observation.
 
-Version namespaces: Registry package 0.1.10; MCP server 0.1.2; CSC contract seekapi.csc-public-contract.v2; commercial state 2026-10-11.2. Contract updated 2026-10-11T12:30:00Z. Package versions describe components, not proof of indexing; check the official Registry latest endpoint.
-Current measured field coverage: https://seekapi.ai/china-supply-check-field-coverage.json — INTERNAL_ACCEPTANCE / provider-only benchmark, not a paid customer order or testimonial. Three distinct selected suppliers in the shown subset; the full five-case benchmark includes two shortages. Listing prices are observations, not supplier-confirmed RFQ quotes. Quantity-tier match is UNKNOWN without a recorded tier.
-
-Public source observation rows: https://seekapi.ai/china-supply-check-source-observations.json
-Scope: internal provider-only benchmark public source observations, not recommendations or completed RFQ candidates. Strict confirmation 0/3; observed specification signals 3/3; final qualification 3/3 UNKNOWN; five-case benchmark overall NOT_PASS. Paid-order candidate details remain private.
+$19.90 Live RFQ Compare means contact, translation, follow-up and formal quotation comparison, not contact unlock. It is not currently open for purchase; this sample performs no purchase or contact. Public business contacts in authenticated paid results remain readable. Other human desk work requires separately agreed scope, fee, recipients and authority; no autonomous human-task API is live.
 ## Qualified public sample publication
-Qualified sample publication: PENDING_SOURCE. The selection transparency contracts are prepared, not deployed. The current sample page remains the recorded source-observation and acceptance summary; no qualified Agent JSON or MCP sample resource is claimed live.
+Public supplier example: https://seekapi.ai/china-supply-check/sample
+Agent JSON: https://seekapi.ai/china-supply-check/sample.json
+Free MCP resource: seekapi://china-supply-check/sample/current
+Historical reconstruction; original funnel and weights not recorded.
+Product-first V2: comparable price 45%, scoped sales 35%, MOQ fit 10%, freshness and activity 10%. Deduplicate supplier identities, protect at most 20 within 10 points of the best product, then select F5 to F0; Q1–Q6 is auxiliary trust, not six admission gates. Scores 0 and tiers F0 in this historical example do not establish commercial inferiority. Deterministic ties do not establish superiority.

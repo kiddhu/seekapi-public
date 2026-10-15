@@ -1,36 +1,5 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const truth=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
-const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
-test('published model guide version namespaces agree with current canonical commercial truth',()=>{
- const llms=read('public/llms.txt');
- const versions=truth.versions;
- for(const [label,key] of [['Registry package','registry_package_version'],['MCP server','mcp_server_version'],['CSC contract','csc_contract_version'],['commercial state','commercial_state_version']]){
-  assert.ok(llms.includes(label+' '+versions[key]),label+' drift');
- }
- assert.ok(llms.includes('Contract updated '+truth.contract_updated_at),'contract timestamp drift');
-});
-test('official generated Agent surfaces carry the same live image Stripe and scoped legacy OFF',()=>{
- const manifest=JSON.parse(read('.next/server/app/for-agents/agent-services.json.body'));
- const ard=JSON.parse(read('public/.well-known/ard.json')).entries[0].data;
- assert.equal(truth.payments?.image_first?.stripe?.status,'LIVE');
- assert.equal(truth.payments.image_first.stripe.amount_usd,'2.99');
- assert.equal(truth.payments.text_model_legacy.stripe.status,'OFF');
- for(const mode of ['image_first','text_model_legacy']) assert.equal(truth.payments[mode].x402.status,'LIVE');
- for(const published of [manifest.commercial_truth,ard.commercialTruth]) assert.deepEqual(published,truth);
- for(const text of [read('public/llms.txt'),read('README.md')]){
-  assert.match(text,/Stripe/);assert.match(text,/USD 2\.99/);assert.ok(text.includes(truth.payments.image_first.stripe.entry));
-  assert.doesNotMatch(text,/Public credit-card checkout is OFF|Stripe[^\n]*(?:being enabled|not yet live)/i);
- }
-});
-test('rendered customer entrances explain live payment, automatic delivery and free recovery',()=>{
- for(const route of ['index','china-supply-check','for-agents','trust','china-supply-check/sample','proof']){
-  const body=visible(read('.next/server/app/'+route+'.html'));
-  assert.match(body,/Stripe[^.]*USD 2\.99/,route);
-  assert.match(body,/automatic sourcing/i,route);
-  assert.match(body,/without (?:re)?paying|without repayment/i,route);
-  assert.doesNotMatch(body,/Public credit-card checkout is OFF|Stripe[^.]*being enabled|not yet live/i,route);
- }
-});
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8'),t=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
+test('model guide names current V2 methods and dated runtime authority',()=>{const s=read('public/llms.txt');for(const p of [/price45/,/sales35/,/MOQ fit10/,/F5→F0/,/Q1–Q6/,/Runtime admission is authoritative/])assert.match(s,p);assert.match(s,/NOT_RECORDED/);assert.match(s,/RECOMPUTED/);});
+test('machine surfaces preserve payment amounts and narrow runtime availability without changing historical orders',()=>{const m=JSON.parse(read('.next/server/app/for-agents/agent-services.json.body'));assert.deepEqual(m.product_data_mcp.payments,t.payments);assert.equal(m.product_data_mcp.image_input.x402_status,'OFF');assert.equal(m.product_data_mcp.image_input.stripe_status,'LIVE');assert.match(m.product_data_mcp.status_result_access,/no repayment/);assert.equal(m.live_human_task_api,false);});
+test('human payment descriptions never present UNKNOWN or closed image x402 as live',()=>{for(const r of ['index','china-supply-check','for-agents','discovery-status']){const s=read('.next/server/app/'+r+'.html').replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ');assert.match(s,/Image x402: OFF/);assert.match(s,/Image Stripe hosted Checkout: LIVE/);assert.match(s,/Text\/model Stripe: OFF/);}});

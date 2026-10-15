@@ -1,92 +1,11 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const truth=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
-const baseline=process.env.SEEKAPI_1144_BASELINE;
-const surface=(route,index)=>baseline?readFileSync(`${baseline}/${index}.body`,'utf8'):read('.next/server/app/'+route+'.body');
-const manifest=JSON.parse(surface('for-agents/agent-services.json',6));
-const ard=JSON.parse(baseline?readFileSync(`${baseline}/7.body`,'utf8'):read('public/.well-known/ard.json')).entries[0].data;
-const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
-test('official manifest and ARD expose the same current commercial facts with clear namespaces',()=>{
- assert.deepEqual(manifest.commercial_truth,truth);
- assert.deepEqual(ard.commercialTruth,truth);
- assert.deepEqual(manifest.versions,truth.versions);
- assert.deepEqual(ard.versions,truth.versions);
- assert.equal(manifest.product_data_mcp.price_usdc,truth.price.amount);
- assert.deepEqual(manifest.product_data_mcp.payments,truth.payments);
- assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,truth.tools.paid);
- assert.ok(Number.isFinite(Date.parse(manifest.observed_at)));
- assert.ok(Number.isFinite(Date.parse(ard.observed_at)));
- assert.doesNotMatch(JSON.stringify({manifest,ard}),/AH0[1-8]|provider_effects|authorizationDigest|aion-governance|cost_ledger|runtime_governance/);
-});
-test('current rendered product paths preserve live x402, card off and current sample',()=>{
- for(const [route,i] of [['index',0],['china-supply-check',1],['china-supply-check/sample',2],['for-agents',3],['trust',4]]){
-  const html=baseline?readFileSync(`${baseline}/${i}.body`,'utf8'):read('.next/server/app/'+route+'.html');
-  const body=visible(html);
-  assert.match(body,/2\.99/);assert.match(body,/x402/i);assert.match(body,/Legacy text\/model Stripe is OFF/i,route);
-  assert.ok(html.includes('/china-supply-check/sample'),route);
-  assert.doesNotMatch(body,/CSC_PUBLIC_PAID_OFF|x402.{0,20}disabled|Agent x402 payment is currently disabled|AH0[1-8]|provider_effects/);
- }
-});
-test('sample presents measured real coverage and does not imply a full passing benchmark',()=>{
- const coverage=JSON.parse(read('public/china-supply-check-field-coverage.json'));
- const html=baseline?readFileSync(`${baseline}/2.body`,'utf8'):read('.next/server/app/china-supply-check/sample.html');
- const body=visible(html);
- assert.equal(coverage.candidate_count,coverage.distinct_supplier_count);
- assert.equal(coverage.benchmark_overall_pass,false);
- assert.equal(coverage.coverage.find(x=>x.field==='specification_evidence').observed_candidates,0);
- assert.equal(coverage.coverage.find(x=>x.field==='specification_evidence').unknown_candidates,3);
- assert.equal(coverage.coverage.find(x=>x.field==='recorded_specification_observations').observed_candidates,3);
- assert.match(coverage.field_definitions.specification_evidence,/Quantity\/MOQ\/unit does not count/);
- assert.match(body,/quantity\/MOQ matches do not count as specification matches/);
- assert.deepEqual(coverage.benchmark_summary.map(x=>x.recorded_distinct_shop_count),[3,3,2,3,0]);
- for(const row of coverage.coverage){assert.equal(row.observed_candidates+row.unknown_candidates,row.total_candidates);assert.ok(body.includes(row.field==='specification_evidence'?'Confirmed product/model/material match':row.field.replaceAll('_',' ')),row.field);}
- assert.match(body,/provider-only benchmark/i);assert.match(body,/not the paid acceptance order/i);
- assert.match(body,/Public source observations are disclosed only/i);assert.match(body,/UNKNOWN/);
- assert.match(body,/Confirmed supplier quote/);assert.match(body,/Requested-quantity tier match/);
- assert.doesNotMatch(html,/<a[^>]*class="button[^\"]*"[^>]*href="[^\"]*archived-v4/);
- assert.doesNotMatch(JSON.stringify(coverage),/b2b-|detail\.1688|wallet|signature|api_key|provider_calls|reserved_millicny/);
-});
-
-test('public API and supplier guide expose no owner-only search price or payer tutorial',()=>{
- for(const route of ['apis','sourcing/china-supplier-api']){
-  const body=visible(read('.next/server/app/'+route+'.html'));
-  assert.doesNotMatch(body,/0\.022|22[,.]?000|bound (?:owner|payer)|owner wallet|owner test wallet|invoke_product_keyword_search_v0/,route);
-  assert.match(body,/2\.99 USDC/);assert.match(body,/Legacy text\/model Stripe is OFF/i);
- }
-});
-
-test('proof entrance links current measured evidence and distinguishes demonstration from customer proof',()=>{
- const html=read('.next/server/app/proof.html');const body=visible(html);
- assert.ok(html.includes('/china-supply-check/sample'));
- assert.ok(html.includes('/china-supply-check-field-coverage.json'));
- assert.match(body,/provider-only benchmark/i);assert.match(body,/not an independent customer case/i);
- assert.match(body,/0 of 3/);assert.match(body,/Legacy text\/model Stripe is OFF/i);
-});
-test('discovery ledger reports actual current official Registry publication observation',()=>{
- const body=visible(read('.next/server/app/discovery-status.html'));
- const current=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
- assert.ok(body.includes('active '+current.versions.registry_package_version));
- assert.match(body,/published 2026-10-11 13:28:47\.923862Z/);
- assert.doesNotMatch(body,/v0\.1\.7 observed before this release|Prior dated readback returned active 0\.1\.7/);
-});
-
-// The rendered coverage heading must name its own evidence source; surrounding
-// disclaimers cannot repair a heading that attributes it to the paid acceptance.
-test('coverage section labels its separate benchmark source before measured fields',()=>{
- const html=read('.next/server/app/china-supply-check/sample.html');
- const marker=html.indexOf('What was actually captured for three distinct platform shops');
- assert.ok(marker>0);
- const section=html.slice(html.lastIndexOf('<section',marker),html.indexOf('</section>',marker));
- const headings=[...section.matchAll(/class="eyebrow"[^>]*>([^<]+)/g)].map(x=>x[1]);
- assert.deepEqual(headings,['Measured evidence coverage · PROVIDER_ONLY_BENCHMARK']);
- assert.match(visible(section),/not the paid acceptance order/i);
- assert.match(visible(section),/benchmark did not pass overall/);
-});
-test('discovery surface preserves failed baseline without an unbound ranking claim',()=>{
- const body=visible(read('.next/server/app/discovery-status.html'));
- assert.doesNotMatch(body,/rank 1|rank #1|ranked first/i);
- assert.match(body,/ranking is UNKNOWN/i);
- assert.match(body,/zero observed canonical CSC page or listing hits/i);
-});
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8'),truth=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
+const built=r=>read('.next/server/app/'+r+'.body'),visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
+test('built Agent manifest, ARD and OpenAPI use the same mode-specific payment and selection facts',()=>{const m=JSON.parse(built('for-agents/agent-services.json')),a=JSON.parse(read('public/.well-known/ard.json')).entries[0].data,o=JSON.parse(built('openapi.json'));assert.deepEqual(m.commercial_truth,truth);assert.deepEqual(a.commercialTruth,truth);assert.deepEqual(o['x-payments'],truth.payments);assert.deepEqual(o['x-selection-contract'],truth.selection);assert.deepEqual(m.selection_transparency.public_agent_sample,truth.public_agent_sample);assert.deepEqual(a.publicAgentSample,truth.public_agent_sample);});
+test('public projections have no old completion counts or V1 default policy',()=>{for(const body of [JSON.stringify(truth),built('for-agents/agent-services.json'),read('public/.well-known/ard.json'),built('openapi.json'),read('public/llms.txt')])assert.doesNotMatch(body,/completed_candidate_count|QUALIFIED_RFQ_CANDIDATE_V1|SEEKAPI_BALANCED_SUPPLIER_RANKING_V1|1–3|rfq_worthy_distinct_shop_candidates/);});
+test('payment is separated by mode and cannot imply image x402 admission from Stripe',()=>{assert.equal(truth.payments.image_first.stripe.status,'LIVE');assert.equal(truth.payments.image_first.x402.status,'OFF');assert.equal(truth.payments.text_model_legacy.stripe.status,'OFF');assert.equal(truth.payments.text_model_legacy.x402.status,'LIVE');assert.equal(truth.price.amount,'2.99');assert.ok(Date.parse(truth.availability_observed_at));});
+test('rendered official product pages explain each mode and free order recovery',()=>{for(const r of ['index','china-supply-check','for-agents','discovery-status','proof']){const s=visible(read('.next/server/app/'+r+'.html'));assert.match(s,/Image x402: OFF/);assert.match(s,/Text\/model x402: LIVE/);assert.match(s,/free|no repayment/i);assert.doesNotMatch(s,/Stripe.*being enabled/);}});
+test('source protections and contact next step are scoped to the actual service',()=>{const s=visible(read('.next/server/app/china-supply-check/sample.html'));assert.match(s,/source transaction/);assert.match(s,/does not apply to the CSC fee/);assert.match(s,/not a contact-unlock fee/);assert.match(s,/null/);assert.equal(truth.live_rfq.availability,'FUTURE_NOT_ENABLED');});
+test('public API guide has no owner wallet, sourcing-provider cost or source URL tutorial',()=>{const s=visible(read('.next/server/app/apis.html'));assert.doesNotMatch(s,/owner.only|0\.022|provider_effects|aion-governance|OneBound/);assert.match(s,/OpenAPI/);assert.match(s,/MCP/);});
+test('proof entry directs to the same real example and keeps independent customer use separate',()=>{const s=visible(read('.next/server/app/proof.html'));assert.match(s,/not an independent customer testimonial/);assert.match(s,/RECOMPUTED/);assert.ok(read('.next/server/app/proof.html').includes('/china-supply-check/sample.json'));});
+test('external stale directory observations are not reported as corrected indexing',()=>{const s=visible(read('.next/server/app/discovery-status.html'));for(const p of [/external stale/,/not proof.*corrected/,/brand-blind.*unverified/,/MCP Harbor/,/Glama/])assert.match(s,p);});

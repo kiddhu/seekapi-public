@@ -1,21 +1,9 @@
-import {readFile,writeFile,mkdir} from 'node:fs/promises';
-import {resolve} from 'node:path';
-import {pathToFileURL} from 'node:url';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';import {resolve} from 'node:path';
 import SampleModule from '../lib/public-agent-sample.ts';
-const {readPublicSamplePublication}=SampleModule;
-const args=process.argv.slice(2);
-const argument=name=>{const i=args.indexOf(name);if(i<0||!args[i+1])throw Error('Required '+name);return resolve(args[i+1]);};
-// The coordinator supplies the exact-reviewed existing governance validator.
-// No runtime input, networking, sourcing, payment or fallback validator exists.
-const source=argument('--source'),validator=argument('--validator');
-const producer=await import(pathToFileURL(validator).href);
-const input=JSON.parse(await readFile(source,'utf8'));
-if(input.fixture_kind!==undefined||input.evidence_scope!==undefined)throw Error('SYNTHETIC_FIXTURE_NOT_FOR_RELEASE');
-const sample=producer.parsePublicAgentSample(typeof input.sample_json==='string'?JSON.parse(input.sample_json):input);
-const assetIndex=args.indexOf('--assets');
-const assets=input.assets??(assetIndex>=0?JSON.parse(await readFile(resolve(args[assetIndex+1]),'utf8')).assets:undefined);
-const bundle=await producer.preparePublicSamplePublication(sample,assets);
-readPublicSamplePublication(bundle);
-await mkdir('data',{recursive:true});
-await writeFile('data/public-agent-sample-publication.json',JSON.stringify(bundle,null,2)+'\n');
-console.log('Validated paired public sample artifacts prepared; no publication performed.');
+const args=process.argv.slice(2);if(args.length!==2||args[0]!=='--bundle')throw Error('Use --bundle with the exact cleared publication directory');
+const base=resolve(args[1]),read=async f=>readFile(resolve(base,f),'utf8');
+const prepared={publication_status:'PREPARED_NOT_PUBLISHED',sample_json:await read('sample.json'),sample_html:await read('sample.html'),manifest:JSON.parse(await read('publication-manifest.json')),discovery_pointer:JSON.parse(await read('mcp-discovery-pointer.json')),llms_fragment:await read('llms-fragment.txt'),assets:[]};
+SampleModule.readPublicSamplePublication(prepared);
+if(JSON.parse(await read('mcp-resource.json')).contents?.[0]?.text!==prepared.sample_json||await read('human-sample-model.json')!==prepared.sample_json)throw Error('PUBLIC_SAMPLE_SAME_SOURCE_MISMATCH');
+await mkdir('data',{recursive:true});await writeFile('data/public-agent-sample-publication.json',JSON.stringify(prepared,null,2)+'\n');
+console.log('Exact cleared public bytes prepared; no sourcing, payment, publication or private image access.');

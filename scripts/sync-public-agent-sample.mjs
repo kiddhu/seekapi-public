@@ -1,23 +1,25 @@
-import {readFile,writeFile,mkdir,readdir,unlink} from 'node:fs/promises';
+import {readFile,writeFile,readdir,unlink} from 'node:fs/promises';
 import SampleModule from '../lib/public-agent-sample.ts';
 const {readPublicSamplePublication,publicSampleMetadata}=SampleModule;
 const publication=readPublicSamplePublication(),metadata=publicSampleMetadata(publication);
 const ardFile='public/.well-known/ard.json',llmsFile='public/llms.txt';
 const ard=JSON.parse(await readFile(ardFile,'utf8'));
-const legacyDisclosure='INTERNAL_ACCEPTANCE: authorized aggregate paid outcome; candidate-level production example not publicly available';
-const readyDisclosure='Privacy-safe existing internal acceptance result; historical source observations and current-policy reconstruction, not an independent customer testimonial';
-for(const entry of ard.entries){entry.data.selectionTransparency=metadata;entry.data.sampleDisclosure=publication?readyDisclosure:legacyDisclosure;if(publication)entry.data.publicAgentSample=publication.discovery_pointer;else delete entry.data.publicAgentSample;}
+let truth;try{truth=JSON.parse(await readFile('public/.well-known/csc-commercial-truth.json','utf8'))}catch(e){if(e.code!=='ENOENT')throw e}
+function withdraw(value){if(!value||typeof value!=='object')return;for(const key of Object.keys(value)){if(['public_agent_sample','publicAgentSample'].includes(key))delete value[key];else withdraw(value[key]);}}
+if(truth){if(publication)truth.public_agent_sample=publication.discovery_pointer;else withdraw(truth);await writeFile('public/.well-known/csc-commercial-truth.json',JSON.stringify(truth,null,2)+'\n');}
+
+for(const entry of ard.entries){
+ if(truth)entry.data.commercialTruth=truth;
+ entry.data.selectionTransparency=metadata;
+ entry.data.sampleDisclosure=publication?'Historical reconstruction using product-first V2; original pool and weights NOT_RECORDED; scores RECOMPUTED; not an independent customer testimonial.':'A public candidate example is unavailable; no machine example is advertised.';
+ if(publication)entry.data.publicAgentSample=publication.discovery_pointer;else delete entry.data.publicAgentSample;
+}
+if(!publication)withdraw(ard);
 await writeFile(ardFile,JSON.stringify(ard,null,2)+'\n');
 const marker='\n## Qualified public sample publication\n';
-let base=(await readFile(llmsFile,'utf8')).split(marker)[0].trimEnd();
-const legacyDescription='The acceptance example is INTERNAL_ACCEPTANCE, not an independent customer testimonial. It contains the authorized aggregate outcome of a completed paid check, not candidate-level production supplier rows. Historical examples are separate and archived.';
-const readyDescription='The qualified public example projects an existing internal acceptance result with source-scoped qualifications and current-policy reconstruction. It is not an independent customer testimonial; original selection data and weights remain NOT_RECORDED when unavailable.';
-base=base.replace(/(?:Public paid acceptance example:|Current qualified public example:)/,publication?'Current qualified public example:':'Public paid acceptance example:').replace(legacyDescription,readyDescription).replace(readyDescription,publication?readyDescription:legacyDescription);
-const text=publication?`Public China Supply Check qualified example: ${publication.discovery_pointer.human_url}\nAgent JSON: ${publication.discovery_pointer.agent_json_url}\nFree MCP resource: ${publication.discovery_pointer.mcp_resource_uri}\nHistorical existing acceptance result and current-policy reconstruction; not a customer testimonial. Original selection funnel and weights: NOT_RECORDED. Sample SHA256: ${publication.manifest.sample_sha256}.`:'Qualified sample publication: PENDING_SOURCE. The selection transparency contracts are prepared, not deployed. The current sample page remains the recorded source-observation and acceptance summary; no qualified Agent JSON or MCP sample resource is claimed live.';
+const base=(await readFile(llmsFile,'utf8')).split(marker)[0].split('\n').filter(line=>!line.includes('/sample.json')&&!line.includes('seekapi://')).join('\n').trimEnd();
+const text=publication?publication.llms_fragment+'Product-first V2: comparable price 45%, scoped sales 35%, MOQ fit 10%, freshness and activity 10%. Deduplicate supplier identities, protect at most 20 within 10 points of the best product, then select F5 to F0; Q1–Q6 is auxiliary trust, not six admission gates. Scores 0 and tiers F0 in this historical example do not establish commercial inferiority. Deterministic ties do not establish superiority.':'A public candidate example is currently unavailable. No JSON or MCP sample resource is advertised.';
 await writeFile(llmsFile,base+marker+text+'\n');
-
-const assetDirectory='public/china-supply-check/sample-assets';
-const currentAssets=new Set(publication?.assets.map(asset=>asset.sha256+'.png')??[]);
-if(publication){await mkdir(assetDirectory,{recursive:true});for(const asset of publication.assets)await writeFile('public'+asset.path,Buffer.from(asset.content_base64,'base64'));}
-let previous=[];try{previous=await readdir(assetDirectory)}catch(error){if(error.code!=='ENOENT')throw error;}
-for(const name of previous)if(/^[a-f0-9]{64}\.png$/.test(name)&&!currentAssets.has(name))await unlink(assetDirectory+'/'+name);
+// Remove only old generated public sample images. Cleared V2 has no public assets.
+const directory='public/china-supply-check/sample-assets';let names=[];try{names=await readdir(directory)}catch(e){if(e.code!=='ENOENT')throw e}
+for(const name of names)if(/^[a-f0-9]{64}\.png$/.test(name))await unlink(directory+'/'+name);

@@ -1,3 +1,5 @@
+> Historical engineering/approval record. Its availability statements describe that recorded stage. See the [current public contract](https://seekapi.ai/.well-known/csc-commercial-truth.json) and [current Agent guide](https://seekapi.ai/for-agents) before a new purchase. This note does not alter the historical evidence or legal text below.
+
 # Website Growth V1 implementation
 
 Design authority: [governance #1090](https://github.com/kiddhu/aion-governance/pull/1090), exact design SHA `832b6ea8ce8a1bd2d40af514493eeb0efe61824a`; [freeze 5907749027](https://github.com/kiddhu/aion-governance/pull/1090#issuecomment-5907749027), GemAION design review 5363511599. Monarch authorized the independent implementation PR stage on 2026-09-30; admission is recorded in comment 5908731675.

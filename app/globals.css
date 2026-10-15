@@ -10,3 +10,4 @@
 .public-qualified-sample li,.public-qualified-sample code{overflow-wrap:anywhere}
 .public-qualified-sample aside{border-left:4px solid #165db1;padding:.75rem 1rem;background:#eaf1fc}
 @media(max-width:820px){.public-qualified-sample .cards{grid-template-columns:1fr}}
+.sample-comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}.sample-comparison dl{margin:0}.sample-comparison dt{font-weight:600;margin-top:.8rem}.sample-comparison dd{margin:0;overflow-wrap:anywhere}.public-qualified-sample{overflow-wrap:anywhere}.public-qualified-sample section{margin:2rem 0;padding:1.5rem;border:1px solid var(--border,#334155);border-radius:1rem}.public-qualified-sample li{margin:.4rem 0}.public-qualified-sample h1{font-size:clamp(1.6rem,4vw,2.5rem)}@media(max-width:760px){.sample-comparison{grid-template-columns:1fr}.public-qualified-sample section{padding:1rem}.sample-comparison .card{min-width:0}}
