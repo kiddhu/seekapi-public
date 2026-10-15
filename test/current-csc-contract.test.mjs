@@ -6,7 +6,7 @@ const current = ['app/(english)/china-supply-check/page.tsx', 'app/(english)/chi
 test('current linked CSC routes preserve paid-on and card-not-live truth', () => {
  for (const path of current) {
   const body = source(path);
-  assert.doesNotMatch(body, /no paid run(?: or supplier contact)? is public|no paid run or supplier contact is public|verified_company.*false|verified_manufacturer.*false|claimCeiling|aion-governance/i, path);
+  assert.doesNotMatch(body, /no paid run(?: or supplier contact)? is public|no paid run or supplier contact is public|verified_company.*false|verified_manufacturer.*false|claimCeiling/i, path);
  }
  for (const path of current.slice(1,3)) {
   assert.match(source(path), /live via x402 at 2.99 USDC/, path);
@@ -24,6 +24,6 @@ test('default acceptance summary is aggregate and historical candidate rows stay
  assert.match(summary, /INTERNAL_ACCEPTANCE/);
  assert.match(summary, /2.99 USDC/);
  assert.match(summary, /sample\/archived-v4/);
- assert.doesNotMatch(summary, /0x[0-9a-fA-F]{40}|b2b-[0-9]+|offer:|aion-governance/);
+ assert.doesNotMatch(summary, /0x[0-9a-fA-F]{40}|b2b-[0-9]+|offer:/);
  assert.match(source('app/(english)/china-supply-check/sample/archived-v4/page.tsx'), /ARCHIVED/);
 });

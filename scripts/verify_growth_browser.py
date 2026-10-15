@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify actual first-screen candidate content; never substitutes for owner acceptance."""
+"""Verify actual first-screen candidate content; never substitutes for publisher acceptance."""
 import argparse
 import json
 import subprocess
