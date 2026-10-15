@@ -1,3 +1,4 @@
+import {readPublicSamplePublication} from '@/lib/public-agent-sample';
 import { ProductFirstMethod } from '@/components/product-first-method';
 import { cscPaymentCopy } from '@/lib/csc-commercial-truth';
 import Link from 'next/link';
@@ -46,6 +47,7 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
 }
 
 export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
+  const sampleAvailable=readPublicSamplePublication()!==null;
   const copy = variants[variant];
   return <><Header /><main id="main-content">
     <section className={'growth-hero growth-variant-' + variant}><div className="container growth-hero-grid">
@@ -58,7 +60,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="growth-actions">
         <div className="button-row">
           <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
-          <Link className="button button-ghost" href="/china-supply-check/sample" aria-label="View a sample summary">{variant === 'a' ? 'Read the complete sample' : 'Complete sample'}</Link>
+          {sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample" aria-label="Read the complete current sample">Read the complete sample</Link>:null}
           <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
         </div>
         <p className="growth-availability">{cscPaymentCopy}</p>
@@ -66,13 +68,14 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
     </div></section>
-    <section className="section growth-proof"><div className="container">
+    {sampleAvailable?<>    <section className="section growth-proof"><div className="container">
       <SectionTitle eyebrow="Inspect the evidence" title="Read the complete three-candidate comparison." body="The current anonymous historical reconstruction includes three DIRECT_MATCH candidates, score components, source factory tiers, trust explanations and RFQ unknowns. It is a report you can inspect, not a current quote or an independent customer testimonial." />
       <div className="growth-proof-row">
         <p><strong>Product-first V2.</strong> All three public candidates have 0/100 commercial scores and F0 source tiers because the preserved evidence does not support those credits. Read the complete <Link className="text-link" href="/china-supply-check/sample">current three-candidate report</Link> or <a className="text-link" href="/china-supply-check/sample.json">download its exact Agent JSON</a>.</p>
         <Link className="button" href="/china-supply-check/sample">Read the complete sample</Link>
       </div>
     </div></section>
+</>:<section className="section growth-proof"><div className="container"><h2>The public example is currently unavailable.</h2><p>Read current product and payment availability before preparing a request.</p><Link className="text-link" href="/for-agents">Connect and read live discovery</Link></div></section>}
     <section className="section"><div className="container">
       <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
       <div className="grid-3">
@@ -110,7 +113,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
     </div></section>
     <ProductFirstMethod/><section className="section growth-next"><div className="container">
       <SectionTitle eyebrow="Choose the next usable action" title="Start with the product; keep the China-side work together." body="Inspect the live screening product, prepare a free MCP brief, or request scope review for a separately authorized human assignment. A brief does not buy a check or contact a supplier." />
-      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link><Link className="button button-ghost" href="/china-supply-check/sample">Read the complete sample</Link></div>
+      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link>{sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample">Read the complete sample</Link>:null}</div>
       <div className="link-list"><Link className="text-link" href="/for-agents">Agent connection guide</Link><Link className="text-link" href="/china-supply-chain">Need broader China Desk support?</Link><Link className="text-link" href="/trust">Evidence and role boundaries</Link><Link className="text-link" href="/support">Contact support</Link><Link className="text-link" href="/discovery-status">Dated discovery status</Link></div>
     </div></section>
   </main><Footer /></>;
