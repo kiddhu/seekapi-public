@@ -31,7 +31,7 @@ test('four customer entry pages expose the runnable SDK and preserve the approve
 });
 test('a stranger can copy the complete displayed brief, follow its public fixture and pass it unchanged to the free client',async()=>{
  const page=read('.next/server/app/sourcing/rfq-templates/china-supplier-brief.html');
- const encoded=page.match(/<pre id="buyer-brief-example">([\s\S]*?)<\/pre>/)?.[1];assert.ok(encoded);
+ const encoded=page.match(/<pre id="buyer-brief-example"[^>]*>([\s\S]*?)<\/pre>/)?.[1];assert.ok(encoded);
  const input=JSON.parse(encoded.replaceAll('&quot;','"').replaceAll('&#x27;',"'").replaceAll('&amp;','&').replaceAll('&lt;','<').replaceAll('&gt;','>'));
  const link=page.match(/href="(\/developers\/free-mcp-quickstart\/fixtures\/free-journey.json)"/)?.[1];assert.ok(link);
  const fixture=JSON.parse(read('public'+link));assert.deepEqual(input,{draft:fixture.draft});
