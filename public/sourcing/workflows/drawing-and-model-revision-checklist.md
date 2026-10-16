@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-MOQ page screens quantities and broad specifications; this is evidence version-control across a drawing, listing, sample and quoted variant with a mismatch log.
+Use this when a drawing, listing, sample or quotation refers to different revisions. Log discrepancies and get the buyer’s decision on the exact revision before accepting a proposed match.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

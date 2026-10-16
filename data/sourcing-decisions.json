@@ -43,7 +43,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Image intake is a purchase entry; this guide produces an image-to-requirement evidence ledger and separates observed shapes from buyer-stated constraints.",
+    "fit": "Use this when you have a product photo but still need a measurable requirement. Keep visible features in one column and dimensions, materials or performance supplied by the buyer in another.",
     "references": [
       {
         "title": "Current free discovery and v4 public resource",
@@ -59,7 +59,7 @@
     "h1": "What should a China supplier brief contain before a free preparation?",
     "title": "What should a China supplier brief contain before a free preparation",
     "direct_answer": "Write the product or model, quantity, unit and the requirements that would make an offer unacceptable. Say whether alternatives are allowed, and leave uncertain information explicit rather than guessing it. Review the prepared brief before a separate purchase. This checklist helps organize a requirement and later supplier questions; copying it neither sends an RFQ nor authorizes payment or supplier contact.",
-    "minimum_brief": "Use existing data/brief-copy-examples.json; user context outside the strict text draft is not silently added as destination.",
+    "minimum_brief": "Name the product or model, give a positive whole-number quantity and unit, list up to five explicit must-match attributes, and say whether substitution is allowed. Keep unsupported extra context outside the strict text draft; never infer it from a photograph.",
     "mismatch_rule": "Reject absent required text fields, noninteger quantity, more than five hard constraints without prioritization or unsupported strict-schema properties.",
     "rfq_questions": "Which requirement is mandatory? Is the unit pieces, sets or packs? Which substitution is expressly permitted?",
     "nearest_existing": "/sourcing/find-china-suppliers",
@@ -97,7 +97,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Creates copyable strict-schema input plus cross-category question rows; original find-guide gives advice but no reusable complete field contract. Reuses approved topic.rfq_checklist.china_supplier_brief.",
+    "fit": "Use this when you can describe the product and want a free, editable requirement draft. The synthetic example below shows the complete text-input shape; replace it with your own buyer-stated requirements and inspect current tool discovery before preparing.",
     "references": [
       {
         "title": "Current free discovery and v4 public resource",
@@ -105,7 +105,29 @@
         "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
       }
     ],
-    "updated": "2026-10-16"
+    "updated": "2026-10-16",
+    "example": {
+      "draft": {
+        "input": {
+          "text": "M6 flat washer, 304 stainless steel"
+        },
+        "quantity": 1000,
+        "unit": "pcs",
+        "must_match": [
+          {
+            "attribute": "size",
+            "expected": "M6"
+          },
+          {
+            "attribute": "material",
+            "expected": "304 stainless steel"
+          }
+        ],
+        "product_name": "M6 flat washer",
+        "model_or_reference": null,
+        "substitution_allowed": false
+      }
+    }
   },
   {
     "id": "quotes",
@@ -151,7 +173,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Existing listing-vs-quote page decides evidence class; this creates a multi-reply comparison worksheet with missing-line and revision gates. No live RFQ service activation.",
+    "fit": "Use this when two or more supplier replies need comparison. Compare the same requirement revision, quantity, currency and unit; record unanswered lines instead of choosing the smallest number in unlike offers.",
     "references": [
       {
         "title": "Current free discovery and v4 public resource",
@@ -210,7 +232,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Packaging guide is a category brief; this is cross-category sample-to-production change control with an explicit acceptance/change log, not a sample-procurement product.",
+    "fit": "Use this before treating an accepted sample as approval for a production order. Record the approved reference, acceptance measurements and any later changes to material, tooling, process or packaging.",
     "references": [
       {
         "title": "UN procurement reference handbook overview",
@@ -275,7 +297,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Connector category covers general mating; terminal-block board footprint, pinning, solder process and rating conditions create a distinct product-family decision. No raw-SKU pages.",
+    "fit": "Use this when a PCB terminal block must fit a specific board interface. Compare its drawing, pitch, pin layout, wire entry, mounting process and condition-scoped ratings before an engineer considers a substitute.",
     "references": [
       {
         "title": "Phoenix Contact PCB terminal manufacturer data",
@@ -340,7 +362,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Original category lists packaging fields; this produces a revision-bound artwork/proof handoff checklist with explicit responsibility and comparable setup/production scope.",
+    "fit": "Use this before sending packaging artwork or approving a proof. Keep the dieline, artwork revision, dimensions, print process and finish tied to one proof, with a named person responsible for approval.",
     "references": [
       {
         "title": "Current free discovery and v4 public resource",
@@ -400,7 +422,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "No current bearing page; the complete designation and maker-specific auxiliary code schema is distinct from washers/connectors and avoids one page per6204/ZZ/2RS token.",
+    "fit": "Use this when a bearing number or photograph is too incomplete to establish the required variant. Record the full designation and maker-specific suffixes together with dimensions, closure, clearance and permitted substitution.",
     "references": [
       {
         "title": "NSK bearing designation guide",
@@ -465,7 +487,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Existing verification guide classifies company/platform/product evidence; this is the specific document-to-issuer-to-model validation workflow, not a factory audit.",
+    "fit": "Use this when someone supplies a certificate or mark as evidence for a product. Identify the issuer, document identifier, exact model and stated scope before deciding what the document supports.",
     "references": [
       {
         "title": "UL certification-mark explanation",
@@ -530,7 +552,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "MOQ page screens quantities and broad specifications; this is evidence version-control across a drawing, listing, sample and quoted variant with a mismatch log.",
+    "fit": "Use this when a drawing, listing, sample or quotation refers to different revisions. Log discrepancies and get the buyer\u2019s decision on the exact revision before accepting a proposed match.",
     "references": [
       {
         "title": "Phoenix Contact PCB terminal manufacturer data",
@@ -595,7 +617,7 @@
     ],
     "human_action": "/china-supply-check#image-supply-check",
     "machine_action": "/for-agents#china-supply-check-mcp",
-    "fit": "Price page labels listing vs confirmed quote; this captures delivery basis and explicitly missing landed-cost inputs. No duty calculation or customs/legal assurance.",
+    "fit": "Use this when quoted prices have different delivery terms or missing cost lines. Record the named rule, edition and place, then identify freight, insurance, tax or other amounts still needed for a comparable basis.",
     "references": [
       {
         "title": "ICC Incoterms2020 overview",

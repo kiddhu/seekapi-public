@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Price page labels listing vs confirmed quote; this captures delivery basis and explicitly missing landed-cost inputs. No duty calculation or customs/legal assurance.
+Use this when quoted prices have different delivery terms or missing cost lines. Record the named rule, edition and place, then identify freight, insurance, tax or other amounts still needed for a comparable basis.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

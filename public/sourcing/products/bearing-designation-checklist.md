@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-No current bearing page; the complete designation and maker-specific auxiliary code schema is distinct from washers/connectors and avoids one page per6204/ZZ/2RS token.
+Use this when a bearing number or photograph is too incomplete to establish the required variant. Record the full designation and maker-specific suffixes together with dimensions, closure, clearance and permitted substitution.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

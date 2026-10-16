@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Connector category covers general mating; terminal-block board footprint, pinning, solder process and rating conditions create a distinct product-family decision. No raw-SKU pages.
+Use this when a PCB terminal block must fit a specific board interface. Compare its drawing, pitch, pin layout, wire entry, mounting process and condition-scoped ratings before an engineer considers a substitute.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

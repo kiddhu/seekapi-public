@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Existing listing-vs-quote page decides evidence class; this creates a multi-reply comparison worksheet with missing-line and revision gates. No live RFQ service activation.
+Use this when two or more supplier replies need comparison. Compare the same requirement revision, quantity, currency and unit; record unanswered lines instead of choosing the smallest number in unlike offers.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

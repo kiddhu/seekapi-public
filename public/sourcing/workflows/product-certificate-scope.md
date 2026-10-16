@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Existing verification guide classifies company/platform/product evidence; this is the specific document-to-issuer-to-model validation workflow, not a factory audit.
+Use this when someone supplies a certificate or mark as evidence for a product. Identify the issuer, document identifier, exact model and stated scope before deciding what the document supports.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

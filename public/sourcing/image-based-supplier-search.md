@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Image intake is a purchase entry; this guide produces an image-to-requirement evidence ledger and separates observed shapes from buyer-stated constraints.
+Use this when you have a product photo but still need a measurable requirement. Keep visible features in one column and dimensions, materials or performance supplied by the buyer in another.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

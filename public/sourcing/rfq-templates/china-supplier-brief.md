@@ -6,13 +6,45 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Creates copyable strict-schema input plus cross-category question rows; original find-guide gives advice but no reusable complete field contract. Reuses approved topic.rfq_checklist.china_supplier_brief.
+Use this when you can describe the product and want a free, editable requirement draft. The synthetic example below shows the complete text-input shape; replace it with your own buyer-stated requirements and inspect current tool discovery before preparing.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 
 ## Minimum buyer brief
 
-Use existing data/brief-copy-examples.json; user context outside the strict text draft is not silently added as destination.
+Name the product or model, give a positive whole-number quantity and unit, list up to five explicit must-match attributes, and say whether substitution is allowed. Keep unsupported extra context outside the strict text draft; never infer it from a photograph.
+
+
+## Copy a complete synthetic text brief
+
+This invented M6 washer brief is a format example, not a real order or offer. Replace the buyer-stated values, then review the returned prepared draft. Destination and other unsupported properties must not be added to this strict text draft.
+
+```json
+{
+  "draft": {
+    "input": {
+      "text": "M6 flat washer, 304 stainless steel"
+    },
+    "quantity": 1000,
+    "unit": "pcs",
+    "must_match": [
+      {
+        "attribute": "size",
+        "expected": "M6"
+      },
+      {
+        "attribute": "material",
+        "expected": "304 stainless steel"
+      }
+    ],
+    "product_name": "M6 flat washer",
+    "model_or_reference": null,
+    "substitution_allowed": false
+  }
+}
+```
+
+[Download the complete public fixture and capability observations](/developers/free-mcp-quickstart/fixtures/free-journey.json) · [Run and test this input with the official SDK examples](/for-agents#free-quickstart).
 
 | Field | Buyer input | Evidence check | Reject or unknown |
 |---|---|---|---|

@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Original category lists packaging fields; this produces a revision-bound artwork/proof handoff checklist with explicit responsibility and comparable setup/production scope.
+Use this before sending packaging artwork or approving a proof. Keep the dieline, artwork revision, dimensions, print process and finish tied to one proof, with a named person responsible for approval.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 

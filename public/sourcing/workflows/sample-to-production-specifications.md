@@ -6,7 +6,7 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
-Packaging guide is a category brief; this is cross-category sample-to-production change control with an explicit acceptance/change log, not a sample-procurement product.
+Use this before treating an accepted sample as approval for a production order. Record the approved reference, acceptance measurements and any later changes to material, tooling, process or packaging.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 
