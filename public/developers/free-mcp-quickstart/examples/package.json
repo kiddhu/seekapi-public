@@ -1,0 +1,8 @@
+{
+  "name": "seekapi-free-mcp-example",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test test_quickstart.mjs", "demo": "node quickstart.mjs" },
+  "dependencies": { "@modelcontextprotocol/sdk": "1.32.1" },
+  "engines": { "node": ">=22" }
+}

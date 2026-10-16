@@ -1,0 +1,246 @@
+{
+  "fixture_notice": "PUBLIC_DISCOVERY_PROJECTION_AND_SYNTHETIC_PREPARE; no live result/order/quote. Observed 2026-10-16T01:24:05Z; not current authority.",
+  "draft": {
+    "input": {
+      "text": "M6 flat washer, 304 stainless steel"
+    },
+    "quantity": 1000,
+    "unit": "pcs",
+    "must_match": [
+      {
+        "attribute": "size",
+        "expected": "M6"
+      },
+      {
+        "attribute": "material",
+        "expected": "304 stainless steel"
+      }
+    ],
+    "product_name": "M6 flat washer",
+    "model_or_reference": null,
+    "substitution_allowed": false
+  },
+  "discovery": {
+    "schema_version": "csc.agent-discovery-projections.v1",
+    "contract": {
+      "schema_version": "seekapi.csc-public-contract.v2",
+      "product_id": "china_supply_check_v0",
+      "product_version": "china_supply_check_v0@v1",
+      "price_version": "csc-agent-usdc-base-v1-299",
+      "price": {
+        "usdc": "2.99",
+        "network": "eip155:8453",
+        "card_usd": "2.99"
+      },
+      "intake": {
+        "text_model_compatible": true,
+        "customer_chinese_required": false,
+        "reference_image_free_prepare": true,
+        "reference_image_paid_execution": "PUBLIC_OFF",
+        "image_similarity_is_identity_evidence": false
+      },
+      "candidate_claims": {
+        "company_registration": "FIELD_SCOPED_IF_AVAILABLE",
+        "platform_certification": "FIELD_SCOPED_IF_AVAILABLE",
+        "production_vs_trade_identity": "FIELD_SCOPED_IF_AVAILABLE",
+        "supplier_verification": "STRUCTURED_FIELD_LEVEL_OR_EXPLICIT_UNKNOWN",
+        "contact_path": "FIELD_SCOPED_IF_AVAILABLE",
+        "price_basis": "OBSERVED_LISTING_PRICE_OR_SUPPLIER_REPLY_WHEN_CONFIRMED"
+      },
+      "result_projection": {
+        "default": "v2",
+        "selector_meta_key": "seekapi/public-projection",
+        "explicit_legacy_values": [
+          "v1",
+          "legacy-public-v1.1"
+        ],
+        "supplier_source_relationship": "SAFE_LANE_ROLE_DIGEST_DATE_WITHOUT_QUERY_OR_ENDPOINT"
+      },
+      "payment": {
+        "x402_live": true,
+        "x402_network": "eip155:8453",
+        "image_x402_live": false
+      },
+      "payments": {
+        "image_first": {
+          "stripe": {
+            "status": "LIVE",
+            "amount_usd": "2.99",
+            "hosted_checkout": true,
+            "entry": "https://api.seekapi.ai/checkout/stripe/image",
+            "payment_to_delivery": "LIVE"
+          },
+          "x402": {
+            "status": "OFF",
+            "amount_usdc": "2.99",
+            "network": "Base",
+            "network_id": "eip155:8453",
+            "version": 2
+          }
+        },
+        "text_model_legacy": {
+          "stripe": {
+            "status": "OFF"
+          },
+          "x402": {
+            "status": "LIVE",
+            "amount_usdc": "2.99",
+            "network": "Base",
+            "network_id": "eip155:8453",
+            "version": 2
+          }
+        }
+      },
+      "agent_operations": {
+        "prepare": "FREE_NO_EFFECT",
+        "run": "CONFIRMED_ENTITLED_BOUNDED_EFFECT",
+        "status": "FREE_DURABLE_READ",
+        "result": "FREE_DURABLE_READ"
+      },
+      "upsell": {
+        "service_id": "live_rfq_compare_v0",
+        "price_usd": "19.90",
+        "execution": "HUMAN_OPERATED_SUPPLIER_OUTREACH",
+        "availability": "FUTURE_NOT_ENABLED"
+      },
+      "status": "CSC_PUBLIC_PAID_ON",
+      "public_sample_contract": {
+        "schema_version": "csc.public-agent-sample.v4",
+        "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
+        "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
+        "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
+        "factory_tier_contract": "SOURCE_FACTORY_TIER_V1",
+        "trust_profile_contract": "SUPPLIER_TRUST_PROFILE_Q1_Q6_V2",
+        "selection_trace_contract": "CSC_SELECTION_TRACE_V2",
+        "product_weights": {
+          "comparable_price": 45,
+          "observed_sales": 35,
+          "moq_fit": 10,
+          "data_freshness_and_active_status": 10
+        },
+        "maximum_unique_suppliers": 20,
+        "maximum_product_score_gap_from_best": 10,
+        "factory_order": "F5_TO_F0_WITHIN_PROTECTED_PRODUCT_POOL",
+        "trust_role": "SECONDARY_EXPLANATION_NOT_ADMISSION_GATES",
+        "sample_available": true
+      },
+      "image_intake": {
+        "free_prepare": true,
+        "fulfillment_trigger": "VERIFIED_SIGNED_WEBHOOK",
+        "paid_execution": "LIVE",
+        "discovery_tool": "discover_china_supply_check_v0",
+        "card_entry": "https://api.seekapi.ai/checkout/stripe/image",
+        "card_availability": "LIVE",
+        "card_usd": "2.99",
+        "result_contract": "csc.delivery.v4",
+        "scope": "MAIN_PRODUCT_ONLY",
+        "delivery_chain": [
+          "VERIFIED_PAYMENT",
+          "ONE_ORDER_AND_ENTITLEMENT",
+          "AUTOMATIC_SOURCING",
+          "ENGLISH_REPORT_AND_AGENT_JSON",
+          "DURABLE_RECOVERY_WITHOUT_REPAYMENT"
+        ]
+      }
+    },
+    "tool_contracts": [
+      {
+        "name": "discover_china_supply_check_v0",
+        "effect": "FREE_NO_EFFECT",
+        "available_on_public_mcp": true,
+        "registered_on_this_server": true
+      },
+      {
+        "name": "prepare_china_supply_check_v0",
+        "effect": "FREE_NO_EFFECT",
+        "available_on_public_mcp": true,
+        "registered_on_this_server": true
+      },
+      {
+        "name": "purchase_china_supply_check_v0",
+        "effect": "EXACT_2990000_OFFICIAL_X402",
+        "available_on_public_mcp": true,
+        "registered_on_this_server": true
+      },
+      {
+        "name": "run_china_supply_check_v0",
+        "effect": "CONFIRMED_ENTITLED_BOUNDED_EFFECT",
+        "available_on_public_mcp": true,
+        "registered_on_this_server": true
+      },
+      {
+        "name": "status_china_supply_check_v0",
+        "effect": "FREE_DURABLE_READ",
+        "available_on_public_mcp": true,
+        "registered_on_this_server": true,
+        "read_status": "INDEPENDENT_WALLET_AUTHENTICATION_REQUIRED"
+      },
+      {
+        "name": "result_china_supply_check_v0",
+        "effect": "FREE_DURABLE_READ",
+        "available_on_public_mcp": true,
+        "registered_on_this_server": true,
+        "read_status": "INDEPENDENT_WALLET_AUTHENTICATION_REQUIRED"
+      }
+    ],
+    "public_agent_sample": {
+      "human_url": "https://seekapi.ai/china-supply-check/sample",
+      "agent_json_url": "https://seekapi.ai/china-supply-check/sample.json",
+      "mcp_resource_uri": "seekapi://china-supply-check/sample/current",
+      "schema_version": "csc.public-agent-sample.v4",
+      "candidate_contract": "ACTIONABLE_RFQ_CANDIDATE_V2",
+      "selection_contract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
+      "product_scoring_contract": "PRODUCT_COMMERCIAL_SCORE_V1",
+      "factory_tier_contract": "SOURCE_FACTORY_TIER_V1",
+      "trust_profile_contract": "SUPPLIER_TRUST_PROFILE_Q1_Q6_V2",
+      "selection_trace_contract": "CSC_SELECTION_TRACE_V2",
+      "candidate_count": 3,
+      "generated_at": "2026-10-15T04:18:05.337Z",
+      "selection_trace_mode": "HISTORICAL_RECONSTRUCTION",
+      "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
+      "canonical_digest": "dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5",
+      "wire_digest": "a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d"
+    },
+    "versions": {
+      "registry_package_version": "0.1.10",
+      "mcp_server_version": "0.1.2",
+      "csc_contract_version": "seekapi.csc-public-contract.v2",
+      "commercial_state_version": "2026-10-11.2"
+    }
+  },
+  "prepared": {
+    "schema_version": "csc.agent-prepare.v1",
+    "product_id": "china_supply_check_v0",
+    "price_version": "csc-agent-usdc-base-v1-299",
+    "normalized_input": {
+      "kind": "text",
+      "text": "M6 flat washer, 304 stainless steel"
+    },
+    "requirement_draft": {
+      "qualificationPolicy": "ACTIONABLE_RFQ_CANDIDATE_V2",
+      "selectionContract": "CSC_PRODUCT_FIRST_FACTORY_TIER_SELECTION_V2",
+      "query": "M6 flat washer, 304 stainless steel",
+      "quantity": 1000,
+      "unit": "pcs",
+      "mustMatch": [
+        {
+          "attribute": "size",
+          "expected": "M6"
+        },
+        {
+          "attribute": "material",
+          "expected": "304 stainless steel"
+        }
+      ]
+    },
+    "product_brief_draft": {
+      "product_name": "M6 flat washer",
+      "model_or_reference": null,
+      "substitution_allowed": false
+    },
+    "requires_exact_customer_confirmation": true,
+    "provider_effects": 0,
+    "payment_effects": 0,
+    "draft_digest": "185b9bf8ad60ddeb00c4031315c6080cbddb14fdae337c19fcd827e08a82743f"
+  }
+}

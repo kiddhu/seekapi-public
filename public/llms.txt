@@ -23,6 +23,21 @@ The public example is HISTORICAL_RECONSTRUCTION. Original pool count and weights
 Eligible source marketplace product transactions may have observed platform protections. These do not compensate the $2.99 screening fee or create a direct SeekAPI guarantee. Product-level applicability remains bounded by actual source observation.
 
 $19.90 Live RFQ Compare means contact, translation, follow-up and formal quotation comparison, not contact unlock. It is not currently open for purchase; this sample performs no purchase or contact. Public business contacts in authenticated paid results remain readable. Other human desk work requires separately agreed scope, fee, recipients and authority; no autonomous human-task API is live.
+## Free developer start and procurement worksheets (2026-10-16)
+
+- Runnable Python/Node examples, offline first: https://seekapi.ai/for-agents#free-quickstart
+- Download: https://seekapi.ai/developers/free-mcp-quickstart.zip
+- Customer README: https://seekapi.ai/developers/free-mcp-quickstart/README.md
+- How can a product photo become a precise China supplier search? https://seekapi.ai/sourcing/image-based-supplier-search (Markdown: https://seekapi.ai/sourcing/image-based-supplier-search.md)
+- What should a China supplier brief contain before a free preparation? https://seekapi.ai/sourcing/rfq-templates/china-supplier-brief (Markdown: https://seekapi.ai/sourcing/rfq-templates/china-supplier-brief.md)
+- How do you compare supplier replies on the same RFQ basis? https://seekapi.ai/sourcing/rfq-templates/supplier-quote-comparison (Markdown: https://seekapi.ai/sourcing/rfq-templates/supplier-quote-comparison.md)
+- Which sample details need to stay fixed before a production order? https://seekapi.ai/sourcing/workflows/sample-to-production-specifications (Markdown: https://seekapi.ai/sourcing/workflows/sample-to-production-specifications.md)
+- Which PCB terminal-block fields must match before you compare offers? https://seekapi.ai/sourcing/products/pcb-terminal-blocks (Markdown: https://seekapi.ai/sourcing/products/pcb-terminal-blocks.md)
+- What artwork and construction information should a packaging RFQ preserve? https://seekapi.ai/sourcing/rfq-templates/custom-packaging-artwork-brief (Markdown: https://seekapi.ai/sourcing/rfq-templates/custom-packaging-artwork-brief.md)
+- Why is a bearing base number insufficient for a sourcing brief? https://seekapi.ai/sourcing/products/bearing-designation-checklist (Markdown: https://seekapi.ai/sourcing/products/bearing-designation-checklist.md)
+- Does a certificate actually cover the product you plan to order? https://seekapi.ai/sourcing/workflows/product-certificate-scope (Markdown: https://seekapi.ai/sourcing/workflows/product-certificate-scope.md)
+- How do you keep drawings and model revisions aligned across supplier evidence? https://seekapi.ai/sourcing/workflows/drawing-and-model-revision-checklist (Markdown: https://seekapi.ai/sourcing/workflows/drawing-and-model-revision-checklist.md)
+- Which delivery and cost fields must be explicit before comparing a quote? https://seekapi.ai/sourcing/rfq-templates/delivery-terms-cost-basis (Markdown: https://seekapi.ai/sourcing/rfq-templates/delivery-terms-cost-basis.md)
 ## Qualified public sample publication
 Current complete human report: https://seekapi.ai/china-supply-check/sample
 Exact Agent JSON: https://seekapi.ai/china-supply-check/sample.json
