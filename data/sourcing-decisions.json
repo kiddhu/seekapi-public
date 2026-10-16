@@ -1,0 +1,613 @@
+[
+  {
+    "id": "image-spec",
+    "canonical_path": "/sourcing/image-based-supplier-search",
+    "h1": "How can a product photo become a precise China supplier search?",
+    "title": "How can a product photo become a precise China supplier search",
+    "direct_answer": "Use the photo to explain the main product you want, then state the quantity and specifications that must match. Keep visible features separate from dimensions, materials or performance that the image cannot prove. Review the editable interpretation before purchase. Similar appearance can help locate candidates; it does not prove an identical SKU, a factory relationship or that photographed accessories are included.",
+    "minimum_brief": "Image crop or description; visible-feature ledger; quantity; must-match list; unresolved unseen facts.",
+    "mismatch_rule": "Reject inferred material as a buyer requirement; hold exact-size claims without a stated measurement; exclude accessories unless explicitly in the supported scope.",
+    "rfq_questions": "Which pictured item is the main product? Which features must remain exact? What measurement or document resolves the unseen field?",
+    "nearest_existing": "/china-supply-check",
+    "field_contracts": [
+      {
+        "field": "visible main product",
+        "buyer_input": "Name the pictured main object and any accessory separately.",
+        "evidence_check": "Visible silhouette or labeled feature only; do not infer hidden construction.",
+        "rejection_or_unknown": "Accessory-only or different main object is a mismatch."
+      },
+      {
+        "field": "quantity and unit",
+        "buyer_input": "Positive integer and pieces/sets/boxes as supplied by buyer.",
+        "evidence_check": "Check whether an offer counts the same complete object.",
+        "rejection_or_unknown": "Unknown units cannot be converted or accepted."
+      },
+      {
+        "field": "buyer must-match",
+        "buyer_input": "Buyer supplies material, dimension or model that cannot change.",
+        "evidence_check": "Keep each explicit condition beside a scoped source.",
+        "rejection_or_unknown": "Image inference cannot become an unstated hard requirement."
+      },
+      {
+        "field": "permitted substitution",
+        "buyer_input": "EXACT_ONLY or a buyer-permitted alternative under the existing input schema.",
+        "evidence_check": "Preserve the original requirement and permission.",
+        "rejection_or_unknown": "Do not accept a merely similar item when alternatives are prohibited."
+      },
+      {
+        "field": "unseen dimensions/material",
+        "buyer_input": "List the dimension/material that a photo cannot establish.",
+        "evidence_check": "Ask for drawing, measurement or model-scoped document.",
+        "rejection_or_unknown": "Omission stays UNKNOWN; no visual claim of exactness."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Image intake is a purchase entry; this guide produces an image-to-requirement evidence ledger and separates observed shapes from buyer-stated constraints.",
+    "references": [
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "brief",
+    "canonical_path": "/sourcing/rfq-templates/china-supplier-brief",
+    "h1": "What should a China supplier brief contain before a free preparation?",
+    "title": "What should a China supplier brief contain before a free preparation",
+    "direct_answer": "Write the product or model, quantity, unit and the requirements that would make an offer unacceptable. Say whether alternatives are allowed, and leave uncertain information explicit rather than guessing it. Review the prepared brief before a separate purchase. This checklist helps organize a requirement and later supplier questions; copying it neither sends an RFQ nor authorizes payment or supplier contact.",
+    "minimum_brief": "Use existing data/brief-copy-examples.json; user context outside the strict text draft is not silently added as destination.",
+    "mismatch_rule": "Reject absent required text fields, noninteger quantity, more than five hard constraints without prioritization or unsupported strict-schema properties.",
+    "rfq_questions": "Which requirement is mandatory? Is the unit pieces, sets or packs? Which substitution is expressly permitted?",
+    "nearest_existing": "/sourcing/find-china-suppliers",
+    "field_contracts": [
+      {
+        "field": "product or model",
+        "buyer_input": "Meaningful product_name plus input.text or input.model.",
+        "evidence_check": "Use an actual buyer reference, not an invented catalog part.",
+        "rejection_or_unknown": "Missing product_name or input is invalid."
+      },
+      {
+        "field": "quantity/unit",
+        "buyer_input": "Positive integer quantity and a named unit.",
+        "evidence_check": "Record pack contents separately if comparing packs to pieces.",
+        "rejection_or_unknown": "Fractional/null text quantity and unproved conversion fail."
+      },
+      {
+        "field": "up to five must-match fields",
+        "buyer_input": "attribute/expected pairs from explicit buyer statements.",
+        "evidence_check": "Retain exact values and units; prioritize if more than five.",
+        "rejection_or_unknown": "Do not silently drop or add a hard constraint."
+      },
+      {
+        "field": "substitution policy",
+        "buyer_input": "Boolean substitution_allowed for the strict text input.",
+        "evidence_check": "Review permission before confirmation.",
+        "rejection_or_unknown": "String false is not boolean false."
+      },
+      {
+        "field": "extra human context",
+        "buyer_input": "Destination/artwork notes remain outside unsupported text properties.",
+        "evidence_check": "Use another supported input mode or human context when necessary.",
+        "rejection_or_unknown": "Do not add destination to the strict text object."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Creates copyable strict-schema input plus cross-category question rows; original find-guide gives advice but no reusable complete field contract. Reuses approved topic.rfq_checklist.china_supplier_brief.",
+    "references": [
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "quotes",
+    "canonical_path": "/sourcing/rfq-templates/supplier-quote-comparison",
+    "h1": "How do you compare supplier replies on the same RFQ basis?",
+    "title": "How do you compare supplier replies on the same RFQ basis",
+    "direct_answer": "Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. The worksheet does not obtain quotes or make the proposed RFQ service purchasable.",
+    "minimum_brief": "Reply reference and timestamp; exact requirement version; price basis; included/excluded costs; unresolved lines.",
+    "mismatch_rule": "Reject different brief revisions as like-for-like; do not fill absent freight/tax with zero or turn a listing into a supplier reply.",
+    "rfq_questions": "Does this reply cover the same variant and quantity? Which charges are excluded? Until when and from which trigger is it valid?",
+    "nearest_existing": "/china-supply-check/listing-price-vs-quote",
+    "field_contracts": [
+      {
+        "field": "brief revision",
+        "buyer_input": "Reference the same product requirement version in every reply column.",
+        "evidence_check": "A reply must identify its variant or list exceptions.",
+        "rejection_or_unknown": "Different revisions are not directly comparable."
+      },
+      {
+        "field": "supplier reply/date",
+        "buyer_input": "Link a dated supplier statement, not a seller listing screenshot.",
+        "evidence_check": "Retain who replied and the quoted scope without exposing private contacts.",
+        "rejection_or_unknown": "No response is not a zero-price offer."
+      },
+      {
+        "field": "quantity/unit",
+        "buyer_input": "Record quoted quantity, unit and pack conversion.",
+        "evidence_check": "Compare an identical order basis or flag the difference.",
+        "rejection_or_unknown": "Unknown contents prevent a per-piece calculation."
+      },
+      {
+        "field": "currency and included charges",
+        "buyer_input": "Keep unit price, currency and each included/excluded line distinct.",
+        "evidence_check": "Separate tooling, freight and taxes only where actually stated.",
+        "rejection_or_unknown": "Missing cost lines stay UNKNOWN, not free."
+      },
+      {
+        "field": "validity and lead-time basis",
+        "buyer_input": "Record validity date and stated lead-time starting event.",
+        "evidence_check": "A production estimate and dispatch date are different claims.",
+        "rejection_or_unknown": "Do not reset an expired quotation date or invent delivery timing."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Existing listing-vs-quote page decides evidence class; this creates a multi-reply comparison worksheet with missing-line and revision gates. No live RFQ service activation.",
+    "references": [
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      },
+      {
+        "title": "ICC Incoterms2020 overview",
+        "url": "https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/",
+        "scope": "Allocation of delivery obligations/costs/risk under named rules; no duty, tax, freight price or legal compliance determination."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "sample-production",
+    "canonical_path": "/sourcing/workflows/sample-to-production-specifications",
+    "h1": "Which sample details need to stay fixed before a production order?",
+    "title": "Which sample details need to stay fixed before a production order",
+    "direct_answer": "Keep a dated sample reference and the specification version it represents. Record which properties were measured, which were accepted and which still need evidence. Ask the supplier to identify any production change before comparing or approving it. A satisfactory sample does not establish an entire batch result, current stock or universal conformity. This worksheet organizes acceptance questions; it does not provide an inspection or production guarantee.",
+    "minimum_brief": "Approved reference; revision log; required measurement; evidence owner; acceptance decision still pending.",
+    "mismatch_rule": "Reject an unapproved revision treated as the approved sample; missing test evidence remains unknown; no batch acceptance inferred from one sample.",
+    "rfq_questions": "Is production using the approved revision? Which material, dimensions, artwork or process changed? Who accepts the documented difference?",
+    "nearest_existing": "/china-supply-check/packaging",
+    "field_contracts": [
+      {
+        "field": "sample reference/date",
+        "buyer_input": "Identify the approved sample or report reference and date.",
+        "evidence_check": "Preserve what was actually inspected or measured.",
+        "rejection_or_unknown": "A different photographed sample is not the approved reference."
+      },
+      {
+        "field": "approved specification revision",
+        "buyer_input": "Keep one buyer-approved drawing/artwork/spec version.",
+        "evidence_check": "Ask which version the production reply names.",
+        "rejection_or_unknown": "Unapproved changes require review before acceptance."
+      },
+      {
+        "field": "measured acceptance criteria",
+        "buyer_input": "Buyer specifies the property, unit and acceptable condition.",
+        "evidence_check": "Record actual evidence or leave the result unmeasured.",
+        "rejection_or_unknown": "A visual pass cannot prove an unmeasured property."
+      },
+      {
+        "field": "permitted differences",
+        "buyer_input": "Write a change log with source and requested decision.",
+        "evidence_check": "Separate proposed differences from accepted ones.",
+        "rejection_or_unknown": "Silence is not approval of a substituted material."
+      },
+      {
+        "field": "responsible acceptance owner",
+        "buyer_input": "Name the buyer role responsible for deciding each unresolved item.",
+        "evidence_check": "Retain decision date and supporting document.",
+        "rejection_or_unknown": "A supplier assertion cannot replace required buyer approval."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Packaging guide is a category brief; this is cross-category sample-to-production change control with an explicit acceptance/change log, not a sample-procurement product.",
+    "references": [
+      {
+        "title": "UN procurement reference handbook overview",
+        "url": "https://www.ungm.org/Shared/KnowledgeCenter/Pages/PPH2",
+        "scope": "General sourcing through contract execution stages only; proposed inspection/revision templates are editorial decision aids, not a quoted universal UN contract."
+      },
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "pcb",
+    "canonical_path": "/sourcing/products/pcb-terminal-blocks",
+    "h1": "Which PCB terminal-block fields must match before you compare offers?",
+    "title": "Which PCB terminal-block fields must match before you compare offers",
+    "direct_answer": "Match the terminal block to the board interface before comparing offers. Record pitch, position count, pin layout, mounting process and connection direction, then retain electrical ratings with their stated conditions. A familiar housing or a nearby pitch is not evidence of a drop-in replacement. Use the maker drawing for the named reference and obtain engineering confirmation for any substitute; sourcing evidence alone cannot approve an electrical design.",
+    "minimum_brief": "Required reference and drawing; board interface; poles/rows; mounting; rating conditions; quantity unit.",
+    "mismatch_rule": "Reject near-pitch or different pinning as drop-in; do not detach voltage from its stated conditions or infer approval from a housing badge.",
+    "rfq_questions": "Does the drawing match the exact footprint? Is the mounting process supported? Which rating conditions and model-scoped documents apply?",
+    "nearest_existing": "/china-supply-check/connectors",
+    "field_contracts": [
+      {
+        "field": "pitch",
+        "buyer_input": "Record the exact required spacing and drawing reference.",
+        "evidence_check": "Compare the maker drawing with the board interface.",
+        "rejection_or_unknown": "Nearby5.0/5.08mm labels do not prove interchangeability."
+      },
+      {
+        "field": "positions and rows",
+        "buyer_input": "Specify number of positions, rows and connections.",
+        "evidence_check": "Do not count a product photo as a particular configured variant.",
+        "rejection_or_unknown": "Wrong pole count is a hard mismatch."
+      },
+      {
+        "field": "pin layout and dimensions",
+        "buyer_input": "Record pin arrangement, pin dimensions and required board geometry.",
+        "evidence_check": "Use the dimensional drawing for the exact part.",
+        "rejection_or_unknown": "Same external housing does not establish same pinning."
+      },
+      {
+        "field": "mounting process",
+        "buyer_input": "State the buyer-required mounting/solder process.",
+        "evidence_check": "Retain the product-specific process description.",
+        "rejection_or_unknown": "Do not assume all terminal blocks support the same process."
+      },
+      {
+        "field": "connection direction",
+        "buyer_input": "State wire entry orientation and mechanical constraints.",
+        "evidence_check": "Check the reference-specific geometry.",
+        "rejection_or_unknown": "An obstructed or reversed interface is not a permitted substitute."
+      },
+      {
+        "field": "condition-scoped ratings",
+        "buyer_input": "Record rating plus the conditions and documentation named by the maker.",
+        "evidence_check": "Preserve different condition-scoped values without choosing the largest.",
+        "rejection_or_unknown": "Do not detach a voltage/current value from its conditions."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Connector category covers general mating; terminal-block board footprint, pinning, solder process and rating conditions create a distinct product-family decision. No raw-SKU pages.",
+    "references": [
+      {
+        "title": "Phoenix Contact PCB terminal manufacturer data",
+        "url": "https://www.phoenixcontact.com/en-ca/products/printed-circuit-board-terminal-pts-508-bk-1931819",
+        "scope": "Drawing, pitch, pin layout, mounting and condition-scoped electrical fields for the named reference only; no interchangeable China substitute."
+      },
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "artwork",
+    "canonical_path": "/sourcing/rfq-templates/custom-packaging-artwork-brief",
+    "h1": "What artwork and construction information should a packaging RFQ preserve?",
+    "title": "What artwork and construction information should a packaging RFQ preserve",
+    "direct_answer": "Give each packaging supplier the same construction and artwork revision. State the finished internal dimensions, printing sides, color requirement and finishing, and ask which proof or sample is included before production approval. Keep setup, tooling and production quantities separate. A stock-box photograph or logo claim cannot establish that the requested printed package is approved, dimensionally suitable or available at your quantity.",
+    "minimum_brief": "Dieline/artwork file reference only, no confidential uploads here; version; size basis; print/finish; sample approval owner.",
+    "mismatch_rule": "Reject a plain stock carton for mandatory printing or a different dieline version as the same artwork; do not infer food-contact or load approval.",
+    "rfq_questions": "Which dieline revision is quoted? What proof is included? Are setup/tooling and production prices separate and at the same quantity?",
+    "nearest_existing": "/china-supply-check/packaging",
+    "field_contracts": [
+      {
+        "field": "dieline revision",
+        "buyer_input": "Supply the actual file reference and revision date.",
+        "evidence_check": "Ask the supplier to identify the version it priced.",
+        "rejection_or_unknown": "Two different dielines cannot be the same approved artwork."
+      },
+      {
+        "field": "internal dimensions and tolerance",
+        "buyer_input": "State finished internal L/W/H, units and buyer tolerances.",
+        "evidence_check": "Require an explicit internal/external size basis.",
+        "rejection_or_unknown": "Unstated size basis stays UNKNOWN."
+      },
+      {
+        "field": "construction/material",
+        "buyer_input": "State construction and required board/material properties.",
+        "evidence_check": "A style code describes construction, not every performance property.",
+        "rejection_or_unknown": "Do not infer strength or food-contact suitability from a code."
+      },
+      {
+        "field": "print side and color requirement",
+        "buyer_input": "Specify printed sides and buyer-approved color requirement.",
+        "evidence_check": "Ask what process/proof is proposed for that artwork.",
+        "rejection_or_unknown": "Plain stock is a mismatch when printing is mandatory."
+      },
+      {
+        "field": "finish",
+        "buyer_input": "State the required coating/lamination or other finish, if any.",
+        "evidence_check": "Keep optional upgrades distinct from the base requirement.",
+        "rejection_or_unknown": "A glossy photo does not establish the specified finish."
+      },
+      {
+        "field": "proof approval state",
+        "buyer_input": "Record whether a proof/sample is proposed, supplied or buyer approved.",
+        "evidence_check": "Ask which revision the approval covers.",
+        "rejection_or_unknown": "A mockup is not automatically an approved production proof."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Original category lists packaging fields; this produces a revision-bound artwork/proof handoff checklist with explicit responsibility and comparable setup/production scope.",
+    "references": [
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "bearing",
+    "canonical_path": "/sourcing/products/bearing-designation-checklist",
+    "h1": "Why is a bearing base number insufficient for a sourcing brief?",
+    "title": "Why is a bearing base number insufficient for a sourcing brief",
+    "direct_answer": "Record the full maker designation rather than only the base number. Keep the dimensional family, seals or shields, internal clearance and other specified features attached to that designation. Supplementary codes can be manufacturer-specific, so similar suffixes are not proof of interchangeability. Ask for the relevant maker documentation and approval of any substitute. A listing or marked box alone does not establish authenticity, stock or suitability for an application.",
+    "minimum_brief": "Full reference; maker/code edition; dimensions; closure; clearance; allowed substitution; quantity/unit.",
+    "mismatch_rule": "Reject stripped suffixes as equivalent; hold cross-brand code translations without documentation; no authenticity or service-life guarantee.",
+    "rfq_questions": "What does each suffix mean in this maker documentation? Which features differ? Who can approve the substitute for the intended application?",
+    "nearest_existing": "/sourcing/find-china-suppliers",
+    "field_contracts": [
+      {
+        "field": "full manufacturer designation",
+        "buyer_input": "Retain the entire maker part designation as supplied.",
+        "evidence_check": "Check basic and supplementary portions in that maker documentation.",
+        "rejection_or_unknown": "Do not truncate suffixes to force a match."
+      },
+      {
+        "field": "bearing type and dimensions",
+        "buyer_input": "Record the required type and dimensional reference.",
+        "evidence_check": "Keep boundary dimensions linked to the stated designation.",
+        "rejection_or_unknown": "Same base digits alone do not establish all required features."
+      },
+      {
+        "field": "seal/shield suffix",
+        "buyer_input": "Use the maker-specific meaning for the actual suffix.",
+        "evidence_check": "Keep documentation source and edition.",
+        "rejection_or_unknown": "Never mapZZ/2RS across makers without support."
+      },
+      {
+        "field": "clearance",
+        "buyer_input": "Retain the stated clearance designation or UNKNOWN.",
+        "evidence_check": "Check whether the buyer requires a particular class.",
+        "rejection_or_unknown": "Do not silently choose a different class."
+      },
+      {
+        "field": "tolerance class",
+        "buyer_input": "Record the buyer-stated precision/tolerance requirement.",
+        "evidence_check": "Require relevant product documentation for a claimed match.",
+        "rejection_or_unknown": "An omitted class cannot be upgraded to the requested class."
+      },
+      {
+        "field": "lubrication/application requirement",
+        "buyer_input": "Record explicit buyer service requirements and who approves fit.",
+        "evidence_check": "Request documentation or engineering review where needed.",
+        "rejection_or_unknown": "No life, authenticity or interchangeability guarantee from a listing."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "No current bearing page; the complete designation and maker-specific auxiliary code schema is distinct from washers/connectors and avoids one page per6204/ZZ/2RS token.",
+    "references": [
+      {
+        "title": "NSK bearing designation guide",
+        "url": "https://www.nsk.com/tools-resources/abc-bearings/bearing-designations/",
+        "scope": "Basic/supplementary designation and maker-specific code scope; no cross-brand equivalence, guaranteed life or stock."
+      },
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "certificate",
+    "canonical_path": "/sourcing/workflows/product-certificate-scope",
+    "h1": "Does a certificate actually cover the product you plan to order?",
+    "title": "Does a certificate actually cover the product you plan to order",
+    "direct_answer": "Read the certificate or mark as a scoped claim. Identify its issuer, file or reference number, named entity, product model and stated coverage, then use the issuer verification route where available. Record what you actually observed and leave unresolved matches open. A mark on an image is not a verified certificate, and one certificate cannot establish every product, destination requirement or manufacturing-site claim.",
+    "minimum_brief": "Document reference, issuer, file/model/category scope, observation date and unanswered questions; no private customer documents published.",
+    "mismatch_rule": "Reject entity-only document as proof for every model; an inaccessible issuer lookup remains unknown; no regulatory clearance inferred.",
+    "rfq_questions": "Which exact model and entity does this record name? Can the issuer record be read? What scope or applicability still needs qualified confirmation?",
+    "nearest_existing": "/sourcing/china-supplier-verification",
+    "field_contracts": [
+      {
+        "field": "issuer lookup",
+        "buyer_input": "Identify the issuing body and its official verification route.",
+        "evidence_check": "Record whether the actual issuer record was read.",
+        "rejection_or_unknown": "An inaccessible lookup is UNKNOWN, not a failed certificate."
+      },
+      {
+        "field": "file or identifier",
+        "buyer_input": "Preserve the complete identifier from the document or mark.",
+        "evidence_check": "Compare with the issuer record and product category.",
+        "rejection_or_unknown": "A similar number is not the same record."
+      },
+      {
+        "field": "named entity/model",
+        "buyer_input": "Compare the exact subject and model with the proposed product.",
+        "evidence_check": "Separate company-level, site-level and model-level claims.",
+        "rejection_or_unknown": "A company record cannot certify all products."
+      },
+      {
+        "field": "product category/scope",
+        "buyer_input": "Read the stated program/category and limitations.",
+        "evidence_check": "Do not extend one program to another.",
+        "rejection_or_unknown": "A logo alone cannot establish document scope."
+      },
+      {
+        "field": "destination applicability",
+        "buyer_input": "Keep the specified geographical scope and unresolved buyer requirement.",
+        "evidence_check": "Qualified parties determine applicability where needed.",
+        "rejection_or_unknown": "Do not announce universal import or product approval."
+      },
+      {
+        "field": "observation date",
+        "buyer_input": "Record when the source was actually checked.",
+        "evidence_check": "Retain any date/status actually shown by the issuer.",
+        "rejection_or_unknown": "Never create a new issue/expiry date to make a record current."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Existing verification guide classifies company/platform/product evidence; this is the specific document-to-issuer-to-model validation workflow, not a factory audit.",
+    "references": [
+      {
+        "title": "UL certification-mark explanation",
+        "url": "https://www.ul.com/thecodeauthority/knowledge/faq-enhanced-and-smart-ul-certification-mark",
+        "scope": "Identifier/file lookup and certification documentation; not proof any supplier, listing or product is certified."
+      },
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "drawing",
+    "canonical_path": "/sourcing/workflows/drawing-and-model-revision-checklist",
+    "h1": "How do you keep drawings and model revisions aligned across supplier evidence?",
+    "title": "How do you keep drawings and model revisions aligned across supplier evidence",
+    "direct_answer": "Keep the model reference and drawing revision visible beside each listing, sample or supplier reply. Record units and the dimensions the buyer requires; do not silently translate an approximate image into a measurement. When versions differ, identify the changed field and request clarification before treating them as equivalent. The checklist maintains evidence consistency and change history; it does not perform engineering approval or authorize production.",
+    "minimum_brief": "Reference/version; units; buyer-stated dimensions; source evidence version; discrepancy and acceptance owner.",
+    "mismatch_rule": "Reject obsolete or unit-mismatched drawing as current; do not calculate unstated tolerances or approve substitution from a photograph.",
+    "rfq_questions": "Which drawing revision supports this variant? Are units and tolerances explicit? Who approves the difference before the next step?",
+    "nearest_existing": "/china-supply-check/moq-specification-screening",
+    "field_contracts": [
+      {
+        "field": "model/part reference",
+        "buyer_input": "Use the full buyer reference and exact offered variant.",
+        "evidence_check": "Keep listing, drawing and reply identifiers together.",
+        "rejection_or_unknown": "A family label does not establish a particular variant."
+      },
+      {
+        "field": "drawing revision/date",
+        "buyer_input": "Retain drawing number, revision and date.",
+        "evidence_check": "Check which revision each evidence item supports.",
+        "rejection_or_unknown": "Do not overwrite the old version when recording a change."
+      },
+      {
+        "field": "unit system",
+        "buyer_input": "State dimensional units explicitly.",
+        "evidence_check": "Keep any supported conversion beside the original value.",
+        "rejection_or_unknown": "Missing units cannot be guessed from the image."
+      },
+      {
+        "field": "critical dimension and tolerance",
+        "buyer_input": "Record buyer-stated dimensions and tolerances with their source.",
+        "evidence_check": "Only mark a match where the offered evidence supports it.",
+        "rejection_or_unknown": "No default tolerance may fill an unstated requirement."
+      },
+      {
+        "field": "variant exceptions",
+        "buyer_input": "List substitutions or departures in a separate column.",
+        "evidence_check": "Ask whether each exception was permitted.",
+        "rejection_or_unknown": "A lower price cannot hide a hard-specification change."
+      },
+      {
+        "field": "change approval",
+        "buyer_input": "Identify the required decision owner and accepted revision.",
+        "evidence_check": "Keep the actual acceptance decision and supporting source.",
+        "rejection_or_unknown": "A supplier proposal is not buyer approval."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "MOQ page screens quantities and broad specifications; this is evidence version-control across a drawing, listing, sample and quoted variant with a mismatch log.",
+    "references": [
+      {
+        "title": "Phoenix Contact PCB terminal manufacturer data",
+        "url": "https://www.phoenixcontact.com/en-ca/products/printed-circuit-board-terminal-pts-508-bk-1931819",
+        "scope": "Drawing, pitch, pin layout, mounting and condition-scoped electrical fields for the named reference only; no interchangeable China substitute."
+      },
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  },
+  {
+    "id": "delivery-cost",
+    "canonical_path": "/sourcing/rfq-templates/delivery-terms-cost-basis",
+    "h1": "Which delivery and cost fields must be explicit before comparing a quote?",
+    "title": "Which delivery and cost fields must be explicit before comparing a quote",
+    "direct_answer": "Record the named delivery rule, edition and place with the quote, and ask which cost lines are included. Keep the allocation of delivery obligations and risk separate from a headline unit price. Missing freight, duties, taxes or other charges remain unknown until evidenced. This checklist improves questions and comparability; it is not a landed-cost quotation, a customs determination or a promise that a sourcing service handles shipment.",
+    "minimum_brief": "Quoted rule/edition/place; included/excluded lines; price validity; remaining document owner.",
+    "mismatch_rule": "Reject a low listing as EXW/FOB/DDP without explicit term; absent duties/freight are not zero; no local import legality conclusions.",
+    "rfq_questions": "What named place and edition apply? Which charges are included or excluded? Who will provide missing cost and destination-specific evidence?",
+    "nearest_existing": "/china-supply-check/listing-price-vs-quote",
+    "field_contracts": [
+      {
+        "field": "named delivery rule and edition",
+        "buyer_input": "Record the actual quoted rule and edition verbatim.",
+        "evidence_check": "Use the named ICC rule to understand scope, without inventing terms.",
+        "rejection_or_unknown": "A wholesale listing is not automaticallyEXW/FOB/DDP."
+      },
+      {
+        "field": "named place/point",
+        "buyer_input": "Keep the actual named delivery location or UNKNOWN.",
+        "evidence_check": "Two identical rule abbreviations can still name different points.",
+        "rejection_or_unknown": "No unspecified location is assumed equivalent."
+      },
+      {
+        "field": "included cost lines",
+        "buyer_input": "Record explicitly included and excluded charges.",
+        "evidence_check": "Ask which party supplies missing freight/tax/duty evidence.",
+        "rejection_or_unknown": "Missing charges are not zero."
+      },
+      {
+        "field": "risk/delivery allocation",
+        "buyer_input": "Keep obligations and risk allocation distinct from price.",
+        "evidence_check": "Use the actual quoted rule and professional confirmation where needed.",
+        "rejection_or_unknown": "Do not infer legal or customs compliance from a rule."
+      },
+      {
+        "field": "currency/validity",
+        "buyer_input": "Retain quoted currency, validity and quantity basis.",
+        "evidence_check": "Resolve stale or differently based prices before comparison.",
+        "rejection_or_unknown": "No live conversion or quote validity is fabricated."
+      },
+      {
+        "field": "excluded unknowns",
+        "buyer_input": "List every unresolved cost or document owner.",
+        "evidence_check": "A complete landed-cost answer requires actual scoped inputs.",
+        "rejection_or_unknown": "No landed-price promise while required inputs are missing."
+      }
+    ],
+    "human_action": "/china-supply-check#image-supply-check",
+    "machine_action": "/for-agents#china-supply-check-mcp",
+    "fit": "Price page labels listing vs confirmed quote; this captures delivery basis and explicitly missing landed-cost inputs. No duty calculation or customs/legal assurance.",
+    "references": [
+      {
+        "title": "ICC Incoterms2020 overview",
+        "url": "https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/",
+        "scope": "Allocation of delivery obligations/costs/risk under named rules; no duty, tax, freight price or legal compliance determination."
+      },
+      {
+        "title": "Current free discovery and v4 public resource",
+        "url": "https://api.seekapi.ai/mcp",
+        "scope": "Runtime mode admission and same public sample only; no new purchase or supplier facts."
+      }
+    ],
+    "updated": "2026-10-16"
+  }
+]
