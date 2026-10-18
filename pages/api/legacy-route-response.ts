@@ -16,6 +16,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const shape = (value: unknown) => typeof value !== 'string' ? 'absent'
       : /(?:\/|^)(?:\.|%2e){1,2}(?:\/|$|\?)/i.test(value) ? 'dot'
       : value.startsWith('/') ? 'origin' : /^https?:\/\//.test(value) ? 'absolute' : 'other';
+    const routeClass = (value: unknown) => {
+      if (typeof value !== 'string') return 'absent';
+      const lexical = /^https?:\/\/[^/?#\s]+(\/[^#\r\n]*)$/.exec(value)?.[1] || value;
+      const [pathname, ...query] = lexical.split('?');
+      return exactPaths.has(pathname) ? query.join('?') ? 'owned-query' : 'owned'
+        : pathname === '/api/legacy-route-response' ? 'handler' : 'other';
+    };
+    res.setHeader('X-SeekAPI-Legacy-Route', `init=${routeClass(meta?.initURL)};node=${routeClass(req.url)};original=${routeClass(original)}`);
     res.setHeader('X-SeekAPI-Legacy-Guard', `meta=${meta ? 'present' : 'absent'};init=${shape(meta?.initURL)};node=${shape(req.url)};original=${shape(original)};host=${req.headers.host === 'seekapi.ai' ? 'canonical' : 'other'};target=${target ? 'present' : 'absent'}`);
   }
   // Empty '?' retains the already documented empty-query behavior; no decoding.
