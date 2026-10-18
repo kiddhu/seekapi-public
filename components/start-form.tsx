@@ -3,8 +3,8 @@ import { FormEvent, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 export function StartForm() {
   const params = useSearchParams();
-  const initialAudience = params.get('audience') === 'agent' ? 'agent' : 'company';
-  const initialIntent = params.get('intent') || '';
+  const initialAudience = params?.get('audience') === 'agent' ? 'agent' : 'company';
+  const initialIntent = params?.get('intent') || '';
   const [audience, setAudience] = useState<'company'|'agent'>(initialAudience);
   const [message, setMessage] = useState('');
   const [preparedHref, setPreparedHref] = useState('');
