@@ -4,9 +4,20 @@ import { trustedOriginalTarget } from '../../lib/legacy-raw-target.mjs';
 const exactPaths = new Set([...retiredPaths, '/favicon.ico']);
 export const config = { api: { bodyParser: false } };
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  res.setHeader('Vercel-CDN-Cache-Control', 'no-store');
+  res.setHeader('CDN-Cache-Control', 'no-store');
   // Preserve Next's existing bodyless OPTIONS rejection for these absent pages.
   if (req.method === 'OPTIONS') return res.status(400).end();
   const target = trustedOriginalTarget(req);
+  // Temporary release diagnostic: fixed enums only, never URL/header values.
+  if (req.method === 'GET') {
+    const meta = (req as unknown as Record<symbol, { initURL?: unknown } | undefined>)[Symbol.for('NextInternalRequestMeta')];
+    const original = (req as NextApiRequest & { originalUrl?: unknown }).originalUrl;
+    const shape = (value: unknown) => typeof value !== 'string' ? 'absent'
+      : /(?:\/|^)(?:\.|%2e){1,2}(?:\/|$|\?)/i.test(value) ? 'dot'
+      : value.startsWith('/') ? 'origin' : /^https?:\/\//.test(value) ? 'absolute' : 'other';
+    res.setHeader('X-SeekAPI-Legacy-Guard', `meta=${meta ? 'present' : 'absent'};init=${shape(meta?.initURL)};node=${shape(req.url)};original=${shape(original)};host=${req.headers.host === 'seekapi.ai' ? 'canonical' : 'other'};target=${target ? 'present' : 'absent'}`);
+  }
   // Empty '?' retains the already documented empty-query behavior; no decoding.
   const path = target?.endsWith('?') ? target.slice(0, -1) : target;
   const headers = new Headers();
@@ -24,7 +35,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   for (const [key, value] of result.headers) res.setHeader(key, value);
   // Every request must cross the raw-target guard, including after a cache warm.
   res.setHeader('Cache-Control', 'private, no-store, max-age=0');
-  res.setHeader('Vercel-CDN-Cache-Control', 'no-store');
-  res.setHeader('CDN-Cache-Control', 'no-store');
   return res.end(req.method === 'HEAD' ? undefined : Buffer.from(await result.arrayBuffer()));
 }
