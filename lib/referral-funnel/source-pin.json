@@ -2,7 +2,7 @@
   "authority": "https://github.com/kiddhu/aion-governance/issues/1241",
   "source": "projects/seekapi/referral-funnel",
   "files": {
-    "funnel.mjs": "7e21b07a0a12dc6f9f96d1b59d3383267c0f4c9be31a6b32af264e43ca7e2946",
+    "funnel.mjs": "555bb7ba16c87111f3cc2e2060d4fabb24f46624d0ecd35cc3b799a284feaab4",
     "funnel.d.mts": "d2dd007394ef6c3981088f4ec17829701041f60864a454b5242a75a6406fff3b",
     "browser.mjs": "1533c81d3c857735f6b6ea82bb947d77a1e42b7192ebda416a78e8e7b5bac5d7"
   }
