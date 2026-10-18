@@ -20,6 +20,6 @@ function targetPath(locale:SiteLocale,page:CommercialPage){
   return pagePath(locale,page);
 }
 export function LanguageSwitch({locale}:{locale:SiteLocale}){
-  const pathname=usePathname(); const page=currentPage(pathname);
+  const pathname=usePathname() ?? '/'; const page=currentPage(pathname);
   return <details className="language-menu"><summary aria-label="Choose language">{localeInfo[locale].label}</summary><div className="language-options">{localeOrder.map(code=><Link key={code} href={targetPath(code,page)} hrefLang={localeInfo[code].htmlLang} aria-current={code===locale?'page':undefined}>{localeInfo[code].label}</Link>)}</div></details>;
 }
