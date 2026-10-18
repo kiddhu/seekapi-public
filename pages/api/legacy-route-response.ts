@@ -22,5 +22,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
   res.status(result.status);
   for (const [key, value] of result.headers) res.setHeader(key, value);
+  // Every request must cross the raw-target guard, including after a cache warm.
+  res.setHeader('Cache-Control', 'private, no-store, max-age=0');
+  res.setHeader('Vercel-CDN-Cache-Control', 'no-store');
+  res.setHeader('CDN-Cache-Control', 'no-store');
   return res.end(req.method === 'HEAD' ? undefined : Buffer.from(await result.arrayBuffer()));
 }
