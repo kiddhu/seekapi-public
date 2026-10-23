@@ -23,6 +23,16 @@ The public example is HISTORICAL_RECONSTRUCTION. Original pool count and weights
 Eligible source marketplace product transactions may have observed platform protections. These do not compensate the $2.99 screening fee or create a direct SeekAPI guarantee. Product-level applicability remains bounded by actual source observation.
 
 $19.90 Live RFQ Compare means contact, translation, follow-up and formal quotation comparison, not contact unlock. It is not currently open for purchase; this sample performs no purchase or contact. Public business contacts in authenticated paid results remain readable. Other human desk work requires separately agreed scope, fee, recipients and authority; no autonomous human-task API is live.
+## Free RFQ requirement preparation (2026-10-23)
+
+Prepare a structured procurement requirement for free over the existing HTTPS REST API. Start with explicit text/model/specifications, quantity and destination; no image is required. The USD19.90 supplier-contact and quotation-comparison service remains closed for purchase. Preparation is a preview, not an accepted assignment, order, payment or supplier contact. Large-image upload reliability has not been established.
+
+- RFQ instructions and complete synthetic no-image example: https://seekapi.ai/for-agents#rfq-requirement-prepare
+- RFQ OpenAPI: https://api.seekapi.ai/checkout/stripe/rfq?format=openapi
+- Prepare: POST https://api.seekapi.ai/checkout/stripe/rfq with action=prepare_runtime and draft matching RFQ_AGENT_INTENT_V2. Required headers: Origin: https://api.seekapi.ai; x-seekapi-card-claim: 1; Content-Type: application/json. No Cookie, Bearer or capability token is needed for free preparation.
+- Read the returned normalized requirement and digest. READY means ready to review, not purchased. NEEDS_CLARIFICATION means complete only the missing facts; ELIGIBILITY_REVIEW_REQUIRED means stop the purchase flow. Do not call session, confirm or checkout while paid RFQ is closed.
+- Keep signed prepared objects and receipts private; do not log them. The published example is synthetic, not independent customer demand. This entry is REST, not a new MCP tool.
+
 ## Free developer start and procurement worksheets (2026-10-16)
 
 - Runnable Python/Node examples, offline first: https://seekapi.ai/for-agents#free-quickstart
