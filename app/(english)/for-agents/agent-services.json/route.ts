@@ -5,6 +5,95 @@ export async function GET(){const publication=readPublicSamplePublication();cons
  provider:'SeekAPI',manifest_schema_version:'seekapi.agent-services.v2',commercial_truth:publication?truth:withoutSample,versions:truth.versions,contract_updated_at:truth.contract_updated_at,observed_at:truth.availability_observed_at,
  selection_transparency:publicSampleMetadata(publication),...(publication?{public_agent_sample:publication.discovery_pointer,current_sample_url:'https://seekapi.ai/china-supply-check/sample'}:{}),
  product_data_mcp:{live:true,endpoint:'https://api.seekapi.ai/mcp',transport:'streamable-http',csc_public_paid_on:true,price_usdc:truth.price.amount,payments:truth.payments,free_tools:truth.tools.free,authenticated_order_read_tools:truth.tools.authenticated_reads,paid_effect_tools:truth.tools.paid,status_result_access:'Independent signed-wallet authentication bound to the settled order. Stripe uses the secure card recovery link; no repayment.',image_input:{no_value_prepare:true,accepted_mime:['image/png'],stripe_status:truth.payments.image_first.stripe.status,x402_status:truth.payments.image_first.x402.status,discovery_tool:'discover_china_supply_check_v0',card_entry:truth.image_intake.card_entry,card_usd:truth.price.card_usd,scope:'MAIN_PRODUCT_ONLY'}},
+ rfq_requirement_preparation:{
+  "status": "FREE_PREPARE_AVAILABLE",
+  "scope": "REQUIREMENT_PREVIEW_ONLY",
+  "transport": "HTTPS_JSON_REST",
+  "endpoint": "https://api.seekapi.ai/checkout/stripe/rfq",
+  "openapi_url": "https://api.seekapi.ai/checkout/stripe/rfq?format=openapi",
+  "method": "POST",
+  "action": "prepare_runtime",
+  "required_headers": {
+    "Origin": "https://api.seekapi.ai",
+    "x-seekapi-card-claim": "1",
+    "Content-Type": "application/json"
+  },
+  "authentication": "NONE_FOR_FREE_PREPARE",
+  "supported_entry": "EXPLICIT_TEXT_MODEL_SPECIFICATIONS_QUANTITY_DESTINATION",
+  "image_required": false,
+  "large_image_upload_reliability": "NOT_PROVEN",
+  "payment_required": false,
+  "paid_execution_available": false,
+  "planned_paid_price": {
+    "amount_minor": 1990,
+    "currency": "USD"
+  },
+  "instructions_url": "https://seekapi.ai/for-agents#rfq-requirement-prepare",
+  "example_kind": "SYNTHETIC_NOT_INDEPENDENT_CUSTOMER_DEMAND",
+  "example_request": {
+    "action": "prepare_runtime",
+    "draft": {
+      "schema_version": "RFQ_AGENT_INTENT_V2",
+      "product": "Inductive proximity sensor",
+      "variant": "M12 24V DC NPN normally-open 2m cable",
+      "description": "Owner-authorized synthetic acceptance only. Industrial sensor requirement; no customer demand or purchase instruction.",
+      "quantity": 120,
+      "unit": "pieces",
+      "destinationCountry": "Netherlands",
+      "destinationPort": "Rotterdam",
+      "mustMatch": [
+        {
+          "attribute": "housing thread",
+          "expected": "M12"
+        },
+        {
+          "attribute": "supply voltage",
+          "expected": "24 V DC"
+        },
+        {
+          "attribute": "output",
+          "expected": "NPN normally open"
+        },
+        {
+          "attribute": "cable length",
+          "expected": "2 m"
+        }
+      ],
+      "matchPolicy": "EXACT_ONLY",
+      "source_references": [
+        {
+          "reference_id": "synthetic-industrial-spec",
+          "reference_type": "STRUCTURED_REQUIREMENT",
+          "role": "SPEC_REFERENCE",
+          "value": "Synthetic lab requirement: M12 inductive proximity sensor, 24 V DC, NPN normally open, 2 m cable, 120 pieces to Rotterdam, Netherlands.",
+          "provenance": "BUYER_STATED"
+        }
+      ],
+      "buyer_policy": {
+        "purpose": "OTHER"
+      }
+    }
+  },
+  "response_actions": {
+    "READY": "Review normalized requirement and digest; no purchase",
+    "NEEDS_CLARIFICATION": "Supply only missing facts",
+    "ELIGIBILITY_REVIEW_REQUIRED": "Stop commercial flow"
+  },
+  "stop_before": [
+    "session",
+    "confirm",
+    "checkout"
+  ],
+  "prepared_handling": "Keep signed prepared objects and receipts private; do not log",
+  "effects": {
+    "order": 0,
+    "payment": 0,
+    "supplier_contact": 0,
+    "paid_provider": 0
+  },
+  "observed_at": "2026-10-23T06:45:10.360017Z",
+  "availability_authority": "Current runtime admission; static observations do not enable paid RFQ"
+},
  official_mcp_registry:{package:'io.github.kiddhu/seekapi',registry_package_version:truth.versions.registry_package_version,publication_status:'CHECK_OFFICIAL_LATEST',url:'https://registry.modelcontextprotocol.io/v0.1/servers/io.github.kiddhu%2Fseekapi/versions/latest'},
  openapi_url:'https://seekapi.ai/openapi.json',service_family:'human_execution_china_supply_chain',status:'manual_review_preview',public_api_live:false,live_human_task_api:false,intake_enabled:true,intake_mode:'user-reviewed_email',structured_web_submission_live:false,
  purpose:'A human China-side desk can review separately scoped supplier contact, translation, quotation comparison, samples or procurement follow-up. No automatic acceptance or supplier contact.',
