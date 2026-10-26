@@ -132,10 +132,102 @@
           },
           "existing_order_reads": "FREE_AUTHENTICATED_READ_NO_REPAYMENT",
           "live_rfq": {
+            "name": "SeekAPI Verified RFQ Basic",
             "price_usd": "19.90",
-            "availability": "FUTURE_NOT_ENABLED",
-            "service": "Supplier contact, translation, follow-up and formal quotation comparison",
-            "contact_unlock_fee": false
+            "price": {
+              "amount_minor": 1990,
+              "currency": "USD"
+            },
+            "availability": "LIVE",
+            "payment": "STRIPE_HOSTED_CHECKOUT",
+            "requires_china_supply_check_purchase": false,
+            "service": "Supplier contact, translation, follow-up and current qualified quotation comparison",
+            "contact_unlock_fee": false,
+            "endpoint": "https://api.seekapi.ai/checkout/stripe/rfq",
+            "human_entry": "https://api.seekapi.ai/checkout/stripe/rfq",
+            "openapi_url": "https://api.seekapi.ai/checkout/stripe/rfq?format=openapi",
+            "admission": {
+              "action": "discover",
+              "method": "POST",
+              "accept_only": [
+                "AVAILABLE"
+              ],
+              "pause_on": [
+                "PAUSED",
+                "UNKNOWN"
+              ],
+              "authority": "Current runtime public_sales and admission_status; static LIVE is not permission to bypass a pause."
+            },
+            "max_distinct_suppliers": 3,
+            "service_window": {
+              "china_business_days": 3,
+              "starts_after": "PAYMENT_AND_ESSENTIAL_REQUIREMENT_CONFIRMATION"
+            },
+            "success_target": {
+              "minimum_current_qualified_quotes": 1,
+              "qualification": "Supplier-confirmed quote bound to the confirmed product, specifications, quantity and stated commercial conditions; conditions and unknown costs remain explicit."
+            },
+            "incomplete": {
+              "outcome": "RFQ_INCOMPLETE",
+              "refund": "FULL_SERVICE_FEE_ORIGINAL_PAYMENT_METHOD",
+              "scope": "This RFQ service fee only; not a goods transaction refund."
+            },
+            "deliverables": [
+              "HUMAN_REPORT",
+              "AGENT_JSON",
+              "EVIDENCE_MANIFEST"
+            ],
+            "same_facts": true,
+            "goods_purchase_authorized": false,
+            "scope_limits": [
+              "No guaranteed three quotes, particular price or supplier response.",
+              "No goods purchase, supplier payment, agency transaction or production authorization.",
+              "No complete landed-cost, break-even or Price Intelligence promise."
+            ],
+            "lifecycle": [
+              {
+                "action": "discover",
+                "method": "POST",
+                "instructions": "Read current public_sales and admission_status. Continue only when AVAILABLE; PAUSED or UNKNOWN means no new Checkout."
+              },
+              {
+                "action": "prepare_runtime",
+                "method": "POST",
+                "instructions": "Submit RFQ_AGENT_INTENT_V2 draft. Review normalized requirement, digest and missing facts; preparation has zero paid effects."
+              },
+              {
+                "action": "session",
+                "method": "POST",
+                "instructions": "Start a private buyer session and retain its cookie. Do not publish cookie or credentials."
+              },
+              {
+                "action": "confirm",
+                "method": "POST",
+                "instructions": "Using the same session, send draft as the exact returned prepared object without receipt, receipt separately, requirement_digest and acknowledgement CONFIRM_RFQ_REQUIREMENT. Never reconstruct or edit signed prepared content; prepare again after edits or expiry."
+              },
+              {
+                "action": "checkout",
+                "method": "POST",
+                "instructions": "Using the same session and returned private access, request one Stripe Hosted Checkout for the confirmed requirement. The buyer approves payment; no goods payment is authorized."
+              },
+              {
+                "action": "result",
+                "method": "POST",
+                "instructions": "Read status and result with private access and the same session. Existing authenticated reads are free; do not pay again."
+              },
+              {
+                "action": "checkout_return",
+                "method": "POST",
+                "instructions": "Use the original private return reference in the same session to reconcile the existing Checkout. A browser return is not proof of payment."
+              },
+              {
+                "action": "renew",
+                "method": "POST",
+                "instructions": "Use private renewal capability and stable request_id to recover existing access. Keep credentials private; never use this to create another order."
+              }
+            ],
+            "recovery": "On an interrupted or UNKNOWN payment operation, reconcile the same order and Checkout first; do not create another order or pay again. Existing results require no repayment. Use the current OpenAPI for recovery eligibility; do not blindly retry a charge or expired Checkout.",
+            "availability_authority": "Current runtime admission. This contract describes the Basic service; a paused or unhealthy service must not take a new purchase."
           },
           "public_agent_sample": {
             "human_url": "https://seekapi.ai/china-supply-check/sample",

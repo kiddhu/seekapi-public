@@ -42,7 +42,9 @@ Fresh discovery is the authority for availability; a generic “payments live”
 | Agent text/model | x402, 2.99 USDC on Base | LIVE | Free prepare, exact customer confirmation, then a separately authorized wallet client |
 | Agent product image | x402 | OFF | Do not send a paid image request |
 | Human text/model | Stripe | OFF | Do not assume text card checkout |
-| Supplier-confirmed RFQ, USD 19.90 | Public sale | FUTURE_NOT_ENABLED | Treat as a future service; no supplier contact promised |
+| SeekAPI Verified RFQ Basic, USD 19.90 | Standalone Stripe Hosted Checkout; no $2.99 prerequisite | Check current RFQ admission | [Prepare for free](https://api.seekapi.ai/checkout/stripe/rfq); up to three distinct suppliers, three China business days after payment and essential confirmation; target at least one current qualified quote or RFQ_INCOMPLETE + full original-method service-fee refund |
+
+The dated mode observations above concern China Supply Check. Basic RFQ has its own [REST instructions](https://seekapi.ai/for-agents#rfq-requirement-prepare) and [current OpenAPI](https://api.seekapi.ai/checkout/stripe/rfq?format=openapi): Human, Agent and Evidence outputs share the same facts; goods purchases and supplier payments are not authorized. Its optional Channel A processed image is a visual reference, not original fidelity; text can continue if an image fails. The offline examples below never call RFQ Checkout, take payment or contact a supplier.
 
 The examples inspect the machine-reported mode matrix and synthetic prepare response. Legacy broad intake flags can differ from the specific card/image projection; never expand a route from a broad boolean. The examples reject missing or contradictory mode payment flags. A transport test does not prove a paid purchase or delivery.
 
