@@ -63,3 +63,21 @@ test('actual home points buyers to Basic without a contradictory private/future 
  assert.doesNotMatch(text,/19\.90[^.]*not open|RFQ Compare[^.]*planned|planned 72.hour/i);
  assert.match(html,/href="\/china-supply-check\/live-rfq-compare"/);
 });
+
+test('an Agent following the deprecated ARD RFQ field reaches the same dedicated Basic contract',async()=>{
+ const manifest=await(await GET()).json();
+ const ard=JSON.parse(read('public/.well-known/ard.json'));
+ const entry=ard.entries[0].data,manual=entry.humanTasks,legacy=manual.live_rfq;
+ assert.equal(manual.status,'MANUAL_SCOPE_REVIEW_REQUIRED');assert.equal(manual.public_api_live,false);
+ // Resolve the public migration pointer as an Agent would; the old field must
+ // not make a second, contradictory product-availability or price statement.
+ assert.equal(legacy.deprecated,true);
+ assert.equal(legacy.status,'MOVED_TO_DEDICATED_BASIC_CONTRACT');
+ assert.equal(legacy.replacement.document,'https://seekapi.ai/for-agents/agent-services.json');
+ const target=legacy.replacement.json_pointer.split('/').slice(1).reduce((o,k)=>o?.[k.replaceAll('~1','/').replaceAll('~0','~')],manifest);
+ assert.ok(target,'The deprecated RFQ discovery field must resolve to an actual contract in the real Agent response');
+ assert.deepEqual(target,manifest.verified_rfq_basic);assert.deepEqual(target,entry.commercialTruth.live_rfq);
+ assert.equal(target.availability,'LIVE');assert.equal(target.admission.action,'discover');
+ assert.equal('availability'in legacy,false);assert.equal('price_usd'in legacy,false);
+ assert.doesNotMatch(JSON.stringify(legacy),/FUTURE_NOT_ENABLED|not open for purchase/);
+});

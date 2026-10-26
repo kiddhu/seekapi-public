@@ -292,10 +292,13 @@
           "status": "MANUAL_SCOPE_REVIEW_REQUIRED",
           "public_api_live": false,
           "live_rfq": {
-            "price_usd": "19.90",
-            "availability": "FUTURE_NOT_ENABLED",
-            "service": "Supplier contact, translation, follow-up and formal quotation comparison",
-            "contact_unlock_fee": false
+            "deprecated": true,
+            "status": "MOVED_TO_DEDICATED_BASIC_CONTRACT",
+            "replacement": {
+              "document": "https://seekapi.ai/for-agents/agent-services.json",
+              "json_pointer": "/verified_rfq_basic"
+            },
+            "availability_authority": "Use the dedicated Basic contract and its current runtime admission. The generic humanTasks manual-scope status does not apply to Basic."
           }
         },
         "selectionTransparency": {
