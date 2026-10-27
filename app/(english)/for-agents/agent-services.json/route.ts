@@ -5,6 +5,7 @@ export async function GET(){const publication=readPublicSamplePublication();cons
  provider:'SeekAPI',manifest_schema_version:'seekapi.agent-services.v2',commercial_truth:publication?truth:withoutSample,versions:truth.versions,contract_updated_at:truth.contract_updated_at,observed_at:truth.availability_observed_at,
  selection_transparency:publicSampleMetadata(publication),...(publication?{public_agent_sample:publication.discovery_pointer,current_sample_url:'https://seekapi.ai/china-supply-check/sample'}:{}),
  product_data_mcp:{live:true,endpoint:'https://api.seekapi.ai/mcp',transport:'streamable-http',csc_public_paid_on:true,price_usdc:truth.price.amount,payments:truth.payments,free_tools:truth.tools.free,authenticated_order_read_tools:truth.tools.authenticated_reads,paid_effect_tools:truth.tools.paid,status_result_access:'Independent signed-wallet authentication bound to the settled order. Stripe uses the secure card recovery link; no repayment.',image_input:{no_value_prepare:true,accepted_mime:['image/png'],stripe_status:truth.payments.image_first.stripe.status,x402_status:truth.payments.image_first.x402.status,discovery_tool:'discover_china_supply_check_v0',card_entry:truth.image_intake.card_entry,card_usd:truth.price.card_usd,scope:'MAIN_PRODUCT_ONLY'}},
+ verified_rfq_basic:truth.live_rfq,
  rfq_requirement_preparation:{
   "status": "FREE_PREPARE_AVAILABLE",
   "scope": "REQUIREMENT_PREVIEW_ONLY",
@@ -21,10 +22,12 @@ export async function GET(){const publication=readPublicSamplePublication();cons
   "authentication": "NONE_FOR_FREE_PREPARE",
   "supported_entry": "EXPLICIT_TEXT_MODEL_SPECIFICATIONS_QUANTITY_DESTINATION",
   "image_required": false,
-  "large_image_upload_reliability": "NOT_PROVEN",
+  "optional_reference_image": {"processing":"SAME_CHANNEL_A_AS_CHINA_SUPPLY_CHECK", "scope":"PROCESSED_VISUAL_REFERENCE", "original_fidelity":false, "precision_drawings_or_certificates":false, "text_fallback":true},
+  "optional_url_reference": "Reference evidence, not verified specifications or permission to fetch arbitrary content",
   "payment_required": false,
-  "paid_execution_available": false,
-  "planned_paid_price": {
+  "paid_execution_available": true,
+  "paid_admission_authority": "discover public_sales and admission_status; proceed only when AVAILABLE",
+  "paid_price": {
     "amount_minor": 1990,
     "currency": "USD"
   },
@@ -79,11 +82,7 @@ export async function GET(){const publication=readPublicSamplePublication();cons
     "NEEDS_CLARIFICATION": "Supply only missing facts",
     "ELIGIBILITY_REVIEW_REQUIRED": "Stop commercial flow"
   },
-  "stop_before": [
-    "session",
-    "confirm",
-    "checkout"
-  ],
+  "buyer_approval_required_before": "checkout payment; no goods purchase authorized",
   "prepared_handling": "Keep signed prepared objects and receipts private; do not log",
   "effects": {
     "order": 0,
@@ -97,9 +96,9 @@ export async function GET(){const publication=readPublicSamplePublication();cons
  official_mcp_registry:{package:'io.github.kiddhu/seekapi',registry_package_version:truth.versions.registry_package_version,publication_status:'CHECK_OFFICIAL_LATEST',url:'https://registry.modelcontextprotocol.io/v0.1/servers/io.github.kiddhu%2Fseekapi/versions/latest'},
  openapi_url:'https://seekapi.ai/openapi.json',service_family:'human_execution_china_supply_chain',status:'manual_review_preview',public_api_live:false,live_human_task_api:false,intake_enabled:true,intake_mode:'user-reviewed_email',structured_web_submission_live:false,
  purpose:'A human China-side desk can review separately scoped supplier contact, translation, quotation comparison, samples or procurement follow-up. No automatic acceptance or supplier contact.',
- service_path:[{step:'China Supply Check',outcome:'Three distinct actionable suppliers on success; ordinary partials provisional',payments:truth.payments},{step:'Live RFQ Compare',...truth.live_rfq},{step:'Other human assistance',status:'MANUAL_SCOPE_REVIEW_REQUIRED',price:'Quoted after scope review'}],
+ service_path:[{step:'China Supply Check',outcome:'Three distinct actionable suppliers on success; ordinary partials provisional',payments:truth.payments},{step:'SeekAPI Verified RFQ Basic',...truth.live_rfq},{step:'Other human assistance',status:'MANUAL_SCOPE_REVIEW_REQUIRED',price:'Quoted after scope review'}],
  manual_scope_review_available:true,manual_scope_review_path:'https://seekapi.ai/start?audience=agent',manual_scope_contact:'mailto:support@seekapi.ai',handoff_spec_url:'https://seekapi.ai/for-agents#handoff-spec',evidence_return_spec_url:'https://seekapi.ai/for-agents#evidence-return',
  handoff_requires:['requester_type','requester_identity','organization','objective','task_type','context_summary','allowed_actions','prohibited_actions','recipient_permissions','max_budget','currency','deadline','required_evidence','completion_definition','human_approval_contact'],
  requires_human_approval_for:['RFQ authorization','spending','contracts','production approval','accepting quality deviations'],integrations:{task_api:'planned_not_live',mcp:'planned_not_live',webmcp:'planned_not_live'},
- notes:['The integration states above apply only to human tasks; product-data MCP is separate.','Runtime admission is current purchase authority; static payment statuses are dated observations. UNKNOWN is not LIVE.','Public contacts in authenticated paid reports remain readable; the $19.90 service is not contact unlock. Sample availability flags stay null when unknown.','This manifest is a SeekAPI-defined document, not an industry standard.'],
+ notes:['The generic manual human-task integration states above do not describe Verified RFQ Basic. Basic uses its dedicated HTTPS REST lifecycle; product-data MCP is separate.','Runtime admission is current purchase authority; static payment statuses are dated observations. UNKNOWN is not LIVE.','Public contacts in authenticated paid reports remain readable; the $19.90 service is not contact unlock. Sample availability flags stay null when unknown.','This manifest is a SeekAPI-defined document, not an industry standard.'],
  });}

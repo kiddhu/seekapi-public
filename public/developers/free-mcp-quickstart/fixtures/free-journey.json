@@ -101,7 +101,12 @@
         "service_id": "live_rfq_compare_v0",
         "price_usd": "19.90",
         "execution": "HUMAN_OPERATED_SUPPLIER_OUTREACH",
-        "availability": "FUTURE_NOT_ENABLED"
+        "availability": "CHECK_RFQ_RUNTIME_DISCOVERY",
+        "name": "SeekAPI Verified RFQ Basic",
+        "endpoint": "https://api.seekapi.ai/checkout/stripe/rfq",
+        "availability_authority": "POST action=discover; continue only when admission_status=AVAILABLE. This offline fixture creates no RFQ, Checkout, supplier contact or paid effect.",
+        "standalone_stripe_checkout": true,
+        "requires_csc_purchase": false
       },
       "status": "CSC_PUBLIC_PAID_ON",
       "public_sample_contract": {

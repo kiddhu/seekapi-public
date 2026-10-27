@@ -274,7 +274,7 @@ export const procurementIntents: ProcurementIntent[] = [
       },
       {
         "title": "Scope execution separately",
-        "body": "Supplier contact, sending RFQs, negotiation, samples, inspection and logistics are not included in the screening purchase. Broader China Desk work requires its own scope, permissions and acceptance. Live RFQ Compare is a separate planned service, not a purchase option bundled with this check. No supplier reply or shipment is promised by the shortlist."
+        "body": "Supplier contact, sending RFQs, negotiation, samples, inspection and logistics are not included in the screening purchase. Broader China Desk work requires its own scope, permissions and acceptance. SeekAPI Verified RFQ Basic is a separate standalone USD 19.90 Stripe service, not bundled with this check and with no $2.99 prerequisite. It targets at least one current qualified quote within three China business days after payment and essential confirmation, or RFQ_INCOMPLETE and a full original-method service-fee refund. Current admission controls a new purchase. No supplier reply or shipment is promised by the shortlist."
       }
     ],
     "evidence": [

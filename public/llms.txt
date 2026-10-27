@@ -22,16 +22,24 @@ The public example is HISTORICAL_RECONSTRUCTION. Original pool count and weights
 
 Eligible source marketplace product transactions may have observed platform protections. These do not compensate the $2.99 screening fee or create a direct SeekAPI guarantee. Product-level applicability remains bounded by actual source observation.
 
-$19.90 Live RFQ Compare means contact, translation, follow-up and formal quotation comparison, not contact unlock. It is not currently open for purchase; this sample performs no purchase or contact. Public business contacts in authenticated paid results remain readable. Other human desk work requires separately agreed scope, fee, recipients and authority; no autonomous human-task API is live.
-## Free RFQ requirement preparation (2026-10-23)
+## SeekAPI Verified RFQ Basic — USD 19.90
 
-Prepare a structured procurement requirement for free over the existing HTTPS REST API. Start with explicit text/model/specifications, quantity and destination; no image is required. The USD19.90 supplier-contact and quotation-comparison service remains closed for purchase. Preparation is a preview, not an accepted assignment, order, payment or supplier contact. Large-image upload reliability has not been established.
+Standalone Stripe Hosted Checkout: no $2.99 purchase is required. Contact, translation, follow-up and quotation comparison for up to three distinct suppliers. Target: at least one current supplier-confirmed qualified quote bound to the confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE and a full refund of this RFQ service fee to the original payment method. Three quotes, a particular price or a supplier response are not guaranteed.
 
-- RFQ instructions and complete synthetic no-image example: https://seekapi.ai/for-agents#rfq-requirement-prepare
-- RFQ OpenAPI: https://api.seekapi.ai/checkout/stripe/rfq?format=openapi
-- Prepare: POST https://api.seekapi.ai/checkout/stripe/rfq with action=prepare_runtime and draft matching RFQ_AGENT_INTENT_V2. Required headers: Origin: https://api.seekapi.ai; x-seekapi-card-claim: 1; Content-Type: application/json. No Cookie, Bearer or capability token is needed for free preparation.
-- Read the returned normalized requirement and digest. READY means ready to review, not purchased. NEEDS_CLARIFICATION means complete only the missing facts; ELIGIBILITY_REVIEW_REQUIRED means stop the purchase flow. Do not call session, confirm or checkout while paid RFQ is closed.
-- Keep signed prepared objects and receipts private; do not log them. The published example is synthetic, not independent customer demand. This entry is REST, not a new MCP tool.
+Human report, Agent JSON and Evidence manifest share the same facts, conditions, unknowns and next actions. Basic does not authorize goods purchases, supplier payments, agency transactions or production. No complete landed-cost, break-even or Price Intelligence promise. This is not contact unlock; public business contacts in authenticated paid results remain readable. Other human assistance requires separate scope review; no autonomous generic human-task API is live.
+
+- Human entry: https://api.seekapi.ai/checkout/stripe/rfq
+- Basic scope: https://seekapi.ai/china-supply-check/live-rfq-compare
+- Agent instructions and complete synthetic no-image example: https://seekapi.ai/for-agents#rfq-requirement-prepare
+- Current RFQ OpenAPI: https://api.seekapi.ai/checkout/stripe/rfq?format=openapi
+- REST endpoint: POST https://api.seekapi.ai/checkout/stripe/rfq. All JSON actions require Origin: https://api.seekapi.ai; x-seekapi-card-claim: 1; Content-Type: application/json. This is not a new MCP tool.
+- Begin with action=discover. Current public_sales and admission_status are authoritative; continue only on AVAILABLE. PAUSED or UNKNOWN means no new Checkout.
+- Free action=prepare_runtime accepts draft matching RFQ_AGENT_INTENT_V2. Provide text/model, complete specifications, quantity/unit, destination, must-have conditions and substitution policy. Optional URLs are reference material. No image is required. Optional Channel A processed VISUAL_REFERENCE uses the same client processing as China Supply Check, not original fidelity. Precision drawings and certificates are not supported for fidelity. If an image fails, continue with text.
+- Free preparation needs no Cookie, Bearer or capability token and has no order, charge, supplier contact or paid sourcing effects. READY means review the returned normalized requirement and digest; NEEDS_CLARIFICATION means supply only missing facts; ELIGIBILITY_REVIEW_REQUIRED means stop commercial flow.
+- After review, action=session establishes a private cookie. In that same session action=confirm sends draft as the exact returned prepared object without receipt, receipt separately, requirement_digest and acknowledgement=CONFIRM_RFQ_REQUIREMENT. Never edit signed prepared content; edits or expiry require preparation again.
+- action=checkout uses returned private access in the same session to obtain one Stripe Hosted Checkout for buyer-approved payment. On UNKNOWN, reconcile the same order before any retry; do not create another order.
+- action=result is a POST read with private access. action=checkout_return reconciles the original private return reference. action=renew uses private renewal capability and a stable request_id for existing access recovery; follow the current OpenAPI. Existing authenticated reads require no repayment. A browser return alone is not proof of payment.
+- Keep signed prepared objects, receipts, cookies and access/renewal/return credentials private and out of logs. Synthetic examples are not independent customer demand.
 
 ## Free developer start and procurement worksheets (2026-10-16)
 

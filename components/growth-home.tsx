@@ -59,6 +59,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <BriefIllustration variant={variant} />
       <div className="growth-actions">
         <div className="button-row">
+          <Link className="button button-ghost" href="/china-supply-check/live-rfq-compare">Get a supplier quote · USD 19.90</Link>
           <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
           {sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample" aria-label="Read the complete current sample">Read the complete sample</Link>:null}
           <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
@@ -89,18 +90,18 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <SectionTitle eyebrow="One China-side partner" title="Keep moving after the supplier shortlist." body="China Supply Check is the live, low-cost entry. For the next China-side task, ask SeekAPI to review a separate human-service scope. No supplier outreach or spending is authorized by the screening purchase." />
       <div className="grid-3">
         <FeatureCard index="01 · LIVE" title="Find and screen suppliers" body="A successful 2.99 USDC China Supply Check returns three distinct candidates worth advancing to RFQ, with source evidence, price basis, MOQ fit and field-specific gaps. MCP discovery is available; check current admission for each payment mode." />
-        <FeatureCard index="02 · SCOPE REVIEW" title="Contact and compare" body="Request help contacting selected suppliers and obtaining current RFQ answers. SeekAPI reviews the brief, recipients, fee and authority before accepting human work. The proposed 19.90 USD Live RFQ Compare package is not open for purchase." />
+        <FeatureCard index="02 · BASIC RFQ" title="Contact and compare" body="SeekAPI Verified RFQ Basic is USD 19.90 through standalone Stripe Hosted Checkout, with no $2.99 prerequisite. Contact up to three distinct suppliers for a current quote bound to your confirmed requirement." />
         <FeatureCard index="03 · SCOPE REVIEW" title="Samples and procurement execution" body="Ask for a defined China-side assignment: sample or production follow-up, supplier communication, quality coordination and export or logistics handoffs. Delivery, price and responsibility are agreed per task; no automatic execution API is live." />
       </div>
       <div className="link-list"><Link className="text-link" href="/for-agents#agent-human-desk">Agent handoff and current interface status</Link><Link className="text-link" href="/china-supply-chain">Explore China-side procurement work</Link><Link className="text-link" href="/start?audience=agent">Prepare a human-reviewed request</Link></div>
     </div></section>
     <section className="section section-dark"><div className="container">
       <SectionTitle eyebrow="Before requesting a quote" title="Know what a listing can — and cannot — establish." body="An observed listing price is published supplier commercial evidence with its currency, unit, tier and MOQ conditions; a stated MOQ is not a stock promise. Certification, company-registration and production-versus-trade identity evidence is reported per candidate when available." />
-      <p>Live RFQ Compare is a separate planned human outreach step after you edit and confirm an RFQ and select up to three suppliers. Its planned 72-hour window seeks current answers; replies are not guaranteed. It is not open for purchase or public supplier outreach.</p>
+      <p>SeekAPI Verified RFQ Basic targets at least one current supplier-confirmed qualified quote within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE means a full refund of this RFQ service fee to the original payment method. Human, Agent and Evidence outputs share the same facts and unknowns. Goods purchases are not authorized; check current admission before paying.</p>
       <div className="link-list">
         <Link className="text-link" href="/china-supply-check/listing-price-vs-quote">Listing price or supplier quote?</Link>
         <Link className="text-link" href="/china-supply-check/moq-specification-screening">Does MOQ fit your quantity and unit?</Link>
-        <Link className="text-link" href="/china-supply-check/live-rfq-compare">How would the separate RFQ step work?</Link>
+        <Link className="text-link" href="/china-supply-check/live-rfq-compare">Review Basic RFQ and prepare for free</Link>
       </div>
     </div></section>
     <section className="section"><div className="container">
