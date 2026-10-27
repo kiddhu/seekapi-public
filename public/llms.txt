@@ -1,5 +1,10 @@
 # SeekAPI — product-first China supplier comparison
 
+Have an Amazon product URL or product link and need Chinese suppliers? Choose USD2.99 supplier-candidate screening (no supplier contact), or standalone USD19.90 Verified RFQ Basic for supplier outreach and a current qualified quote. Basic does not require screening first. Product URLs are reference material only: confirm specifications, quantity/unit, destination and allowed substitutions. Do not claim automatic Amazon extraction or original-manufacturer identification.
+
+Basic buyer entry: https://seekapi.ai/china-supply-check/live-rfq-compare
+Basic uses its dedicated HTTPS REST/OpenAPI, not the existing $2.99 MCP paid tools. The generic human-task API remains unavailable. See the Basic section below for fresh admission, free preparation, buyer approval and private recovery.
+
 China Supply Check starts from a product photo or written brief, then compares evidenced matching products from distinct supplier identities. A successful check targets three actionable suppliers; ordinary partials remain provisional. Wrong products and known hard conflicts are not rescued by badges or weak padding.
 
 Selection V2: comparable price45%, scoped sales35%, MOQ fit10%, freshness and active status10%. Missing non-hard evidence scores zero and remains an RFQ question. Deduplicate connected legal business / marketplace member / shop identities; keep one primary offer per supplier and disclose the observed identity level/confidence. Protect at most20 unique suppliers within10 product-score points of the best product. Within the protected pool, select source tiers F5→F0, then product score within a tier. Q1–Q6 is auxiliary trust explanation, not six all-PASS admission gates. Source factory evidence is not an independent SeekAPI onsite audit.

@@ -5,7 +5,7 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Product-first supplier comparison: evidenced product match, commercial score45/35/10/10, supplier deduplication, protected pool and source factory tiers. Check runtime admission for each payment mode.",
+      "description": "Product-first China supplier screening from $2.99, plus standalone USD19.90 Verified RFQ Basic through dedicated HTTPS REST. Product links and photos are references; confirm specifications before payment. Basic targets at least one current qualified quote from up to three suppliers in three China business days after payment and essential confirmation, or full RFQ service-fee refund. Check runtime admission; generic human-task API is not live.",
       "version": "0.3.0",
       "data": {
         "productId": "china_supply_check_v0",

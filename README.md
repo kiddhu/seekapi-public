@@ -10,7 +10,9 @@ Current dated payment observation: image Stripe LIVE atUSD2.99, image x402 OFF, 
 
 Source certification is not a SeekAPI independent onsite audit. Source marketplace protections apply only to eligible product transactions and do not compensate the CSC fee. Exact SKU, material, dimensions, quality, stock, lead time and formal quote need RFQ confirmation. Public contacts are availability-only/null when unknown; authenticated paid report business contacts remain readable.
 
-The proposed $19.90 Live RFQ Compare service is contact, translation, follow-up and formal quotation comparison, not contact unlock, and is not currently open for purchase. Other human assignments require separately accepted scope, fee and authority.
+SeekAPI Verified RFQ Basic is a standalone USD 19.90 Stripe service with no $2.99 prerequisite. We contact up to three distinct suppliers and target at least one current supplier-confirmed qualified quote for your confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE means a full refund of this RFQ service fee to the original payment method. Three quotes, a particular price, original-factory identity and procurement success are not guaranteed. Check current runtime admission before a new purchase.
+
+Start from an Amazon product URL, product link or photo as a reference, then confirm specifications, quantity and destination. A URL alone does not verify the original factory or complete an RFQ. [Basic scope and free preparation](https://seekapi.ai/china-supply-check/live-rfq-compare). Basic uses its [dedicated REST/OpenAPI](https://api.seekapi.ai/checkout/stripe/rfq?format=openapi), separately from $2.99 MCP tools. The generic human-task API remains unavailable. Other human assignments require separately accepted scope, fee and authority.
 
 ## Development
 
