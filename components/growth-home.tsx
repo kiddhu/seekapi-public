@@ -79,7 +79,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
       <div className="grid-3">
         <FeatureCard index="01" title="Describe the exact requirement" body="Product or model, positive quantity and unit, must-have specifications and permitted substitutions. Free preparation now requires an MCP-capable client." />
-        <FeatureCard index="02" title="Screen the listing evidence" body="A paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and preserves missing facts as UNKNOWN." />
+        <FeatureCard index="02" title="Screen the listing evidence" body="A paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and lists the remaining supplier questions." />
         <FeatureCard index="03" title="Review the candidates and gaps" body="Three distinct documented shop candidates on success, with dated source evidence, observed price basis, exclusions and an RFQ starting point. A shortage is reported honestly." />
       </div>
       <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link><Link className="text-link" href="/sourcing">Find, screen and compare China suppliers: eight guides</Link></div>

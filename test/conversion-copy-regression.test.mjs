@@ -8,7 +8,7 @@ const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<details[\
 const forbidden=/does not promise|not guaranteed|reference only|reference material|\bUNKNOWN\b|\bunsupported\b|\bOneBound\b|anti-bot|provider entitlement|API cost/ig;
 test('first two conversion sections lead with outcomes and omit internal defensive language',()=>{
  for(const route of ['index','china-supply-check','china-supply-check/live-rfq-compare','how-it-works','for-agents']){
-  const html=read('.next/server/app/'+route+'.html');const sections=[...html.matchAll(/<section\b[\s\S]*?<\/section>/g)].slice(0,2).map(m=>m[0]).join(' ');
+  const html=read('.next/server/app/'+route+'.html');const sections=[...html.matchAll(/<section\b[\s\S]*?<\/section>/g)].slice(0,route==='index'?3:2).map(m=>m[0]).join(' ');
   assert.equal((visible(sections).match(forbidden)??[]).length,0,route);
  }
 });
