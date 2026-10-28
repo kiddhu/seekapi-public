@@ -2,8 +2,8 @@ import { GrowthHome } from '@/components/growth-home';
 import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
-  'China supplier sourcing and procurement execution for AI agents | SeekAPI',
-  'SeekAPI is a China-side procurement desk for overseas buyers and AI agents. Start with China Supply Check: product-first V2 supplier comparison and a complete anonymous sample. Image Stripe USD2.99 is available; text/model x402 is 2.99USDC on Base. Check live discovery for payment modes. Request separately scoped human help for RFQs, samples and execution.',
+  'China Supplier Sourcing — $2.99 Screening or $19.90 RFQ | SeekAPI',
+  'Start from a product link, photo or specification. Compare China supplier candidates for $2.99, or request a current qualified quote with standalone $19.90 RFQ Basic. Free preparation; confirm specifications before payment.',
   '/',
 );
 

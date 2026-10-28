@@ -134,7 +134,7 @@
     "canonical_path": "/sourcing/rfq-templates/supplier-quote-comparison",
     "h1": "How do you compare supplier replies on the same RFQ basis?",
     "title": "How do you compare supplier replies on the same RFQ basis",
-    "direct_answer": "Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. The worksheet does not obtain quotes or make the proposed RFQ service purchasable.",
+    "direct_answer": "Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. Reading or saving this worksheet does not contact suppliers, obtain quotations, purchase a service, or authorize payment. SeekAPI Verified RFQ Basic is a separate current USD 19.90 service, subject to current runtime admission and buyer confirmation.",
     "minimum_brief": "Reply reference and timestamp; exact requirement version; price basis; included/excluded costs; unresolved lines.",
     "mismatch_rule": "Reject different brief revisions as like-for-like; do not fill absent freight/tax with zero or turn a listing into a supplier reply.",
     "rfq_questions": "Does this reply cover the same variant and quantity? Which charges are excluded? Until when and from which trigger is it valid?",

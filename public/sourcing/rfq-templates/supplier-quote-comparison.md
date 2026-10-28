@@ -1,6 +1,6 @@
 # How do you compare supplier replies on the same RFQ basis?
 
-Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. The worksheet does not obtain quotes or make the proposed RFQ service purchasable.
+Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. Reading or saving this worksheet does not contact suppliers, obtain quotations, purchase a service, or authorize payment. SeekAPI Verified RFQ Basic is a separate current USD 19.90 service, subject to current runtime admission and buyer confirmation.
 
 Materially updated: 2026-10-16
 
@@ -43,4 +43,4 @@ BUYER_STATED is explicit buyer input; SOURCE_OBSERVED is a dated source; DERIVED
 
 [Parent sourcing library](/sourcing) · [Related category](/china-supply-check/listing-price-vs-quote) · [Human: review a free image brief](/china-supply-check#image-supply-check) · [Agent: free discovery and preparation](/for-agents#china-supply-check-mcp) · [Runnable free SDK examples](/for-agents#free-quickstart) · [Public sample](/china-supply-check/sample)
 
-Preparation does not purchase or contact suppliers. Image Stripe USD 2.99 and text/model x402 2.99 USDC are separate paid routes; image x402 and text/model Stripe are OFF in the dated observation. Check live admission. The proposed $19.90 RFQ service is not open for purchase.
+Preparation does not purchase or contact suppliers. Image Stripe USD 2.99 and text/model x402 2.99 USDC are separate paid routes; image x402 and text/model Stripe are OFF in the dated observation. Check live admission. SeekAPI Verified RFQ Basic is a standalone USD 19.90 Stripe service with no $2.99 prerequisite. We contact up to three distinct suppliers and target at least one current supplier-confirmed qualified quote for your confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE means a full refund of this RFQ service fee to the original payment method. Three quotes, a particular price, original-factory identity and procurement success are not guaranteed. Check current runtime admission before a new purchase. [Review Basic and prepare for free](https://seekapi.ai/china-supply-check/live-rfq-compare).

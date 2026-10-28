@@ -8,7 +8,7 @@ export type HomepageVariant = 'a' | 'b' | 'c';
 const variants = {
   a: {
     heading: 'Your China procurement desk, from supplier search to execution.',
-    lead: 'SeekAPI helps overseas buyers and AI agents handle China-side procurement. Start with a product photo or written brief for source-backed supplier candidates, an English report and Agent JSON; request separately scoped human help for RFQs, samples and execution.',
+    lead: 'SeekAPI helps overseas buyers and AI agents handle China-side procurement. Start with a product link, photo or written brief. Choose $2.99 supplier-candidate screening or standalone $19.90 supplier contact and quotation comparison. Confirm your specifications before payment; broader samples and execution require separate scope review.',
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
@@ -54,7 +54,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="growth-copy">
         <Eyebrow>Source from China</Eyebrow>
         <h1>{copy.heading}</h1>
-        <p className="growth-lead">{copy.lead}</p>
+        <p className="growth-lead">{copy.lead}</p><p>Have an Amazon product URL? <Link href="/china-supply-check/live-rfq-compare#product-link">See what a link can establish and prepare for free.</Link> A reference link does not prove original-factory identity or replace your confirmed requirements.</p>
       </div>
       <BriefIllustration variant={variant} />
       <div className="growth-actions">
