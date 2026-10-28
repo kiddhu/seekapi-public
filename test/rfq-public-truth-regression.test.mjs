@@ -9,6 +9,7 @@ const root=new URL('../',import.meta.url);
 const read=p=>readFileSync(new URL(p,root),'utf8');
 const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').replaceAll('&quot;','"').replaceAll('&#x27;',"'").replaceAll('&amp;','&');
 const obsolete=[
+ /The worksheet does not obtain quotes or make the proposed RFQ service purchasable\./i,
  /(?:proposed|planned|future)\s+(?:USD\s*|\$)?19\.90.{0,160}(?:not\s+(?:currently\s+)?open|unavailable|would)/i,
  /(?:Live RFQ Compare|Verified RFQ Basic|RFQ service)\s+(?:is\s+|remains\s+)?(?:planned|not\s+(?:currently\s+)?open for purchase|not live|unavailable|closed)/i,
  /(?:future|planned)\s+(?:USD\s*19\.90\s+)?Live RFQ Compare/i,
@@ -20,6 +21,7 @@ test('the real pre-fix contradiction is rejected while generic human API OFF sta
  assert.throws(()=>currentTruth('The proposed $19.90 RFQ service is not open for purchase.','old worksheet'));
  assert.throws(()=>currentTruth('Live RFQ Compare remains planned.','old how-it-works'));
  assert.throws(()=>currentTruth('The future USD 19.90 Live RFQ Compare would use your RFQ.','old page'));
+ assert.throws(()=>currentTruth('The worksheet does not obtain quotes or make the proposed RFQ service purchasable.','old quote worksheet'));
  currentTruth('Generic human-task API: planned_not_live. Basic uses dedicated REST. Image x402 OFF.','distinct contracts');
 });
 test('all current built HTML, public Markdown and machine projections reject retired Basic OFF claims',()=>{
@@ -42,6 +44,24 @@ test('downloaded worksheets and rendered HTML share the complete current Basic t
   const md=read(`public${g.canonical_path}.md`),html=visible(read(`.next/server/app${g.canonical_path}.html`));
   assert.ok(md.includes(rfqBasicCopy),g.id+' Markdown');assert.ok(html.includes(rfqBasicCopy),g.id+' HTML');
  }
+});
+test('current quote worksheet HTML and download explain worksheet effects and standalone live Basic',async()=>{
+ const worksheetPath='/sourcing/rfq-templates/supplier-quote-comparison';
+ const guide=JSON.parse(read('data/sourcing-decisions.json')).find(g=>g.id==='quotes');
+ const md=read(`public${worksheetPath}.md`),html=visible(read(`.next/server/app${worksheetPath}.html`));
+ const boundary='Reading or saving this worksheet does not contact suppliers, obtain quotations, purchase a service, or authorize payment. SeekAPI Verified RFQ Basic is a separate current USD 19.90 service, subject to current runtime admission and buyer confirmation.';
+ for(const [label,text] of [['canonical answer',guide.direct_answer],['downloaded Markdown',md],['rendered HTML',html]]){
+  currentTruth(text,label);
+  assert.ok(text.includes(boundary),`${label}: missing current Basic and worksheet effects boundary`);
+ }
+ for(const [label,text] of [['downloaded Markdown',md],['rendered HTML',html]])assert.ok(text.includes(rfqBasicCopy),`${label}: missing complete Basic terms`);
+ assert.ok(md.includes(guide.direct_answer),'Markdown must project the canonical direct answer');
+ assert.ok(html.includes(guide.direct_answer),'HTML must project the canonical direct answer');
+ const manifest=await(await Agent.GET()).json();
+ assert.equal(manifest.verified_rfq_basic.availability,'LIVE');
+ assert.equal(manifest.service_discovery.supplier_quote.transport,'HTTPS_JSON_REST');
+ assert.equal(manifest.live_human_task_api,false);
+ assert.equal(manifest.integrations.mcp,'planned_not_live');
 });
 test('the existing canonical product answers product-link intent and offers two truthful actions',()=>{
  const html=read('.next/server/app/china-supply-check/live-rfq-compare.html'),text=visible(html);

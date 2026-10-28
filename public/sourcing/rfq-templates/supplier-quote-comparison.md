@@ -1,6 +1,6 @@
 # How do you compare supplier replies on the same RFQ basis?
 
-Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. The worksheet does not obtain quotes or make the proposed RFQ service purchasable.
+Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. Reading or saving this worksheet does not contact suppliers, obtain quotations, purchase a service, or authorize payment. SeekAPI Verified RFQ Basic is a separate current USD 19.90 service, subject to current runtime admission and buyer confirmation.
 
 Materially updated: 2026-10-16
 
