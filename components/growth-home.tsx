@@ -1,18 +1,19 @@
+import {amazonImportSalesCopy,amazonImportLive} from '@/lib/rfq-basic-copy';
 import {readPublicSamplePublication} from '@/lib/public-agent-sample';
 import { ProductFirstMethod } from '@/components/product-first-method';
-import { cscPaymentCopy } from '@/lib/csc-commercial-truth';
+import { cscPaymentCopy, cscPaymentModesCopy } from '@/lib/csc-commercial-truth';
 import Link from 'next/link';
 import { Eyebrow, FeatureCard, Footer, Header, SectionTitle } from '@/components/site';
 
 export type HomepageVariant = 'a' | 'b' | 'c';
 const variants = {
   a: {
-    heading: 'Your China procurement desk, from supplier search to execution.',
-    lead: 'SeekAPI helps overseas buyers and AI agents handle China-side procurement. Start with a product link, photo or written brief. Choose $2.99 supplier-candidate screening or standalone $19.90 supplier contact and quotation comparison. Confirm your specifications before payment; broader samples and execution require separate scope review.',
+    heading: 'Find matched Chinese suppliers and current quotes.',
+    lead: 'Start with an Amazon product link, photo or description. Build an editable sourcing brief, then choose USD 2.99 supplier screening or a standalone USD 19.90 live RFQ. Review once and move toward your next supplier decision.',
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
-    lead: 'Start with a product or model, quantity and must-have specifications. On a successful check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, exclusions and UNKNOWNs.',
+    lead: 'Start with a product or model, quantity and must-have specifications. On a successful check: three distinct B2B shop candidates, price basis, MOQ/spec fit, source links, differences and next steps.',
   },
   c: {
     heading: 'Compare China listings before a quote.',
@@ -33,14 +34,14 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <dl className="growth-inputs">
         <div><dt>Source / observation</dt><dd>China B2B platform listing · 29 Sep 2026</dd></div>
         <div><dt>Observed price basis / MOQ</dt><dd>CNY 0.01 per 个 · MOQ 100 个</dd></div>
-        <div><dt>UNKNOWN</dt><dd>Price-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote</dd></div>
+        <div><dt>Details to confirm</dt><dd>Price-tier applicability at 500 pieces, exact pack conversion, certificate, dimensions, stock and quote</dd></div>
       </dl>
       <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
       <Link className="text-link" href="/china-supply-check/sample">Inspect the current acceptance summary</Link>
     </div> : <div className="growth-result">
       <span className="growth-label">On a successful check</span>
       <strong>Three actionable supplier candidates</strong>
-      <p>Source links · observed price basis · MOQ/spec fit · exclusions · UNKNOWNs</p>
+      <p>Source links · observed price basis · MOQ/spec fit · differences · next steps</p>
       <p className="growth-small">Fewer qualify? The report states the shortage. It does not pad the shortlist.</p>
     </div>}
   </aside>;
@@ -53,19 +54,16 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
     <section className={'growth-hero growth-variant-' + variant}><div className="container growth-hero-grid">
       <div className="growth-copy">
         <Eyebrow>Source from China</Eyebrow>
-        <h1>{copy.heading}</h1>
-        <p className="growth-lead">{copy.lead}</p><p>Have an Amazon product URL? <Link href="/china-supply-check/live-rfq-compare#product-link">See what a link can establish and prepare for free.</Link> A reference link does not prove original-factory identity or replace your confirmed requirements.</p>
+        <h1>{variant==='a'&&amazonImportLive?amazonImportSalesCopy.hero:copy.heading}</h1>
+        <p className="growth-lead">{variant==='a'&&amazonImportLive?amazonImportSalesCopy.subheading+' '+amazonImportSalesCopy.choice:copy.lead}</p><p>China supplier matching · Factory and trader evidence · MOQ and price comparison · Supplier-confirmed quotations with live RFQ</p>
       </div>
       <BriefIllustration variant={variant} />
       <div className="growth-actions">
         <div className="button-row">
-          <Link className="button button-ghost" href="/china-supply-check/live-rfq-compare">Get a supplier quote · USD 19.90</Link>
-          <Link className="button" href="/china-supply-check" aria-label="See China Supply Check">{variant === 'a' ? 'See China Supply Check' : 'China Supply Check'}</Link>
-          {sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample" aria-label="Read the complete current sample">Read the complete sample</Link>:null}
-          <Link className="button button-ghost" href="/china-desk">China-side procurement desk</Link>
+          <Link className="button" href="/china-supply-check/live-rfq-compare#product-link">Find suppliers from this Amazon link</Link>
+          {sampleAvailable?<Link className="text-link" href="/china-supply-check/sample">View a sample supplier result</Link>:null}
         </div>
-        <p className="growth-availability">{cscPaymentCopy}</p>
-        <p className="growth-limits">Published listing prices are dated supplier commercial evidence with scope and quantity conditions; certification and company or production-versus-trade identity evidence is reported per candidate when available.</p>
+        <p className="growth-availability">$2.99: evidence-backed supplier screening. $19.90: up to three matched suppliers contacted; at least one qualified quote in three China business days after payment and brief confirmation, or the full RFQ service fee is refunded.</p>
         <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
       </div>
     </div></section>
@@ -76,7 +74,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
         <Link className="button" href="/china-supply-check/sample">Read the complete sample</Link>
       </div>
     </div></section>
-</>:<section className="section growth-proof"><div className="container"><h2>The public example is currently unavailable.</h2><p>Read current product and payment availability before preparing a request.</p><Link className="text-link" href="/for-agents">Connect and read live discovery</Link></div></section>}
+</>:<section className="section growth-proof"><div className="container"><h2>Preview your sourcing journey.</h2><p>Review supplier evidence, compare services and prepare your sourcing brief for free.</p><Link className="text-link" href="/for-agents">Connect and read live discovery</Link></div></section>}
     <section className="section"><div className="container">
       <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
       <div className="grid-3">
@@ -117,5 +115,5 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link>{sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample">Read the complete sample</Link>:null}</div>
       <div className="link-list"><Link className="text-link" href="/for-agents">Agent connection guide</Link><Link className="text-link" href="/china-supply-chain">Need broader China Desk support?</Link><Link className="text-link" href="/trust">Evidence and role boundaries</Link><Link className="text-link" href="/support">Contact support</Link><Link className="text-link" href="/discovery-status">Dated discovery status</Link></div>
     </div></section>
-  </main><Footer /></>;
+  <section className="section"><div className="container"><details><summary>Service scope and payment options</summary><p>{cscPaymentModesCopy}</p></details></div></section></main><Footer /></>;
 }

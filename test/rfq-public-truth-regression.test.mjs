@@ -65,7 +65,8 @@ test('current quote worksheet HTML and download explain worksheet effects and st
 });
 test('the existing canonical product answers product-link intent and offers two truthful actions',()=>{
  const html=read('.next/server/app/china-supply-check/live-rfq-compare.html'),text=visible(html);
- for(const p of [/Amazon product link/,/reference material/,/not verified specifications/,/quantity and unit/,/destination/,/substitutions/,/2\.99/,/19\.90/,/three China business days/,/payment and essential/,/RFQ_INCOMPLETE/,/full refund/,/Three quotes.*not guaranteed/])assert.match(text,p);
+ for(const p of [/Amazon product link/,/editable sourcing brief/,/selected variant/,/quantity/,/destination/,/2\.99/,/19\.90/,/three China business days/,/payment and brief confirmation/,/full RFQ service fee is refunded/])assert.match(text,p);
+ assert.doesNotMatch(text,/does not promise|Three quotes.*not guaranteed|reference material/);
  assert.match(html,/rel="canonical" href="https:\/\/seekapi.ai\/china-supply-check\/live-rfq-compare"/);
  assert.match(html,/href="https:\/\/api.seekapi.ai\/checkout\/stripe\/rfq"/);
  assert.match(html,/href="\/china-supply-check"/);
