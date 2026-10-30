@@ -2,10 +2,10 @@
 import {useEffect,useRef} from 'react';
 import {usePathname} from 'next/navigation';
 import {createBrowserObserver} from '@/lib/referral-funnel/browser.mjs';
+import {classifyLink} from '@/lib/referral-funnel/interaction.mjs';
 import type {BrowserEvent} from '@/lib/referral-funnel/funnel.mjs';
 
 const ENDPOINT='https://api.seekapi.ai/checkout/stripe/metrics';
-const ENTRY='https://api.seekapi.ai/checkout/stripe/image';
 /** Optional categories/random IDs only; no cookies, storage, input reads or customer wait. */
 export function ReferralMeasurement({enabled=false}:{enabled?:boolean}){
  const path=usePathname();
@@ -19,14 +19,14 @@ export function ReferralMeasurement({enabled=false}:{enabled?:boolean}){
   const click=(event:MouseEvent)=>{
    try{
     const anchor=event.target instanceof Element?event.target.closest('a'):null;if(!anchor)return;
-    const url=new URL(anchor.href);const imageEntry=url.origin+url.pathname===ENTRY&&!url.search&&(!url.hash||url.hash.startsWith('#sf='));
-    if(imageEntry)anchor.href=ENTRY;last.current=null;
-    observer.current?.observe('CTA_CLICK',{path:location.pathname,referrer:document.referrer,search:location.search,
-     mode:imageEntry?'IMAGE':'UNKNOWN',product:imageEntry?'CSC_2_99':'UNKNOWN',request_or_prepare_correlation_id:crypto.randomUUID()});
+    const intent=classifyLink(anchor.href);
+    if(intent.entry)anchor.href=intent.entry;last.current=null;
+    observer.current?.observe(intent.type,{path:location.pathname,referrer:document.referrer,search:location.search,
+     mode:intent.mode,product:intent.product,...(intent.entry?{request_or_prepare_correlation_id:crypto.randomUUID()}:{})});
     const captured=last.current as BrowserEvent|null;
-    if(imageEntry&&captured?.event_type==='CTA_CLICK'){
+    if(intent.entry&&captured?.event_type==='SALES_CTA_CLICK'){
      const encoded=btoa(JSON.stringify(captured)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-     anchor.href=ENTRY+'#sf='+encoded;
+     anchor.href=intent.entry+'#sf='+encoded;
     }
    }catch{/* Original anchor remains usable when measurement fails. */}
   };

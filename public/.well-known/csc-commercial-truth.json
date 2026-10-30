@@ -232,5 +232,18 @@
     "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
     "canonical_digest": "dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5",
     "wire_digest": "a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d"
+  },
+  "customer_value": {
+    "summary": "Find matched Chinese suppliers and current quotes from a product link, photo or description.",
+    "screening_price_usd": "2.99",
+    "standalone_rfq_price_usd": "19.90",
+    "rfq_supplier_contacts_max": 3,
+    "rfq_qualified_quotes_min": 1,
+    "rfq_china_business_days": 3,
+    "rfq_clock_start": "PAYMENT_AND_BRIEF_CONFIRMATION",
+    "rfq_remedy": "FULL_RFQ_SERVICE_FEE_REFUND",
+    "factory_matching": "FACTORY_FIRST_WITH_EVIDENCE",
+    "amazon_direct_import": "PENDING_RUNTIME_ACCOUNT_AND_RELEASE_ACCEPTANCE",
+    "continuation": "Preserve your link and entered details; edit inline or add a product photo."
   }
 }

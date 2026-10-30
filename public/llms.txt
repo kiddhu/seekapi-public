@@ -1,9 +1,9 @@
 # SeekAPI — product-first China supplier comparison
 
-Have an Amazon product URL or product link and need Chinese suppliers? Choose USD2.99 supplier-candidate screening (no supplier contact), or standalone USD19.90 Verified RFQ Basic for supplier outreach and a current qualified quote. Basic does not require screening first. Product URLs are reference material only: confirm specifications, quantity/unit, destination and allowed substitutions. Do not claim automatic Amazon extraction or original-manufacturer identification.
+Find matched Chinese suppliers from an Amazon product URL or link, photo or description. Choose USD2.99 evidence-backed supplier screening or standalone USD19.90 Verified RFQ Basic. Review one editable sourcing brief and confirm quantity, selected variant and destination before payment. Add a photo or edit a missing detail to continue with the same request.
 
 Basic buyer entry: https://seekapi.ai/china-supply-check/live-rfq-compare
-Basic uses its dedicated HTTPS REST/OpenAPI, not the existing $2.99 MCP paid tools. The generic human-task API remains unavailable. See the Basic section below for fresh admission, free preparation, buyer approval and private recovery.
+Basic uses its dedicated HTTPS REST/OpenAPI, not the existing $2.99 MCP paid tools. Use the dedicated Basic REST endpoint for supplier quotations. See the Basic section below for fresh admission, free preparation, buyer approval and private recovery.
 
 China Supply Check starts from a product photo or written brief, then compares evidenced matching products from distinct supplier identities. A successful check targets three actionable suppliers; ordinary partials remain provisional. Wrong products and known hard conflicts are not rescued by badges or weak padding.
 
@@ -29,7 +29,7 @@ Eligible source marketplace product transactions may have observed platform prot
 
 ## SeekAPI Verified RFQ Basic — USD 19.90
 
-Standalone Stripe Hosted Checkout: no $2.99 purchase is required. Contact, translation, follow-up and quotation comparison for up to three distinct suppliers. Target: at least one current supplier-confirmed qualified quote bound to the confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE and a full refund of this RFQ service fee to the original payment method. Three quotes, a particular price or a supplier response are not guaranteed.
+Standalone Stripe Hosted Checkout: no $2.99 purchase is required. Contact, translation, follow-up and quotation comparison for up to three distinct suppliers. Target: at least one current supplier-confirmed qualified quote bound to the confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE and a full refund of this RFQ service fee to the original payment method. We include every qualified supplier response received in your comparison.
 
 Human report, Agent JSON and Evidence manifest share the same facts, conditions, unknowns and next actions. Basic does not authorize goods purchases, supplier payments, agency transactions or production. No complete landed-cost, break-even or Price Intelligence promise. This is not contact unlock; public business contacts in authenticated paid results remain readable. Other human assistance requires separate scope review; no autonomous generic human-task API is live.
 

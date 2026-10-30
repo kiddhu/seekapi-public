@@ -3,6 +3,7 @@ import {cscCommercialTruth as truth} from '@/lib/csc-commercial-truth';
 import {rfqServiceDiscovery} from '@/lib/rfq-basic-copy';
 export const dynamic='force-static';
 export async function GET(){const publication=readPublicSamplePublication();const {public_agent_sample:_pointer,...withoutSample}=truth;return Response.json({
+ customer_value:truth.customer_value,
  provider:'SeekAPI',manifest_schema_version:'seekapi.agent-services.v2',commercial_truth:publication?truth:withoutSample,versions:truth.versions,contract_updated_at:truth.contract_updated_at,observed_at:truth.availability_observed_at,
  selection_transparency:publicSampleMetadata(publication),...(publication?{public_agent_sample:publication.discovery_pointer,current_sample_url:'https://seekapi.ai/china-supply-check/sample'}:{}),
  product_data_mcp:{live:true,endpoint:'https://api.seekapi.ai/mcp',transport:'streamable-http',csc_public_paid_on:true,price_usdc:truth.price.amount,payments:truth.payments,free_tools:truth.tools.free,authenticated_order_read_tools:truth.tools.authenticated_reads,paid_effect_tools:truth.tools.paid,status_result_access:'Independent signed-wallet authentication bound to the settled order. Stripe uses the secure card recovery link; no repayment.',image_input:{no_value_prepare:true,accepted_mime:['image/png'],stripe_status:truth.payments.image_first.stripe.status,x402_status:truth.payments.image_first.x402.status,discovery_tool:'discover_china_supply_check_v0',card_entry:truth.image_intake.card_entry,card_usd:truth.price.card_usd,scope:'MAIN_PRODUCT_ONLY'}},

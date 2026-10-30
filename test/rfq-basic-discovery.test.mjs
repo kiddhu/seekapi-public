@@ -46,20 +46,20 @@ test('real Agent GET explains admission, exact confirmation and free private res
 test('actual Human and Agent rendered pages agree with the machine Basic contract',()=>{
  for(const Page of [BasicPage,AgentsPage]){
   const html=renderToStaticMarkup(createElement(Page)),text=visible(html);
-  for(const pattern of [/SeekAPI Verified RFQ Basic/,/19\.90/,/three distinct suppliers|3 distinct suppliers/i,/three China business days|3 China business days/i,/RFQ_INCOMPLETE/,/full.*service.fee.*refund|refund.*full.*service.fee/i,/Human.*Agent.*Evidence/i,/no.*\$2\.99.*purchase|without.*\$2\.99/i,/text.*continue|continue.*text/i])assert.match(text,pattern);
+  for(const pattern of [/SeekAPI Verified RFQ Basic/,/19\.90/,/three (?:distinct|matched) suppliers|3 distinct suppliers/i,/three China business days|3 China business days/i,/qualified.*quot|quot.*qualified/i,/full.*service.fee.*refund|refund.*full.*service.fee/i,/Human.*Agent.*Evidence/i,/no.*\$2\.99.*(?:purchase|prerequisite)|without.*\$2\.99/i,/text.*continue|continue.*text/i])assert.match(text,pattern);
   assert.doesNotMatch(text,/paid RFQ not open|RFQ service remains closed|no live RFQ checkout|planned USD ?19\.90|service is not open for purchase/i);
   assert.match(html,/https:\/\/api\.seekapi\.ai\/checkout\/stripe\/rfq/);
  }
 });
 test('llms discovery shares Basic terms and cannot advertise the retired invitation-only state',()=>{
  const text=read('public/llms.txt');
- for(const pattern of [/SeekAPI Verified RFQ Basic/,/19\.90/,/RFQ_INCOMPLETE/,/original payment method/i,/three China business days/i,/Channel A/,/precision drawings/i,/action=result/,/no repayment/i])assert.match(text,pattern);
+ for(const pattern of [/SeekAPI Verified RFQ Basic/,/19\.90/,/qualified.*quot|quot.*qualified/i,/original payment method/i,/three China business days/i,/Channel A/,/precision drawings/i,/action=result/,/no repayment/i])assert.match(text,pattern);
  assert.doesNotMatch(text,/RFQ.*closed for purchase|not currently open for purchase|do not call session, confirm or checkout/i);
 });
 
 test('actual home points buyers to Basic without a contradictory private/future sales claim',()=>{
  const Home=HomeModule.GrowthHome;const html=renderToStaticMarkup(createElement(Home,{variant:'a'}));const text=visible(html);
- assert.match(text,/Get a supplier quote · USD 19.90/);assert.match(text,/SeekAPI Verified RFQ Basic/);assert.match(text,/three China business days/);assert.match(text,/RFQ_INCOMPLETE/);
+ assert.match(text,/Find suppliers from this Amazon link/);assert.match(text,/SeekAPI Verified RFQ Basic/);assert.match(text,/three China business days/);assert.match(text,/full.*RFQ service fee.*refund/i);
  assert.doesNotMatch(text,/19\.90[^.]*not open|RFQ Compare[^.]*planned|planned 72.hour/i);
  assert.match(html,/href="\/china-supply-check\/live-rfq-compare"/);
 });
