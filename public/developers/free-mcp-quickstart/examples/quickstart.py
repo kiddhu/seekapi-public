@@ -63,8 +63,9 @@ class Fixture:
 
 async def live():
     # No wallet/payment SDK, auth headers, arbitrary endpoint or paid fallback.
+    import httpx
     from mcp import ClientSession
-    from mcp.client.streamable_http import streamablehttp_client
+    from mcp.client.streamable_http import streamable_http_client
     class SDK:
         draft = Fixture().draft
         def __init__(self, session): self.session = session
@@ -77,13 +78,13 @@ async def live():
             if response.structuredContent is not None: return response.structuredContent
             return json.loads(next(c.text for c in response.content if c.type == 'text'))
     # This fixed synthetic connectivity check must not be counted as buyer demand.
-    async with streamablehttp_client(ENDPOINT, headers={
-        'User-Agent': 'SeekAPI-Developer-Readback/1.0 (+https://github.com/kiddhu/seekapi-public)',
-        'x-seekapi-measurement-test': '1',
-    }) as (read, write, _):
-        async with ClientSession(read, write) as session:
-            await session.initialize()  # SDK sends initialized notification.
-            return await demo(SDK(session))
+    # Keep HTTPX's ordinary User-Agent and verified TLS. No browser impersonation.
+    async with httpx.AsyncClient(headers={'x-seekapi-measurement-test': '1'},
+                                 timeout=httpx.Timeout(20, read=30)) as http_client:
+        async with streamable_http_client(ENDPOINT, http_client=http_client) as (read, write, _):
+            async with ClientSession(read, write) as session:
+                await session.initialize()  # SDK sends initialized notification.
+                return await demo(SDK(session))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
@@ -95,3 +96,4 @@ if __name__ == '__main__':
     except Exception:
         # SDK exceptions can contain request details; do not print them to public logs.
         parser.exit(1, 'Free setup failed. Check connectivity/tool schema privately; do not pay or automatically retry.\n')
+

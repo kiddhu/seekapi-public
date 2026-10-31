@@ -50,6 +50,7 @@ class MCPFixture(BaseHTTPRequestHandler):
         self.server.observed.append({
             'method': method, 'tool': params.get('name'),
             'internal_marker': self.headers.get('x-seekapi-measurement-test'),
+            'user_agent': self.headers.get('User-Agent'),
             'sensitive_header_present': any(self.headers.get(k) for k in
                 ['Authorization', 'Cookie', 'Payment-Signature', 'X-Payment']),
         })
@@ -109,6 +110,8 @@ class SDKWireTests(unittest.TestCase):
              patch.dict(os.environ, {'NO_PROXY': '*', 'no_proxy': '*'}):
             result = asyncio.run(asyncio.wait_for(quickstart.live(), timeout=15))
         self.assert_wire_boundary(result)
+        self.assertTrue(all(row['user_agent'].startswith('python-httpx/')
+                            for row in self.server.observed))
 
     def test_node_cli_sdk_marks_initialize_and_free_prepare_on_actual_http(self):
         node = shutil.which('node')
@@ -126,3 +129,4 @@ class SDKWireTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
