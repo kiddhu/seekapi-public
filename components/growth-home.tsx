@@ -1,4 +1,4 @@
-import {amazonImportSalesCopy,amazonImportLive} from '@/lib/rfq-basic-copy';
+import {amazonImportSalesCopy,amazonImportLive,rfqBuyerEntry} from '@/lib/rfq-basic-copy';
 import {readPublicSamplePublication} from '@/lib/public-agent-sample';
 import { ProductFirstMethod } from '@/components/product-first-method';
 import { cscPaymentCopy, cscPaymentModesCopy } from '@/lib/csc-commercial-truth';
@@ -8,8 +8,8 @@ import { Eyebrow, FeatureCard, Footer, Header, SectionTitle } from '@/components
 export type HomepageVariant = 'a' | 'b' | 'c';
 const variants = {
   a: {
-    heading: 'Find matched Chinese suppliers and current quotes.',
-    lead: 'Start with an Amazon product link, photo or description. Build an editable sourcing brief, then choose USD 2.99 supplier screening or a standalone USD 19.90 live RFQ. Review once and move toward your next supplier decision.',
+    heading: 'Get a current Chinese supplier quote for $19.90.',
+    lead: 'Send a product link, photo or sourcing requirement. We contact up to three matched suppliers, translate and follow up, then compare their replies. One-time USD 19.90. Prepare your sourcing brief for free and review it before payment.',
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
@@ -39,10 +39,10 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
       <p className="growth-small">304/M6 appear in the listing title; not a confirmed price for 500 pieces.</p>
       <Link className="text-link" href="/china-supply-check/sample">Inspect the current acceptance summary</Link>
     </div> : <div className="growth-result">
-      <span className="growth-label">On a successful check</span>
-      <strong>Three actionable supplier candidates</strong>
-      <p>Source links · observed price basis · MOQ/spec fit · differences · next steps</p>
-      <p className="growth-small">Fewer qualify? The report states the shortage. It does not pad the shortlist.</p>
+      <span className="growth-label">{variant==='a'?'Verified RFQ Basic · USD 19.90':'On a successful check'}</span>
+      <strong>{variant==='a'?'A current supplier-confirmed quote':'Three actionable supplier candidates'}</strong>
+      <p>{variant==='a'?'Supplier contact · translation · follow-up · quotation comparison':'Source links · observed price basis · MOQ/spec fit · differences · next steps'}</p>
+      <p className="growth-small">{variant==='a'?'Human report + Agent JSON + Evidence manifest.':'Fewer qualify? The report states the shortage. It does not pad the shortlist.'}</p>
     </div>}
   </aside>;
 }
@@ -53,39 +53,39 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
   return <><Header /><main id="main-content">
     <section className={'growth-hero growth-variant-' + variant}><div className="container growth-hero-grid">
       <div className="growth-copy">
-        <Eyebrow>Source from China</Eyebrow>
+        <Eyebrow>SeekAPI Verified RFQ Basic</Eyebrow>
         <h1>{variant==='a'&&amazonImportLive?amazonImportSalesCopy.hero:copy.heading}</h1>
         <p className="growth-lead">{variant==='a'&&amazonImportLive?amazonImportSalesCopy.subheading+' '+amazonImportSalesCopy.choice:copy.lead}</p><p>China supplier matching · Factory and trader evidence · MOQ and price comparison · Supplier-confirmed quotations with live RFQ</p>
       </div>
       <BriefIllustration variant={variant} />
       <div className="growth-actions">
         <div className="button-row">
-          <Link className="button" href="/china-supply-check/live-rfq-compare#product-link">Find suppliers from this Amazon link</Link>
+          <a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a>
           {sampleAvailable?<Link className="text-link" href="/china-supply-check/sample">View a sample supplier result</Link>:null}
         </div>
-        <p className="growth-availability">$2.99: evidence-backed supplier screening. $19.90: up to three matched suppliers contacted; at least one qualified quote in three China business days after payment and brief confirmation, or the full RFQ service fee is refunded.</p>
-        <Link className="growth-agent-link" href="/for-agents#china-supply-check-mcp">Using an AI Agent? Connect free MCP →</Link>
+        <p className="growth-availability">At least one current qualified quote in three China business days after payment and essential brief confirmation, or the full RFQ service fee is refunded. Buy Basic directly; $2.99 screening is optional.</p>
+        <Link className="growth-agent-link" href="/for-agents#rfq-requirement-prepare">Using an AI Agent? Prepare a free RFQ →</Link>
       </div>
     </div></section>
+    <section className="section"><div className="container">
+      <SectionTitle eyebrow="How Verified RFQ Basic works" title="From your product requirement to a current supplier quote." />
+      <div className="grid-3">
+        <FeatureCard index="01" title="Prepare for free" body="Start with a product link, photo or description. Review the product, must-have specifications, quantity and destination in one editable brief." />
+        <FeatureCard index="02" title="Confirm and pay $19.90 once" body="Approve your exact requirement before payment. We contact up to three matched suppliers, translate and follow up on their replies." />
+        <FeatureCard index="03" title="Compare supplier-confirmed quotes" body="Receive a Human report, Agent JSON and Evidence manifest. At least one qualified quote within three China business days after payment and essential confirmation, or your RFQ service fee back." />
+      </div>
+      <div className="link-list"><Link className="text-link" href="/how-it-works">See the RFQ steps and deliverables</Link><Link className="text-link" href="/sourcing">Use a sourcing brief or quote-comparison worksheet</Link></div>
+    </div></section>
     {sampleAvailable?<>    <section className="section growth-proof"><div className="container">
-      <SectionTitle eyebrow="Inspect the evidence" title="Read the complete three-candidate comparison." body="The current anonymous historical reconstruction includes three DIRECT_MATCH candidates, score components, source factory tiers, trust explanations and RFQ unknowns. It is a report you can inspect, not a current quote or an independent customer testimonial." />
+      <SectionTitle eyebrow="Optional screening sample" title="Inspect a supplier comparison before choosing." body="See how a historical supplier-screening report presents matched products, source evidence and the questions to confirm in a live RFQ." />
       <div className="growth-proof-row">
-        <p><strong>Product-first V2.</strong> All three public candidates have 0/100 commercial scores and F0 source tiers because the preserved evidence does not support those credits. Read the complete <Link className="text-link" href="/china-supply-check/sample">current three-candidate report</Link> or <a className="text-link" href="/china-supply-check/sample.json">download its exact Agent JSON</a>.</p>
+        <details><summary>How to interpret this historical screening example</summary><p><strong>Product-first V2.</strong> All three public candidates have 0/100 commercial scores and F0 source tiers because the preserved evidence does not support those credits. Read the complete <Link className="text-link" href="/china-supply-check/sample">current three-candidate report</Link> or <a className="text-link" href="/china-supply-check/sample.json">download its exact Agent JSON</a>.</p></details>
         <Link className="button" href="/china-supply-check/sample">Read the complete sample</Link>
       </div>
     </div></section>
 </>:<section className="section growth-proof"><div className="container"><h2>Preview your sourcing journey.</h2><p>Review supplier evidence, compare services and prepare your sourcing brief for free.</p><Link className="text-link" href="/for-agents">Connect and read live discovery</Link></div></section>}
     <section className="section"><div className="container">
-      <SectionTitle eyebrow="How screening works" title="A specific product in. Evidence for your next decision out." />
-      <div className="grid-3">
-        <FeatureCard index="01" title="Describe the exact requirement" body="Product or model, positive quantity and unit, must-have specifications and permitted substitutions. Free preparation now requires an MCP-capable client." />
-        <FeatureCard index="02" title="Screen the listing evidence" body="A paid check compares hard requirements and MOQ, excludes mismatches and duplicate shops, and lists the remaining supplier questions." />
-        <FeatureCard index="03" title="Review the candidates and gaps" body="Three distinct documented shop candidates on success, with dated source evidence, observed price basis, exclusions and an RFQ starting point. A shortage is reported honestly." />
-      </div>
-      <div className="link-list"><Link className="text-link" href="/how-it-works">See the screening and next-action path</Link><Link className="text-link" href="/sourcing">Find, screen and compare China suppliers: eight guides</Link></div>
-    </div></section>
-    <section className="section"><div className="container">
-      <SectionTitle eyebrow="One China-side partner" title="Keep moving after the supplier shortlist." body="China Supply Check is the live, low-cost entry. For the next China-side task, ask SeekAPI to review a separate human-service scope. No supplier outreach or spending is authorized by the screening purchase." />
+      <SectionTitle eyebrow="Choose your next decision" title="Current supplier quotes, with optional screening first." body="Choose standalone Verified RFQ Basic when you need suppliers contacted and current replies compared. China Supply Check is available when your next decision is which supplier candidates to shortlist." />
       <div className="grid-3">
         <FeatureCard index="01 · LIVE" title="Find and screen suppliers" body="A successful 2.99 USDC China Supply Check returns three distinct candidates worth advancing to RFQ, with source evidence, price basis, MOQ fit and field-specific gaps. MCP discovery is available; check current admission for each payment mode." />
         <FeatureCard index="02 · BASIC RFQ" title="Contact and compare" body="SeekAPI Verified RFQ Basic is USD 19.90 through standalone Stripe Hosted Checkout, with no $2.99 prerequisite. Contact up to three distinct suppliers for a current quote bound to your confirmed requirement." />
@@ -111,8 +111,8 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       </div>
     </div></section>
     <ProductFirstMethod/><section className="section growth-next"><div className="container">
-      <SectionTitle eyebrow="Choose the next usable action" title="Start with the product; keep the China-side work together." body="Inspect the live screening product, prepare a free MCP brief, or request scope review for a separately authorized human assignment. A brief does not buy a check or contact a supplier." />
-      <div className="button-row"><Link className="button" href="/china-supply-check">See China Supply Check</Link>{sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample">Read the complete sample</Link>:null}</div>
+      <SectionTitle eyebrow="Start for free" title="Your next supplier quote starts with one clear brief." body="Prepare your requirement for free. Review it, confirm it, then pay USD 19.90 once for supplier contact and quotation comparison." />
+      <div className="button-row"><a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a><Link className="text-link" href="/china-supply-check">Optional supplier screening · $2.99</Link>{sampleAvailable?<Link className="button button-ghost" href="/china-supply-check/sample">Read the complete sample</Link>:null}</div>
       <div className="link-list"><Link className="text-link" href="/for-agents">Agent connection guide</Link><Link className="text-link" href="/china-supply-chain">Need broader China Desk support?</Link><Link className="text-link" href="/trust">Evidence and role boundaries</Link><Link className="text-link" href="/support">Contact support</Link><Link className="text-link" href="/discovery-status">Dated discovery status</Link></div>
     </div></section>
   <section className="section"><div className="container"><details><summary>Service scope and payment options</summary><p>{cscPaymentModesCopy}</p></details></div></section></main><Footer /></>;

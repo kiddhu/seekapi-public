@@ -2,8 +2,8 @@ import { GrowthHome } from '@/components/growth-home';
 import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
-  'China Supplier Sourcing — $2.99 Screening or $19.90 RFQ | SeekAPI',
-  'Start from a product link, photo or specification. Compare China supplier candidates for $2.99, or request a current qualified quote with standalone $19.90 RFQ Basic. Free preparation; confirm specifications before payment.',
+  'China Supplier Quotes — $19.90 Verified RFQ | SeekAPI',
+  'Get a current Chinese supplier quote for $19.90 once. Up to 3 suppliers contacted; a qualified quote within 3 China business days after payment and brief confirmation, or your RFQ fee back. Prepare free.',
   '/',
 );
 

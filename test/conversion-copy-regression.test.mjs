@@ -14,7 +14,7 @@ test('first two conversion sections lead with outcomes and omit internal defensi
 });
 test('the canonical sourcing CTA explains both services and the guarantee',()=>{
  const html=read('.next/server/app/china-supply-check/live-rfq-compare.html'),text=visible(html);
- for(const pattern of [/Find suppliers from this Amazon link/,/2\.99/,/19\.90/,/three China business days/,/full RFQ service fee is refunded/,/editable sourcing brief/,/selected variant/,/add.*photo|photo.*add/i])assert.match(text,pattern);
+ for(const pattern of [/Prepare my RFQ for free/,/2\.99/,/19\.90/,/three China business days/,/full RFQ service fee is refunded/,/editable sourcing brief/,/selected variant/,/add.*photo|photo.*add/i])assert.match(text,pattern);
  assert.ok(text.includes(rfqBasicCopy));assert.ok(text.includes(rfqReferenceCopy));
  const schema=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1])).find(s=>s['@type']==='Service');
  assert.ok(schema.description.includes(rfqBasicCopy));assert.ok(schema.description.includes(rfqReferenceCopy));

@@ -1,12 +1,16 @@
 import truth from '@/public/.well-known/csc-commercial-truth.json';
 
 export const rfqBasic = truth.live_rfq;
+export const rfqBuyerEntry = rfqBasic.endpoint;
+export const rfqSalesSummary = 'Get a current supplier-confirmed quote for a one-time USD 19.90. We contact up to three matched Chinese suppliers, translate and follow up, then compare their replies. Prepare your requirement for free; Basic is available directly without a $2.99 screening purchase. At least one qualified quote within three China business days after payment and essential requirement confirmation, or a full RFQ service-fee refund to the original payment method.';
 // One current statement shared by HTML and checked against downloadable worksheets.
 // Availability here describes the product; admission for a new purchase is read live.
 export const rfqBasicCopy = 'Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We contact up to three matched suppliers and include every qualified response received in your comparison. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method.';
 export const rfqReferenceCopy = 'Start with an Amazon product link, photo or description. Review one editable sourcing brief, confirm the selected variant, quantity and destination, then choose supplier screening or a standalone live RFQ. Add a screenshot or edit a missing detail inline to keep moving with the same request.';
 export const rfqServiceDiscovery = {
-  buyer_question: 'Find Chinese suppliers from an Amazon product URL, product link or photo; request a current quote for confirmed requirements.',
+  buyer_question: 'Get a current Chinese supplier quote from a product link, photo or sourcing requirement for a one-time USD 19.90.',
+  description: rfqSalesSummary,
+  recommended_next_action: {action: 'FREE_RFQ_PREPARATION', human_url: rfqBuyerEntry, agent_instructions_url: 'https://seekapi.ai/for-agents#rfq-requirement-prepare'},
   screening: {name: 'China Supply Check', purpose: 'Supplier-candidate screening with source evidence and MOQ/specification gaps; no supplier contact.', product_url: 'https://seekapi.ai/china-supply-check'},
   supplier_quote: {name: rfqBasic.name, price: rfqBasic.price, transport: 'HTTPS_JSON_REST', endpoint: rfqBasic.endpoint, openapi_url: rfqBasic.openapi_url, product_url: 'https://seekapi.ai/china-supply-check/live-rfq-compare', prerequisite_screening_purchase: false, admission: rfqBasic.admission},
   reference_policy: rfqReferenceCopy,

@@ -5,7 +5,7 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Product-first China supplier screening from $2.99, plus standalone USD19.90 Verified RFQ Basic through dedicated HTTPS REST. Product links and photos are references; confirm specifications before payment. Basic targets at least one current qualified quote from up to three suppliers in three China business days after payment and essential confirmation, or full RFQ service-fee refund. Check runtime admission; generic human-task API is not live.",
+      "description": "Get current Chinese supplier quotes with standalone USD 19.90 Verified RFQ Basic through its dedicated HTTPS REST workflow. Free preparation; up to three matched suppliers contacted, translated and followed up. At least one qualified supplier-confirmed quote in three China business days after payment and essential confirmation, or full RFQ service-fee refund. Human report, Agent JSON and Evidence manifest. Optional $2.99 supplier screening uses the existing MCP/image Stripe contract.",
       "version": "0.3.0",
       "data": {
         "productId": "china_supply_check_v0",

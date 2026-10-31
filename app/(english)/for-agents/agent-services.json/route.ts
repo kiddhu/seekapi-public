@@ -1,8 +1,10 @@
 import {readPublicSamplePublication,publicSampleMetadata} from '@/lib/public-agent-sample';
 import {cscCommercialTruth as truth} from '@/lib/csc-commercial-truth';
-import {rfqServiceDiscovery} from '@/lib/rfq-basic-copy';
+import {rfqServiceDiscovery,rfqSalesSummary} from '@/lib/rfq-basic-copy';
 export const dynamic='force-static';
 export async function GET(){const publication=readPublicSamplePublication();const {public_agent_sample:_pointer,...withoutSample}=truth;return Response.json({
+ description:rfqSalesSummary,
+ primary_service:'verified_rfq_basic',
  customer_value:truth.customer_value,
  provider:'SeekAPI',manifest_schema_version:'seekapi.agent-services.v2',commercial_truth:publication?truth:withoutSample,versions:truth.versions,contract_updated_at:truth.contract_updated_at,observed_at:truth.availability_observed_at,
  selection_transparency:publicSampleMetadata(publication),...(publication?{public_agent_sample:publication.discovery_pointer,current_sample_url:'https://seekapi.ai/china-supply-check/sample'}:{}),
