@@ -16,6 +16,8 @@ Use the dedicated [Basic REST/OpenAPI](https://api.seekapi.ai/checkout/stripe/rf
 
 Basic supplier quotations use the dedicated REST service. The existing [MCP endpoint](https://api.seekapi.ai/mcp) provides optional $2.99 supplier screening. Try the [free Python/Node MCP quickstart](https://seekapi.ai/for-agents#free-quickstart), [download the examples](https://seekapi.ai/developers/free-mcp-quickstart.zip), or inspect [llms.txt](https://seekapi.ai/llms.txt) and the [Agent manifest](https://seekapi.ai/for-agents/agent-services.json).
 
+If your client cannot read the website’s machine guide, use the identical [published llms.txt source on GitHub](https://raw.githubusercontent.com/kiddhu/seekapi-public/main/public/llms.txt). It explains the products and entrypoints; live discovery remains the authority for current availability.
+
 ## Choose the result you need
 
 | Your next decision | Service | Start |
