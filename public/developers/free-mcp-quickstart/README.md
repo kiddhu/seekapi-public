@@ -40,11 +40,11 @@ These fixed-brief demonstrations are internal integration probes. Both live SDK 
 
 ## Understand what can be bought
 
-Fresh discovery is the authority for availability; a generic “payments live” flag is insufficient.
+The table records MCP output. For a new Stripe purchase, check the original buyer form’s current admission: open it and continue only when confirmation and payment are available. RFQ has its own current discover response; PAUSED or UNKNOWN stops new purchases. Free RFQ requirement preparation can continue during a purchase pause. Existing-order recovery remains separate and requires no repayment.
 
-| Input | Payment route | Observed state, 2026-10-31 | Next action |
+| Input | Payment route | Published MCP observation, 2026-10-31 | Next action |
 | --- | --- | --- | --- |
-| Human product image | Hosted Stripe card, USD 2.99 | LIVE | [Open image brief](https://api.seekapi.ai/checkout/stripe/image); review before paying |
+| Human product image | Hosted Stripe card, USD 2.99 | LIVE in published MCP contract | [Open image brief](https://api.seekapi.ai/checkout/stripe/image); check current purchase admission before confirming or paying |
 | Agent text/model | x402, 2.99 USDC on Base | LIVE | Free prepare, exact customer confirmation, then a separately authorized wallet client |
 | Agent product image | x402 | OFF | Do not send a paid image request |
 | Human text/model | Stripe | OFF | Do not assume text card checkout |
