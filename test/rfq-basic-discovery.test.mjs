@@ -17,7 +17,7 @@ test('real Agent GET offers standalone Basic while preserving other product rail
  const response=await GET();assert.equal(response.status,200);
  const m=await response.json(),rfq=m.verified_rfq_basic;
  assert.ok(rfq,'Basic needs its own purchasable contract, separate from manual human tasks');
- assert.equal(rfq.name,'SeekAPI Verified RFQ Basic');assert.equal(rfq.availability,'LIVE');
+ assert.equal(m.primary_service,'verified_rfq_basic');assert.equal(m.service_discovery.recommended_next_action.human_url,'https://api.seekapi.ai/checkout/stripe/rfq');assert.equal(rfq.name,'SeekAPI Verified RFQ Basic');assert.equal(rfq.availability,'LIVE');
  assert.deepEqual(rfq.price,{amount_minor:1990,currency:'USD'});
  assert.equal(rfq.payment,'STRIPE_HOSTED_CHECKOUT');assert.equal(rfq.requires_china_supply_check_purchase,false);
  assert.equal(rfq.max_distinct_suppliers,3);assert.equal(rfq.service_window.china_business_days,3);
@@ -59,7 +59,7 @@ test('llms discovery shares Basic terms and cannot advertise the retired invitat
 
 test('actual home points buyers to Basic without a contradictory private/future sales claim',()=>{
  const Home=HomeModule.GrowthHome;const html=renderToStaticMarkup(createElement(Home,{variant:'a'}));const text=visible(html);
- assert.match(text,/Find suppliers from this Amazon link/);assert.match(text,/SeekAPI Verified RFQ Basic/);assert.match(text,/three China business days/);assert.match(text,/full.*RFQ service fee.*refund/i);
+ const main=html.slice(html.indexOf('<main'));const firstAction=main.match(/<a[^>]*class="button"[^>]*href="([^"]+)"/);assert.equal(firstAction?.[1],'https://api.seekapi.ai/checkout/stripe/rfq');assert.match(text,/Prepare my RFQ for free/);assert.match(text,/SeekAPI Verified RFQ Basic/);assert.match(text,/three China business days/);assert.match(text,/full.*RFQ service fee.*refund/i);
  assert.doesNotMatch(text,/19\.90[^.]*not open|RFQ Compare[^.]*planned|planned 72.hour/i);
  assert.match(html,/href="\/china-supply-check\/live-rfq-compare"/);
 });

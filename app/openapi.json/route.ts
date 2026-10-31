@@ -3,7 +3,7 @@ import {cscCommercialTruth as truth} from '@/lib/csc-commercial-truth';
 import {rfqServiceDiscovery} from '@/lib/rfq-basic-copy';
 export const dynamic='force-static';
 export async function GET(){const publication=readPublicSamplePublication();return Response.json({
- openapi:'3.1.0',info:{title:'SeekAPI public evidence reads',version:'2.0.0',description:'Existing public HTTP reads. China Supply Check uses its mode-specific MCP/image Stripe contract. Standalone USD19.90 Verified RFQ Basic has a separate live HTTPS REST/OpenAPI contract linked below; the generic human-task API is not live.'},servers:[{url:'https://seekapi.ai'}],
+ openapi:'3.1.0',info:{title:'SeekAPI public evidence reads',version:'2.0.0',description:'Get current Chinese supplier quotes with standalone USD19.90 Verified RFQ Basic: supplier contact, translation, follow-up and comparison. Prepare free through the dedicated Basic HTTPS REST/OpenAPI linked below. This document describes public read endpoints; the Basic contract describes its transaction workflow. Optional USD2.99 supplier screening uses the existing MCP/image Stripe contract.'},servers:[{url:'https://seekapi.ai'}],
  'x-customer-value':truth.customer_value,
  'x-service-discovery':rfqServiceDiscovery,
  'x-selection-contract':truth.selection,'x-payments':truth.payments,'x-availability-observed-at':truth.availability_observed_at,
