@@ -96,4 +96,3 @@ if __name__ == '__main__':
     except Exception:
         # SDK exceptions can contain request details; do not print them to public logs.
         parser.exit(1, 'Free setup failed. Check connectivity/tool schema privately; do not pay or automatically retry.\n')
-

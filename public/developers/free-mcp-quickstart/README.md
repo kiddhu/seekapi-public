@@ -132,4 +132,3 @@ This additional test uses loopback HTTP only. It verifies the initialize/initial
 The tests exercise the free journey, blocked paid/pilot/private tools, missing tools, unknown effects, mode contradiction, unknown availability, changed buyer input, invalid digest, unexpected effects and transport failure without application retry. Use the explicit `--live` commands for an on-service free connection; the SDK transport regression itself stays on loopback. These checks do not demonstrate independent customer use, a paid purchase or delivery.
 
 Protocol reference: [MCP Streamable HTTP specification](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports). Current discovery and the public sample define their own dated scope. No certified integration, independent customer use, paid result or traffic gain is claimed by this package.
-
