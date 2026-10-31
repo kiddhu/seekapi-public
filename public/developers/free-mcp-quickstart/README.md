@@ -114,6 +114,10 @@ Keep BUYER_STATED, SOURCE_OBSERVED, DERIVED and UNKNOWN separate. Field evidence
 
 No screenshot, private image, customer brief, wallet, token or private result belongs in public logs. CLI output uses only the synthetic brief digest and public capability observations. Source/raw SDK exceptions are intentionally not printed by the examples.
 
+## Read the machine guide with an ordinary client
+
+If the website returns a client-specific 403, read the [published llms.txt source on GitHub](https://raw.githubusercontent.com/kiddhu/seekapi-public/main/public/llms.txt). The same default Python urllib client can read this copy with verified TLS; no browser User-Agent is needed. It is the source of the website guide, not another API or payment endpoint. Use the official SDK and fresh discovery for current service admission.
+
 ## Verify locally
 
 ```sh
