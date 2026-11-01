@@ -6,7 +6,8 @@ Target: at least one current qualified supplier-confirmed quote within three Chi
 
 - Free buyer preparation: https://api.seekapi.ai/checkout/stripe/rfq
 - Basic service and guarantee: https://seekapi.ai/china-supply-check/live-rfq-compare
-- Agent REST workflow: https://seekapi.ai/for-agents#rfq-requirement-prepare
+- Agent free MCP preparation: https://seekapi.ai/for-agents#rfq-free-mcp
+- Advanced REST workflow: https://seekapi.ai/for-agents#rfq-requirement-prepare
 - Basic OpenAPI: https://api.seekapi.ai/checkout/stripe/rfq?format=openapi
 - Free sourcing worksheets: https://seekapi.ai/sourcing
 
@@ -18,9 +19,13 @@ Human report, Agent JSON and Evidence manifest share the same facts, conditions,
 
 - Human entry: https://api.seekapi.ai/checkout/stripe/rfq
 - Basic scope: https://seekapi.ai/china-supply-check/live-rfq-compare
-- Agent instructions and complete synthetic no-image example: https://seekapi.ai/for-agents#rfq-requirement-prepare
+- Free Agent workflow and complete synthetic MCP example: https://seekapi.ai/for-agents#rfq-free-mcp
 - Current RFQ OpenAPI: https://api.seekapi.ai/checkout/stripe/rfq?format=openapi
-- REST endpoint: POST https://api.seekapi.ai/checkout/stripe/rfq. All JSON actions require Origin: https://api.seekapi.ai; x-seekapi-card-claim: 1; Content-Type: application/json. This is not a new MCP tool.
+- Free MCP preparation: connect a standard Streamable HTTP client to https://api.seekapi.ai/mcp. Call discover_rfq_basic_v0 with empty arguments for current availability and input_schema, then prepare_rfq_basic_v0 with {draft: RFQ_AGENT_INTENT_V2}. Free calls need no wallet, Cookie or API key and create no order, payment, supplier contact or paid sourcing.
+- These RFQ tools accept text and URL references; URLs are not fetched. Images remain available in the existing buyer form. With READY, save handoff.import_intent as private JSON, open handoff.continuation_url, expand Have a complete requirement from your Agent, and import the file. The buyer previews there; confirmation and one USD19.90 payment require current purchase admission. Free preparation and private preview remain available when new purchases are paused. Optional USD2.99 screening is not required.
+- Preserve the original draft on BUSY or rate limits; use a returned retry_after_seconds manually or continue in the buyer form. Never automatically retry payment. NEEDS_CLARIFICATION asks for missing facts; ELIGIBILITY_REVIEW_REQUIRED stops commercial progression.
+- Python RFQ client and installation: https://seekapi.ai/developers/free-mcp-quickstart/README.md . Download https://seekapi.ai/developers/free-mcp-quickstart.zip ; examples/rfq_prepare.py requires explicit --live and writes a new mode0600 private file only on READY. Its built-in demo is internally marked, not customer demand; --intent uses buyer requirements you are permitted to share.
+- REST endpoint: POST https://api.seekapi.ai/checkout/stripe/rfq. All JSON actions require Origin: https://api.seekapi.ai; x-seekapi-card-claim: 1; Content-Type: application/json. This is the existing REST interface for direct integrations and the buyer lifecycle.
 - Begin with action=discover. Current public_sales, admission_status and checkout_authorized gate new purchases. PAUSED stops session, confirm and checkout; free prepare_runtime and private buyer preview remain available. UNKNOWN or conflicting admission means preserve the private preview and check again before purchase. Before session/confirm/checkout, re-read discovery and continue only when admission_status=AVAILABLE, public_sales=true and checkout_authorized=true.
 - Free action=prepare_runtime accepts draft matching RFQ_AGENT_INTENT_V2. Provide text/model, complete specifications, quantity/unit, destination, must-have conditions and substitution policy. An Amazon product URL or other product link can be supplied as a reference alongside confirmed specifications. Optional URLs are reference material. No image is required. Optional Channel A processed VISUAL_REFERENCE uses the same client processing as China Supply Check, not original fidelity. Precision drawings and certificates are not supported for fidelity. If an image fails, continue with text.
 - Free preparation needs no Cookie, Bearer or capability token and has no order, charge, supplier contact or paid sourcing effects. READY means review the returned normalized requirement and digest; NEEDS_CLARIFICATION means supply only missing facts; ELIGIBILITY_REVIEW_REQUIRED means stop commercial flow.

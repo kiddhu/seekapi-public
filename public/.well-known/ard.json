@@ -5,7 +5,7 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Get current Chinese supplier quotes with standalone USD 19.90 Verified RFQ Basic through its dedicated HTTPS REST workflow. Free preparation; up to three matched suppliers contacted, translated and followed up. At least one qualified supplier-confirmed quote in three China business days after payment and essential confirmation, or full RFQ service-fee refund. Human report, Agent JSON and Evidence manifest. Optional $2.99 supplier screening uses the existing MCP/image Stripe contract.",
+      "description": "Get current Chinese supplier quotes with standalone USD 19.90 Verified RFQ Basic with free MCP requirement preparation and its existing buyer confirmation, payment and delivery workflow. Free preparation; up to three matched suppliers contacted, translated and followed up. At least one qualified supplier-confirmed quote in three China business days after payment and essential confirmation, or full RFQ service-fee refund. Human report, Agent JSON and Evidence manifest. Optional $2.99 supplier screening uses the existing MCP/image Stripe contract.",
       "version": "0.3.0",
       "data": {
         "productId": "china_supply_check_v0",
@@ -359,6 +359,25 @@
           "provenance": "PUBLICATION_SAFE_EXISTING_ACCEPTANCE_RESULT",
           "canonical_digest": "dd04660f524f8f96d68a8aedf5b9336c3c9bb412400d6e13a6d116249847e3d5",
           "wire_digest": "a350084e8fc47f9564e9fb1db39e7c0201fca0f3f8a3618698192829dde0fa6d"
+        },
+        "verifiedRfqBasicPreparation": {
+          "manifest": "https://seekapi.ai/for-agents/agent-services.json",
+          "json_pointer": "/rfq_free_preparation_mcp",
+          "instructions": "https://seekapi.ai/for-agents#rfq-free-mcp",
+          "transport": "STREAMABLE_HTTP_MCP",
+          "endpoint": "https://api.seekapi.ai/mcp",
+          "discover_tool": "discover_rfq_basic_v0",
+          "prepare_tool": "prepare_rfq_basic_v0",
+          "scope": "FREE_REQUIREMENT_PREPARATION",
+          "buyer_continuation": "https://api.seekapi.ai/checkout/stripe/rfq",
+          "payment": "BUYER_REVIEW_CONFIRMATION_THEN_STRIPE_HOSTED_CHECKOUT",
+          "service_price": {
+            "currency": "USD",
+            "amount_minor": 1990
+          },
+          "prerequisite_screening_purchase": false,
+          "service_price_applies_to": "RFQ_SERVICE_AFTER_BUYER_CONFIRMATION",
+          "free_preparation_when_new_purchases_paused": true
         }
       }
     }

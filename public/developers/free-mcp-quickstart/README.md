@@ -2,11 +2,43 @@
 
 **Need Chinese suppliers contacted and current quotes compared?** Choose **SeekAPI Verified RFQ Basic — USD 19.90 once**. Prepare and review your requirement for free; the $2.99 screening service is optional. We contact up to three matched suppliers and target at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation, or refund the full RFQ service fee to the original payment method.
 
-[Prepare a free RFQ](https://api.seekapi.ai/checkout/stripe/rfq) · [Basic Agent workflow and OpenAPI](https://seekapi.ai/for-agents#rfq-requirement-prepare)
+[Prepare a free RFQ](https://api.seekapi.ai/checkout/stripe/rfq) · [Free MCP preparation and buyer review](https://seekapi.ai/for-agents#rfq-free-mcp)
 
 **Need a supplier shortlist first?** The optional China Supply Check compares up to three distinct supplier candidates, matching evidence and observed listing prices. The Python and Node examples below connect to its existing free MCP discovery and preparation tools without a wallet or payment. Supplier screening and supplier-confirmed RFQ quotes are separate results.
 
 The examples use fixed synthetic input and stop before purchase. Capability observations below were read on **2026-10-31**; use live discovery for availability before a new purchase.
+
+## Prepare a free RFQ through MCP
+
+Connect your standard Streamable HTTP client to `https://api.seekapi.ai/mcp`. Call `discover_rfq_basic_v0` for current availability and its input schema, then `prepare_rfq_basic_v0` with your `draft`. These tools prepare the USD19.90 Basic requirement for free; no $2.99 screening purchase or wallet is needed.
+
+The Python example uses the ordinary official SDK transport. From this downloaded directory:
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r examples/requirements.txt
+.venv/bin/python examples/rfq_prepare.py --live --output seekapi-rfq-for-review.json
+```
+
+The client verifies that preparation costs USD0, the USD19.90 price belongs to the later buyer-confirmed service, and screening is optional before it prepares a requirement. The built-in example is synthetic and internally marked. The client writes a new private mode0600 JSON file only for `READY`; existing files are never replaced. Open the [buyer form](https://api.seekapi.ai/checkout/stripe/rfq), expand **Have a complete requirement from your Agent?**, import that file and preview the requirement. Confirmation and USD19.90 payment happen there when the buyer chooses to continue. The client never confirms, creates an order, pays or contacts suppliers.
+
+Free preparation remains available when new purchases are paused. You can save a ready private brief; the client labels `payment_available: false`, and the buyer waits for current sales admission before confirmation or payment.
+
+For buyer requirements you are permitted to share, use your private canonical `RFQ_AGENT_INTENT_V2` file:
+
+```sh
+.venv/bin/python examples/rfq_prepare.py --live --intent my-buyer-intent.json --output buyer-brief-for-review.json
+```
+
+Real `--intent` traffic is not internally marked. A saved copy of the packaged demo keeps its internal marker when reopened; do not pass other test briefs as customer traffic. Without `--live`, the script prints help and makes no request. Text and product URL references are accepted; use the buyer form for images. The MCP tools do not fetch a supplied product URL. Keep requirement files and buyer details out of public logs.
+
+On `NEEDS_CLARIFICATION`, supply the missing facts. On eligibility review, pause the commercial flow. On `BUSY` or a rate limit, preserve the original draft and follow any returned retry time manually or continue in the buyer form. There is no automatic retry or payment fallback. If the current server lacks the RFQ tools, the client says so and provides the original free buyer form without calling prepare.
+
+When a rate limit has no returned retry time, the example suggests a conservative five-minute manual wait. Its `CONSERVATIVE_MANUAL_GUIDANCE` label distinguishes that hint from a server response; it does not claim to know the exact quota reset.
+
+For repeat sourcing, start from your real buyer’s saved private intent. Review the specification revision, quantity and destination, then run the same command with a new output filename. Each new request gets a fresh preview and its own buyer confirmation. For status or delivery on an existing paid request, use its original private recovery link.
+
+The optional screening examples below remain a separate journey. Both services retain their own current admission and buyer approval requirements.
 
 ## Try free supplier-screening preparation in three minutes
 
@@ -131,7 +163,7 @@ After installing both pinned SDK dependencies above, verify the actual Python an
 .venv/bin/python examples/sdk_wire_test.py -v
 ```
 
-This additional test uses loopback HTTP only. It verifies the initialize/initialized handshake, the two free calls, the synthetic-test header on those MCP POST requests, the ordinary Python HTTPX User-Agent, and the absence of payment or authentication headers. The Node CLI runs unchanged; a test-only import redirects its fixed URL to loopback. No public service is called by this check.
+This additional test uses loopback HTTP only. It verifies the initialize/initialized handshake, each product’s exact free calls, RFQ private-file export and paused/rate-limited/invalid-effect recovery, the synthetic-test header on those MCP POST requests, the ordinary Python HTTPX User-Agent, and the absence of payment or authentication headers. The Node CLI runs unchanged; a test-only import redirects its fixed URL to loopback. No public service is called by this check.
 
 The tests exercise the free journey, blocked paid/pilot/private tools, missing tools, unknown effects, mode contradiction, unknown availability, changed buyer input, invalid digest, unexpected effects and transport failure without application retry. Use the explicit `--live` commands for an on-service free connection; the SDK transport regression itself stays on loopback. These checks do not demonstrate independent customer use, a paid purchase or delivery.
 
