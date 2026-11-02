@@ -57,3 +57,31 @@ test('the strict screening example stays separate from the current RFQ schema an
   assert.match(markdown, /RFQ uses RFQ_AGENT_INTENT_V2 and needs a destination confirmed by the buyer/);
   assert.ok(markdown.includes('[prepare a free RFQ using its current MCP schema and Python SDK](' + agentEntry + ')'));
 });
+
+test('decision worksheet heroes and Markdown introduce free RFQ before the long guidance', () => {
+  const decode = value => value.replaceAll('&quot;', '"').replaceAll('&#x27;', "'").replaceAll('&lt;', '<').replaceAll('&gt;', '>').replaceAll('&amp;', '&');
+  for (const guide of guides) {
+    const html = stripHidden(read('.next/server/app' + guide.canonical_path + '.html'));
+    const hero = html.match(/<section class="page-hero">([\s\S]*?)<\/section>/)?.[1];
+    assert.ok(hero, guide.canonical_path + ': visible hero missing');
+    const headingEnd = hero.indexOf('</h1>') + '</h1>'.length;
+    assert.ok(headingEnd > '</h1>'.length, guide.canonical_path + ': title missing');
+    const lead = [...hero.matchAll(/<p\b[^>]*>([\s\S]*?)<\/p>/g)].find(([, body]) => decode(visible(body)) === guide.direct_answer);
+    assert.ok(lead, guide.canonical_path + ': original guidance must remain');
+    const early = hero.slice(headingEnd, lead.index);
+    assert.match(visible(early), /Need current supplier quotes\?.*Prepare free.*USD 19\.90 live RFQ/);
+    const links = [...early.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/g)]
+      .map(([, attributes, label]) => ({href: attributes.match(/\bhref="([^"]*)"/)?.[1], label: visible(label), attributes}));
+    assert.deepEqual(links.map(link => link.href), [buyerEntry, agentEntry], guide.canonical_path);
+    assert.match(links[0].attributes, /\bclass="button"/);
+    assert.ok(links.every(link => /free RFQ|RFQ for free/.test(link.label)), guide.canonical_path);
+    const markdown = read('public' + guide.canonical_path + '.md');
+    assert.ok(markdown.startsWith('# ' + guide.h1 + '\n\n'), guide.canonical_path);
+    const leadStart = markdown.indexOf(guide.direct_answer);
+    assert.ok(leadStart > 0, guide.canonical_path + ': original Markdown guidance must remain');
+    const earlyMarkdown = markdown.slice(markdown.indexOf('\n\n') + 2, leadStart);
+    assert.match(earlyMarkdown, /Need current supplier quotes\?.*Prepare free.*USD 19\.90 live RFQ/);
+    assert.ok(earlyMarkdown.includes('[Prepare my RFQ for free](' + buyerEntry + ')'), guide.canonical_path);
+    assert.ok(earlyMarkdown.includes('[Agent: prepare a free RFQ with MCP](' + agentEntry + ')'), guide.canonical_path);
+  }
+});

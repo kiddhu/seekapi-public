@@ -1,5 +1,9 @@
 # Which PCB terminal-block fields must match before you compare offers?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Match the terminal block to the board interface before comparing offers. Record pitch, position count, pin layout, mounting process and connection direction, then retain electrical ratings with their stated conditions. A familiar housing or a nearby pitch is not evidence of a drop-in replacement. Use the maker drawing for the named reference and obtain engineering confirmation for any substitute; sourcing evidence alone cannot approve an electrical design.
 
 Materially updated: 2026-10-16

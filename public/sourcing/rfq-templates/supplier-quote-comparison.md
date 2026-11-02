@@ -1,5 +1,9 @@
 # How do you compare supplier replies on the same RFQ basis?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Keep each supplier reply beside the same version of your requirement. Compare the quoted variant, quantity, unit, currency, included charges and delivery basis before comparing totals. Mark missing or differently scoped lines rather than treating them as free. A reply can still need clarification, and no response remains no response. Reading or saving this worksheet does not contact suppliers, obtain quotations, purchase a service, or authorize payment. SeekAPI Verified RFQ Basic is a separate current USD 19.90 service, subject to current runtime admission and buyer confirmation.
 
 Materially updated: 2026-10-16
