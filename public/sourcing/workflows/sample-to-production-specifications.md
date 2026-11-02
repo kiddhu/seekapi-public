@@ -1,5 +1,9 @@
 # Which sample details need to stay fixed before a production order?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Keep a dated sample reference and the specification version it represents. Record which properties were measured, which were accepted and which still need evidence. Ask the supplier to identify any production change before comparing or approving it. A satisfactory sample does not establish an entire batch result, current stock or universal conformity. This worksheet organizes acceptance questions; it does not provide an inspection or production guarantee.
 
 Materially updated: 2026-10-16

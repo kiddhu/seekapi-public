@@ -1,5 +1,9 @@
 # How do you keep drawings and model revisions aligned across supplier evidence?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Keep the model reference and drawing revision visible beside each listing, sample or supplier reply. Record units and the dimensions the buyer requires; do not silently translate an approximate image into a measurement. When versions differ, identify the changed field and request clarification before treating them as equivalent. The checklist maintains evidence consistency and change history; it does not perform engineering approval or authorize production.
 
 Materially updated: 2026-10-16

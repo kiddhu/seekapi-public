@@ -1,5 +1,9 @@
 # How can a product photo become a precise China supplier search?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Use the photo to explain the main product you want, then state the quantity and specifications that must match. Keep visible features separate from dimensions, materials or performance that the image cannot prove. Review the editable interpretation before purchase. Similar appearance can help locate candidates; it does not prove an identical SKU, a factory relationship or that photographed accessories are included.
 
 Materially updated: 2026-10-16

@@ -1,5 +1,9 @@
 # Which delivery and cost fields must be explicit before comparing a quote?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Record the named delivery rule, edition and place with the quote, and ask which cost lines are included. Keep the allocation of delivery obligations and risk separate from a headline unit price. Missing freight, duties, taxes or other charges remain unknown until evidenced. This checklist improves questions and comparability; it is not a landed-cost quotation, a customs determination or a promise that a sourcing service handles shipment.
 
 Materially updated: 2026-10-16

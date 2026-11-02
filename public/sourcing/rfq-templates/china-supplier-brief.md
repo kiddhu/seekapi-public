@@ -1,5 +1,9 @@
 # What should a China supplier brief contain before a free preparation?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Write the product or model, quantity, unit and the requirements that would make an offer unacceptable. Say whether alternatives are allowed, and leave uncertain information explicit rather than guessing it. Review the prepared brief before a separate purchase. This checklist helps organize a requirement and later supplier questions; copying it neither sends an RFQ nor authorizes payment or supplier contact.
 
 Materially updated: 2026-10-16

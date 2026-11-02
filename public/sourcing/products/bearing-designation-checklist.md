@@ -1,5 +1,9 @@
 # Why is a bearing base number insufficient for a sourcing brief?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Record the full maker designation rather than only the base number. Keep the dimensional family, seals or shields, internal clearance and other specified features attached to that designation. Supplementary codes can be manufacturer-specific, so similar suffixes are not proof of interchangeability. Ask for the relevant maker documentation and approval of any substitute. A listing or marked box alone does not establish authenticity, stock or suitability for an application.
 
 Materially updated: 2026-10-16

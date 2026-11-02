@@ -1,5 +1,9 @@
 # What artwork and construction information should a packaging RFQ preserve?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Give each packaging supplier the same construction and artwork revision. State the finished internal dimensions, printing sides, color requirement and finishing, and ask which proof or sample is included before production approval. Keep setup, tooling and production quantities separate. A stock-box photograph or logo claim cannot establish that the requested printed package is approved, dimensionally suitable or available at your quantity.
 
 Materially updated: 2026-10-16

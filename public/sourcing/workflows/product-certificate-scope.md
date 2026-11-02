@@ -1,5 +1,9 @@
 # Does a certificate actually cover the product you plan to order?
 
+Need current supplier quotes? Prepare free, then choose a USD 19.90 live RFQ.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp)
+
 Read the certificate or mark as a scoped claim. Identify its issuer, file or reference number, named entity, product model and stated coverage, then use the issuer verification route where available. Record what you actually observed and leave unresolved matches open. A mark on an image is not a verified certificate, and one certificate cannot establish every product, destination requirement or manufacturing-site claim.
 
 Materially updated: 2026-10-16

@@ -12,6 +12,8 @@
 
 ## For AI Agents and developers
 
+For a reusable sourcing task, [review the China supplier quotes Skill and installation guide](https://github.com/kiddhu/seekapi-public/blob/e957bbb416569ffba00b36fb650fb87a396f8e36/skills/china-supplier-quotes/README.md). Install only at your explicit request, into your current project, with Node.js 22.20 or later. The Skill helps prepare a free RFQ; the buyer reviews the private brief and chooses whether to pay.
+
 Connect a standard Streamable HTTP client to `https://api.seekapi.ai/mcp`. Call `discover_rfq_basic_v0`, then `prepare_rfq_basic_v0` with your sourcing requirement. Save the returned private JSON and import it into the [buyer form](https://api.seekapi.ai/checkout/stripe/rfq) to review, confirm and pay USD19.90 once. [Free MCP instructions and Python client](https://seekapi.ai/for-agents#rfq-free-mcp). Keep buyer requirements and recovery credentials private; reopen existing authenticated results without repayment. Direct integrations can also use the [existing Basic REST/OpenAPI](https://api.seekapi.ai/checkout/stripe/rfq?format=openapi).
 
 Basic supplier contact and quotation delivery use the existing service after buyer confirmation and payment. Its MCP preparation is free. Separate China Supply Check MCP tools provide optional $2.99 supplier screening. Try the [free Python/Node MCP quickstart](https://seekapi.ai/for-agents#free-quickstart), [download the examples](https://seekapi.ai/developers/free-mcp-quickstart.zip), or inspect [llms.txt](https://seekapi.ai/llms.txt) and the [Agent manifest](https://seekapi.ai/for-agents/agent-services.json).
