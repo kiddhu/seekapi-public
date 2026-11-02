@@ -41,8 +41,8 @@
         "rejection_or_unknown": "Omission stays UNKNOWN; no visual claim of exactness."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when you have a product photo but still need a measurable requirement. Keep visible features in one column and dimensions, materials or performance supplied by the buyer in another.",
     "references": [
       {
@@ -95,8 +95,8 @@
         "rejection_or_unknown": "Do not add destination to the strict text object."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when you can describe the product and want a free, editable requirement draft. The synthetic example below shows the complete text-input shape; replace it with your own buyer-stated requirements and inspect current tool discovery before preparing.",
     "references": [
       {
@@ -171,8 +171,8 @@
         "rejection_or_unknown": "Do not reset an expired quotation date or invent delivery timing."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when two or more supplier replies need comparison. Compare the same requirement revision, quantity, currency and unit; record unanswered lines instead of choosing the smallest number in unlike offers.",
     "references": [
       {
@@ -230,8 +230,8 @@
         "rejection_or_unknown": "A supplier assertion cannot replace required buyer approval."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this before treating an accepted sample as approval for a production order. Record the approved reference, acceptance measurements and any later changes to material, tooling, process or packaging.",
     "references": [
       {
@@ -295,8 +295,8 @@
         "rejection_or_unknown": "Do not detach a voltage/current value from its conditions."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when a PCB terminal block must fit a specific board interface. Compare its drawing, pitch, pin layout, wire entry, mounting process and condition-scoped ratings before an engineer considers a substitute.",
     "references": [
       {
@@ -360,8 +360,8 @@
         "rejection_or_unknown": "A mockup is not automatically an approved production proof."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this before sending packaging artwork or approving a proof. Keep the dieline, artwork revision, dimensions, print process and finish tied to one proof, with a named person responsible for approval.",
     "references": [
       {
@@ -420,8 +420,8 @@
         "rejection_or_unknown": "No life, authenticity or interchangeability guarantee from a listing."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when a bearing number or photograph is too incomplete to establish the required variant. Record the full designation and maker-specific suffixes together with dimensions, closure, clearance and permitted substitution.",
     "references": [
       {
@@ -485,8 +485,8 @@
         "rejection_or_unknown": "Never create a new issue/expiry date to make a record current."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when someone supplies a certificate or mark as evidence for a product. Identify the issuer, document identifier, exact model and stated scope before deciding what the document supports.",
     "references": [
       {
@@ -550,8 +550,8 @@
         "rejection_or_unknown": "A supplier proposal is not buyer approval."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when a drawing, listing, sample or quotation refers to different revisions. Log discrepancies and get the buyer\u2019s decision on the exact revision before accepting a proposed match.",
     "references": [
       {
@@ -615,8 +615,8 @@
         "rejection_or_unknown": "No landed-price promise while required inputs are missing."
       }
     ],
-    "human_action": "/china-supply-check#image-supply-check",
-    "machine_action": "/for-agents#china-supply-check-mcp",
+    "human_action": "https://api.seekapi.ai/checkout/stripe/rfq",
+    "machine_action": "/for-agents#rfq-free-mcp",
     "fit": "Use this when quoted prices have different delivery terms or missing cost lines. Record the named rule, edition and place, then identify freight, insurance, tax or other amounts still needed for a comparable basis.",
     "references": [
       {

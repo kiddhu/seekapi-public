@@ -6,18 +6,20 @@ Materially updated: 2026-10-16
 
 ## When to use this checklist
 
+The strict fields and example in this worksheet are for optional China Supply Check screening. For current supplier quotes, [prepare a free RFQ using its current MCP schema and Python SDK](/for-agents#rfq-free-mcp). RFQ uses RFQ_AGENT_INTENT_V2 and needs a destination confirmed by the buyer; read discovery for its current fields.
+
 Use this when you can describe the product and want a free, editable requirement draft. The synthetic example below shows the complete text-input shape; replace it with your own buyer-stated requirements and inspect current tool discovery before preparing.
 
 Editorial decision aid: this does not obtain quotations, contact suppliers or approve product conformity.
 
-## Minimum buyer brief
+## Minimum buyer brief for optional screening
 
 Name the product or model, give a positive whole-number quantity and unit, list up to five explicit must-match attributes, and say whether substitution is allowed. Keep unsupported extra context outside the strict text draft; never infer it from a photograph.
 
 
-## Copy a complete synthetic text brief
+## Copy an optional screening text example
 
-This invented M6 washer brief is a format example, not a real order or offer. Replace the buyer-stated values, then review the returned prepared draft. Destination and other unsupported properties must not be added to this strict text draft.
+This invented M6 washer brief demonstrates free preparation for optional China Supply Check screening, not the RFQ input schema. Replace the buyer-stated values, then review the returned prepared draft. For this screening draft only, destination and other unsupported properties must not be added. For RFQ, use its current discovery/schema and the buyer-provided destination.
 
 ```json
 {
@@ -44,7 +46,9 @@ This invented M6 washer brief is a format example, not a real order or offer. Re
 }
 ```
 
-[Download the complete public fixture and capability observations](/developers/free-mcp-quickstart/fixtures/free-journey.json) · [Run and test this input with the official SDK examples](/for-agents#free-quickstart).
+[Download the optional screening fixture and capability observations](/developers/free-mcp-quickstart/fixtures/free-journey.json) · [Run this optional screening input with the official SDK examples](/for-agents#free-quickstart).
+
+### Optional screening text fields
 
 | Field | Buyer input | Evidence check | Reject or unknown |
 |---|---|---|---|
@@ -54,7 +58,7 @@ This invented M6 washer brief is a format example, not a real order or offer. Re
 | substitution policy | Boolean substitution_allowed for the strict text input. | Review permission before confirmation. | String false is not boolean false. |
 | extra human context | Destination/artwork notes remain outside unsupported text properties. | Use another supported input mode or human context when necessary. | Do not add destination to the strict text object. |
 
-## Exclude or resolve
+## Optional screening: exclude or resolve
 
 Reject absent required text fields, noninteger quantity, more than five hard constraints without prioritization or unsupported strict-schema properties.
 
@@ -72,6 +76,12 @@ BUYER_STATED is explicit buyer input; SOURCE_OBSERVED is a dated source; DERIVED
 
 ## Continue
 
-[Parent sourcing library](/sourcing) · [Related category](/sourcing/find-china-suppliers) · [Human: review a free image brief](/china-supply-check#image-supply-check) · [Agent: free discovery and preparation](/for-agents#china-supply-check-mcp) · [Runnable free SDK examples](/for-agents#free-quickstart) · [Public sample](/china-supply-check/sample)
+Need a current supplier quote for this requirement? Prepare and review your RFQ for free; supplier screening is optional.
 
-Preparation does not purchase or contact suppliers. Image Stripe USD 2.99 and text/model x402 2.99 USDC are separate paid routes; image x402 and text/model Stripe are OFF in the dated observation. Check live admission. Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We contact up to three matched suppliers and include every qualified response received in your comparison. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method. [Review Basic and prepare for free](https://seekapi.ai/china-supply-check/live-rfq-compare).
+Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We contact up to three matched suppliers and include every qualified response received in your comparison. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp) · [Free RFQ Python example](/for-agents#rfq-free-mcp) · [See the RFQ report format](/proof) · [Delivery and service-fee guarantee](/china-supply-check/live-rfq-compare)
+
+Prefer a shortlist first? [Review optional USD 2.99 supplier screening](/china-supply-check#image-supply-check) or [prepare a screening brief with MCP](/for-agents#china-supply-check-mcp). [Optional screening SDK examples](/for-agents#free-quickstart) · [Inspect the supplier screening sample](/china-supply-check/sample)
+
+[Parent sourcing library](/sourcing) · [Related category and existing guidance](/sourcing/find-china-suppliers)
