@@ -19,6 +19,7 @@ Human report, Agent JSON and Evidence manifest share the same facts, conditions,
 
 - Human entry: https://api.seekapi.ai/checkout/stripe/rfq
 - Basic scope: https://seekapi.ai/china-supply-check/live-rfq-compare
+- RFQ delivery format: https://seekapi.ai/proof#rfq-delivery-format . Synthetic format demonstration with the same requirement, quantity, MOQ, quote date/validity, delivery terms and explicit unknown costs; no supplier reply, current price or customer case. The separate historical China Supply Check sample illustrates screening, not a current RFQ quotation.
 - Free Agent workflow and complete synthetic MCP example: https://seekapi.ai/for-agents#rfq-free-mcp
 - Current RFQ OpenAPI: https://api.seekapi.ai/checkout/stripe/rfq?format=openapi
 - Free MCP preparation: connect a standard Streamable HTTP client to https://api.seekapi.ai/mcp. Call discover_rfq_basic_v0 with empty arguments for current availability and input_schema, then prepare_rfq_basic_v0 with {draft: RFQ_AGENT_INTENT_V2}. Free calls need no wallet, Cookie or API key and create no order, payment, supplier contact or paid sourcing.

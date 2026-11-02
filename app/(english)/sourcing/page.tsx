@@ -22,7 +22,7 @@ export default function Page() {
         <article className="feature-card"><h3><Link href="/sourcing/rfq-templates/supplier-quote-comparison">I need to compare supplier quotes</Link></h3><p>Put MOQ, price basis, delivery terms and specification differences on the same basis.</p></article>
         <article className="feature-card"><h3><Link href="/china-supply-check">I need a shortlist first</Link></h3><p>Use optional $2.99 supplier screening. Start Basic directly when you need suppliers contacted.</p></article>
       </div>
-      <p><Link href="/for-agents#rfq-requirement-prepare">Agent: prepare a free RFQ through REST</Link> · <Link href="/for-agents#free-quickstart">Developer: run the free MCP screening example</Link> · <Link href="/china-supply-check/sample">Inspect a supplier screening sample</Link></p>
+      <p><Link href="/for-agents#rfq-free-mcp">Agent: prepare a free RFQ with MCP</Link> · <Link href="/for-agents#free-quickstart">Developer: run the free MCP screening example</Link> · <Link href="/china-supply-check/sample">Inspect a supplier screening sample</Link></p>
     </div></section>
     <section className="section"><div className="container"><h2>Specification and evidence worksheets</h2><div className="grid-2">{guides.map(g => <article className="feature-card" key={g.id}><h3><Link href={g.canonical_path}>{g.h1}</Link></h3><p>{g.direct_answer}</p></article>)}</div>
       <h2>Category requirements</h2><p><Link href="/china-supply-check/fasteners">Fasteners</Link> · <Link href="/china-supply-check/connectors">Connectors</Link> · <Link href="/china-supply-check/packaging">Packaging</Link></p>

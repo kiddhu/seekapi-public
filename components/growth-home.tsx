@@ -61,10 +61,10 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <div className="growth-actions">
         <div className="button-row">
           <a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a>
-          {sampleAvailable?<Link className="text-link" href="/china-supply-check/sample">View a sample supplier result</Link>:null}
+          {variant==='a'?<Link className="text-link" href="/proof#rfq-delivery-format">See the RFQ delivery format</Link>:sampleAvailable?<Link className="text-link" href="/china-supply-check/sample">View a sample supplier result</Link>:null}
         </div>
         <p className="growth-availability">At least one current qualified quote in three China business days after payment and essential brief confirmation, or the full RFQ service fee is refunded. Buy Basic directly; $2.99 screening is optional.</p>
-        <Link className="growth-agent-link" href="/for-agents#rfq-requirement-prepare">Using an AI Agent? Prepare a free RFQ →</Link>
+        <Link className="growth-agent-link" href="/for-agents#rfq-free-mcp">Using an AI Agent? Prepare a free RFQ →</Link>
       </div>
     </div></section>
     <section className="section"><div className="container">
