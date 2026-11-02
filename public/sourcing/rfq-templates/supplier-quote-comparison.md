@@ -41,6 +41,12 @@ BUYER_STATED is explicit buyer input; SOURCE_OBSERVED is a dated source; DERIVED
 
 ## Continue
 
-[Parent sourcing library](/sourcing) · [Related category](/china-supply-check/listing-price-vs-quote) · [Human: review a free image brief](/china-supply-check#image-supply-check) · [Agent: free discovery and preparation](/for-agents#china-supply-check-mcp) · [Runnable free SDK examples](/for-agents#free-quickstart) · [Public sample](/china-supply-check/sample)
+Need a current supplier quote for this requirement? Prepare and review your RFQ for free; supplier screening is optional.
 
-Preparation does not purchase or contact suppliers. Image Stripe USD 2.99 and text/model x402 2.99 USDC are separate paid routes; image x402 and text/model Stripe are OFF in the dated observation. Check live admission. Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We contact up to three matched suppliers and include every qualified response received in your comparison. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method. [Review Basic and prepare for free](https://seekapi.ai/china-supply-check/live-rfq-compare).
+Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We contact up to three matched suppliers and include every qualified response received in your comparison. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method.
+
+[Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp) · [Free RFQ Python example](/for-agents#rfq-free-mcp) · [See the RFQ report format](/proof) · [Delivery and service-fee guarantee](/china-supply-check/live-rfq-compare)
+
+Prefer a shortlist first? [Review optional USD 2.99 supplier screening](/china-supply-check#image-supply-check) or [prepare a screening brief with MCP](/for-agents#china-supply-check-mcp). [Optional screening SDK examples](/for-agents#free-quickstart) · [Inspect the supplier screening sample](/china-supply-check/sample)
+
+[Parent sourcing library](/sourcing) · [Related category and existing guidance](/china-supply-check/listing-price-vs-quote)
