@@ -69,7 +69,7 @@ test('machine discovery links resolve and tool effects are classified honestly',
  assert.deepEqual(manifest.product_data_mcp.paid_effect_tools,['purchase_china_supply_check_v0','run_china_supply_check_v0']);
  assert.equal(manifest.product_data_mcp.image_input.stripe_status,'LIVE');assert.equal(manifest.product_data_mcp.image_input.x402_status,'OFF');
  assert.equal('completed_candidate_count'in manifest.product_data_mcp.image_input,false);
- assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.10');
+ assert.equal(manifest.official_mcp_registry.registry_package_version,'0.1.11');
  for(const token of ['.well-known/ard.json','registry.modelcontextprotocol.io','/sample.json'])assert.ok(read('public/llms.txt').includes(token));
  assert.match(read('public/llms.txt'),/do not pay again/i);
 });
