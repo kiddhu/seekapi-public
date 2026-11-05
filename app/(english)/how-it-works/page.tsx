@@ -5,14 +5,14 @@ import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
   'How to Get a China Supplier Quote — $19.90 RFQ | SeekAPI',
-  'Prepare a sourcing brief free, confirm requirements and pay $19.90 once. We contact up to 3 suppliers; a qualified quote in 3 China business days after payment and brief confirmation, or your RFQ fee back.',
+  'Prepare a sourcing brief free, confirm requirements and pay $19.90 once. Receive up to 3 matching suppliers; a qualified quote in 3 China business days after payment and brief confirmation, or your RFQ fee back.',
   '/how-it-works',
 );
 
 const steps = [
   {title: 'Prepare your requirement for free', body: 'Start with a product link, photo or written requirement. Add the specifications, quantity, unit and destination that matter to your purchase.'},
   {title: 'Review, confirm and pay $19.90 once', body: 'Edit the brief until it matches your requirement. Confirm it, then approve the one-time Verified RFQ Basic service fee through Stripe Hosted Checkout. Buy Basic directly; supplier screening is optional.'},
-  {title: 'We contact and follow up with suppliers', body: 'SeekAPI contacts up to three distinct matched Chinese suppliers, translates your requirements and follows up on their replies.'},
+  {title: 'We contact and follow up with suppliers', body: 'SeekAPI screens candidates, handles inquiries in Chinese, translates your requirements and follows up on replies. Your delivered comparison covers up to three matching Chinese suppliers.'},
   {title: 'Compare the supplier-confirmed quotes', body: 'Read your Human report, Agent JSON and Evidence manifest. Compare price, quantity, MOQ, specification fit, validity and commercial terms on the same requirement.'},
 ];
 
@@ -21,7 +21,7 @@ export default function Page() {
     <section className="page-hero"><div className="container">
       <Eyebrow>SeekAPI Verified RFQ Basic · USD 19.90 once</Eyebrow>
       <h1>One brief. Supplier contact. A current quote.</h1>
-      <p>Give us the product and the requirements you need quoted. We contact up to three matched Chinese suppliers, translate and follow up, then compare their replies. Preparation is free; you review the requirement before payment.</p>
+      <p>Give us the product and the requirements you need quoted. We deliver up to three matching Chinese suppliers with a comparison of received quotations. We screen candidates, handle inquiries in Chinese, translate replies and follow up. Preparation is free; you review the requirement before payment.</p>
       <div className="button-row"><a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a><Link className="text-link" href="/china-supply-check/live-rfq-compare">Service details · $19.90</Link></div>
     </div></section>
     <section className="section"><div className="container">

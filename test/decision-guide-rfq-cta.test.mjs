@@ -84,7 +84,7 @@ test('free RFQ entry precedes long worksheets and Agent entrypoints link the ins
     assert.ok(earlyMarkdown.includes('[Prepare my RFQ for free](' + buyerEntry + ')'), guide.canonical_path);
     assert.ok(earlyMarkdown.includes('[Agent: prepare a free RFQ with MCP](' + agentEntry + ')'), guide.canonical_path);
   }
-  const skillGuide = 'https://github.com/kiddhu/seekapi-public/blob/e957bbb416569ffba00b36fb650fb87a396f8e36/skills/china-supplier-quotes/README.md';
+  const skillGuide = 'https://github.com/kiddhu/seekapi-public/blob/main/skills/china-supplier-quotes/README.md';
   assert.ok(read('README.md').includes('](' + skillGuide + ')'));
   const agentHtml = stripHidden(read('.next/server/app/for-agents.html'));
   assert.ok(agentHtml.includes('href="' + skillGuide + '"'));

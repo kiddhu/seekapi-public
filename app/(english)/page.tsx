@@ -3,7 +3,7 @@ import { pageMetadata } from '@/lib/site';
 
 export const metadata = pageMetadata(
   'China Supplier Quotes — $19.90 Verified RFQ | SeekAPI',
-  'Get a current Chinese supplier quote for $19.90 once. Up to 3 suppliers contacted; a qualified quote within 3 China business days after payment and brief confirmation, or your RFQ fee back. Prepare free.',
+  'Get a current Chinese supplier quote for $19.90 once. Up to 3 matching suppliers delivered; a qualified quote within 3 China business days after payment and brief confirmation, or your RFQ fee back. Prepare free.',
   '/',
 );
 

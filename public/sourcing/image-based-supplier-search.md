@@ -46,7 +46,7 @@ BUYER_STATED is explicit buyer input; SOURCE_OBSERVED is a dated source; DERIVED
 
 Need a current supplier quote for this requirement? Prepare and review your RFQ for free; supplier screening is optional.
 
-Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We contact up to three matched suppliers and include every qualified response received in your comparison. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method.
+Choose a standalone USD 19.90 live RFQ with no $2.99 prerequisite. We deliver up to three matching suppliers with a comparison of received quotations. We screen candidates, handle inquiries in Chinese, translate replies and follow up. You are guaranteed at least one qualified supplier-confirmed quotation within three China business days after payment and brief confirmation—or the full RFQ service fee is refunded to your original payment method.
 
 [Prepare my RFQ for free](https://api.seekapi.ai/checkout/stripe/rfq) · [Agent: prepare a free RFQ with MCP](/for-agents#rfq-free-mcp) · [Free RFQ Python example](/for-agents#rfq-free-mcp) · [See the RFQ report format](/proof) · [Delivery and service-fee guarantee](/china-supply-check/live-rfq-compare)
 

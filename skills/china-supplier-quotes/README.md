@@ -2,7 +2,7 @@
 
 Turn a buying requirement into a free, editable brief, then let the buyer review it and choose a one-time **USD19.90 Verified RFQ Basic** service. No prior USD2.99 screening purchase is needed.
 
-SeekAPI contacts up to three matched Chinese suppliers and targets at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation, or refunds the RFQ service fee to the original payment method. Results include a human report, Agent JSON and an evidence list.
+SeekAPI delivers up to three matching Chinese suppliers and targets at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation, or refunds the RFQ service fee to the original payment method. Results include a human report, Agent JSON and an evidence list.
 
 [Prepare for free in the buyer form](https://api.seekapi.ai/checkout/stripe/rfq) · [MCP and official-SDK guide](https://seekapi.ai/for-agents#rfq-free-mcp)
 

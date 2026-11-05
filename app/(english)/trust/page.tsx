@@ -9,7 +9,7 @@ export default function Page() {
   return <PageShell>
     <section className="page-hero"><div className="container">
       <Eyebrow>Clear scope. Clear delivery. Clear remedy.</Eyebrow><h1>Know what your $19.90 RFQ will deliver.</h1>
-      <p>SeekAPI contacts up to three matched Chinese suppliers, translates and follows up, then compares their replies against your confirmed requirement. Prepare for free and review the exact brief before approving payment.</p>
+      <p>SeekAPI delivers up to three matching Chinese suppliers with a comparison of received quotations against your confirmed requirement. We screen candidates, handle inquiries in Chinese, translate replies and follow up. Prepare for free and review the exact brief before approving payment.</p>
       <div className="button-row"><a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a><Link className="text-link" href="/china-supply-check/live-rfq-compare">Read the Basic service</Link></div>
     </div></section>
     <section className="section" id="payments"><div className="container">
