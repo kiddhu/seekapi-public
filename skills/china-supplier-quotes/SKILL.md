@@ -4,14 +4,14 @@ description: Prepare a free buyer-reviewed sourcing brief and request current Ch
 compatibility: An MCP-capable client with HTTPS access, or a browser for the free buyer form. The optional existing Python example uses Python 3.10+ and the official MCP SDK.
 metadata:
   author: SeekAPI
-  version: "0.1.0"
+  version: "0.1.1"
   homepage: "https://seekapi.ai/for-agents#rfq-free-mcp"
   mcp-endpoint: "https://api.seekapi.ai/mcp"
 ---
 
 # Get current Chinese supplier quotes
 
-Help the buyer turn a product requirement into a free, editable sourcing brief, then hand it to them for review. SeekAPI Verified RFQ Basic costs **USD19.90 once** after buyer confirmation. It contacts **up to three matched Chinese suppliers** and targets **at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation**, or refunds the RFQ service fee to the original payment method. Deliverables are a human report, Agent JSON and an evidence list. **USD2.99 supplier screening is optional.**
+Help the buyer turn a product requirement into a free, editable sourcing brief, then hand it to them for review. SeekAPI Verified RFQ Basic costs **USD19.90 once** after buyer confirmation. It delivers **up to three matching Chinese suppliers** and targets **at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation**, or refunds the RFQ service fee to the original payment method. Deliverables are a human report, Agent JSON and an evidence list. **USD2.99 supplier screening is optional.**
 
 The free entry is [Prepare a free RFQ](https://api.seekapi.ai/checkout/stripe/rfq). The Agent connection is Streamable HTTP at `https://api.seekapi.ai/mcp`.
 

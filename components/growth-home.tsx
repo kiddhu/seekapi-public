@@ -9,7 +9,7 @@ export type HomepageVariant = 'a' | 'b' | 'c';
 const variants = {
   a: {
     heading: 'Get a current Chinese supplier quote for $19.90.',
-    lead: 'Send a product link, photo or sourcing requirement. We contact up to three matched suppliers, translate and follow up, then compare their replies. One-time USD 19.90. Prepare your sourcing brief for free and review it before payment.',
+    lead: 'Send a product link, photo or sourcing requirement. We deliver up to three matching suppliers with a comparison of received quotations. We screen candidates, handle inquiries in Chinese, translate replies and follow up. One-time USD 19.90. Prepare your sourcing brief for free and review it before payment.',
   },
   b: {
     heading: 'Turn a China sourcing brief into an evidence-screened shortlist.',
@@ -71,7 +71,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <SectionTitle eyebrow="How Verified RFQ Basic works" title="From your product requirement to a current supplier quote." />
       <div className="grid-3">
         <FeatureCard index="01" title="Prepare for free" body="Start with a product link, photo or description. Review the product, must-have specifications, quantity and destination in one editable brief." />
-        <FeatureCard index="02" title="Confirm and pay $19.90 once" body="Approve your exact requirement before payment. We contact up to three matched suppliers, translate and follow up on their replies." />
+        <FeatureCard index="02" title="Confirm and pay $19.90 once" body="Approve your exact requirement before payment. We screen candidates, handle inquiries in Chinese, translate replies and follow up. Receive up to three matching suppliers with quotation comparison." />
         <FeatureCard index="03" title="Compare supplier-confirmed quotes" body="Receive a Human report, Agent JSON and Evidence manifest. At least one qualified quote within three China business days after payment and essential confirmation, or your RFQ service fee back." />
       </div>
       <div className="link-list"><Link className="text-link" href="/how-it-works">See the RFQ steps and deliverables</Link><Link className="text-link" href="/sourcing">Use a sourcing brief or quote-comparison worksheet</Link></div>
@@ -88,7 +88,7 @@ export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
       <SectionTitle eyebrow="Choose your next decision" title="Current supplier quotes, with optional screening first." body="Choose standalone Verified RFQ Basic when you need suppliers contacted and current replies compared. China Supply Check is available when your next decision is which supplier candidates to shortlist." />
       <div className="grid-3">
         <FeatureCard index="01 · LIVE" title="Find and screen suppliers" body="A successful 2.99 USDC China Supply Check returns three distinct candidates worth advancing to RFQ, with source evidence, price basis, MOQ fit and field-specific gaps. MCP discovery is available; check current admission for each payment mode." />
-        <FeatureCard index="02 · BASIC RFQ" title="Contact and compare" body="SeekAPI Verified RFQ Basic is USD 19.90 through standalone Stripe Hosted Checkout, with no $2.99 prerequisite. Contact up to three distinct suppliers for a current quote bound to your confirmed requirement." />
+        <FeatureCard index="02 · BASIC RFQ" title="Contact and compare" body="SeekAPI Verified RFQ Basic is USD 19.90 through standalone Stripe Hosted Checkout, with no $2.99 prerequisite. Receive up to three matching suppliers with current quotation comparison bound to your confirmed requirement." />
         <FeatureCard index="03 · SCOPE REVIEW" title="Samples and procurement execution" body="Ask for a defined China-side assignment: sample or production follow-up, supplier communication, quality coordination and export or logistics handoffs. Delivery, price and responsibility are agreed per task; no automatic execution API is live." />
       </div>
       <div className="link-list"><Link className="text-link" href="/for-agents#agent-human-desk">Agent handoff and current interface status</Link><Link className="text-link" href="/china-supply-chain">Explore China-side procurement work</Link><Link className="text-link" href="/start?audience=agent">Prepare a human-reviewed request</Link></div>

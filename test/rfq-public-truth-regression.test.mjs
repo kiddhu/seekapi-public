@@ -9,6 +9,8 @@ const root=new URL('../',import.meta.url);
 const read=p=>readFileSync(new URL(p,root),'utf8');
 const visible=s=>s.replace(/<script[\s\S]*?<\/script>/g,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').replaceAll('&quot;','"').replaceAll('&#x27;',"'").replaceAll('&amp;','&');
 const obsolete=[
+ /contacts? up to\s*(?:\*\*)?(?:three|3)\s+(?:(?:distinct|matched|matching|Chinese)\s+)*suppliers/i,
+ /up to\s*(?:three|3)\s+(?:(?:distinct|matched|matching|Chinese)\s+)*suppliers contacted/i,
  /The worksheet does not obtain quotes or make the proposed RFQ service purchasable\./i,
  /(?:proposed|planned|future)\s+(?:USD\s*|\$)?19\.90.{0,160}(?:not\s+(?:currently\s+)?open|unavailable|would)/i,
  /(?:Live RFQ Compare|Verified RFQ Basic|RFQ service)\s+(?:is\s+|remains\s+)?(?:planned|not\s+(?:currently\s+)?open for purchase|not live|unavailable|closed)/i,
@@ -18,6 +20,8 @@ function currentTruth(text,label){for(const pattern of obsolete)assert.doesNotMa
 function* files(dir){for(const entry of readdirSync(new URL(dir,root),{withFileTypes:true})){const p=path.posix.join(dir,entry.name);if(entry.isDirectory())yield*files(p);else yield p;}}
 
 test('the real pre-fix contradiction is rejected while generic human API OFF stays valid',()=>{
+ assert.throws(()=>currentTruth('We contact up to three matched Chinese suppliers.','old product definition'));
+ currentTruth('Delivery: up to three matching suppliers. Legacy runtime contact guard remains 3.','separate scopes');
  assert.throws(()=>currentTruth('The proposed $19.90 RFQ service is not open for purchase.','old worksheet'));
  assert.throws(()=>currentTruth('Live RFQ Compare remains planned.','old how-it-works'));
  assert.throws(()=>currentTruth('The future USD 19.90 Live RFQ Compare would use your RFQ.','old page'));
@@ -33,11 +37,12 @@ test('all current built HTML, public Markdown and machine projections reject ret
  }
  for(const p of files('public'))if(/\.(md|json|txt)$/.test(p)){currentTruth(read(p),p);if(p.endsWith('.md'))md++;}
  currentTruth(read('README.md'),'README');
+ for(const p of files('skills/china-supplier-quotes'))if(p.endsWith('.md'))currentTruth(read(p),p);
  assert.ok(html>50);assert.ok(md>=10);assert.ok(json>=2);
 });
 test('downloaded worksheets and rendered HTML share the complete current Basic terms',()=>{
  assert.equal(rfqBasic.availability,'LIVE');assert.equal(rfqBasic.price.amount_minor,1990);
- assert.equal(rfqBasic.max_distinct_suppliers,3);assert.equal(rfqBasic.success_target.minimum_current_qualified_quotes,1);
+ assert.equal(rfqBasic.max_delivered_suppliers,3);assert.equal(rfqBasic.max_distinct_suppliers,3);assert.equal(rfqBasic.success_target.minimum_current_qualified_quotes,1);
  assert.equal(rfqBasic.service_window.china_business_days,3);
  const guides=JSON.parse(read('data/sourcing-decisions.json'));
  for(const g of guides){

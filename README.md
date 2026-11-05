@@ -2,7 +2,7 @@
 
 **SeekAPI Verified RFQ Basic** turns a product link, photo or written requirement into supplier contact and current quotation comparison for a **one-time USD 19.90**.
 
-- We contact up to **three matched Chinese suppliers**, translate and follow up.
+- We deliver up to **three matching Chinese suppliers** with a comparison of received quotations. We screen candidates, handle inquiries in Chinese, translate replies and follow up.
 - Target: **at least one current qualified supplier-confirmed quote within three China business days** after payment and essential requirement confirmation.
 - If that target is missed, the **full RFQ service fee is refunded to the original payment method**.
 - Receive a **Human report, Agent JSON and Evidence manifest**.
@@ -12,7 +12,7 @@
 
 ## For AI Agents and developers
 
-For a reusable sourcing task, [review the China supplier quotes Skill and installation guide](https://github.com/kiddhu/seekapi-public/blob/e957bbb416569ffba00b36fb650fb87a396f8e36/skills/china-supplier-quotes/README.md). Install only at your explicit request, into your current project, with Node.js 22.20 or later. The Skill helps prepare a free RFQ; the buyer reviews the private brief and chooses whether to pay.
+For a reusable sourcing task, [review the China supplier quotes Skill and installation guide](https://github.com/kiddhu/seekapi-public/blob/main/skills/china-supplier-quotes/README.md). Install only at your explicit request, into your current project, with Node.js 22.20 or later. The Skill helps prepare a free RFQ; the buyer reviews the private brief and chooses whether to pay.
 
 Connect a standard Streamable HTTP client to `https://api.seekapi.ai/mcp`. Call `discover_rfq_basic_v0`, then `prepare_rfq_basic_v0` with your sourcing requirement. Save the returned private JSON and import it into the [buyer form](https://api.seekapi.ai/checkout/stripe/rfq) to review, confirm and pay USD19.90 once. [Free MCP instructions and Python client](https://seekapi.ai/for-agents#rfq-free-mcp). Keep buyer requirements and recovery credentials private; reopen existing authenticated results without repayment. Direct integrations can also use the [existing Basic REST/OpenAPI](https://api.seekapi.ai/checkout/stripe/rfq?format=openapi).
 

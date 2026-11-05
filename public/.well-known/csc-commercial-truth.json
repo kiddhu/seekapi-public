@@ -127,7 +127,7 @@
     "availability": "LIVE",
     "payment": "STRIPE_HOSTED_CHECKOUT",
     "requires_china_supply_check_purchase": false,
-    "service": "Supplier contact, translation, follow-up and current qualified quotation comparison",
+    "service": "Delivery of up to three matching suppliers with quotation comparison; candidate screening, inquiries in Chinese, translation and follow-up",
     "contact_unlock_fee": false,
     "endpoint": "https://api.seekapi.ai/checkout/stripe/rfq",
     "human_entry": "https://api.seekapi.ai/checkout/stripe/rfq",
@@ -213,7 +213,21 @@
       }
     ],
     "recovery": "On an interrupted or UNKNOWN payment operation, reconcile the same order and Checkout first; do not create another order or pay again. Existing results require no repayment. Use the current OpenAPI for recovery eligibility; do not blindly retry a charge or expired Checkout.",
-    "availability_authority": "Current runtime admission. This contract describes the Basic service; a paused or unhealthy service must not take a new purchase."
+    "availability_authority": "Current runtime admission. This contract describes the Basic service; a paused or unhealthy service must not take a new purchase.",
+    "max_delivered_suppliers": 3,
+    "max_distinct_suppliers_compatibility": {
+      "deprecated": true,
+      "scope": "CURRENT_RUNTIME_CONTACT_GUARD_NOT_PRODUCT_DELIVERY",
+      "product_scope_field": "max_delivered_suppliers",
+      "authority": "Current runtime contact authorization remains unchanged; this website update does not expand it."
+    },
+    "fulfillment_scope": {
+      "scanning_and_contact": "Fulfillment process within the confirmed requirement, case authorization and available service resources.",
+      "fixed_scan_count": null,
+      "unlimited_contacts_included": false,
+      "existing_accepted_orders": "Keep their accepted terms."
+    },
+    "delivery_scope_authority": "Website product definition. Runtime MCP/REST response schemas and supplier-contact authorization are unchanged."
   },
   "public_agent_sample": {
     "human_url": "https://seekapi.ai/china-supply-check/sample",
@@ -244,6 +258,13 @@
     "rfq_remedy": "FULL_RFQ_SERVICE_FEE_REFUND",
     "factory_matching": "FACTORY_FIRST_WITH_EVIDENCE",
     "amazon_direct_import": "PENDING_RUNTIME_ACCOUNT_AND_RELEASE_ACCEPTANCE",
-    "continuation": "Preserve your link and entered details; edit inline or add a product photo."
+    "continuation": "Preserve your link and entered details; edit inline or add a product photo.",
+    "rfq_delivered_suppliers_max": 3,
+    "rfq_supplier_contacts_max_compatibility": {
+      "deprecated": true,
+      "scope": "CURRENT_RUNTIME_CONTACT_GUARD_NOT_PRODUCT_DELIVERY",
+      "product_scope_field": "rfq_delivered_suppliers_max",
+      "authority": "Retained for legacy consumers; read current runtime for contact authorization."
+    }
   }
 }

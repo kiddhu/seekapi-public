@@ -39,4 +39,6 @@ Review and confirmation happen before the buyer chooses payment in the official 
 | Supplier source and confirmation evidence | Shows which terms the supplier actually confirmed |
 | Open questions and exclusions | Preserves what still needs buyer or supplier confirmation |
 
-SeekAPI Verified RFQ Basic contacts up to three matched Chinese suppliers. Its target is at least one current qualified supplier-confirmed quote within three China business days after payment and essential confirmation, or refund of the RFQ service fee. The human report, Agent JSON and evidence list should describe the same result.
+SeekAPI Verified RFQ Basic delivers up to three matching Chinese suppliers with a comparison of received quotations. Its target is at least one current qualified supplier-confirmed quote within three China business days after payment and essential confirmation, or refund of the RFQ service fee. The human report, Agent JSON and evidence list should describe the same result.
+
+Supplier scanning and contact are fulfillment steps within the confirmed requirement and authorized service resources. Up to three matching suppliers are delivered; this does not promise unlimited contact or a fixed scan count. Existing accepted orders keep their accepted terms.

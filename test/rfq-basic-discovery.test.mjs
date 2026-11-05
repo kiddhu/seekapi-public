@@ -87,7 +87,7 @@ test('real Agent GET explains admission, exact confirmation and free private res
 test('actual Human and Agent rendered pages agree with the machine Basic contract',()=>{
  for(const Page of [BasicPage,AgentsPage]){
   const html=renderToStaticMarkup(createElement(Page)),text=visible(html);
-  for(const pattern of [/SeekAPI Verified RFQ Basic/,/19\.90/,/three (?:distinct|matched) suppliers|3 distinct suppliers/i,/three China business days|3 China business days/i,/qualified.*quot|quot.*qualified/i,/full.*service.fee.*refund|refund.*full.*service.fee/i,/Human.*Agent.*Evidence/i,/no.*\$2\.99.*(?:purchase|prerequisite)|without.*\$2\.99/i,/text.*continue|continue.*text/i])assert.match(text,pattern);
+  for(const pattern of [/SeekAPI Verified RFQ Basic/,/19\.90/,/up to three matching (?:Chinese )?suppliers/i,/three China business days|3 China business days/i,/qualified.*quot|quot.*qualified/i,/full.*service.fee.*refund|refund.*full.*service.fee/i,/Human.*Agent.*Evidence/i,/no.*\$2\.99.*(?:purchase|prerequisite)|without.*\$2\.99/i,/text.*continue|continue.*text/i])assert.match(text,pattern);
   assert.doesNotMatch(text,/paid RFQ not open|RFQ service remains closed|no live RFQ checkout|planned USD ?19\.90|service is not open for purchase/i);
   assert.match(html,/https:\/\/api\.seekapi\.ai\/checkout\/stripe\/rfq/);
  }
@@ -121,4 +121,24 @@ test('an Agent following the deprecated ARD RFQ field reaches the same dedicated
  assert.equal(target.availability,'LIVE');assert.equal(target.admission.action,'discover');
  assert.equal('availability'in legacy,false);assert.equal('price_usd'in legacy,false);
  assert.doesNotMatch(JSON.stringify(legacy),/FUTURE_NOT_ENABLED|not open for purchase/);
+});
+
+// Product delivery and the unchanged legacy runtime guard are separate contracts.
+test('Basic delivery ceiling is explicit without reinterpreting the legacy contact guard', async () => {
+ const truth=JSON.parse(read('public/.well-known/csc-commercial-truth.json'));
+ const manifest=await(await GET()).json();
+ assert.equal(truth.live_rfq.max_delivered_suppliers,3);
+ assert.equal(truth.customer_value.rfq_delivered_suppliers_max,3);
+ assert.equal(truth.live_rfq.max_distinct_suppliers,3);
+ assert.equal(truth.customer_value.rfq_supplier_contacts_max,3);
+ for(const metadata of [truth.live_rfq.max_distinct_suppliers_compatibility,truth.customer_value.rfq_supplier_contacts_max_compatibility]){
+  assert.equal(metadata.deprecated,true);
+  assert.equal(metadata.scope,'CURRENT_RUNTIME_CONTACT_GUARD_NOT_PRODUCT_DELIVERY');
+ }
+ assert.equal(truth.live_rfq.fulfillment_scope.unlimited_contacts_included,false);
+ assert.equal(truth.live_rfq.fulfillment_scope.fixed_scan_count,null);
+ assert.deepEqual(manifest.verified_rfq_basic,truth.live_rfq);
+ assert.deepEqual(manifest.customer_value,truth.customer_value);
+ const ard=JSON.parse(read('public/.well-known/ard.json'));
+ assert.deepEqual(ard.entries[0].data.commercialTruth,truth);
 });

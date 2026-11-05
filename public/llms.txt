@@ -1,6 +1,6 @@
 # SeekAPI — current Chinese supplier quotes for USD 19.90
 
-SeekAPI Verified RFQ Basic gets current supplier-confirmed quotations for a one-time USD 19.90. Send a product link, photo or written sourcing requirement. We contact up to three matched Chinese suppliers, translate and follow up, then compare their replies. Prepare your brief for free and review it before payment. Basic is available directly without a $2.99 screening purchase.
+SeekAPI Verified RFQ Basic gets current supplier-confirmed quotations for a one-time USD 19.90. Send a product link, photo or written sourcing requirement. We deliver up to three matching Chinese suppliers with a comparison of received quotations. We screen candidates, handle inquiries in Chinese, translate replies and follow up. Prepare your brief for free and review it before payment. Basic is available directly without a $2.99 screening purchase.
 
 Target: at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation, or a full refund of this RFQ service fee to the original payment method. Results include a Human report, Agent JSON and Evidence manifest.
 
@@ -13,7 +13,7 @@ Target: at least one current qualified supplier-confirmed quote within three Chi
 
 ## SeekAPI Verified RFQ Basic — USD 19.90
 
-Standalone Stripe Hosted Checkout: no $2.99 purchase is required. Contact, translation, follow-up and quotation comparison for up to three distinct suppliers. Target: at least one current supplier-confirmed qualified quote bound to the confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE and a full refund of this RFQ service fee to the original payment method. We include every qualified supplier response received in your comparison.
+Standalone Stripe Hosted Checkout: no $2.99 purchase is required. Delivery of up to three matching suppliers with a comparison of received quotations. Candidate screening, inquiries in Chinese, translation and follow-up support this result. Target: at least one current supplier-confirmed qualified quote bound to the confirmed product, specifications and quantity within three China business days after payment and essential requirement confirmation. Otherwise RFQ_INCOMPLETE and a full refund of this RFQ service fee to the original payment method. The comparison records the received quotations for the delivered suppliers, including conditions and unknowns.
 
 Human report, Agent JSON and Evidence manifest share the same facts, conditions, unknowns and next actions. Basic does not authorize goods purchases, supplier payments, agency transactions or production. No complete landed-cost, break-even or Price Intelligence promise. This is not contact unlock; public business contacts in authenticated paid results remain readable. Other human assistance requires separate scope review; no autonomous generic human-task API is live.
 
@@ -74,6 +74,9 @@ Eligible source marketplace product transactions may have observed platform prot
 - Does a certificate actually cover the product you plan to order? https://seekapi.ai/sourcing/workflows/product-certificate-scope (Markdown: https://seekapi.ai/sourcing/workflows/product-certificate-scope.md)
 - How do you keep drawings and model revisions aligned across supplier evidence? https://seekapi.ai/sourcing/workflows/drawing-and-model-revision-checklist (Markdown: https://seekapi.ai/sourcing/workflows/drawing-and-model-revision-checklist.md)
 - Which delivery and cost fields must be explicit before comparing a quote? https://seekapi.ai/sourcing/rfq-templates/delivery-terms-cost-basis (Markdown: https://seekapi.ai/sourcing/rfq-templates/delivery-terms-cost-basis.md)
+## RFQ delivery scope and compatibility
+
+The website commercial-truth manifest at https://seekapi.ai/.well-known/csc-commercial-truth.json exposes live_rfq.max_delivered_suppliers (3). This describes the product delivery ceiling; it does not change the MCP/REST runtime response schemas. Runtime admission is authoritative for new purchases. The legacy live_rfq.max_distinct_suppliers and customer_value.rfq_supplier_contacts_max remain 3 for the current runtime contact guard and are deprecated for product-scope decisions. They do not define the delivered supplier count or authorize additional contact. Scanning and contact stay within case authorization and service resources; there is no fixed scan count or unlimited-contact inclusion. Existing accepted orders keep their accepted terms.
 ## Qualified public sample publication
 Current complete human report: https://seekapi.ai/china-supply-check/sample
 Exact Agent JSON: https://seekapi.ai/china-supply-check/sample.json

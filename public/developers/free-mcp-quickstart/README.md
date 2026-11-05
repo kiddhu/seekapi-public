@@ -1,6 +1,6 @@
 # Prepare a China sourcing request for free
 
-**Need Chinese suppliers contacted and current quotes compared?** Choose **SeekAPI Verified RFQ Basic — USD 19.90 once**. Prepare and review your requirement for free; the $2.99 screening service is optional. We contact up to three matched suppliers and target at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation, or refund the full RFQ service fee to the original payment method.
+**Need Chinese suppliers contacted and current quotes compared?** Choose **SeekAPI Verified RFQ Basic — USD 19.90 once**. Prepare and review your requirement for free; the $2.99 screening service is optional. We deliver up to three matching suppliers and target at least one current qualified supplier-confirmed quote within three China business days after payment and essential requirement confirmation, or refund the full RFQ service fee to the original payment method.
 
 [Prepare a free RFQ](https://api.seekapi.ai/checkout/stripe/rfq) · [Free MCP preparation and buyer review](https://seekapi.ai/for-agents#rfq-free-mcp)
 
@@ -39,6 +39,10 @@ When a rate limit has no returned retry time, the example suggests a conservativ
 For repeat sourcing, start from your real buyer’s saved private intent. Review the specification revision, quantity and destination, then run the same command with a new output filename. Each new request gets a fresh preview and its own buyer confirmation. For status or delivery on an existing paid request, use its original private recovery link.
 
 The optional screening examples below remain a separate journey. Both services retain their own current admission and buyer approval requirements.
+
+## RFQ delivery scope and compatibility
+
+The website commercial-truth manifest at https://seekapi.ai/.well-known/csc-commercial-truth.json exposes live_rfq.max_delivered_suppliers (3). This describes the product delivery ceiling; it does not change the MCP/REST runtime response schemas. Runtime admission is authoritative for new purchases. The legacy live_rfq.max_distinct_suppliers and customer_value.rfq_supplier_contacts_max remain 3 for the current runtime contact guard and are deprecated for product-scope decisions. They do not define the delivered supplier count or authorize additional contact. Scanning and contact stay within case authorization and service resources; there is no fixed scan count or unlimited-contact inclusion. Existing accepted orders keep their accepted terms.
 
 ## Try free supplier-screening preparation in three minutes
 
@@ -80,7 +84,7 @@ The table records MCP output. For a new Stripe purchase, check the original buye
 | Agent text/model | x402, 2.99 USDC on Base | LIVE | Free prepare, exact customer confirmation, then a separately authorized wallet client |
 | Agent product image | x402 | OFF | Do not send a paid image request |
 | Human text/model | Stripe | OFF | Do not assume text card checkout |
-| SeekAPI Verified RFQ Basic, USD 19.90 | Standalone Stripe Hosted Checkout; no $2.99 prerequisite | Check current RFQ admission | [Prepare for free](https://api.seekapi.ai/checkout/stripe/rfq); up to three distinct suppliers, three China business days after payment and essential confirmation; target at least one current qualified quote or RFQ_INCOMPLETE + full original-method service-fee refund |
+| SeekAPI Verified RFQ Basic, USD 19.90 | Standalone Stripe Hosted Checkout; no $2.99 prerequisite | Check current RFQ admission | [Prepare for free](https://api.seekapi.ai/checkout/stripe/rfq); delivery of up to three matching suppliers, three China business days after payment and essential confirmation; target at least one current qualified quote or RFQ_INCOMPLETE + full original-method service-fee refund |
 
 The dated mode observations above concern China Supply Check. Basic RFQ has its own [REST instructions](https://seekapi.ai/for-agents#rfq-requirement-prepare) and [current OpenAPI](https://api.seekapi.ai/checkout/stripe/rfq?format=openapi): Human, Agent and Evidence outputs share the same facts; goods purchases and supplier payments are not authorized. Its optional Channel A processed image is a visual reference, not original fidelity; text can continue if an image fails. The offline examples below never call RFQ Checkout, take payment or contact a supplier.
 
