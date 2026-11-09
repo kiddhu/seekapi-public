@@ -1,0 +1,11 @@
+{
+  "scope": "New content introduced by this PR only, against the original PR22 guard patterns",
+  "source_head": "85afed8bf9c09d9d3db3e200728c82a57f162e61",
+  "guard_source_pr": 22,
+  "guard_source_head": "2445be1818d74700d949cdb2677615a0beebd4a2",
+  "pass": true,
+  "text_files_inspected": 68,
+  "new_findings": [],
+  "whole_repository_with_inherited_baseline_artifacts": "NOT_ASSERTED",
+  "public_evidence": "Product QA and synthetic/public readbacks only; unnecessary internal locators omitted."
+}

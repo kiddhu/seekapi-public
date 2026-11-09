@@ -1,0 +1,17 @@
+{
+  "path": "browser/ru-768.png",
+  "capture_source": "85afed8bf9c09d9d3db3e200728c82a57f162e61",
+  "sha256": "a3ef71aff2a9feaecc327647de1fe53ce39174ef32d418de271128972d38fbb6",
+  "dimensions": [
+    768,
+    1024
+  ],
+  "png_chunk_types": [
+    "IHDR",
+    "IDAT",
+    "IEND"
+  ],
+  "manual_visual_review": "Public Russian homepage copy, prices and navigation only. No customer, private order, authentication or personal information visible.",
+  "manifest_match": true,
+  "publication": "Exact verified capture; no image editing or alternate representation."
+}

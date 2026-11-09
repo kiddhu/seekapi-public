@@ -1,9 +1,9 @@
 {
   "schema": "seekapi.main-site-engineering-evidence.v1",
-  "recorded_utc": "2026-11-09T19:15:25.767811+00:00",
+  "recorded_utc": "2026-11-09T19:54:57.464218+00:00",
   "base": "7c1d45a0c5e4a6bb56ff8954fcac52817b785d29",
-  "tested_source_head": "8d5f4e25d2298f50b5deb6e84c8032eb22c113d7",
-  "tested_source_tree": "7168f8a29792fbc44480bb33ec3de07dcd7449dd",
+  "tested_source_head": "85afed8bf9c09d9d3db3e200728c82a57f162e61",
+  "tested_source_tree": "78814c140e554fc7c9abb268a4d6aa41e2c8181f",
   "production": "NOT_DEPLOYED",
   "review": "INDEPENDENT_REVIEW_PENDING",
   "business": "UNKNOWN",
@@ -13,20 +13,20 @@
       "fail": 0
     },
     "final_node": {
-      "pass": 147,
+      "pass": 153,
       "fail": 0,
       "skip": 0
     },
     "production_build_exit": 0,
     "typescript_exit": 0,
     "browser": {
-      "pass": 1060,
+      "pass": 1318,
       "fail": 0,
       "core_layouts": 56,
       "additional_public_layouts": 116,
-      "locale_layouts": 12,
+      "locale_layouts": 42,
       "synthetic_result_layouts": 7,
-      "screenshot_count": 75,
+      "screenshot_count": 105,
       "external_attempts": 0
     },
     "touch_emulated": {
@@ -36,11 +36,16 @@
     "packaged_sdk_offline_and_loopback": {
       "pass": 32,
       "fail": 0
+    },
+    "pr22_shared_test_hunk": {
+      "merge_exit": 0,
+      "confidentiality_assertions_unchanged": true,
+      "whole_historical_pr_mergeability": "NOT_ASSERTED"
     }
   },
   "browser": {
-    "started_at": "2026-11-09T19:09:29.025358+00:00",
-    "finished_at": "2026-11-09T19:14:31.411074+00:00",
+    "started_at": "2026-11-09T19:46:36.222524+00:00",
+    "finished_at": "2026-11-09T19:53:03.718743+00:00",
     "chromium": "154.0.8037.57",
     "playwright": "1.62.0",
     "axe": "4.10.3",
@@ -52,14 +57,14 @@
         "network": "1Mbps/150ms",
         "cpu": "4x slowdown",
         "cls": 0,
-        "lcp": 956
+        "lcp": 928
       },
       {
         "route": "/start?audience=company",
         "network": "1Mbps/150ms",
         "cpu": "4x slowdown",
         "cls": 0,
-        "lcp": 896
+        "lcp": 856
       }
     ],
     "computed_contrast": [
@@ -103,7 +108,9 @@
         "opacity": "1",
         "ratio": 18.08960525337504
       }
-    ]
+    ],
+    "max_locale_cls": 0,
+    "max_locale_action_bottom": 578.171875
   },
   "blocked_or_insufficient_evidence": [
     "Authorized production paid-result cold recovery and cross-buyer positive/negative matrix",

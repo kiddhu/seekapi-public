@@ -1,0 +1,15 @@
+{
+  "scope": "Current-main test plus exact PR22 privacy-regex intent, not whole historical PR mergeability",
+  "source_head": "85afed8bf9c09d9d3db3e200728c82a57f162e61",
+  "original_pr22_head": "2445be1818d74700d949cdb2677615a0beebd4a2",
+  "shared_path": "test/discovery-convergence.test.mjs",
+  "our_change": "Only the localized first-service CTA assertion; metadata and all confidentiality/authorization assertions remain",
+  "pr22_change": "Only the separate proof/discovery confidentiality regex hunk",
+  "baseline_file_sha256": "5a7c3b71f9c1a52f28a84eafb0abf0dd45f29e140032e76b405cefa37d3abe5e",
+  "candidate_file_sha256": "4e83636314ec39f8e5c095ed2d7a15b60626ccc178d5d2aeb2b7e3cf6eba4442",
+  "outside_localized_cta_test_unchanged": true,
+  "synthetic_three_way_merge_exit": 0,
+  "whole_pr22_mergeability": "NOT_ASSERTED",
+  "exact_candidate_cta_block_preserved_in_synthetic_merge": true,
+  "exact_pr22_regex_intent_preserved_in_synthetic_merge": true
+}
