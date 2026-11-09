@@ -118,16 +118,29 @@ def main():
                     c.close()
                 print(f'Completed {width}px core pages',flush=True)
 
+            results['locale_screens']=[]
             for locale in LOCALES:
-                for width,height in [(390,844),(1440,1000)]:
+                for width,height in WIDTHS:
                     c=context(viewport={'width':width,'height':height})
-                    page=c.new_page();page.goto(origin+'/'+locale,wait_until='networkidle')
+                    page=c.new_page();page.add_init_script(SCRIPTS)
+                    page.goto(origin+'/'+locale,wait_until='networkidle')
+                    data=page.evaluate("""()=>({
+                      cls:qaMetrics.shifts.reduce((a,b)=>a+b,0),
+                      canonical:document.querySelector('link[rel=canonical]')?.href,
+                      actions:[...document.querySelectorAll('.localized-main-actions a')].map(e=>({text:e.innerText,href:e.getAttribute('href'),...e.getBoundingClientRect().toJSON()}))
+                    })""")
+                    actions=data['actions']
+                    check(f'{locale}@{width} dual first screen',len(actions)==2 and all(a['top']>=0 and a['bottom']<=height and a['height']>=47.9 for a in actions) and actions[0]['href']=='https://api.seekapi.ai/checkout/stripe/rfq' and actions[1]['href']=='/china-supply-check' and '2.99' in actions[1]['text'],actions)
+                    check(f'{locale}@{width} canonical',data['canonical']=='https://seekapi.ai/'+locale,data['canonical'])
+                    check(f'{locale}@{width} H1',page.locator('h1').count()==1)
+                    check(f'{locale}@{width} CLS',data['cls']<=0.1,data['cls'])
                     page.add_script_tag(path=str(axe))
                     audit=page.evaluate("""async()=>{const r=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa']}});return r.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))}));}""")
                     check(f'{locale}@{width} axe',not audit,audit)
                     check(f'{locale}@{width} overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))
                     check(f'{locale}@{width} direction',page.locator('html').get_attribute('dir')==('rtl' if locale=='ar' else 'ltr'))
                     page.screenshot(path=str(out/f'{locale}-{width}.png'))
+                    results['locale_screens'].append({'locale':locale,'width':width,'height':height,**data})
                     c.close()
             print('Completed localized pages',flush=True)
 

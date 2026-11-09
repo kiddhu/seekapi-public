@@ -66,6 +66,8 @@
 .main-hero .eyebrow{font-size:14px;line-height:1.5;margin-bottom:12px}
 .main-hero .main-lead{font-size:18px;line-height:1.6;margin:16px 0 24px;max-width:60ch;color:#424a56}
 .main-actions .button{flex:0 1 auto}
+.localized-main-actions{margin-top:24px}
+.public-site .page-hero .localized-price-cue{font-size:14px;line-height:1.6;margin-top:12px}
 .price-cue{font-size:14px;color:var(--muted);margin:12px 0}
 .main-guarantee{font-size:14px;line-height:1.6;max-width:68ch;color:#424a56;margin:12px 0 0}
 .offer-summary{padding:32px;border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow)}

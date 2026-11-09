@@ -3,9 +3,10 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { MobileNav } from './mobile-nav';
 import { LanguageSwitch } from './language-switch';
-import { localeInfo, localizedCopy, localizedCscCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
+import { localeInfo, localizedCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
 import { isPublicProduction } from '@/lib/site';
 import { rfqBuyerEntry } from '@/lib/rfq-basic-copy';
+import {localizedHomeCopy} from '@/lib/localized-home-copy';
 
 export const navItems = [
   { href: '/china-supply-check', label: 'Find Suppliers' },
@@ -16,11 +17,11 @@ export const navItems = [
 
 function localeUi(locale:SiteLocale){
   if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'Prepare free RFQ',items:navItems,home:'/',footer:'Current Chinese supplier quotes for overseas buyers and AI agents. USD 19.90 once for supplier contact, translation and quote comparison. Prepare your requirement for free.',evidence:'Supplier evidence · clear service-fee guarantee'};
-  if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy.ru.cta,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
-  const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy[locale].cta,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
+  if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedHomeCopy.ru.rfqAction,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
+  const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedHomeCopy[locale].rfqAction,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
 }
 export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='en'?rfqBuyerEntry:'/china-supply-check';
+  const ui=localeUi(locale); const startHref=rfqBuyerEntry;
   const notice=isPublicProduction?cscAdmissionNotice(locale):ui.preview;
   return (
     <header className="site-header">
@@ -43,7 +44,7 @@ export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
 }
 
 export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='en'?rfqBuyerEntry:'/china-supply-check';
+  const ui=localeUi(locale); const startHref=rfqBuyerEntry;
   return (
     <footer className="footer">
       <div className="container footer-grid">

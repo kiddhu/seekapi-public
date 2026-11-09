@@ -25,3 +25,16 @@ test('main-site navigation provides existing-result recovery without a Trade des
     assert.equal((html.match(/<h1[ >]/g)??[]).length,1,route);
   }
 });
+
+for(const locale of ['es','de','ja','ar','pt-br','ru']){
+  test(`${locale}: a new visitor can choose either service in the first home section`,()=>{
+    const html=read(locale).replace(/<script[\s\S]*?<\/script>/g,'');
+    const hero=html.match(/<main[^>]*>\s*(<section[\s\S]*?<\/section>)/)?.[1]??'';
+    const links=[...hero.matchAll(/<a\b[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+    assert.equal(links[0]?.[1],'https://api.seekapi.ai/checkout/stripe/rfq');
+    assert.equal(links[1]?.[1],'/china-supply-check');
+    assert.match(links[1]?.[2]??'',/2\.99/);
+    assert.match(hero,/19\.90/);
+    assert.doesNotMatch(hero,/<input|<textarea|<form|trade-supply/i);
+  });
+}

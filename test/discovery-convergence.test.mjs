@@ -48,8 +48,10 @@ test('localized home product CTA and metadata match current commercial identity'
   const page=html('/'+locale),text=visible(page);
   assert.match(text,/China Supply Check/);assert.match(text,/2.99 USDC/);assert.match(text,/USD 2.99/);
   const main=page.slice(page.indexOf('<main'));
-  const firstButton=[...main.matchAll(/<a\b[^>]+>/g)].map(m=>m[0]).find(tag=>/class="button"/.test(tag));
-  assert.equal(firstButton?.match(/href="([^"]+)"/)?.[1],'/china-supply-check',locale);
+  const actions=[...main.matchAll(/<a\b[^>]+>/g)].map(m=>m[0]).filter(tag=>/class="[^"]*\bbutton\b/.test(tag)).slice(0,2);
+  assert.deepEqual(actions.map(tag=>tag.match(/href="([^"]+)"/)?.[1]),[
+   'https://api.seekapi.ai/checkout/stripe/rfq','/china-supply-check'
+  ],locale);
   assert.match(page,new RegExp('rel="canonical" href="https://seekapi.ai/'+locale+'"'));
   assert.match(page,/<meta name="description" content="[^\"]*China Supply Check/);
  }
