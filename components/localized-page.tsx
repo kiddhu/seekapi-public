@@ -41,7 +41,7 @@ function LocalizedHomeHero({locale}:{locale:LocalizedHomeLocale}){
       <a className="button" href={rfqBuyerEntry} hrefLang="en">{copy.rfqAction}</a>
       <Link className="button button-ghost" href="/china-supply-check" hrefLang="en">{copy.cscAction}</Link>
     </div>
-    <p className="price-cue localized-price-cue">{copy.scope} <Link href="/china-supply-check/live-rfq-compare#service-scope" hrefLang="en">RFQ terms · English</Link></p>
+    <p className="price-cue localized-price-cue">{copy.scope} <Link className="text-link" href="/china-supply-check/live-rfq-compare#service-scope" hrefLang="en">RFQ terms · English</Link></p>
   </div></section>;
 }
 

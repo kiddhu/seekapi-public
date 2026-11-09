@@ -103,6 +103,9 @@ def main():
                     if path=='/':
                         actions=data['homeActions']
                         check(label+' dual first screen',len(actions)==2 and all(a['top']>=0 and a['bottom']<=height for a in actions),actions)
+                    if path=='/proof' and width==390:
+                        caption=page.locator('.rfq-format-table caption').bounding_box()
+                        check(label+' caption uses the content width',caption is not None and caption['width']>=width-33,caption)
                     if width in [390,1440]:
                         page.add_script_tag(path=str(axe))
                         audit=page.evaluate("""async()=>{
@@ -188,6 +191,21 @@ def main():
             check('menu Escape restores trigger',menu.get_attribute('aria-expanded')=='false' and menu.evaluate('(e)=>document.activeElement===e'))
             page.get_by_role('link',name='My results',exact=True).click();page.wait_for_url('**/support#existing-results')
             check('result anchor is focusable',page.locator('#existing-results').evaluate('(e)=>document.activeElement===e'))
+            c.close()
+
+            # Keep short action labels in a single clickable focus rectangle;
+            # do not test the empty center of a wrapped inline bounding box.
+            c=context(viewport={'width':390,'height':844});page=c.new_page()
+            for path,selector in [('/','.main-guarantee .text-link'),('/china-supply-check/live-rfq-compare','.main-guarantee .text-link'),('/for-agents','a[href="/china-supply-check/sample.json"]')]:
+                page.goto(origin+path,wait_until='networkidle')
+                target=page.locator(selector).first;target.focus()
+                visible=target.evaluate('''e=>{const r=e.getBoundingClientRect(),t=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return e.getClientRects().length===1&&(t===e||e.contains(t))&&r.top>=0&&r.bottom<=innerHeight+1}''')
+                check(path+' short action focus is visible',visible)
+            page.goto(origin+'/start?audience=company',wait_until='networkidle')
+            for _ in range(20):
+                page.keyboard.press('Tab')
+                if page.locator('#organization').evaluate('(e)=>document.activeElement===e'):break
+            check('first form field keeps its focus ring inside the viewport',page.locator('#organization').evaluate('(e)=>{const r=e.getBoundingClientRect();return document.activeElement===e&&r.top>=6&&r.bottom<=innerHeight-6}'))
             c.close()
 
             # 320px reflow approximates a 1280px viewport at 400% page zoom.
