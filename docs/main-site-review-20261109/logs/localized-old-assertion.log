@@ -1,0 +1,200 @@
+
+> seekapi-web-v01@0.1.0 test
+> tsx --test test/*.test.mjs
+
+✔ the published Node SDK lock uses official HTTPS tarballs with integrity checks (3.096728ms)
+✔ the downloadable ZIP contains exactly the source examples and valid member bytes (18.110503ms)
+✔ every state has distinct honest customer copy; unknown asks not to pay again (14.090265ms)
+✔ public entry is frozen OFF in both page and server (32.555314ms)
+✔ missing, malformed, duplicate, foreign-origin or unclaimed requests never reach upstream (10.160531ms)
+✔ read uses only fixed upstream, exact claim cookie, no cache and redacted state (2.310189ms)
+✔ outage, malformed, oversized and unexpected truth fail unknown without leaking errors (6.082473ms)
+✔ result relay and renderer expose only customer evidence from same authenticated order (3.637705ms)
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+✔ invitation only relays to fixed entry and accepts exact secure existing card cookie (51.739549ms)
+✔ no cookie cannot create; cookie never substitutes for backend fixed-packet permission (6.969013ms)
+✔ context is cookie-only and renders exact brief with no internal identifiers or enabled payment before authorization (12.207608ms)
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+✔ private page removes fragment before network, never stores invitation and never automatically creates Checkout (33.924295ms)
+✔ private confirmation displays every exact requirement, reference and input and submits that unchanged brief (10.180662ms)
+✔ actual canonical full and shortage projections retain customer decision evidence without identifiers (20.792352ms)
+✔ body reader deadline and request abort cancel stalled small streams (29.224611ms)
+✔ actual relay returns UNKNOWN for never-ending incoming body and caller abort; no upstream calls (3033.327463ms)
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+✔ client deadline covers status and result JSON bodies even after headers arrive (40.986295ms)
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+✔ actual component stalled status body recovers UNKNOWN and re-enables manual status (22.786045ms)
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+✔ actual component stalled result body recovers and hides report (8.297224ms)
+✔ actual component polling is finite; hidden tabs pause within the same deadline (26.315199ms)
+✔ a buyer can read every differentiated worksheet, download equivalent fields and choose a free next action (11.92619ms)
+✔ four customer entry pages expose the runnable SDK and preserve the approved sample bytes (4.086986ms)
+✔ a stranger can copy the complete displayed brief, follow its public fixture and pass it unchanged to the free client (3.956191ms)
+✔ first two conversion sections lead with outcomes and omit internal defensive language (4.482636ms)
+✔ the canonical sourcing CTA explains both services and the guarantee (1.712321ms)
+✔ machine value projection matches prices, clock, remedy and actual pending import state (2.542475ms)
+✔ FAQ structured data uses the displayed sourcing answers (1.920116ms)
+✔ built product and Agent routes explain product admission, not six V1 trust gates (5.474867ms)
+✔ current candidate report states real evidence limits without inferring material or commercial advantage (3.221434ms)
+✔ historical reconstruction cannot become the historical original decision (1.325242ms)
+✔ generated official discovery pointers target the same cleared current sample, never an archive (5.084091ms)
+✔ current human report exposes three usable candidate decisions and download, archive remains explicitly historical/noindex (2.931545ms)
+✔ actual built HTTP server returns exact sample bytes, content type, ETag and matching public manifest (846.253248ms)
+✔ guard rejects stale archive links and foreign sample origins instead of accepting same-looking paths (4.625978ms)
+✔ existing decision worksheets route current-quote intent to free RFQ and keep screening optional (10.879353ms)
+✔ the strict screening example stays separate from the current RFQ schema and buyer destination (0.979554ms)
+✔ free RFQ entry precedes long worksheets and Agent entrypoints link the installable task guide (7.345209ms)
+✔ production build renders exactly eight distinct substantive procurement guides (10.205685ms)
+✔ legacy entry redirects are explicit 301 and history stays noindex outside sitemap (1.074349ms)
+✔ new and revised navigation has no dead internal destination (18.969877ms)
+✖ localized home product CTA and metadata match current commercial identity (2.62729ms)
+✔ proof remains honest aggregate and discovery states do not imply ranking success (16.080965ms)
+✔ machine discovery links resolve and tool effects are classified honestly (3.020621ms)
+✔ localized metadata has one brand suffix and English x-default (1.880372ms)
+✔ China Supply Check schemas share one canonical service identity (3.007796ms)
+✔ canonical home withdraws current sample JSON/resource and availability claims when its validated artifact is absent (33.883069ms)
+✔ missing server metadata never falls back to normalized URL or spoofed headers (1.471336ms)
+✔ server metadata and native request preserve dot and encoded traversal bytes (0.363899ms)
+✔ caller query boundary is retained for exact-response decision (0.188465ms)
+✔ missing, network-path, fragment and control-bearing metadata fails closed (5.097091ms)
+✔ trusted origin-form metadata preserves bytes when native path agrees (0.405816ms)
+✔ runtime-added metadata query does not become a caller query; caller queries never disappear (0.361489ms)
+✔ normalization disagreement or missing/malformed native request fails closed (0.215461ms)
+✔ owned retired exact /docs/introduction (25.908059ms)
+✔ negative boundaries /docs/introduction (1.894141ms)
+✔ owned retired exact /blog (1.330669ms)
+✔ negative boundaries /blog (0.755934ms)
+✔ owned retired exact /status (1.081338ms)
+✔ negative boundaries /status (1.369311ms)
+✔ owned retired exact /refund (1.021131ms)
+✔ negative boundaries /refund (1.031461ms)
+✔ owned retired exact /legal (0.787856ms)
+✔ negative boundaries /legal (0.939244ms)
+✔ owned retired exact /blog/deepseek-v3-latency-and-batching (0.384458ms)
+✔ negative boundaries /blog/deepseek-v3-latency-and-batching (0.545547ms)
+✔ owned retired exact /blog/seekapi-openai-sdk-migration (0.373569ms)
+✔ negative boundaries /blog/seekapi-openai-sdk-migration (0.59346ms)
+✔ owned retired exact /integrations/vercel-ai (0.533772ms)
+✔ negative boundaries /integrations/vercel-ai (0.30902ms)
+✔ owned retired exact /integrations/pydantic-ai (0.529563ms)
+✔ negative boundaries /integrations/pydantic-ai (0.355625ms)
+✔ owned retired exact /integrations/litellm (0.452331ms)
+✔ negative boundaries /integrations/litellm (0.651266ms)
+✔ owned retired exact /integrations/haystack (0.485643ms)
+✔ negative boundaries /integrations/haystack (0.593834ms)
+✔ owned retired exact /integrations/langchain (0.472473ms)
+✔ negative boundaries /integrations/langchain (0.996047ms)
+✔ owned retired exact /integrations/autogpt (0.612047ms)
+✔ negative boundaries /integrations/autogpt (0.492901ms)
+✔ owned retired exact /docs/api-status-codes (0.815245ms)
+✔ negative boundaries /docs/api-status-codes (0.728599ms)
+✔ owned retired exact /docs/endpoints (0.507137ms)
+✔ negative boundaries /docs/endpoints (0.485065ms)
+✔ owned retired exact /docs/reliability-playbook (0.718233ms)
+✔ negative boundaries /docs/reliability-playbook (0.522958ms)
+✔ owned retired exact /docs/authentication (0.888603ms)
+✔ negative boundaries /docs/authentication (0.482009ms)
+✔ owned retired exact /docs/token-saving-strategy (1.666112ms)
+✔ negative boundaries /docs/token-saving-strategy (0.447347ms)
+✔ owned retired exact /docs/pricing-calculator-logic (0.449935ms)
+✔ negative boundaries /docs/pricing-calculator-logic (0.349028ms)
+✔ owned retired exact /docs/latency-benchmarks (0.418702ms)
+✔ negative boundaries /docs/latency-benchmarks (0.680205ms)
+✔ favicon vector is a usable public asset with bodyless HEAD (1.62131ms)
+✔ security, current public, API/MCP and commercial routes are untouched (0.971716ms)
+✔ no User-Agent identity dependency or reflected input (0.481302ms)
+✔ the first home section offers two distinct priced services and no duplicate input (4.906634ms)
+✔ main-site navigation provides existing-result recovery without a Trade destination (2.737991ms)
+✔ es: a new visitor can choose either service in the first home section (0.442735ms)
+✔ de: a new visitor can choose either service in the first home section (0.445208ms)
+✔ ja: a new visitor can choose either service in the first home section (0.332715ms)
+✔ ar: a new visitor can choose either service in the first home section (0.415426ms)
+✔ pt-br: a new visitor can choose either service in the first home section (0.279593ms)
+✔ ru: a new visitor can choose either service in the first home section (1.248753ms)
+✔ es: rendered payment copy names all four rails and current admission (6.015797ms)
+✔ de: rendered payment copy names all four rails and current admission (6.995904ms)
+✔ ja: rendered payment copy names all four rails and current admission (3.060781ms)
+✔ ar: rendered payment copy names all four rails and current admission (3.347108ms)
+✔ pt-br: rendered payment copy names all four rails and current admission (3.61871ms)
+✔ ru: rendered payment copy names all four rails and current admission (2.119987ms)
+✔ ARD identifies screening first and preserves the independent RFQ handoff (0.689343ms)
+✔ the generated machine guide retains the authorized product-specific recovery methods (0.421393ms)
+✔ model guide names current V2 methods and dated runtime authority (1.141051ms)
+✔ machine surfaces preserve payment amounts and narrow runtime availability without changing historical orders (2.911187ms)
+✔ human payment descriptions never present UNKNOWN or closed image x402 as live (2.297559ms)
+✔ cleared real product-first input renders three DIRECT_MATCH zero-score F0 candidates without private images (35.886762ms)
+✔ missing input stays unavailable and cannot create a public sample pointer (0.499899ms)
+✔ tampered or alternate sample bytes, old contracts, private fields/assets and unsafe HTML fail closed (4.983425ms)
+✔ public synchronization is replay-stable and removes stale sample pointers when the artifact disappears (711.582218ms)
+✔ built official discovery documents structurally bind active v4 model, pointers and the four unchanged rails (2.955696ms)
+✔ native sitemap and page/JSON-LD revision is distinct from preserved source and reconstruction times (6.664887ms)
+✔ canonical homepage carries complete current method and direct sample path rather than a summary/archived primary example (1.000196ms)
+✔ built Agent manifest, ARD and OpenAPI use the same mode-specific payment and selection facts (3.607705ms)
+✔ public projections have no old completion counts or V1 default policy (0.799769ms)
+✔ payment is separated by mode and cannot imply image x402 admission from Stripe (0.244226ms)
+✔ rendered official product pages explain each mode and free order recovery (5.138712ms)
+✔ source protections and contact next step are scoped to the actual service (1.244147ms)
+✔ public API guide has no owner wallet, sourcing-provider cost or source URL tutorial (0.736914ms)
+✔ proof entry directs to the same real example and keeps independent customer use separate (0.65747ms)
+✔ external stale directory observations are not reported as corrected indexing (0.596422ms)
+✔ human and Agent product pages expose a simple image entry without structured-attribute friction (29.493917ms)
+✔ machine image entrance points to each rail actual availability without widening the legacy text card (29.698361ms)
+✔ active HTTP/human model consumes the reviewed v4 bytes and truthful public clarity without new facts (41.192078ms)
+✔ overview explains the actual first display, no recommendation, unknown price/factory and exposes two real informational RFQ links (20.436425ms)
+✔ embedding the reviewed report keeps one page H1 without changing its published artifacts (7.835272ms)
+✔ current sample contains only the cleared anonymous V2 evidence and null contact availability (3.593556ms)
+✔ obsolete public sidecars and their misleading distinct-supplier count are withdrawn rather than reused as current facts (0.94379ms)
+✔ an Agent can copy the free RFQ MCP calls and distinguish preparation from each paid service (61.992861ms)
+✔ real Agent GET offers standalone Basic while preserving other product rails (2.107372ms)
+✔ real Agent GET explains admission, exact confirmation and free private result recovery (2.533963ms)
+✔ actual Human and Agent rendered pages agree with the machine Basic contract (28.143065ms)
+✔ llms discovery shares Basic terms and cannot advertise the retired invitation-only state (0.768493ms)
+✔ actual home points buyers to Basic without a contradictory private/future sales claim (16.703012ms)
+✔ an Agent following the deprecated ARD RFQ field reaches the same dedicated Basic contract (3.796321ms)
+✔ Basic delivery ceiling is explicit without reinterpreting the legacy contact guard (3.859587ms)
+✔ the real pre-fix contradiction is rejected while generic human API OFF stays valid (3.170536ms)
+✔ all current built HTML, public Markdown and machine projections reject retired Basic OFF claims (55.541746ms)
+✔ downloaded worksheets and rendered HTML share the complete current Basic terms (4.569419ms)
+✔ current quote worksheet HTML and download explain worksheet effects and standalone live Basic (36.885582ms)
+✔ the existing canonical product answers product-link intent and offers two truthful actions (1.820269ms)
+✔ Agent/OpenAPI/ARD preserve Basic REST, $2.99 MCP and generic manual API boundaries (5.573696ms)
+✔ artifact withdrawal removes rendered sample download/resource advertisements and explains unavailability (38.782646ms)
+✔ validated artifact retains the working sample links and three-candidate evidence (28.54977ms)
+ℹ tests 153
+ℹ suites 0
+ℹ pass 152
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4833.475401
+
+✖ failing tests:
+
+test at test/discovery-convergence.test.mjs:46:1
+✖ localized home product CTA and metadata match current commercial identity (2.62729ms)
+  AssertionError [ERR_ASSERTION]: ja
+  + actual - expected
+  
+  + 'https://api.seekapi.ai/checkout/stripe/rfq'
+  - '/china-supply-check'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/discovery-convergence.test.mjs:52:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    expected: '/china-supply-check',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,0 +1,846 @@
+{
+  "pass": true,
+  "scope": "PRELIMINARY_LOCAL_BUILD_NOT_AN_INDEPENDENT_REVIEW",
+  "cases": [
+    {
+      "locale": "es",
+      "width": 360,
+      "height": 800,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 434.171875,
+          "bottom": 482.171875,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 494.171875,
+          "bottom": 542.171875,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 434.171875,
+          "bottom": 482.171875,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 494.171875,
+          "bottom": 542.171875,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 390,
+      "height": 844,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 471.78125,
+          "bottom": 519.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 430,
+      "height": 932,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 418.53125,
+          "bottom": 466.53125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 478.53125,
+          "bottom": 526.53125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 398.984375,
+          "bottom": 446.984375,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 398.984375,
+          "bottom": 446.984375,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 1024,
+      "height": 900,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 408.5625,
+          "bottom": 456.5625,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 408.5625,
+          "bottom": 456.5625,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "es",
+      "width": 1440,
+      "height": 1000,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ gratis · EN",
+          "top": 465.6875,
+          "bottom": 513.6875,
+          "height": 48
+        },
+        {
+          "text": "Filtrar proveedores — USD 2.99",
+          "top": 465.6875,
+          "bottom": 513.6875,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 360,
+      "height": 800,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 398.171875,
+          "bottom": 446.171875,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 458.171875,
+          "bottom": 506.171875,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 375.78125,
+          "bottom": 423.78125,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 435.78125,
+          "bottom": 483.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 390,
+      "height": 844,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 375.78125,
+          "bottom": 423.78125,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 435.78125,
+          "bottom": 483.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 430,
+      "height": 932,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 380.28125,
+          "bottom": 428.28125,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 440.28125,
+          "bottom": 488.28125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 383.78125,
+          "bottom": 431.78125,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 383.78125,
+          "bottom": 431.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 1024,
+      "height": 900,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 395.5,
+          "bottom": 443.5,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 395.5,
+          "bottom": 443.5,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "de",
+      "width": 1440,
+      "height": 1000,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ kostenlos vorbereiten · EN",
+          "top": 436.25,
+          "bottom": 484.25,
+          "height": 48
+        },
+        {
+          "text": "Kandidaten finden — USD 2.99",
+          "top": 436.25,
+          "bottom": 484.25,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 360,
+      "height": 800,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 471.78125,
+          "bottom": 519.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 387.78125,
+          "bottom": 435.78125,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 447.78125,
+          "bottom": 495.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 390,
+      "height": 844,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 387.78125,
+          "bottom": 435.78125,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 447.78125,
+          "bottom": 495.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 430,
+      "height": 932,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 394.53125,
+          "bottom": 442.53125,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 454.53125,
+          "bottom": 502.53125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 354.984375,
+          "bottom": 402.984375,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 354.984375,
+          "bottom": 402.984375,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 1024,
+      "height": 900,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 366.703125,
+          "bottom": 414.703125,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 366.703125,
+          "bottom": 414.703125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ja",
+      "width": 1440,
+      "height": 1000,
+      "pass": true,
+      "actions": [
+        {
+          "text": "RFQ を無料で準備 · EN",
+          "top": 407.453125,
+          "bottom": 455.453125,
+          "height": 48
+        },
+        {
+          "text": "候補を絞り込む — USD 2.99",
+          "top": 407.453125,
+          "bottom": 455.453125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 360,
+      "height": 800,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 351.78125,
+          "bottom": 399.78125,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 351.78125,
+          "bottom": 399.78125,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 390,
+      "height": 844,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 351.78125,
+          "bottom": 399.78125,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 430,
+      "height": 932,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 356.28125,
+          "bottom": 404.28125,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 416.28125,
+          "bottom": 464.28125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 354.984375,
+          "bottom": 402.984375,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 354.984375,
+          "bottom": 402.984375,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 1024,
+      "height": 900,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 366.703125,
+          "bottom": 414.703125,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 366.703125,
+          "bottom": 414.703125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ar",
+      "width": 1440,
+      "height": 1000,
+      "pass": true,
+      "actions": [
+        {
+          "text": "تحضير RFQ مجاناً · EN",
+          "top": 407.453125,
+          "bottom": 455.453125,
+          "height": 48
+        },
+        {
+          "text": "فحص المرشّحين — USD 2.99",
+          "top": 407.453125,
+          "bottom": 455.453125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 360,
+      "height": 800,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 471.78125,
+          "bottom": 519.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 471.78125,
+          "bottom": 519.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 390,
+      "height": 844,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 375.78125,
+          "bottom": 423.78125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 435.78125,
+          "bottom": 483.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 430,
+      "height": 932,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 380.28125,
+          "bottom": 428.28125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 440.28125,
+          "bottom": 488.28125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 354.984375,
+          "bottom": 402.984375,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 354.984375,
+          "bottom": 402.984375,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 1024,
+      "height": 900,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 366.703125,
+          "bottom": 414.703125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 366.703125,
+          "bottom": 414.703125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "pt-br",
+      "width": 1440,
+      "height": 1000,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Preparar RFQ grátis · EN",
+          "top": 407.453125,
+          "bottom": 455.453125,
+          "height": 48
+        },
+        {
+          "text": "Filtrar fornecedores — USD 2.99",
+          "top": 407.453125,
+          "bottom": 455.453125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 360,
+      "height": 800,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 470.171875,
+          "bottom": 518.171875,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 530.171875,
+          "bottom": 578.171875,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 375,
+      "height": 812,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 434.171875,
+          "bottom": 482.171875,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 494.171875,
+          "bottom": 542.171875,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 390,
+      "height": 844,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 411.78125,
+          "bottom": 459.78125,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 471.78125,
+          "bottom": 519.78125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 430,
+      "height": 932,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 418.53125,
+          "bottom": 466.53125,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 478.53125,
+          "bottom": 526.53125,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 768,
+      "height": 1024,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 398.984375,
+          "bottom": 446.984375,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 398.984375,
+          "bottom": 446.984375,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 1024,
+      "height": 900,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 408.5625,
+          "bottom": 456.5625,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 408.5625,
+          "bottom": 456.5625,
+          "height": 48
+        }
+      ]
+    },
+    {
+      "locale": "ru",
+      "width": 1440,
+      "height": 1000,
+      "pass": true,
+      "actions": [
+        {
+          "text": "Подготовить RFQ бесплатно · EN",
+          "top": 465.6875,
+          "bottom": 513.6875,
+          "height": 48
+        },
+        {
+          "text": "Отобрать кандидатов — USD 2.99",
+          "top": 465.6875,
+          "bottom": 513.6875,
+          "height": 48
+        }
+      ]
+    }
+  ]
+}

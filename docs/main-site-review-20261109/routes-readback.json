@@ -1,0 +1,142 @@
+[
+  {
+    "path": "/pricing",
+    "status": 301,
+    "location": "/china-supply-check",
+    "x_robots": null,
+    "cache": null,
+    "noindex": false,
+    "no_referrer": false,
+    "bytes": 19
+  },
+  {
+    "path": "/compare",
+    "status": 301,
+    "location": "/china-supply-check/alternatives",
+    "x_robots": null,
+    "cache": null,
+    "noindex": false,
+    "no_referrer": false,
+    "bytes": 32
+  },
+  {
+    "path": "/integrations",
+    "status": 301,
+    "location": "/for-agents",
+    "x_robots": null,
+    "cache": null,
+    "noindex": false,
+    "no_referrer": false,
+    "bytes": 11
+  },
+  {
+    "path": "/docs",
+    "status": 301,
+    "location": "/for-agents",
+    "x_robots": null,
+    "cache": null,
+    "noindex": false,
+    "no_referrer": false,
+    "bytes": 11
+  },
+  {
+    "path": "/docs/introduction",
+    "status": 404,
+    "location": null,
+    "x_robots": null,
+    "cache": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "noindex": true,
+    "no_referrer": false,
+    "bytes": 6982
+  },
+  {
+    "path": "/blog",
+    "status": 404,
+    "location": null,
+    "x_robots": null,
+    "cache": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "noindex": true,
+    "no_referrer": false,
+    "bytes": 6982
+  },
+  {
+    "path": "/status",
+    "status": 404,
+    "location": null,
+    "x_robots": null,
+    "cache": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "noindex": true,
+    "no_referrer": false,
+    "bytes": 6982
+  },
+  {
+    "path": "/refund",
+    "status": 404,
+    "location": null,
+    "x_robots": null,
+    "cache": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "noindex": true,
+    "no_referrer": false,
+    "bytes": 6982
+  },
+  {
+    "path": "/legal",
+    "status": 404,
+    "location": null,
+    "x_robots": null,
+    "cache": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "noindex": true,
+    "no_referrer": false,
+    "bytes": 6982
+  },
+  {
+    "path": "/checkout/return",
+    "status": 200,
+    "location": null,
+    "x_robots": "noindex, nofollow",
+    "cache": "private, no-store, max-age=0",
+    "noindex": true,
+    "no_referrer": true,
+    "bytes": 17825
+  },
+  {
+    "path": "/checkout/result",
+    "status": 200,
+    "location": null,
+    "x_robots": "noindex, nofollow",
+    "cache": "private, no-store, max-age=0",
+    "noindex": true,
+    "no_referrer": true,
+    "bytes": 17824
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "location": null,
+    "x_robots": null,
+    "cache": "public, max-age=0, must-revalidate",
+    "noindex": false,
+    "no_referrer": false,
+    "bytes": 100
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "location": null,
+    "x_robots": null,
+    "cache": "public, max-age=0, must-revalidate",
+    "noindex": false,
+    "no_referrer": false,
+    "bytes": 9974
+  },
+  {
+    "path": "/trade-supply",
+    "status": 404,
+    "location": null,
+    "x_robots": null,
+    "cache": "private, no-cache, no-store, max-age=0, must-revalidate",
+    "noindex": true,
+    "no_referrer": false,
+    "bytes": 6982
+  }
+]

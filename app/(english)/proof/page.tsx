@@ -18,14 +18,14 @@ export default function Proof() {
       <Eyebrow>RFQ delivery and evidence</Eyebrow>
       <h1>See what your $19.90 RFQ report will compare.</h1>
       <p>Compare supplier replies against one confirmed requirement. Your Human report, Agent JSON and Evidence manifest keep the same product matches, quotation terms, source evidence and open questions.</p>
-      <div className="button-row"><a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a><Link className="text-link" href="/china-supply-check/live-rfq-compare">Service scope and guarantee</Link></div>
+      <div className="button-row"><a className="button" href="#rfq-delivery-format">Inspect the report format</a><a className="text-link" href={rfqBuyerEntry}>Prepare my RFQ for free</a></div>
     </div></section>
 
     <section className="section" id="rfq-delivery-format"><div className="container">
       <h2>One requirement, one comparison basis.</h2>
       <p><strong>Synthetic format demonstration — no supplier reply, current price or customer case.</strong></p>
       <p>Illustrative requirement: M12 inductive proximity sensor, 24 V DC, NPN normally open, 2 m cable; 120 pieces to the Netherlands; no substitutions.</p>
-      <div className="rfq-format-scroll" role="region" aria-label="RFQ delivery field guide" tabIndex={0}>
+      <div className="rfq-format-scroll" role="region" aria-label="RFQ delivery field guide">
         <table className="rfq-format-table">
           <caption>Fields to compare for each supplier reply</caption>
           <thead><tr><th scope="col">Field</th><th scope="col">Comparison format</th></tr></thead>

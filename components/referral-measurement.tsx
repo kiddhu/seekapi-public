@@ -9,16 +9,20 @@ const ENDPOINT='https://api.seekapi.ai/checkout/stripe/metrics';
 /** Optional categories/random IDs only; no cookies, storage, input reads or customer wait. */
 export function ReferralMeasurement({enabled=false}:{enabled?:boolean}){
  const path=usePathname();
+ const privatePath=typeof path!=='string'||path==='/checkout'||path.startsWith('/checkout/');
  const observer=useRef<ReturnType<typeof createBrowserObserver>|null>(null);
  const last=useRef<BrowserEvent|null>(null);
  useEffect(()=>{
-  if(!enabled)return;
+  if(!enabled||privatePath)return;
   const nav=navigator as Navigator&{globalPrivacyControl?:boolean};
   observer.current=createBrowserObserver({globalPrivacyControl:nav.globalPrivacyControl===true,doNotTrack:nav.doNotTrack,
    send:event=>{if(nav.globalPrivacyControl||nav.doNotTrack==='1')return;last.current=event;void fetch(ENDPOINT,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(event),credentials:'omit',referrerPolicy:'no-referrer',keepalive:true}).catch(()=>{});}});
   const click=(event:MouseEvent)=>{
    try{
     const anchor=event.target instanceof Element?event.target.closest('a'):null;if(!anchor)return;
+    // Existing-result recovery is excluded from acquisition attribution.
+    // In particular, the photo recovery entry must never gain a sales #sf.
+    if(anchor.hasAttribute('data-result-recovery')){last.current=null;return;}
     const intent=classifyLink(anchor.href);
     if(intent.entry)anchor.href=intent.entry;last.current=null;
     observer.current?.observe(intent.type,{path:location.pathname,referrer:document.referrer,search:location.search,
@@ -32,7 +36,7 @@ export function ReferralMeasurement({enabled=false}:{enabled?:boolean}){
   };
   document.addEventListener('click',click,true);
   return()=>{document.removeEventListener('click',click,true);observer.current?.reset();observer.current=null;last.current=null;};
- },[enabled]);
+ },[enabled,privatePath]);
  useEffect(()=>{observer.current?.observe('PAGE_VIEW',{path,referrer:document.referrer,search:location.search});},[path]);
  return null;
 }

@@ -1,0 +1,15 @@
+✔ es: rendered payment copy names all four rails and current admission (4.257338ms)
+✔ de: rendered payment copy names all four rails and current admission (0.49897ms)
+✔ ja: rendered payment copy names all four rails and current admission (0.46963ms)
+✔ ar: rendered payment copy names all four rails and current admission (4.303287ms)
+✔ pt-br: rendered payment copy names all four rails and current admission (0.593668ms)
+✔ ru: rendered payment copy names all four rails and current admission (0.438593ms)
+✔ ARD identifies screening first and preserves the independent RFQ handoff (0.625333ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 85.276259

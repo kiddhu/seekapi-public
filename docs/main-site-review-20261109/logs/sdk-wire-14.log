@@ -1,0 +1,19 @@
+test_node_cli_sdk_marks_initialize_and_free_prepare_on_actual_http (__main__.SDKWireTests.test_node_cli_sdk_marks_initialize_and_free_prepare_on_actual_http) ... ok
+test_python_sdk_marks_initialize_and_free_prepare_on_actual_http (__main__.SDKWireTests.test_python_sdk_marks_initialize_and_free_prepare_on_actual_http) ... ok
+test_rfq_boolean_effect_is_rejected_before_private_export (__main__.SDKWireTests.test_rfq_boolean_effect_is_rejected_before_private_export) ... ok
+test_rfq_buyer_supplied_intent_is_not_classified_as_the_packaged_demo (__main__.SDKWireTests.test_rfq_buyer_supplied_intent_is_not_classified_as_the_packaged_demo) ... ok
+test_rfq_checks_free_price_and_no_screening_prerequisite_before_prepare (__main__.SDKWireTests.test_rfq_checks_free_price_and_no_screening_prerequisite_before_prepare) ... ok
+test_rfq_cli_requires_explicit_live_and_sends_no_request_by_default (__main__.SDKWireTests.test_rfq_cli_requires_explicit_live_and_sends_no_request_by_default) ... ok
+test_rfq_existing_private_file_reports_recovery_before_any_network_request (__main__.SDKWireTests.test_rfq_existing_private_file_reports_recovery_before_any_network_request) ... ok
+test_rfq_missing_tools_gives_the_original_buyer_form_without_prepare (__main__.SDKWireTests.test_rfq_missing_tools_gives_the_original_buyer_form_without_prepare) ... ok
+test_rfq_paused_preparation_needs_the_explicit_free_permission (__main__.SDKWireTests.test_rfq_paused_preparation_needs_the_explicit_free_permission) ... ok
+test_rfq_paused_sales_keeps_free_preparation_and_private_brief_without_payment (__main__.SDKWireTests.test_rfq_paused_sales_keeps_free_preparation_and_private_brief_without_payment) ... ok
+test_rfq_rate_limit_returns_retry_time_without_retry_or_output (__main__.SDKWireTests.test_rfq_rate_limit_returns_retry_time_without_retry_or_output) ... ok
+test_rfq_reopened_demo_file_remains_excluded_without_telemetry_in_the_handoff (__main__.SDKWireTests.test_rfq_reopened_demo_file_remains_excluded_without_telemetry_in_the_handoff) ... ok
+test_rfq_sdk_exports_the_same_private_buyer_intent_and_only_calls_free_tools (__main__.SDKWireTests.test_rfq_sdk_exports_the_same_private_buyer_intent_and_only_calls_free_tools) ... ok
+test_rfq_shared_rate_limit_without_hint_preserves_input_and_suggests_manual_wait (__main__.SDKWireTests.test_rfq_shared_rate_limit_without_hint_preserves_input_and_suggests_manual_wait) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 8.163s
+
+OK

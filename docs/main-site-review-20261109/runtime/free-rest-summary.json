@@ -1,0 +1,50 @@
+[
+  {
+    "product": "image",
+    "utc": "2026-11-09T18:28:02.565390+00:00",
+    "http": 200,
+    "ray": "a57edff14bca1146-ORD",
+    "response_sha256": "a25499db6552b89e18cfabb413a2d2f668c6240a770690ec277023db9dd39c62",
+    "status": null,
+    "code": null,
+    "draft_ready": true,
+    "payment_effects": null,
+    "provider_effects": null,
+    "keys": [
+      "draft"
+    ]
+  },
+  {
+    "product": "rfq",
+    "utc": "2026-11-09T18:28:05.173435+00:00",
+    "http": 200,
+    "ray": "a57edffdf8731146-ORD",
+    "response_sha256": "f188a145fdf52a8658c8ce1f8b465f9cac05761339f39ac4945afd25e1997e84",
+    "status": "READY",
+    "code": null,
+    "draft_ready": false,
+    "payment_effects": 0,
+    "provider_effects": 0,
+    "keys": [
+      "schema_version",
+      "normalized_draft",
+      "source_references",
+      "buyer_policy",
+      "source_conflicts",
+      "missing_fields",
+      "clarifications",
+      "eligibility",
+      "provider_effects",
+      "payment_effects",
+      "network_calls",
+      "identity_match",
+      "sourcing_path",
+      "delivery_contract",
+      "status",
+      "normalized_requirement",
+      "requirement_digest",
+      "requirement_version",
+      "prepared"
+    ]
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "packages": 96,
+  "registry_urls_repaired": 95,
+  "versions_and_integrity_unchanged": true,
+  "archive_member_count": 12,
+  "archive_member_content_matches_source": true,
+  "sdk_versions": {
+    "python_mcp": "1.30.0",
+    "node_mcp_sdk": "1.32.1"
+  },
+  "tests": {
+    "python_unit": 9,
+    "node_unit": 9,
+    "actual_sdk_loopback_http": 14
+  },
+  "live_clients": {
+    "node_csc": "discover and prepare only; zero effect fields returned",
+    "python_rfq": "discover and prepare only; payment_actions 0; INTERNAL_DEMO"
+  },
+  "private_prepared_objects": "NOT_PUBLISHED"
+}

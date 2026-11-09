@@ -1,0 +1,6 @@
+npm error code E403
+npm error 403 403 Forbidden - GET http://mirrors.tencentyun.com/npm/zod-to-json-schema/-/zod-to-json-schema-3.25.2.tgz
+npm error 403 In most cases, you or one of your dependencies are requesting
+npm error 403 a package version that is forbidden by your security policy, or
+npm error 403 on a server you do not have access to.
+npm error A complete log of this run can be found in: /workspace/work/npm-cache/_logs/2026-11-09T18_52_53_145Z-debug-0.log

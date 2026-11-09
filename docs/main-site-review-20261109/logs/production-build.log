@@ -1,0 +1,95 @@
+
+> seekapi-web-v01@0.1.0 build
+> tsx scripts/sync-public-agent-sample.mjs && next build
+
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 90ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 614ms
+  Running TypeScript ...
+  Finished TypeScript in 1831ms ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/89) ...
+  Generating static pages using 4 workers (22/89) 
+  Generating static pages using 4 workers (44/89) 
+  Generating static pages using 4 workers (66/89) 
+✓ Generating static pages using 4 workers (89/89) in 1503ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├   /[locale]/[[...slug]]
+│ ├ ● /ja
+│ ├ ● /ja/china-supply-chain
+│ ├ ● /ja/china-compliance-logistics
+│ └ ● [+31 more paths]
+├ ○ /about
+├ ○ /apis
+├ ƒ /checkout
+├ ƒ /checkout/cancel
+├ ƒ /checkout/private
+├ ƒ /checkout/result
+├ ƒ /checkout/return
+├ ƒ /checkout/stripe/[operation]
+├ ○ /china-compliance-logistics
+├ ○ /china-desk
+├ ○ /china-supply-chain
+├ ○ /china-supply-check
+├ ○ /china-supply-check/alternatives
+├ ○ /china-supply-check/connectors
+├ ○ /china-supply-check/fasteners
+├ ○ /china-supply-check/listing-price-vs-quote
+├ ○ /china-supply-check/live-rfq-compare
+├ ○ /china-supply-check/moq-specification-screening
+├ ○ /china-supply-check/packaging
+├ ○ /china-supply-check/sample
+├ ○ /china-supply-check/sample.json
+├ ○ /china-supply-check/sample/archived-v4
+├ ○ /discovery-status
+├ ○ /for-agents
+├ ○ /for-agents/agent-services.json
+├ ○ /how-it-works
+├ ○ /openapi.json
+├ ○ /privacy
+├ ○ /proof
+├ ○ /robots.txt
+├ ○ /sitemap.xml
+├ ○ /sourcing
+├   /sourcing/[intent]
+│ ├ ● /sourcing/find-china-suppliers
+│ ├ ● /sourcing/china-supplier-screening
+│ ├ ● /sourcing/china-supplier-verification
+│ └ ● [+5 more paths]
+├ ○ /sourcing/image-based-supplier-search
+├ ○ /sourcing/products/bearing-designation-checklist
+├ ○ /sourcing/products/pcb-terminal-blocks
+├ ○ /sourcing/rfq-templates/china-supplier-brief
+├ ○ /sourcing/rfq-templates/custom-packaging-artwork-brief
+├ ○ /sourcing/rfq-templates/delivery-terms-cost-basis
+├ ○ /sourcing/rfq-templates/supplier-quote-comparison
+├ ○ /sourcing/workflows/drawing-and-model-revision-checklist
+├ ○ /sourcing/workflows/product-certificate-scope
+├ ○ /sourcing/workflows/sample-to-production-specifications
+├ ƒ /start
+├ ○ /support
+├ ○ /terms
+├ ○ /trust
+└   /website-growth-preview/[variant]
+  ├ ● /website-growth-preview/a
+  ├ ● /website-growth-preview/b
+  └ ● /website-growth-preview/c
+
+Route (pages)
+─ ƒ /api/legacy-route-response
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

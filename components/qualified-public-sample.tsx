@@ -5,6 +5,9 @@ type Candidate={candidate_id:number;supplier_label:string;product_match_type:str
 type PublicModel={supplier_candidates:Candidate[];decision_summary:{recommended_candidate_id:null;first_displayed_candidate_id:number}};
 export function QualifiedPublicSample({publication}:{publication:PublicSamplePublication}){
  const sample=JSON.parse(publication.sample_json) as PublicModel;
+ // Heading depth changes only in this embedded view. The reviewed artifact,
+ // downloads, JSON and their digests remain byte-for-byte unchanged.
+ const embeddedBody=publication.body_html.replace('<h1>','<h2 class="embedded-report-title">').replace('</h1>','</h2>');
  const first=sample.supplier_candidates.find(c=>c.candidate_id===sample.decision_summary.first_displayed_candidate_id);
  return <>
   <section className="page-hero sample-hero"><div className="container">
@@ -29,7 +32,7 @@ export function QualifiedPublicSample({publication}:{publication:PublicSamplePub
    <p>Exact SKU, material, dimensions, quality, stock, lead time and a formal quotation still require RFQ confirmation. Historical MOQ observations below retain their original units and do not establish current quantity fit.</p>
    <h3>Contact availability</h3><p>For all three candidates, business phone, business email, platform contact and transaction path availability are unknown (null). No complete contact details or real supplier identity are public. Authenticated paid report business contacts remain readable.</p>
   </div></section>
-  <section className="section"><div className="container public-qualified-sample" dangerouslySetInnerHTML={{__html:publication.body_html}} /></section>
+  <section className="section"><div className="container public-qualified-sample" dangerouslySetInnerHTML={{__html:embeddedBody}} /></section>
   <section className="section"><div className="container"><h2>Keep the next step clear</h2><p>SeekAPI Verified RFQ Basic is a separate USD 19.90 supplier-contact and quotation-comparison service, not a contact-unlock fee. This historical sample does not buy that service or contact a supplier. Basic delivers up to three matching suppliers and targets at least one current qualified quote within three China business days after payment and essential confirmation, or RFQ_INCOMPLETE and a full original-method refund of this service fee. Check current admission before a new purchase.</p><p>Contact availability is unknown (null) in this anonymous sample. Existing public business contacts in authenticated paid reports remain readable.</p><div className="button-row"><Link className="button" href="/china-supply-check/live-rfq-compare#current-status">Review the $19.90 service</Link><Link className="button button-ghost" href="/for-agents">Agent connection and current payment options</Link></div></div></section>
  </>;
 }

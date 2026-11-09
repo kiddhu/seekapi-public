@@ -1,0 +1,272 @@
+{
+  "base": "7c1d45a0c5e4a6bb56ff8954fcac52817b785d29",
+  "tested_source_head": "3998f96986ee4051e53558447df80ae93e590904",
+  "tested_source_tree": "800d503d8d11191a52163d5ade75258e7c3bb6c7",
+  "later_changes_allowed_for_this_evidence": "review documentation only; code changes require relevant revalidation",
+  "files": [
+    {
+      "path": "app/(english)/checkout/cancel/page.tsx",
+      "bytes": 343,
+      "sha256": "bb362f70e80aecbf4e6efef49263a3c4151737dcc72ac752136b808098f26e7a",
+      "git_blob": "63205da1c4942bed22b35a0a7499ec7b21a7930e"
+    },
+    {
+      "path": "app/(english)/checkout/checkout.css",
+      "bytes": 2828,
+      "sha256": "b17b2da1d8c108894e73bf885c8b19f87bc64c7540ac7f0e67d411c101ccc635",
+      "git_blob": "cfb49f642c54427abe288990295ad7b7b57c83f9"
+    },
+    {
+      "path": "app/(english)/checkout/result/page.tsx",
+      "bytes": 342,
+      "sha256": "4913a3bdcc42e3731980826cd17f3626a042936a8ba34971fb0435f971166036",
+      "git_blob": "c72d2c09f8d01cceaa1479e7697dc64533d5446d"
+    },
+    {
+      "path": "app/(english)/checkout/return/page.tsx",
+      "bytes": 343,
+      "sha256": "bb362f70e80aecbf4e6efef49263a3c4151737dcc72ac752136b808098f26e7a",
+      "git_blob": "63205da1c4942bed22b35a0a7499ec7b21a7930e"
+    },
+    {
+      "path": "app/(english)/china-supply-check/live-rfq-compare/page.tsx",
+      "bytes": 6706,
+      "sha256": "56b86ce64b4df88f96e59f4bf28aaf0e8c946b044ede530b65dec3e024d7e5df",
+      "git_blob": "ec428eea9aa955b724b1b8c4d6d20e132c60e068"
+    },
+    {
+      "path": "app/(english)/china-supply-check/page.tsx",
+      "bytes": 5122,
+      "sha256": "5b8a817a7a80f301f3362b2a3db263b471532f6c1e4c46f3187cc3fddefd9318",
+      "git_blob": "6fa3107dbb26baf13fd211cdd554d92227b12ca6"
+    },
+    {
+      "path": "app/(english)/for-agents/page.tsx",
+      "bytes": 15508,
+      "sha256": "e20fa5d446d839cecc9ba71d1e9d85c7de51bb6c45f1469c3b4276c2b4612947",
+      "git_blob": "90bc7659c3fa84fa31a4a7bdd79449fb71cdd77e"
+    },
+    {
+      "path": "app/(english)/page.tsx",
+      "bytes": 637,
+      "sha256": "051ad3ade935202899acb6174eb7fe49b8b9e66db5c5d548974da532538da96d",
+      "git_blob": "8fa91c69b648b90fdc1c42ba14db31490da85198"
+    },
+    {
+      "path": "app/(english)/proof/page.tsx",
+      "bytes": 6391,
+      "sha256": "6828c892603c096e7dea85dbf361d9220c2265f784f32f79e2bc91c72cfab59b",
+      "git_blob": "642e448cb46c3ded83c96386e8fc1c6a5c6b8a25"
+    },
+    {
+      "path": "app/(english)/start/page.tsx",
+      "bytes": 1218,
+      "sha256": "dacf8dba89db86eb1ce14a472fe62f8e02f2d7b398425b1572c717ae89a41067",
+      "git_blob": "f0011f83c5fbbc5cfc210323085cd35b72de495e"
+    },
+    {
+      "path": "app/(english)/support/page.tsx",
+      "bytes": 4917,
+      "sha256": "3f7c574c3ffd8579d96800997b20b1ab88bf25373f02da7d9b1ff6a766e9547e",
+      "git_blob": "0d722c0a13ba75f29640f9dcbde0c86586bdb7ff"
+    },
+    {
+      "path": "app/(english)/trust/page.tsx",
+      "bytes": 5716,
+      "sha256": "d034ef24db4419b1361b3d4ad0f523a0bee506f0df3fef71203949c3c75f7483",
+      "git_blob": "cda94c23a9352a97127dc00894e648411450219b"
+    },
+    {
+      "path": "app/main-conversion.css",
+      "bytes": 11343,
+      "sha256": "32b87d7e5d512fb27c3264ce6b787df3a145bf48239c604fd900aebdfb582165",
+      "git_blob": "5c00bd41969f7a5a95b90fa93fdb58f8c9f30404"
+    },
+    {
+      "path": "components/checkout-experience.tsx",
+      "bytes": 9458,
+      "sha256": "b02f2fd2c6c2baf0eff9338460a482f8cd561e74ceabde81b919f614d405079d",
+      "git_blob": "544210de12d3d7ae3408443d2353081b61a0c4cc"
+    },
+    {
+      "path": "components/decision-guide.tsx",
+      "bytes": 6138,
+      "sha256": "a887b36c524e605f1beef0fdda16671c5e20f211379ecffb507a564ce7575b1c",
+      "git_blob": "6fafba81cfd7f6dc00d37f7abebee2f19a99e5ec"
+    },
+    {
+      "path": "components/growth-home.tsx",
+      "bytes": 13626,
+      "sha256": "fdf25748d8fc6305917cb42f3777346cde82310ed488ec20a5906284693402a5",
+      "git_blob": "3808f02b6ad3918fea3b26d9454c9c7e8f1ef0ce"
+    },
+    {
+      "path": "components/language-switch.tsx",
+      "bytes": 2150,
+      "sha256": "4bcaffb904faf93f7056b55f14d5780135cf05ac28b451f08cb6d81b4bd8f3eb",
+      "git_blob": "09c2dcf32cae49ab559a319919923f9f1534439b"
+    },
+    {
+      "path": "components/localized-page.tsx",
+      "bytes": 10308,
+      "sha256": "0a1d842a97ee5f9f8c2dd253aa20d7a9c0b9cc3daf25e6ebb0f9b20dd051a6ec",
+      "git_blob": "13bfa8b7dfaa2ac89bc3bd96a3bb506dbfd2d517"
+    },
+    {
+      "path": "components/localized-start-form.tsx",
+      "bytes": 3639,
+      "sha256": "cdd5184dc3d48822af5fe5810fec130ed363af9fd0894be4624ee974f419aad3",
+      "git_blob": "d71d196a16811aa338524e904d6e6b1f47bd46eb"
+    },
+    {
+      "path": "components/main-home.tsx",
+      "bytes": 6885,
+      "sha256": "9147a01ce0afb9a025733ea068405c545ffcf2db2023587785bed1ec14efae9a",
+      "git_blob": "fe940f7835a9ff6dc08340b41b1df9db33d70098"
+    },
+    {
+      "path": "components/mobile-nav.tsx",
+      "bytes": 1889,
+      "sha256": "ff5c66520767520b3a18f21a88276f810a2c763d799b3a3d7f4b2885e9e61989",
+      "git_blob": "5a22b58e44cfc1d6aa39bf1e692fc29fc9405d54"
+    },
+    {
+      "path": "components/qualified-public-sample.tsx",
+      "bytes": 4913,
+      "sha256": "7a1934b7b8678b129a1b6b91350d1997e307e00de42d4a6734f32e9c012a1f4e",
+      "git_blob": "26ec47e82c13bf1d55a7f34620369fbaefc77dcf"
+    },
+    {
+      "path": "components/referral-measurement.tsx",
+      "bytes": 2731,
+      "sha256": "cc37533a144e866fce06554c4888c74691b3b63ce421559970c61fa02a264ef9",
+      "git_blob": "ce672b2a11362c8aca02af640d92e5f43a4e46f8"
+    },
+    {
+      "path": "components/root-document.tsx",
+      "bytes": 2609,
+      "sha256": "d65299742f550a3d3bfb6ffaa545a9e6aaa0f0761380036466dc55b83f522327",
+      "git_blob": "6e1b1af16648f95df2c93e75f342be7e6c83c098"
+    },
+    {
+      "path": "components/service-comparison.tsx",
+      "bytes": 3854,
+      "sha256": "684d08555026a9a39f7a54f05e52ed51eca50d4601e223c3269b5e26c710e8d2",
+      "git_blob": "4ab8a5c87a9e860bdcbd40674d6a47a2376af216"
+    },
+    {
+      "path": "components/site.tsx",
+      "bytes": 8871,
+      "sha256": "55e1f8ac4dddbc9f14126692b5f9c353739c19bb3de244bbd049d7bd03ab57d3",
+      "git_blob": "af12a806667446fe66d8d6f153957d9c75cae49e"
+    },
+    {
+      "path": "components/start-form.tsx",
+      "bytes": 8294,
+      "sha256": "c6f2df292e7f4bf8c1167662d8b3f1ee83b6265133b74ab5f2ffe8514464847b",
+      "git_blob": "709cb7d3fa7dde02d33495f7377f55b1e1bc8c6b"
+    },
+    {
+      "path": "data/content-batch-revisions.json",
+      "bytes": 2839,
+      "sha256": "1220cb835803310f58865d5ec1c3b1b0d68fcde1f32799e941fd1d4708559d2c",
+      "git_blob": "ce85f1931a9ea8cfb456f94c96b29d99778d6512"
+    },
+    {
+      "path": "lib/csc-commercial-truth.ts",
+      "bytes": 1279,
+      "sha256": "2663f37cfb6af5ffb5b48e9e4a6e74b58954581f85a840be6d0f70e51340aa41",
+      "git_blob": "3cc00b2a8c758cbcf66716433f4f1855497a6336"
+    },
+    {
+      "path": "lib/csc-payment-copy.ts",
+      "bytes": 4852,
+      "sha256": "8419e914106869a6ab843471e6848aa358e42f29b3f587d31e463b086e8a5632",
+      "git_blob": "e8cbf946ac5c4e7090f0ca48070fe953183e6900"
+    },
+    {
+      "path": "lib/localized-content.ts",
+      "bytes": 66832,
+      "sha256": "10cf0b5bc5bdc46f9fda2d11a05018926a7744408b900d4df7e094d714f2d6a5",
+      "git_blob": "736cc5aeec2a284966ed43f9bd9a67d372f23299"
+    },
+    {
+      "path": "lib/localized-home-copy.ts",
+      "bytes": 3964,
+      "sha256": "cf07701f8a204a7c37d9debdf7857c764aaaf2c65be3bc246e99bf0354ec0680",
+      "git_blob": "fcabd766edd72b4da6d63d446f9b872af73f7f46"
+    },
+    {
+      "path": "public/.well-known/ard.json",
+      "bytes": 20610,
+      "sha256": "cc4f02dfcc11f3662a8b11a476a0a9d773cede166da1f212bee826991f4a873a",
+      "git_blob": "9f9e51a05b376974a924e27bc44bdad30a9dd970"
+    },
+    {
+      "path": "public/developers/free-mcp-quickstart.zip",
+      "bytes": 37042,
+      "sha256": "72ff95901b089fcfe6ea302a370863696817d78b4f46846c9847b28bd9eca971",
+      "git_blob": "840694b6fe467c1fd4a3026f8cb3133157766bf1"
+    },
+    {
+      "path": "public/developers/free-mcp-quickstart/examples/package-lock.json",
+      "bytes": 42769,
+      "sha256": "91fd893d2450f6f1a971a7c6830e071474f88373613387c0e5f48327e47d70a6",
+      "git_blob": "8d06fe7bfaecc8396e80bcbc58945ecc14ecfed3"
+    },
+    {
+      "path": "public/llms.txt",
+      "bytes": 16049,
+      "sha256": "af97382082f1b2f49ca58f19ac4623d38e63df278ad293cb0f4927d1eb2afe0c",
+      "git_blob": "01c11f2118d79518a03f7541de3cff1c3af742bf"
+    },
+    {
+      "path": "scripts/verify_main_site.py",
+      "bytes": 27488,
+      "sha256": "194ff2c1900e0e9b18685d2c0dbc08b8764aab07c8aecc16127e66da17d45caf",
+      "git_blob": "a260f3399963cad596cf59eb40cb73e47194de88"
+    },
+    {
+      "path": "scripts/verify_main_site_touch.py",
+      "bytes": 2989,
+      "sha256": "8b9dcb77a35091b3fb5161683941f159a55e08bccebff4a220920f0e44054315",
+      "git_blob": "e08f1a4a46957f56cf77e95392432368abc0e2a1"
+    },
+    {
+      "path": "test/agent-download-integrity.test.mjs",
+      "bytes": 3019,
+      "sha256": "fa8645ff11d72895244d64c6b926c9326cf29d656bd466331af2c25c134d5c23",
+      "git_blob": "f0cc99a2d970a081721fadda7d1b87c1f6f0b771"
+    },
+    {
+      "path": "test/discovery-convergence.test.mjs",
+      "bytes": 7544,
+      "sha256": "4e83636314ec39f8e5c095ed2d7a15b60626ccc178d5d2aeb2b7e3cf6eba4442",
+      "git_blob": "6df06485099853f1e8812dd66878cffe208eecdf"
+    },
+    {
+      "path": "test/home-sample-withdrawal.test.mjs",
+      "bytes": 972,
+      "sha256": "8beca3eb1938be8e77c02779cae5573ad8b73b6b4b9f906ecf94099b281bb968",
+      "git_blob": "5dc21b8225d45b83e3909d5a4da1a3a95b56bcaf"
+    },
+    {
+      "path": "test/main-conversion.test.mjs",
+      "bytes": 2133,
+      "sha256": "49c04104e01d8d02ff7930efb3230aef33b040a004a3f6d7b2850fffb700ec6c",
+      "git_blob": "f8087a683c66f8fca7f5e2f4b2406a47fa04ce3a"
+    },
+    {
+      "path": "test/main-site-truth.test.mjs",
+      "bytes": 4028,
+      "sha256": "df08f71047e4c5a1dfe5494b74d9415d7152ac49578b2ac20993bde7860e08de",
+      "git_blob": "5a823236b55f2c08ead904a602a27ced44271679"
+    },
+    {
+      "path": "test/public-sample-clarity-v4.test.mjs",
+      "bytes": 3575,
+      "sha256": "a7b44cd7644af0a5ca075a2566d05d115aa594975b67f9a0c507c0bc0108a858",
+      "git_blob": "8c0a6d3f9616b8cafead2b4b3c63f0f1b214f3e5"
+    }
+  ]
+}

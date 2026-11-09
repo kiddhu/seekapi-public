@@ -1,0 +1,13 @@
+{
+  "modes": {
+    "image_stripe": "LIVE",
+    "image_x402": "OFF",
+    "text_stripe": "OFF",
+    "text_x402": "LIVE"
+  },
+  "draft_digest": "185b9bf8ad60ddeb00c4031315c6080cbddb14fdae337c19fcd827e08a82743f",
+  "payment_effects": 0,
+  "provider_effects": 0,
+  "next_action": "Review the exact server-prepared draft privately. STOP before purchase.",
+  "sample_url": "https://seekapi.ai/china-supply-check/sample.json"
+}

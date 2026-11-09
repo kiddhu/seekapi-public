@@ -1,32 +1,32 @@
+import {cscAdmissionNotice, cscPaymentStatement} from '@/lib/csc-payment-copy';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { MobileNav } from './mobile-nav';
 import { LanguageSwitch } from './language-switch';
-import { localeInfo, localizedCopy, localizedCscCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
+import { localeInfo, localizedCopy, pagePath, russianCopy, type SiteLocale } from '@/lib/localized-content';
 import { isPublicProduction } from '@/lib/site';
 import { rfqBuyerEntry } from '@/lib/rfq-basic-copy';
+import {localizedHomeCopy} from '@/lib/localized-home-copy';
 
 export const navItems = [
-  { href: '/china-supply-check/live-rfq-compare', label: '$19.90 Live RFQ' },
-  { href: '/china-supply-check', label: 'Supplier check' },
-  { href: '/sourcing', label: 'Sourcing guides' },
-  { href: '/china-supply-check/sample', label: 'Sample report' },
-  { href: '/trust', label: 'Trust' },
+  { href: '/china-supply-check', label: 'Find Suppliers' },
+  { href: '/china-supply-check/live-rfq-compare', label: 'Get Quotes' },
+  { href: '/for-agents', label: 'For Agents' },
+  { href: '/sourcing', label: 'Guides' },
 ];
 
 function localeUi(locale:SiteLocale){
   if(locale==='en')return {preview:'Internal preview · payments are not enabled; service requests require human confirmation',skip:'Skip to main content',menu:'Menu',close:'Close',start:'Prepare free RFQ',items:navItems,home:'/',footer:'Current Chinese supplier quotes for overseas buyers and AI agents. USD 19.90 once for supplier contact, translation and quote comparison. Prepare your requirement for free.',evidence:'Supplier evidence · clear service-fee guarantee'};
-  if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy.ru.cta,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
-  const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedCscCopy[locale].cta,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
+  if(locale==='ru'){const c=russianCopy;return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedHomeCopy.ru.rfqAction,items:Object.entries(c.nav).map(([slug,label])=>({href:`/ru/${slug}`,label})),home:'/ru',footer:c.footer,evidence:c.evidence};}
+  const c=localizedCopy[locale];return {preview:c.preview,skip:c.skip,menu:c.menu,close:c.close,start:localizedHomeCopy[locale].rfqAction,items:Object.entries(c.nav).map(([slug,label])=>({href:pagePath(locale,slug as 'china-supply-chain'|'china-compliance-logistics'|'how-it-works'|'trust'),label})),home:pagePath(locale,'home'),footer:c.footer,evidence:c.evidence};
 }
 export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='en'?rfqBuyerEntry:'/china-supply-check';
-  const productionNotices:Record<SiteLocale,string>={'en':'China Supply Check: image Stripe USD2.99 LIVE · image x402 OFF · text/model x402 LIVE · check discovery','ja':'China Supply Check：x402 決済は利用可能 · 画像 Stripe USD2.99 利用可能 · 人によるサービスは範囲確認が必要','es':'China Supply Check: x402 disponible · Stripe de imágenes USD2.99 disponible · Los servicios humanos requieren confirmar el alcance','ar':'China Supply Check: دفع x402 متاح · Stripe للصور USD2.99 متاح · الخدمات البشرية تتطلب تأكيد النطاق','de':'China Supply Check: x402 verfügbar · Bild-Stripe USD2.99 verfügbar · Menschliche Services erfordern Umfangsbestätigung','pt-br':'China Supply Check: x402 disponível · Stripe de imagens USD2.99 disponível · Serviços humanos exigem confirmação do escopo','ru':'China Supply Check: x402 доступен · Stripe изображений USD2.99 доступен · Для услуг специалистов нужно согласовать объём'};
-  const notice=isPublicProduction?productionNotices[locale]:ui.preview;
+  const ui=localeUi(locale); const startHref=rfqBuyerEntry;
+  const notice=isPublicProduction?cscAdmissionNotice(locale):ui.preview;
   return (
     <header className="site-header">
       <a className="skip-link" href="#main-content">{ui.skip}</a>
-      {locale !== 'en' ? <div className="preview-bar">{notice}</div> : null}
+      {locale !== 'en' ? <div className="preview-bar"><details><summary>China Supply Check · {notice}</summary><p>{cscPaymentStatement(locale)}</p></details></div> : null}
       <div className="container nav-wrap">
         <Link href={ui.home} className="brand" aria-label="SeekAPI home">
           <span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span>
@@ -34,30 +34,30 @@ export function Header({ locale = 'en' }: { locale?: SiteLocale }) {
         <nav className="nav-links" aria-label="Primary navigation">
           {ui.items.map((item) => <Link key={item.href} href={item.href} className="nav-link">{item.label}</Link>)}
         </nav>
-        {locale === 'en' ? <Link className="growth-utility" href="/for-agents">For Agents</Link> : null}
-        <LanguageSwitch locale={locale}/>
+        <a className="recovery-link" href="/support#existing-results">{locale === 'en' ? 'My results' : 'My results · EN'}</a>
+        <div className="desktop-language"><LanguageSwitch locale={locale}/></div>
         <Link href={startHref} className="button button-small">{ui.start}</Link>
-        <MobileNav items={ui.items} menuLabel={ui.menu} closeLabel={ui.close} startHref={startHref} startLabel={ui.start}/>
+        <MobileNav items={ui.items} menuLabel={ui.menu} closeLabel={ui.close} startHref={startHref} startLabel={ui.start} languageControl={<LanguageSwitch locale={locale}/>}/>
       </div>
     </header>
   );
 }
 
 export function Footer({ locale = 'en' }: { locale?: SiteLocale }) {
-  const ui=localeUi(locale); const startHref=locale==='en'?rfqBuyerEntry:'/china-supply-check';
+  const ui=localeUi(locale); const startHref=rfqBuyerEntry;
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div><div className="brand footer-brand"><span className="brand-mark" aria-hidden="true">S</span><span>SeekAPI</span></div><p className="muted footer-copy">{ui.footer}</p></div>
         <div className="footer-links">{ui.items.map(item=><Link href={item.href} key={item.href}>{item.label}</Link>)}<Link href={startHref}>{ui.start}</Link>{locale === 'en' ? <><Link href="/for-agents">For Agents</Link><Link href="/apis">Machine interfaces</Link><Link href="/proof">Proof</Link><Link href="/about">About SeekAPI</Link><Link href="/how-it-works">How it works</Link><Link href="/china-supply-chain">China Desk support</Link><Link href="/china-compliance-logistics">Compliance and logistics</Link></> : null}</div>
-        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><Link href="/support">Support</Link><Link href="/privacy">Privacy (English)</Link><Link href="/terms">Terms (English)</Link></address>
+        <address className="footer-legal"><strong>SeekAPI Technology Limited</strong><span>Room P11, Flat 2C, 2/F, Hung To Ctr.<br/>94–96 How Ming St., Kwun Tong<br/>Kowloon, Hong Kong</span><a href="mailto:support@seekapi.ai">support@seekapi.ai</a><a href="/support#existing-results">Existing results and support</a><Link href="/trust">Trust and service scope</Link><Link href="/privacy">Privacy (English)</Link><Link href="/terms">Terms (English)</Link></address>
       </div>
       <div className="container footer-bottom"><span>© 2026 SeekAPI</span><span>{ui.evidence}</span></div>
     </footer>
   );
 }
 
-export function PageShell({ children, locale = 'en' }: { children: ReactNode; locale?: SiteLocale }) { const info=localeInfo[locale];return <><div lang={info.htmlLang} dir={info.dir}><Header locale={locale}/><main id="main-content">{children}</main><Footer locale={locale}/></div></>; }
+export function PageShell({ children, locale = 'en' }: { children: ReactNode; locale?: SiteLocale }) { const info=localeInfo[locale];return <><div className="public-site" lang={info.htmlLang} dir={info.dir}><Header locale={locale}/><main id="main-content" tabIndex={-1}>{children}</main><Footer locale={locale}/></div></>; }
 export function Eyebrow({ children }: { children: ReactNode }) { return <div className="eyebrow">{children}</div>; }
 export function SectionTitle({ eyebrow, title, body }: { eyebrow?: string; title: string; body?: string }) { return <div className="section-heading">{eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}<h2>{title}</h2>{body ? <p>{body}</p> : null}</div>; }
 export function Pill({ children }: { children: ReactNode }) { return <span className="pill">{children}</span>; }

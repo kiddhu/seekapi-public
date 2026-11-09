@@ -1,0 +1,8 @@
+{
+  "source_pr": 22,
+  "head": "2445be1818d74700d949cdb2677615a0beebd4a2",
+  "path": "test/discovery-convergence.test.mjs",
+  "observed_patch_sha256": "e96aace281a103d7544b9b0341ff15d7b18bd3b0fcc8a4098c51175557207c85",
+  "hunk_summary": "One proof/discovery confidentiality-regex assertion; separate from the localized CTA test.",
+  "publication": "Fingerprint and summary only; original patch remains in the original pull request."
+}

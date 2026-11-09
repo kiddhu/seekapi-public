@@ -1,0 +1,134 @@
+{
+  "schema": "seekapi.main-site-engineering-evidence.v1",
+  "recorded_utc": "2026-11-09T20:55:22.503442+00:00",
+  "base": "7c1d45a0c5e4a6bb56ff8954fcac52817b785d29",
+  "tested_source_head": "3998f96986ee4051e53558447df80ae93e590904",
+  "tested_source_tree": "800d503d8d11191a52163d5ade75258e7c3bb6c7",
+  "production": "NOT_DEPLOYED",
+  "review": "INDEPENDENT_REVIEW_PENDING",
+  "business": "UNKNOWN",
+  "checks": {
+    "baseline_node": {
+      "pass": 134,
+      "fail": 0
+    },
+    "final_node": {
+      "pass": 153,
+      "fail": 0,
+      "skip": 0
+    },
+    "production_build_exit": 0,
+    "typescript_exit": 0,
+    "browser": {
+      "pass": 1330,
+      "fail": 0,
+      "core_layouts": 56,
+      "additional_public_layouts": 116,
+      "locale_layouts": 42,
+      "synthetic_result_layouts": 7,
+      "screenshot_count": 107,
+      "external_attempts": 0,
+      "detailed_field_guide_captures": 2
+    },
+    "touch_emulated": {
+      "pass": 4,
+      "fail": 0
+    },
+    "packaged_sdk_offline_and_loopback": {
+      "pass": 32,
+      "fail": 0
+    },
+    "pr22_shared_test_hunk": {
+      "merge_exit": 0,
+      "confidentiality_assertions_unchanged": true,
+      "whole_historical_pr_mergeability": "NOT_ASSERTED"
+    },
+    "external_author_advisory": {
+      "original_spec_pass": 114,
+      "original_spec_fail": 0,
+      "original_spec_insufficient": 2,
+      "equivalent_label_spec_pass": 116,
+      "independent_review": false,
+      "release_approval": false
+    }
+  },
+  "browser": {
+    "started_at": "2026-11-09T20:48:06.527339+00:00",
+    "finished_at": "2026-11-09T20:54:32.355973+00:00",
+    "chromium": "154.0.8037.57",
+    "playwright": "1.62.0",
+    "axe": "4.10.3",
+    "node": "v24.19.0",
+    "max_core_cls": 0,
+    "slow_lab": [
+      {
+        "route": "/",
+        "network": "1Mbps/150ms",
+        "cpu": "4x slowdown",
+        "cls": 0,
+        "lcp": 936
+      },
+      {
+        "route": "/start?audience=company",
+        "network": "1Mbps/150ms",
+        "cpu": "4x slowdown",
+        "cls": 0,
+        "lcp": 860
+      }
+    ],
+    "computed_contrast": [
+      {
+        "route": "/",
+        "selector": ".menu-button > span[aria-hidden]",
+        "pseudo": null,
+        "width": 390,
+        "foreground": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "ratio": 21
+      },
+      {
+        "route": "/for-agents",
+        "selector": ".page-hero p:nth-child(5)",
+        "pseudo": null,
+        "width": 1440,
+        "foreground": "rgb(89, 97, 109)",
+        "background": "rgb(244, 245, 247)",
+        "opacity": "1",
+        "ratio": 5.7370945255045145
+      },
+      {
+        "route": "/start?audience=company",
+        "selector": "#issue",
+        "pseudo": "::placeholder",
+        "width": 1440,
+        "foreground": "rgb(89, 97, 109)",
+        "background": "rgb(251, 252, 253)",
+        "opacity": "1",
+        "ratio": 6.092846113769581
+      },
+      {
+        "route": "/start?audience=company",
+        "selector": "#issue",
+        "pseudo": null,
+        "width": 390,
+        "foreground": "rgb(17, 19, 24)",
+        "background": "rgb(251, 252, 253)",
+        "opacity": "1",
+        "ratio": 18.08960525337504
+      }
+    ],
+    "max_locale_cls": 0,
+    "max_locale_action_bottom": 578.171875
+  },
+  "blocked_or_insufficient_evidence": [
+    "Authorized production paid-result cold recovery and cross-buyer positive/negative matrix",
+    "Payment/Provider ledger invariants and callback replay in an authorized backend fixture",
+    "Current image purchase admission cause and deployed backend SHA",
+    "New default-client 403 rule attribution",
+    "Executable production rollback mapping",
+    "Physical-device and full assistive-technology testing; field p75 and INP",
+    "Search indexing, independent customer demand, net revenue and conversion uplift"
+  ],
+  "publication_privacy": "Only allowlisted public/synthetic evidence. Signed prepare receipts, saved private intent and real order/customer credentials excluded."
+}

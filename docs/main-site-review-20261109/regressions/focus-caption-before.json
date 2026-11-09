@@ -1,0 +1,470 @@
+[
+  {
+    "path": "/",
+    "focus": "RFQ terms",
+    "samples": [
+      {
+        "tab": 7,
+        "before": {
+          "tag": "A",
+          "text": "RFQ terms",
+          "rect": {
+            "x": 16,
+            "y": 627.953125,
+            "width": 326.09375,
+            "height": 38.390625,
+            "top": 627.953125,
+            "right": 342.09375,
+            "bottom": 666.34375,
+            "left": 16
+          },
+          "fragments": [
+            {
+              "x": 312.53125,
+              "y": 627.953125,
+              "width": 29.5625,
+              "height": 16,
+              "top": 627.953125,
+              "right": 342.09375,
+              "bottom": 643.953125,
+              "left": 312.53125,
+              "hit": {
+                "tag": "A",
+                "text": "RFQ terms",
+                "same": true
+              }
+            },
+            {
+              "x": 16,
+              "y": 650.34375,
+              "width": 35,
+              "height": 16,
+              "top": 650.34375,
+              "right": 51,
+              "bottom": 666.34375,
+              "left": 16,
+              "hit": {
+                "tag": "A",
+                "text": "RFQ terms",
+                "same": true
+              }
+            }
+          ],
+          "center": {
+            "tag": "P",
+            "text": "RFQ service guarantee. At least one qualified supplier quote within three China ",
+            "same": false
+          },
+          "scrollY": 0,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "after": {
+          "rect": {
+            "x": 16,
+            "y": 627.953125,
+            "width": 326.09375,
+            "height": 38.390625,
+            "top": 627.953125,
+            "right": 342.09375,
+            "bottom": 666.34375,
+            "left": 16
+          },
+          "scrollY": 0,
+          "fully_visible": true,
+          "outline": "rgb(67, 80, 199) solid 3px",
+          "fragments": [
+            {
+              "x": 312.53125,
+              "y": 627.953125,
+              "width": 29.5625,
+              "height": 16,
+              "top": 627.953125,
+              "right": 342.09375,
+              "bottom": 643.953125,
+              "left": 312.53125,
+              "hit_same": true
+            },
+            {
+              "x": 16,
+              "y": 650.34375,
+              "width": 35,
+              "height": 16,
+              "top": 650.34375,
+              "right": 51,
+              "bottom": 666.34375,
+              "left": 16,
+              "hit_same": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "path": "/china-supply-check/live-rfq-compare",
+    "focus": "RFQ terms",
+    "samples": [
+      {
+        "tab": 7,
+        "before": {
+          "tag": "A",
+          "text": "RFQ terms",
+          "rect": {
+            "x": 16,
+            "y": 666.375,
+            "width": 329.984375,
+            "height": 41,
+            "top": 666.375,
+            "right": 345.984375,
+            "bottom": 707.375,
+            "left": 16
+          },
+          "fragments": [
+            {
+              "x": 312.203125,
+              "y": 666.375,
+              "width": 33.78125,
+              "height": 17,
+              "top": 666.375,
+              "right": 345.984375,
+              "bottom": 683.375,
+              "left": 312.203125,
+              "hit": {
+                "tag": "A",
+                "text": "RFQ terms",
+                "same": true
+              }
+            },
+            {
+              "x": 16,
+              "y": 690.375,
+              "width": 40,
+              "height": 17,
+              "top": 690.375,
+              "right": 56,
+              "bottom": 707.375,
+              "left": 16,
+              "hit": {
+                "tag": "A",
+                "text": "RFQ terms",
+                "same": true
+              }
+            }
+          ],
+          "center": {
+            "tag": "P",
+            "text": "At least one qualified supplier quote within three China business days after pay",
+            "same": false
+          },
+          "scrollY": 0,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "after": {
+          "rect": {
+            "x": 16,
+            "y": 666.375,
+            "width": 329.984375,
+            "height": 41,
+            "top": 666.375,
+            "right": 345.984375,
+            "bottom": 707.375,
+            "left": 16
+          },
+          "scrollY": 0,
+          "fully_visible": true,
+          "outline": "rgb(67, 80, 199) solid 3px",
+          "fragments": [
+            {
+              "x": 312.203125,
+              "y": 666.375,
+              "width": 33.78125,
+              "height": 17,
+              "top": 666.375,
+              "right": 345.984375,
+              "bottom": 683.375,
+              "left": 312.203125,
+              "hit_same": true
+            },
+            {
+              "x": 16,
+              "y": 690.375,
+              "width": 40,
+              "height": 17,
+              "top": 690.375,
+              "right": 56,
+              "bottom": 707.375,
+              "left": 16,
+              "hit_same": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "path": "/for-agents",
+    "focus": "Read Agent JSON",
+    "samples": [
+      {
+        "tab": 10,
+        "before": {
+          "tag": "A",
+          "text": "Read Agent JSON",
+          "rect": {
+            "x": 16,
+            "y": 701.125,
+            "width": 353.109375,
+            "height": 42.59375,
+            "top": 701.125,
+            "right": 369.109375,
+            "bottom": 743.71875,
+            "left": 16
+          },
+          "fragments": [
+            {
+              "x": 285.484375,
+              "y": 701.125,
+              "width": 83.625,
+              "height": 17,
+              "top": 701.125,
+              "right": 369.109375,
+              "bottom": 718.125,
+              "left": 285.484375,
+              "hit": {
+                "tag": "A",
+                "text": "Read Agent JSON",
+                "same": true
+              }
+            },
+            {
+              "x": 16,
+              "y": 726.71875,
+              "width": 42.671875,
+              "height": 17,
+              "top": 726.71875,
+              "right": 58.671875,
+              "bottom": 743.71875,
+              "left": 16,
+              "hit": {
+                "tag": "A",
+                "text": "Read Agent JSON",
+                "same": true
+              }
+            }
+          ],
+          "center": {
+            "tag": "P",
+            "text": "Read the supplier screening sample \u00b7 Read Agent JSON",
+            "same": false
+          },
+          "scrollY": 474,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "after": {
+          "rect": {
+            "x": 16,
+            "y": 701.125,
+            "width": 353.109375,
+            "height": 42.59375,
+            "top": 701.125,
+            "right": 369.109375,
+            "bottom": 743.71875,
+            "left": 16
+          },
+          "scrollY": 474,
+          "fully_visible": true,
+          "outline": "rgb(67, 80, 199) solid 3px",
+          "fragments": [
+            {
+              "x": 285.484375,
+              "y": 701.125,
+              "width": 83.625,
+              "height": 17,
+              "top": 701.125,
+              "right": 369.109375,
+              "bottom": 718.125,
+              "left": 285.484375,
+              "hit_same": true
+            },
+            {
+              "x": 16,
+              "y": 726.71875,
+              "width": 42.671875,
+              "height": 17,
+              "top": 726.71875,
+              "right": 58.671875,
+              "bottom": 743.71875,
+              "left": 16,
+              "hit_same": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "path": "/start?audience=company",
+    "focus": "organization",
+    "samples": [
+      {
+        "tab": 7,
+        "before": {
+          "tag": "INPUT",
+          "text": "organization",
+          "rect": {
+            "x": 37,
+            "y": 790.53125,
+            "width": 316,
+            "height": 53.59375,
+            "top": 790.53125,
+            "right": 353,
+            "bottom": 844.125,
+            "left": 37
+          },
+          "fragments": [
+            {
+              "x": 37,
+              "y": 790.53125,
+              "width": 316,
+              "height": 53.59375,
+              "top": 790.53125,
+              "right": 353,
+              "bottom": 844.125,
+              "left": 37,
+              "hit": {
+                "tag": "INPUT",
+                "text": "",
+                "same": true
+              }
+            }
+          ],
+          "center": {
+            "tag": "INPUT",
+            "text": "",
+            "same": true
+          },
+          "scrollY": 19,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "after": {
+          "rect": {
+            "x": 37,
+            "y": 790.53125,
+            "width": 316,
+            "height": 53.59375,
+            "top": 790.53125,
+            "right": 353,
+            "bottom": 844.125,
+            "left": 37
+          },
+          "scrollY": 19,
+          "fully_visible": false,
+          "outline": "rgb(67, 80, 199) solid 3px",
+          "fragments": [
+            {
+              "x": 37,
+              "y": 790.53125,
+              "width": 316,
+              "height": 53.59375,
+              "top": 790.53125,
+              "right": 353,
+              "bottom": 844.125,
+              "left": 37,
+              "hit_same": true
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "path": "/proof",
+    "focus": "Fields to compare",
+    "samples": [
+      {
+        "tab": 7,
+        "before": {
+          "tag": "DIV",
+          "text": "Fields to compare for each supplier reply\nField\nComparison format\nProduct and specifications\nCompare",
+          "rect": {
+            "x": 16,
+            "y": -0.140625,
+            "width": 358,
+            "height": 1171.78125,
+            "top": -0.140625,
+            "right": 374,
+            "bottom": 1171.640625,
+            "left": 16
+          },
+          "fragments": [
+            {
+              "x": 16,
+              "y": -0.140625,
+              "width": 358,
+              "height": 1171.78125,
+              "top": -0.140625,
+              "right": 374,
+              "bottom": 1171.640625,
+              "left": 16,
+              "hit": {
+                "tag": "TD",
+                "text": "UNKNOWN. Keep currency, unit price and the applicable quantity tier together.",
+                "same": true
+              }
+            }
+          ],
+          "center": {
+            "tag": "TD",
+            "text": "UNKNOWN. Keep currency, unit price and the applicable quantity tier together.",
+            "same": true
+          },
+          "scrollY": 844,
+          "viewport": {
+            "width": 390,
+            "height": 844
+          }
+        },
+        "after": {
+          "rect": {
+            "x": 16,
+            "y": -0.140625,
+            "width": 358,
+            "height": 1171.78125,
+            "top": -0.140625,
+            "right": 374,
+            "bottom": 1171.640625,
+            "left": 16
+          },
+          "scrollY": 844,
+          "fully_visible": false,
+          "outline": "rgb(67, 80, 199) solid 3px",
+          "fragments": [
+            {
+              "x": 16,
+              "y": -0.140625,
+              "width": 358,
+              "height": 1171.78125,
+              "top": -0.140625,
+              "right": 374,
+              "bottom": 1171.640625,
+              "left": 16,
+              "hit_same": true
+            }
+          ]
+        }
+      }
+    ]
+  }
+]

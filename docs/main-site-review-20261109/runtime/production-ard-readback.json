@@ -1,0 +1,10 @@
+{
+  "url": "https://seekapi.ai/.well-known/ard.json",
+  "utc": "2026-11-09T19:49:59.673890+00:00",
+  "http": 200,
+  "ray": "a57f5806e9a761d2-ORD",
+  "sha256": "8a43e2165c98601eb56a550ccfc7671e5182d92cff0d25e65e20f0fa95071302",
+  "equals_recorded_main": true,
+  "equals_candidate": false,
+  "source_only_not_a_deployment_control_plane_assertion": true
+}

@@ -1,0 +1,144 @@
+✖ es: rendered payment copy names all four rails and current admission (2.904334ms)
+✖ de: rendered payment copy names all four rails and current admission (0.594352ms)
+✖ ja: rendered payment copy names all four rails and current admission (0.416945ms)
+✖ ar: rendered payment copy names all four rails and current admission (1.308311ms)
+✖ pt-br: rendered payment copy names all four rails and current admission (0.438155ms)
+✖ ru: rendered payment copy names all four rails and current admission (0.427636ms)
+✖ ARD identifies screening first and preserves the independent RFQ handoff (0.830634ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 0
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 77.219244
+
+✖ failing tests:
+
+test at test/main-site-truth.test.mjs:8:3
+✖ es: rendered payment copy names all four rails and current admission (2.904334ms)
+  AssertionError [ERR_ASSERTION]: closed rails must be explicit in visible copy
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/main-site-truth.test.mjs:8:3
+✖ de: rendered payment copy names all four rails and current admission (0.594352ms)
+  AssertionError [ERR_ASSERTION]: closed rails must be explicit in visible copy
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/main-site-truth.test.mjs:8:3
+✖ ja: rendered payment copy names all four rails and current admission (0.416945ms)
+  AssertionError [ERR_ASSERTION]: closed rails must be explicit in visible copy
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/main-site-truth.test.mjs:8:3
+✖ ar: rendered payment copy names all four rails and current admission (1.308311ms)
+  AssertionError [ERR_ASSERTION]: closed rails must be explicit in visible copy
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/main-site-truth.test.mjs:8:3
+✖ pt-br: rendered payment copy names all four rails and current admission (0.438155ms)
+  AssertionError [ERR_ASSERTION]: closed rails must be explicit in visible copy
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/main-site-truth.test.mjs:8:3
+✖ ru: rendered payment copy names all four rails and current admission (0.427636ms)
+  AssertionError [ERR_ASSERTION]: closed rails must be explicit in visible copy
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/main-site-truth.test.mjs:21:1
+✖ ARD identifies screening first and preserves the independent RFQ handoff (0.830634ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /China Supply Check/. Input:
+  
+  'Get current Chinese supplier quotes with standalone USD 19.90 Verified RFQ Basic with free MCP requirement preparation and its existing buyer confirmation, payment and delivery workflow'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-site-truth.test.mjs:26:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Get current Chinese supplier quotes with standalone USD 19.90 Verified RFQ Basic with free MCP requirement preparation and its existing buyer confirmation, payment and delivery workflow',
+    expected: /China Supply Check/,
+    operator: 'match',
+    diff: 'simple'
+  }

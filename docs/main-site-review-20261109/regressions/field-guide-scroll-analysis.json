@@ -1,0 +1,65 @@
+[
+  {
+    "width": 360,
+    "clientWidth": 328,
+    "scrollWidth": 328,
+    "clientHeight": 1121,
+    "scrollHeight": 1121,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  },
+  {
+    "width": 375,
+    "clientWidth": 343,
+    "scrollWidth": 343,
+    "clientHeight": 1095,
+    "scrollHeight": 1095,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  },
+  {
+    "width": 390,
+    "clientWidth": 358,
+    "scrollWidth": 358,
+    "clientHeight": 1069,
+    "scrollHeight": 1069,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  },
+  {
+    "width": 430,
+    "clientWidth": 390,
+    "scrollWidth": 390,
+    "clientHeight": 1069,
+    "scrollHeight": 1069,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  },
+  {
+    "width": 768,
+    "clientWidth": 720,
+    "scrollWidth": 720,
+    "clientHeight": 851,
+    "scrollHeight": 851,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  },
+  {
+    "width": 1024,
+    "clientWidth": 960,
+    "scrollWidth": 960,
+    "clientHeight": 749,
+    "scrollHeight": 749,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  },
+  {
+    "width": 1440,
+    "clientWidth": 1180,
+    "scrollWidth": 1180,
+    "clientHeight": 621,
+    "scrollHeight": 621,
+    "overflowX": "auto",
+    "overflowY": "auto"
+  }
+]

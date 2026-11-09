@@ -1,0 +1,161 @@
+✔ the first home section offers two distinct priced services and no duplicate input (3.411281ms)
+✔ main-site navigation provides existing-result recovery without a Trade destination (5.108231ms)
+✖ es: a new visitor can choose either service in the first home section (3.408805ms)
+✖ de: a new visitor can choose either service in the first home section (1.292606ms)
+✖ ja: a new visitor can choose either service in the first home section (1.043608ms)
+✖ ar: a new visitor can choose either service in the first home section (1.029165ms)
+✖ pt-br: a new visitor can choose either service in the first home section (1.179042ms)
+✖ ru: a new visitor can choose either service in the first home section (2.164044ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 2
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 282.171399
+
+✖ failing tests:
+
+test at test/main-conversion.test.mjs:30:3
+✖ es: a new visitor can choose either service in the first home section (3.408805ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/china-supply-check'
+  - 'https://api.seekapi.ai/checkout/stripe/rfq'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-conversion.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/china-supply-check',
+    expected: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/main-conversion.test.mjs:30:3
+✖ de: a new visitor can choose either service in the first home section (1.292606ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/china-supply-check'
+  - 'https://api.seekapi.ai/checkout/stripe/rfq'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-conversion.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/china-supply-check',
+    expected: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/main-conversion.test.mjs:30:3
+✖ ja: a new visitor can choose either service in the first home section (1.043608ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/china-supply-check'
+  - 'https://api.seekapi.ai/checkout/stripe/rfq'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-conversion.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/china-supply-check',
+    expected: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/main-conversion.test.mjs:30:3
+✖ ar: a new visitor can choose either service in the first home section (1.029165ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/china-supply-check'
+  - 'https://api.seekapi.ai/checkout/stripe/rfq'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-conversion.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/china-supply-check',
+    expected: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/main-conversion.test.mjs:30:3
+✖ pt-br: a new visitor can choose either service in the first home section (1.179042ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/china-supply-check'
+  - 'https://api.seekapi.ai/checkout/stripe/rfq'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-conversion.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/china-supply-check',
+    expected: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/main-conversion.test.mjs:30:3
+✖ ru: a new visitor can choose either service in the first home section (2.164044ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/china-supply-check'
+  - 'https://api.seekapi.ai/checkout/stripe/rfq'
+  
+      at TestContext.<anonymous> (file:///workspace/work/seekapi-public/test/main-conversion.test.mjs:34:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/china-supply-check',
+    expected: 'https://api.seekapi.ai/checkout/stripe/rfq',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.2
+npm notice To update run: npm install -g npm@12.2.2
+npm notice

@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import {useEffect, useRef} from 'react';
 import { usePathname } from 'next/navigation';
 import { commercialLocales, localeInfo, pagePath, type CommercialPage, type SiteLocale } from '@/lib/localized-content';
 const localeOrder:SiteLocale[]=['en',...commercialLocales,'ru'];
@@ -20,6 +21,12 @@ function targetPath(locale:SiteLocale,page:CommercialPage){
   return pagePath(locale,page);
 }
 export function LanguageSwitch({locale}:{locale:SiteLocale}){
+  const menu=useRef<HTMLDetailsElement>(null);
+  useEffect(()=>{
+    function closeOutside(event:PointerEvent){if(event.target instanceof Node&&!menu.current?.contains(event.target)&&menu.current)menu.current.open=false;}
+    document.addEventListener('pointerdown',closeOutside);
+    return()=>document.removeEventListener('pointerdown',closeOutside);
+  },[]);
   const pathname=usePathname() ?? '/'; const page=currentPage(pathname);
-  return <details className="language-menu"><summary aria-label="Choose language">{localeInfo[locale].label}</summary><div className="language-options">{localeOrder.map(code=><Link key={code} href={targetPath(code,page)} hrefLang={localeInfo[code].htmlLang} aria-current={code===locale?'page':undefined}>{localeInfo[code].label}</Link>)}</div></details>;
+  return <details ref={menu} className="language-menu" onKeyDown={event=>{if(event.key==='Escape'&&event.currentTarget.open){event.stopPropagation();event.currentTarget.open=false;event.currentTarget.querySelector('summary')?.focus();}}}><summary aria-label="Choose language">{localeInfo[locale].label}</summary><div className="language-options">{localeOrder.map(code=><Link key={code} href={targetPath(code,page)} hrefLang={localeInfo[code].htmlLang} aria-current={code===locale?'page':undefined} onClick={()=>{if(menu.current)menu.current.open=false;}}>{localeInfo[code].label}</Link>)}</div></details>;
 }
