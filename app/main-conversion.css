@@ -98,6 +98,8 @@
 .recovery-choices .feature-card p+p{margin-top:16px}
 .recovery-choices .feature-card h3{margin-top:0}
 .public-site .rfq-format-table{table-layout:fixed}
+.public-site .decision-table-scroll{overflow-x:auto}
+.public-qualified-sample .embedded-report-title{font-size:clamp(1.6rem,4vw,2.5rem);line-height:1.2}
 .public-site .rfq-format-table th,.public-site .rfq-format-table td{overflow-wrap:anywhere}
 @media(max-width:1199px){
  .public-site .nav-wrap{min-height:72px;gap:16px}
