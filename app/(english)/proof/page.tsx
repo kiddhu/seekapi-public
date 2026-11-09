@@ -25,7 +25,7 @@ export default function Proof() {
       <h2>One requirement, one comparison basis.</h2>
       <p><strong>Synthetic format demonstration — no supplier reply, current price or customer case.</strong></p>
       <p>Illustrative requirement: M12 inductive proximity sensor, 24 V DC, NPN normally open, 2 m cable; 120 pieces to the Netherlands; no substitutions.</p>
-      <div className="rfq-format-scroll" role="region" aria-label="RFQ delivery field guide" tabIndex={0}>
+      <div className="rfq-format-scroll" role="region" aria-label="RFQ delivery field guide">
         <table className="rfq-format-table">
           <caption>Fields to compare for each supplier reply</caption>
           <thead><tr><th scope="col">Field</th><th scope="col">Comparison format</th></tr></thead>

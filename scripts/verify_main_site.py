@@ -106,6 +106,9 @@ def main():
                     if path=='/proof' and width==390:
                         caption=page.locator('.rfq-format-table caption').bounding_box()
                         check(label+' caption uses the content width',caption is not None and caption['width']>=width-33,caption)
+                    if path=='/proof':
+                        guide=page.locator('.rfq-format-scroll').evaluate('(e)=>({width:e.clientWidth,scrollWidth:e.scrollWidth,height:e.clientHeight,scrollHeight:e.scrollHeight,tabIndex:e.tabIndex,overflow:getComputedStyle(e).overflow})')
+                        check(label+' field guide flows without an unnecessary scroll stop',guide['scrollWidth']<=guide['width']+1 and guide['scrollHeight']<=guide['height']+1 and guide['tabIndex']==-1 and guide['overflow']=='visible',guide)
                     if width in [390,1440]:
                         page.add_script_tag(path=str(axe))
                         audit=page.evaluate("""async()=>{
@@ -116,6 +119,8 @@ def main():
                         data['axe']=audit
                     name=('home' if path=='/' else path.split('?')[0].strip('/').replace('/','-'))+f'-{width}.png'
                     page.screenshot(path=str(out/name))
+                    if path=='/proof' and width in [390,1440]:
+                        page.locator('.rfq-format-scroll').screenshot(path=str(out/f'proof-field-guide-{width}.png'))
                     data.update({'route':path,'viewport':{'width':width,'height':height},'screenshot':name})
                     results['screens'].append(data)
                     c.close()
