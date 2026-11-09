@@ -217,6 +217,35 @@ def main():
             check('email is never sent by the page',page.url.endswith('/start?audience=company'))
             c.close()
 
+            # axe cannot calculate the menu glyph/arrow, or the native textarea
+            # placeholder background. Review their computed solid colors too.
+            results['contrast_review']=[]
+            for path,selector,pseudo,width in [
+                ('/','.menu-button > span[aria-hidden]',None,390),
+                ('/for-agents','.page-hero p:nth-child(5)',None,1440),
+                ('/start?audience=company','#issue','::placeholder',1440),
+                ('/start?audience=company','#issue',None,390),
+            ]:
+                c=context(viewport={'width':width,'height':900});page=c.new_page()
+                page.goto(origin+path,wait_until='networkidle')
+                element=page.locator(selector);element.scroll_into_view_if_needed()
+                colors=element.evaluate(r'''(e,pseudo)=>{
+                  const style=getComputedStyle(e,pseudo);let parent=e,background;
+                  while(parent){const color=getComputedStyle(parent).backgroundColor;
+                    if(color!=='rgba(0, 0, 0, 0)'&&color!=='transparent'){background=color;break;}
+                    parent=parent.parentElement;
+                  }
+                  const luminance=color=>color.match(/[\d.]+/g).slice(0,3).map(Number)
+                    .map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4)
+                    .reduce((sum,v,i)=>sum+v*[.2126,.7152,.0722][i],0);
+                  const a=luminance(style.color),b=luminance(background);
+                  return {foreground:style.color,background,opacity:style.opacity,
+                    ratio:(Math.max(a,b)+.05)/(Math.min(a,b)+.05)};
+                }''',pseudo)
+                check(path+' computed contrast '+selector+str(pseudo),colors['ratio']>=4.5 and float(colors['opacity'])==1,colors)
+                results['contrast_review'].append({'route':path,'selector':selector,'pseudo':pseudo,'width':width,**colors})
+                c.close()
+
             # Render the existing, sanitized full-report fixture at every width.
             fixture=json.loads(subprocess.check_output(['node','--import','tsx','-e',
                 "const fs=require('node:fs');const {customerReport}=require('./lib/checkout-contract.ts');process.stdout.write(JSON.stringify(customerReport(JSON.parse(fs.readFileSync('test/fixtures/csc-v2-full.json','utf8')))))"],text=True))

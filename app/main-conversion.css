@@ -39,6 +39,7 @@
 .public-site .form-note,.public-site .footer-bottom{color:var(--muted);font-size:14px}
 .public-site .process-step>span,.public-site .card-label{color:var(--muted)}
 .public-site .field input,.public-site .field select,.public-site .field textarea{border-color:#78818f;min-height:48px}
+.public-site input::placeholder,.public-site textarea::placeholder{color:var(--muted);opacity:1}
 .public-site .field label{font-size:16px}
 .public-site .form-grid{gap:20px}
 .public-site .draft-controls{border:0;margin:0;padding:0;min-width:0}
