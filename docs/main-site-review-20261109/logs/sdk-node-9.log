@@ -1,0 +1,17 @@
+✔ free discovery/prepare completes and stops before payment (4.159256ms)
+✔ purchase/run/pilot/private reads never reach transport (1.240945ms)
+✔ missing free tool stops before calls (0.363478ms)
+✔ unknown effect stops before prepare (0.519706ms)
+✔ mode conflict stops before prepare (0.440254ms)
+✔ missing mode remains unknown (0.419139ms)
+✔ side effects, missing confirmation and bad digest stop (2.377185ms)
+✔ transport timeout is surfaced once without application retry (0.450387ms)
+✔ changed requirements go through new prepare, never purchase (1.737806ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 93.321503

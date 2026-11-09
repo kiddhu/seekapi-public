@@ -1,0 +1,1 @@
+{"status": "READY", "payment_actions": 0, "prepare_calls": 1, "admission_status": "AVAILABLE", "payment_available": true, "automatic_retry": false, "missing_fields": [], "buyer_free_entry": "https://api.seekapi.ai/checkout/stripe/rfq", "traffic": "INTERNAL_DEMO"}

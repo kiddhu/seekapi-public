@@ -1,0 +1,22 @@
+[
+  {
+    "product": "rfq",
+    "http": 400,
+    "utc": "2026-11-09T18:44:30.706216+00:00",
+    "ray": "a57ef817bd947264-ORD",
+    "body_sha256": "c7db1888621d1c7d76757093c629a3a5e59f06a30272d9a5755a0563f7c5eeec",
+    "code": null,
+    "has_result": false,
+    "raw_bytes": 111
+  },
+  {
+    "product": "image",
+    "http": 400,
+    "utc": "2026-11-09T18:44:31.563664+00:00",
+    "ray": "a57ef81d28c7f14b-ORD",
+    "body_sha256": "8525cc6b7e163a470552ae865ec28304536fcba03c236fb803319f150c5a8876",
+    "code": null,
+    "has_result": false,
+    "raw_bytes": 118
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "scope": "TARGETED_REVIEW_OF_AXE_INCOMPLETE_NODES_COMPUTED_SOLID_COLOR_CONTRAST",
+  "pass": false,
+  "records": [
+    {
+      "route": "/",
+      "selector": ".menu-button > span[aria-hidden]",
+      "pseudo": null,
+      "width": 390,
+      "foreground": "rgb(0, 0, 0)",
+      "background": "rgb(255, 255, 255)",
+      "opacity": "1",
+      "ratio": 21,
+      "font_size": "14px"
+    },
+    {
+      "route": "/for-agents",
+      "selector": ".page-hero p:nth-child(5)",
+      "pseudo": null,
+      "width": 1440,
+      "foreground": "rgb(89, 97, 109)",
+      "background": "rgb(244, 245, 247)",
+      "opacity": "1",
+      "ratio": 5.7370945255045145,
+      "font_size": "18px"
+    },
+    {
+      "route": "/start?audience=company",
+      "selector": "#issue",
+      "pseudo": "::placeholder",
+      "width": 1440,
+      "foreground": "rgb(117, 117, 117)",
+      "background": "rgb(251, 252, 253)",
+      "opacity": "1",
+      "ratio": 4.485611316912187,
+      "font_size": "16px",
+      "after_scrolling_axe": {
+        "violations": [],
+        "incomplete": [
+          "color-contrast"
+        ]
+      }
+    },
+    {
+      "route": "/start?audience=company",
+      "selector": "#issue",
+      "pseudo": null,
+      "width": 390,
+      "foreground": "rgb(17, 19, 24)",
+      "background": "rgb(251, 252, 253)",
+      "opacity": "1",
+      "ratio": 18.08960525337504,
+      "font_size": "16px",
+      "after_scrolling_axe": {
+        "violations": [],
+        "incomplete": [
+          "color-contrast"
+        ]
+      }
+    }
+  ],
+  "notes": [
+    "Menu glyph is aria-hidden and accompanies the visible Menu label.",
+    "For Agents arrow has no separate meaning from the two named free calls.",
+    "Textarea was scrolled into view before re-audit; no background imagery or transparency.",
+    "This is not independent assistive-technology certification."
+  ]
+}

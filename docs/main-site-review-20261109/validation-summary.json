@@ -1,0 +1,118 @@
+{
+  "schema": "seekapi.main-site-engineering-evidence.v1",
+  "recorded_utc": "2026-11-09T19:15:25.767811+00:00",
+  "base": "7c1d45a0c5e4a6bb56ff8954fcac52817b785d29",
+  "tested_source_head": "8d5f4e25d2298f50b5deb6e84c8032eb22c113d7",
+  "tested_source_tree": "7168f8a29792fbc44480bb33ec3de07dcd7449dd",
+  "production": "NOT_DEPLOYED",
+  "review": "INDEPENDENT_REVIEW_PENDING",
+  "business": "UNKNOWN",
+  "checks": {
+    "baseline_node": {
+      "pass": 134,
+      "fail": 0
+    },
+    "final_node": {
+      "pass": 147,
+      "fail": 0,
+      "skip": 0
+    },
+    "production_build_exit": 0,
+    "typescript_exit": 0,
+    "browser": {
+      "pass": 1060,
+      "fail": 0,
+      "core_layouts": 56,
+      "additional_public_layouts": 116,
+      "locale_layouts": 12,
+      "synthetic_result_layouts": 7,
+      "screenshot_count": 75,
+      "external_attempts": 0
+    },
+    "touch_emulated": {
+      "pass": 4,
+      "fail": 0
+    },
+    "packaged_sdk_offline_and_loopback": {
+      "pass": 32,
+      "fail": 0
+    }
+  },
+  "browser": {
+    "started_at": "2026-11-09T19:09:29.025358+00:00",
+    "finished_at": "2026-11-09T19:14:31.411074+00:00",
+    "chromium": "154.0.8037.57",
+    "playwright": "1.62.0",
+    "axe": "4.10.3",
+    "node": "v24.19.0",
+    "max_core_cls": 0,
+    "slow_lab": [
+      {
+        "route": "/",
+        "network": "1Mbps/150ms",
+        "cpu": "4x slowdown",
+        "cls": 0,
+        "lcp": 956
+      },
+      {
+        "route": "/start?audience=company",
+        "network": "1Mbps/150ms",
+        "cpu": "4x slowdown",
+        "cls": 0,
+        "lcp": 896
+      }
+    ],
+    "computed_contrast": [
+      {
+        "route": "/",
+        "selector": ".menu-button > span[aria-hidden]",
+        "pseudo": null,
+        "width": 390,
+        "foreground": "rgb(0, 0, 0)",
+        "background": "rgb(255, 255, 255)",
+        "opacity": "1",
+        "ratio": 21
+      },
+      {
+        "route": "/for-agents",
+        "selector": ".page-hero p:nth-child(5)",
+        "pseudo": null,
+        "width": 1440,
+        "foreground": "rgb(89, 97, 109)",
+        "background": "rgb(244, 245, 247)",
+        "opacity": "1",
+        "ratio": 5.7370945255045145
+      },
+      {
+        "route": "/start?audience=company",
+        "selector": "#issue",
+        "pseudo": "::placeholder",
+        "width": 1440,
+        "foreground": "rgb(89, 97, 109)",
+        "background": "rgb(251, 252, 253)",
+        "opacity": "1",
+        "ratio": 6.092846113769581
+      },
+      {
+        "route": "/start?audience=company",
+        "selector": "#issue",
+        "pseudo": null,
+        "width": 390,
+        "foreground": "rgb(17, 19, 24)",
+        "background": "rgb(251, 252, 253)",
+        "opacity": "1",
+        "ratio": 18.08960525337504
+      }
+    ]
+  },
+  "blocked_or_insufficient_evidence": [
+    "Authorized production paid-result cold recovery and cross-buyer positive/negative matrix",
+    "Payment/Provider ledger invariants and callback replay in an authorized backend fixture",
+    "Current image purchase admission cause and deployed backend SHA",
+    "New default-client 403 rule attribution",
+    "Executable production rollback mapping",
+    "Physical-device and full assistive-technology testing; field p75 and INP",
+    "Search indexing, independent customer demand, net revenue and conversion uplift"
+  ],
+  "publication_privacy": "Only allowlisted public/synthetic evidence. Signed prepare receipts, saved private intent and real order/customer credentials excluded."
+}
