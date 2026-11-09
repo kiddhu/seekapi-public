@@ -75,7 +75,7 @@ export function CheckoutExperience({showResult=false}:{showResult?:boolean}){
     void check();
     return()=>{stopped=true;controller.abort();if(timer)clearTimeout(timer)};
   },[round,showResult]);
-  return <div className="checkout-wrap">
+  return <main className="checkout-wrap">
     <div className="checkout-card">
       <div className="checkout-kicker"><span>CHINA SUPPLY CHECK</span><span>USD $2.99 · One time</span></div>
       {testMode&&<p className="checkout-test">Test checkout · No real payment</p>}
@@ -90,5 +90,5 @@ export function CheckoutExperience({showResult=false}:{showResult?:boolean}){
       <div className="checkout-help"><h2>Need a hand?</h2><p>Email support@seekapi.ai with the approximate purchase time and what happened. Do not send card details, passwords or verification codes.</p><a href="/china-supply-check" className="text-link">About your supply check</a></div>
     </div>
     {report&&state==='READY'&&<ReportView report={report}/>}
-  </div>;
+  </main>;
 }

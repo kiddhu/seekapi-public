@@ -1,3 +1,4 @@
+import {independentRfqStatement} from '@/lib/csc-payment-copy';
 import Link from 'next/link';
 import { Suspense } from 'react';
 import { CTA, Eyebrow, FAQList, FeatureCard, PageShell, SectionTitle, ServiceFaqSchema } from './site';
@@ -30,4 +31,4 @@ export function RussianPage({page}:{page:'home'|'sourcing'|'compliance'|'start'}
   </PageShell>;
 }
 
-function CurrentCscPanel({locale}:{locale:CommercialLocale|'ru'}){const copy=localizedCscCopy[locale];return <section className="section"><div className="container"><SectionTitle eyebrow="China Supply Check · MCP / x402" title={copy.heading} body={copy.payment}/><p>{copy.boundary}</p><div className="button-row"><Link className="button" href="/china-supply-check">{copy.cta}</Link><Link className="button button-ghost" href="/for-agents">MCP · English</Link><Link className="button button-ghost" href="/china-supply-check/sample">INTERNAL_ACCEPTANCE · English</Link></div></div></section>}
+function CurrentCscPanel({locale}:{locale:CommercialLocale|'ru'}){const copy=localizedCscCopy[locale];return <section className="section"><div className="container"><SectionTitle eyebrow="China Supply Check · MCP / x402" title={copy.heading} body={copy.payment}/><p>{copy.boundary}</p><p>{independentRfqStatement(locale)} <Link className="text-link" href="/china-supply-check/live-rfq-compare">Verified RFQ Basic · English</Link></p><div className="button-row"><Link className="button" href="/china-supply-check">{copy.cta}</Link><Link className="button button-ghost" href="/for-agents">MCP · English</Link><Link className="button button-ghost" href="/china-supply-check/sample">INTERNAL_ACCEPTANCE · English</Link></div></div></section>}

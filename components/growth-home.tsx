@@ -1,3 +1,4 @@
+import {MainHome} from './main-home';
 import {amazonImportSalesCopy,amazonImportLive,rfqBuyerEntry} from '@/lib/rfq-basic-copy';
 import {readPublicSamplePublication} from '@/lib/public-agent-sample';
 import { ProductFirstMethod } from '@/components/product-first-method';
@@ -48,9 +49,13 @@ function BriefIllustration({ variant }: { variant: HomepageVariant }) {
 }
 
 export function GrowthHome({ variant = 'a' }: { variant?: HomepageVariant }) {
+  return variant === 'a' ? <MainHome/> : <PreviewHome variant={variant}/>;
+}
+
+function PreviewHome({ variant }: { variant: HomepageVariant }) {
   const sampleAvailable=readPublicSamplePublication()!==null;
   const copy = variants[variant];
-  return <><Header /><main id="main-content">
+  return <><Header /><main id="main-content" tabIndex={-1}>
     <section className={'growth-hero growth-variant-' + variant}><div className="container growth-hero-grid">
       <div className="growth-copy">
         <Eyebrow>SeekAPI Verified RFQ Basic</Eyebrow>

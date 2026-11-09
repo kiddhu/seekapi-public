@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import '@/app/globals.css';
 import '@/app/enhancements.css';
 import '@/app/growth.css';
+import '@/app/main-conversion.css';
 import { localeInfo, type SiteLocale } from '@/lib/localized-content';
 import { isPublicProduction, siteUrl } from '@/lib/site';
 import {ReferralMeasurement} from '@/components/referral-measurement';

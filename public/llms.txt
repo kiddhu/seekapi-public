@@ -77,6 +77,11 @@ Eligible source marketplace product transactions may have observed platform prot
 ## RFQ delivery scope and compatibility
 
 The website commercial-truth manifest at https://seekapi.ai/.well-known/csc-commercial-truth.json exposes live_rfq.max_delivered_suppliers (3). This describes the product delivery ceiling; it does not change the MCP/REST runtime response schemas. Runtime admission is authoritative for new purchases. The legacy live_rfq.max_distinct_suppliers and customer_value.rfq_supplier_contacts_max remain 3 for the current runtime contact guard and are deprecated for product-scope decisions. They do not define the delivered supplier count or authorize additional contact. Scanning and contact stay within case authorization and service resources; there is no fixed scan count or unlimited-contact inclusion. Existing accepted orders keep their accepted terms.
+## Existing purchases and recovery
+
+Public navigation help: https://seekapi.ai/support#existing-results . This page takes no credentials and creates no order. RFQ buyers use the original private order link or the existing recovery-file controls at https://api.seekapi.ai/checkout/stripe/rfq?recover=1 . Photo Stripe buyers use the original private link or Choose Recovery File at https://api.seekapi.ai/checkout/stripe/image . Legacy buyers return to the original browser/tab or support. Agent purchases retain independent signed-wallet authentication bound to the settled order; an order ID or payment proof alone is not authentication.
+
+Existing entitled status/result reads and authorized access renewal are free. PAUSED or UNKNOWN new-purchase admission is not a reason to buy again to recover a result. Preserve the same private order and recovery context. On an uncertain payment, reconcile that existing purchase before another checkout; on expired/missing access or 403, use the legitimate original recovery method or support. Keep tokens, signatures, private JSON, full secret URLs and buyer data out of public links, analytics, logs and email. A browser redirect alone never confirms payment.
 ## Qualified public sample publication
 Current complete human report: https://seekapi.ai/china-supply-check/sample
 Exact Agent JSON: https://seekapi.ai/china-supply-check/sample.json

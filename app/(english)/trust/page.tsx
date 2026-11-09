@@ -8,9 +8,9 @@ export const metadata = pageMetadata('SeekAPI Trust — RFQ Delivery, Refunds an
 export default function Page() {
   return <PageShell>
     <section className="page-hero"><div className="container">
-      <Eyebrow>Clear scope. Clear delivery. Clear remedy.</Eyebrow><h1>Know what your $19.90 RFQ will deliver.</h1>
-      <p>SeekAPI delivers up to three matching Chinese suppliers with a comparison of received quotations against your confirmed requirement. We screen candidates, handle inquiries in Chinese, translate replies and follow up. Prepare for free and review the exact brief before approving payment.</p>
-      <div className="button-row"><a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a><Link className="text-link" href="/china-supply-check/live-rfq-compare">Read the Basic service</Link></div>
+      <Eyebrow>Scope, refunds, operator and data</Eyebrow><h1>Know the scope before you pay.</h1>
+      <p>See who operates SeekAPI, what the $2.99 screening and standalone $19.90 RFQ services include, how the RFQ service-fee refund works, and how to recover an existing result.</p>
+      <div className="button-row"><a className="button" href="#payments">Read RFQ scope and refund terms</a><a className="text-link" href="/support#existing-results">Access an existing result</a></div>
     </div></section>
     <section className="section" id="payments"><div className="container">
       <SectionTitle eyebrow="Delivery and refund" title="A qualified supplier quote, or your RFQ service fee back." body={rfqBasicCopy}/>

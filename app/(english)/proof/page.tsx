@@ -18,7 +18,7 @@ export default function Proof() {
       <Eyebrow>RFQ delivery and evidence</Eyebrow>
       <h1>See what your $19.90 RFQ report will compare.</h1>
       <p>Compare supplier replies against one confirmed requirement. Your Human report, Agent JSON and Evidence manifest keep the same product matches, quotation terms, source evidence and open questions.</p>
-      <div className="button-row"><a className="button" href={rfqBuyerEntry}>Prepare my RFQ for free</a><Link className="text-link" href="/china-supply-check/live-rfq-compare">Service scope and guarantee</Link></div>
+      <div className="button-row"><a className="button" href="#rfq-delivery-format">Inspect the report format</a><a className="text-link" href={rfqBuyerEntry}>Prepare my RFQ for free</a></div>
     </div></section>
 
     <section className="section" id="rfq-delivery-format"><div className="container">

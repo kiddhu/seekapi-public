@@ -5,7 +5,7 @@
       "identifier": "urn:air:seekapi.ai:api:china-supply-check-v0",
       "displayName": "SeekAPI China Supply Check",
       "type": "application/json",
-      "description": "Get current Chinese supplier quotes with standalone USD 19.90 Verified RFQ Basic with free MCP requirement preparation and its existing buyer confirmation, payment and delivery workflow. Free preparation; delivery of up to three matching suppliers with quotation comparison. Candidate screening, inquiries in Chinese, translation and follow-up support the result. At least one qualified supplier-confirmed quote in three China business days after payment and essential confirmation, or full RFQ service-fee refund. Human report, Agent JSON and Evidence manifest. Optional $2.99 supplier screening uses the existing MCP/image Stripe contract.",
+      "description": "SeekAPI China Supply Check is supplier-candidate screening for USD 2.99 with a product photo and Stripe, or 2.99 USDC for text/model via x402 on Base. Compare source links, specifications, MOQ and dated listing-price evidence; screening does not include supplier contact or a confirmed quote. Image x402 and text/model Stripe are OFF. Read current runtime admission before a new purchase; published LIVE states may be paused. Separate Verified RFQ Basic costs USD 19.90 for supplier contact and current supplier-confirmed quotation comparison, with free preparation and no USD 2.99 prerequisite. Use the dedicated Basic contract and buyer entry linked in verifiedRfqBasicPreparation.",
       "version": "0.3.0",
       "data": {
         "productId": "china_supply_check_v0",
