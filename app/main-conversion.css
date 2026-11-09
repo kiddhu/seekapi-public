@@ -1,6 +1,7 @@
 /* Main-site presentation only. Private result/payment components keep their
    own shell, sizing, authorization and recovery behavior. */
 :root{--muted:#59616d;--functional-link:#4350c7}
+html{scroll-behavior:auto}
 .public-site{font-size:16px;line-height:1.6;overflow-wrap:break-word}
 .public-site .site-header{position:relative;backdrop-filter:none;background:var(--bg)}
 .public-site .container{width:min(1180px,calc(100% - 64px))}
