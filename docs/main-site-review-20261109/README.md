@@ -1,6 +1,6 @@
 # Main website review evidence — 2026-11-09 UTC
 
-This is engineering evidence for Draft PR #61, not an independent red-team approval or a production release. The tested website source is `85afed8bf9c09d9d3db3e200728c82a57f162e61`, tree `78814c140e554fc7c9abb268a4d6aa41e2c8181f`. The base is `7c1d45a0c5e4a6bb56ff8954fcac52817b785d29`. The subsequent evidence commit changes only this directory. [Source hashes](source-manifest.json) bind every changed implementation/test/download file to the tested tree. The final PR head, rather than any older approval, is the version for independent review.
+This is engineering evidence for Draft PR #61, not an independent red-team approval or a production release. The tested website source is `3998f96986ee4051e53558447df80ae93e590904`, tree `800d503d8d11191a52163d5ade75258e7c3bb6c7`. The base is `7c1d45a0c5e4a6bb56ff8954fcac52817b785d29`. The subsequent evidence commit changes only this directory. [Source hashes](source-manifest.json) bind every changed implementation/test/download file to the tested tree. The final PR head, rather than any older approval, is the version for independent review.
 
 ## What changed for customers
 
@@ -20,7 +20,7 @@ The final browser results and screenshots are in [browser/](browser/). [Manifest
 | --- | --- |
 | Original main baseline | Production build and 134/134 existing Node tests passed before edits. Original contrast and company-form layout failures reproduced in [baseline observations](regressions/baseline-observations.json). Only the observation log is retained as original baseline evidence; no original baseline screenshots are claimed. |
 | Final source | Production build and explicit TypeScript check succeeded; 153/153 Node tests, no skips. See [build](logs/production-build.log), [TypeScript](logs/typescript.log), [tests](logs/node-153.log). |
-| Browser | 1318/1318 checks pass, zero errors. Read [raw results](browser/results.json) for timings and source head. Eight core routes at 360/375/390/430/768/1024/1440px, six localized homes at all seven widths, and a sanitized synthetic private report at seven widths. 58 other public routes checked at 360/1440px (116 layouts). |
+| Browser | 1330/1330 checks pass, zero errors. Read [raw results](browser/results.json) for timings and source head. Eight core routes at 360/375/390/430/768/1024/1440px, six localized homes at all seven widths, and a sanitized synthetic private report at seven widths. 58 other public routes checked at 360/1440px (116 layouts). |
 | Accessibility | WCAG 2 A/AA, 2.1 A/AA and 2.2 AA axe tags; keyboard/skip-link/Escape/fragment focus, 320px reflow equivalent, touch emulation, and reduced motion. Automated checks do not certify complete screen-reader or real-device accessibility. |
 | axe incomplete nodes | Supplementary computed solid-color checks cover the decorative menu glyph, free-tool arrow, textarea text and placeholder. The placeholder was 4.4856:1 before the last correction; final measurements are in `contrast_review` in the browser report. This is separate from axe's pass/fail results. |
 | Stability/performance | All core and localized-home cold-load CLS observations are 0 in the final browser report. Additional 1Mbps / 150ms / 4x CPU lab checks cover home and company form. LCP is a local observation; field p75, INP and real mobile performance remain unknown. |
@@ -31,12 +31,14 @@ The final browser results and screenshots are in [browser/](browser/). [Manifest
 
 ### Screenshots
 
-All 105 final captures are retained with hashes in `browser/results.json`. They are viewport captures, not a customer study. Useful starting points:
+All 107 final captures (including two detailed field-guide captures) are retained with hashes in `browser/results.json`. They are viewport captures, not a customer study. Useful starting points:
 
 - Home: [360](browser/home-360.png), [375](browser/home-375.png), [390](browser/home-390.png), [430](browser/home-430.png), [768](browser/home-768.png), [1024](browser/home-1024.png), [1440](browser/home-1440.png).
 - Product entries: [screening mobile](browser/china-supply-check-390.png), [RFQ mobile](browser/china-supply-check-live-rfq-compare-390.png), [screening desktop](browser/china-supply-check-1440.png), [RFQ desktop](browser/china-supply-check-live-rfq-compare-1440.png).
 - [Support/recovery](browser/support-390.png), [Proof](browser/proof-390.png), [Trust](browser/trust-390.png), [Agent guidance](browser/for-agents-390.png), [company form](browser/start-390.png), [Arabic RTL](browser/ar-390.png).
 - [Synthetic private result](browser/private-synthetic-result-390.png): a local fixture, not an authorized production paid-order read.
+
+The field guide is also captured at [390px](browser/proof-field-guide-390.png) and [1440px](browser/proof-field-guide-1440.png); these inspect content below the first viewport.
 
 ### Failure → correction → retest
 
@@ -60,6 +62,18 @@ The earlier 1060-check / 75-capture run remains at [its immutable evidence commi
 A preliminary browser harness also timed out after the menu's accessible name changed from Menu to Close; selecting its stable trigger fixed the harness. An existing SSR test helper was updated to render the actual returned root component; its withdrawal assertions remain. Neither harness issue is reported as a product defect or an independent approval.
 
 The [content-boundary delta check](content-boundary-delta.json) uses the original PR22 guard patterns and finds no new prohibited text in this PR. It does not claim the inherited whole repository is already cleaned by PR22. The shared test keeps its pre-existing confidentiality assertion for that independent PR to update.
+
+## Additional author checks and focus corrections
+
+A later external regression kit was checked and run against the real local build in **LOCAL_AUTHOR_PREFLIGHT_NOT_INDEPENDENT_REVIEW** mode. Its executable collector and oracle were kept unchanged. [Summary](author-advisory-summary.json) records the original 108 PASS / 6 focus FAIL / 2 label-matching unknowns at `482431f502de85e82db330041f72e541af66e4bc`, and the final 114 PASS / 0 FAIL / 2 matching unknowns. None of these author results changes the independent review verdict or grants release approval.
+
+Inspection found a genuine narrow mobile table caption, multi-fragment short action labels, and an input focus ring at the viewport edge. The caption now spans the content width, short action links have one clickable rectangle, and native focus scrolling reserves 12px of clearance. Measurements at all seven widths showed the field guide has no internal scrolling; its extra Tab stop was removed while retaining the named region and native table/caption. [Before measurements](regressions/focus-caption-before.json), [scroll analysis](regressions/field-guide-scroll-analysis.json).
+
+The next full browser run caught two default-motion focus failures, preserved in [round 7](regressions/acceptance-r7.json). Smooth focus scrolling initially left the Agent link below the viewport and completed only later. Instant scrolling makes it visible immediately. [Controlled comparison](regressions/focus-scroll-before.json). The final 1330-check run covers default keyboard focus, full input-ring clearance, responsive caption width and normal document flow; reduced-motion support remains.
+
+The two remaining external-spec unknowns recognize different German and Arabic wording for the same four rails. [The narrow equivalent-label matcher proposal](equivalent-locale-oracle.patch) adds six exact positive alternatives without changing LIVE/OFF states, prices or any executable QA code. With this input spec, 116 author checks pass; all 60 toolkit unit tests pass and the negative fixture remains expected FAIL. The original results are retained. Backend/admission/recovery evidence remains separately deferred, and **release_approval=false** throughout. The reviewer must inspect the wording proposal independently; no formal approval is inferred.
+
+The prior 1318-check / 105-capture round binds source `85afed8bf9c09d9d3db3e200728c82a57f162e61`; its [raw result](regressions/acceptance-r6.json) is retained and its captures remain available in [the earlier evidence commit](https://github.com/kiddhu/seekapi-public/tree/482431f502de85e82db330041f72e541af66e4bc/docs/main-site-review-20261109).
 
 ## Existing API checks, without purchases
 

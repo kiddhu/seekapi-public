@@ -1,7 +1,7 @@
 {
   "base": "7c1d45a0c5e4a6bb56ff8954fcac52817b785d29",
-  "tested_source_head": "85afed8bf9c09d9d3db3e200728c82a57f162e61",
-  "tested_source_tree": "78814c140e554fc7c9abb268a4d6aa41e2c8181f",
+  "tested_source_head": "3998f96986ee4051e53558447df80ae93e590904",
+  "tested_source_tree": "800d503d8d11191a52163d5ade75258e7c3bb6c7",
   "later_changes_allowed_for_this_evidence": "review documentation only; code changes require relevant revalidation",
   "files": [
     {
@@ -42,9 +42,9 @@
     },
     {
       "path": "app/(english)/for-agents/page.tsx",
-      "bytes": 15486,
-      "sha256": "d2b75ca3f695b5355cea8e65f6512ef0da901ec1444fcead9e761729388ff059",
-      "git_blob": "0ff2e4815e1b8eda50fa571f44aa2b5fda47e129"
+      "bytes": 15508,
+      "sha256": "e20fa5d446d839cecc9ba71d1e9d85c7de51bb6c45f1469c3b4276c2b4612947",
+      "git_blob": "90bc7659c3fa84fa31a4a7bdd79449fb71cdd77e"
     },
     {
       "path": "app/(english)/page.tsx",
@@ -54,9 +54,9 @@
     },
     {
       "path": "app/(english)/proof/page.tsx",
-      "bytes": 6404,
-      "sha256": "a452ca661f9fd9b4a936ef57ade128eb026db7e050540e9aa7f93790904f8b42",
-      "git_blob": "9872b53850a20f7226b57a9f6a83f5c13d863024"
+      "bytes": 6391,
+      "sha256": "6828c892603c096e7dea85dbf361d9220c2265f784f32f79e2bc91c72cfab59b",
+      "git_blob": "642e448cb46c3ded83c96386e8fc1c6a5c6b8a25"
     },
     {
       "path": "app/(english)/start/page.tsx",
@@ -78,9 +78,9 @@
     },
     {
       "path": "app/main-conversion.css",
-      "bytes": 11068,
-      "sha256": "a30c84a304654e0a64ab1b35cdaa07d888a2f60d635456d1741af834c8e5cce3",
-      "git_blob": "24d33310366e611cfbabbdbc2c643d3ab07597c6"
+      "bytes": 11343,
+      "sha256": "32b87d7e5d512fb27c3264ce6b787df3a145bf48239c604fd900aebdfb582165",
+      "git_blob": "5c00bd41969f7a5a95b90fa93fdb58f8c9f30404"
     },
     {
       "path": "components/checkout-experience.tsx",
@@ -108,9 +108,9 @@
     },
     {
       "path": "components/localized-page.tsx",
-      "bytes": 10286,
-      "sha256": "38a8f81d6001d8270dc075658381f820ed257aa159bbac03c848f97ab73595d4",
-      "git_blob": "402356e569bfe08fa988ceba66185333fbff956f"
+      "bytes": 10308,
+      "sha256": "0a1d842a97ee5f9f8c2dd253aa20d7a9c0b9cc3daf25e6ebb0f9b20dd051a6ec",
+      "git_blob": "13bfa8b7dfaa2ac89bc3bd96a3bb506dbfd2d517"
     },
     {
       "path": "components/localized-start-form.tsx",
@@ -222,9 +222,9 @@
     },
     {
       "path": "scripts/verify_main_site.py",
-      "bytes": 25131,
-      "sha256": "2d7a4971f188114dc6fa3e2420897cf8246698039a4db9c5f3fcb527311d8ee8",
-      "git_blob": "e46a09ad3133f521fc2b14c4ff4c2aa46250675e"
+      "bytes": 27488,
+      "sha256": "194ff2c1900e0e9b18685d2c0dbc08b8764aab07c8aecc16127e66da17d45caf",
+      "git_blob": "a260f3399963cad596cf59eb40cb73e47194de88"
     },
     {
       "path": "scripts/verify_main_site_touch.py",

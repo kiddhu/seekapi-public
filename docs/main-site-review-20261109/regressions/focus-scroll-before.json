@@ -1,0 +1,36 @@
+[
+  {
+    "instant": false,
+    "immediate": {
+      "scrollY": 27,
+      "top": 1169.71875,
+      "bottom": 1195.3125,
+      "visible": false,
+      "behavior": "smooth"
+    },
+    "after500ms": {
+      "scrollY": 788,
+      "top": 408.71875,
+      "bottom": 434.3125,
+      "visible": true,
+      "behavior": "smooth"
+    }
+  },
+  {
+    "instant": true,
+    "immediate": {
+      "scrollY": 788,
+      "top": 408.71875,
+      "bottom": 434.3125,
+      "visible": true,
+      "behavior": "auto"
+    },
+    "after500ms": {
+      "scrollY": 788,
+      "top": 408.71875,
+      "bottom": 434.3125,
+      "visible": true,
+      "behavior": "auto"
+    }
+  }
+]

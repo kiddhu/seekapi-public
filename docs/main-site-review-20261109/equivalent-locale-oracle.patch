@@ -1,0 +1,28 @@
+--- original/spec.json
++++ equivalent-labels/spec.json
+@@ -20,10 +20,10 @@
+       "text_x402": "x402\\s+para\\s+texto/modelo\\s*[:：]?\\s*\\s+LIVE"
+     },
+     "de": {
+-      "image_stripe": "Stripe\\s+für\\s+Bilder\\s*[:：]?\\s*\\s+LIVE",
+-      "image_x402": "x402\\s+für\\s+Bilder\\s*[:：]?\\s*\\s+OFF",
+-      "text_stripe": "Stripe\\s+für\\s+Text/Modell\\s*[:：]?\\s*\\s+OFF",
+-      "text_x402": "x402\\s+für\\s+Text/Modell\\s*[:：]?\\s*\\s+LIVE"
++      "image_stripe": "(?:Stripe\\s+für\\s+Bilder\\s*[:：]?\\s*\\s+LIVE|Bild-Stripe\\s*[:：]\\s*LIVE)",
++      "image_x402": "(?:x402\\s+für\\s+Bilder\\s*[:：]?\\s*\\s+OFF|Bild-x402\\s*[:：]\\s*OFF)",
++      "text_stripe": "(?:Stripe\\s+für\\s+Text/Modell\\s*[:：]?\\s*\\s+OFF|Text/Modell-Stripe\\s*[:：]\\s*OFF)",
++      "text_x402": "(?:x402\\s+für\\s+Text/Modell\\s*[:：]?\\s*\\s+LIVE|Text/Modell-x402\\s*[:：]\\s*LIVE)"
+     },
+     "ja": {
+       "image_stripe": "画像\\s+Stripe\\s*[:：]?\\s*\\s+LIVE",
+@@ -34,8 +34,8 @@
+     "ar": {
+       "image_stripe": "Stripe\\s+للصور\\s*[:：]?\\s*\\s+LIVE",
+       "image_x402": "x402\\s+للصور\\s*[:：]?\\s*\\s+OFF",
+-      "text_stripe": "Stripe\\s+للنص/الطراز\\s*[:：]?\\s*\\s+OFF",
+-      "text_x402": "x402\\s+للنص/الطراز\\s*[:：]?\\s*\\s+LIVE"
++      "text_stripe": "Stripe\\s+(?:للنص/الطراز|للنص\\s+أو\\s+الطراز)\\s*[:：]?\\s*\\s+OFF",
++      "text_x402": "x402\\s+(?:للنص/الطراز|للنص\\s+أو\\s+الطراز)\\s*[:：]?\\s*\\s+LIVE"
+     },
+     "pt-br": {
+       "image_stripe": "Stripe\\s+para\\s+imagens\\s*[:：]?\\s*\\s+LIVE",

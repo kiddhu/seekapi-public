@@ -1,0 +1,41 @@
+{
+  "scope": "LOCAL_AUTHOR_PREFLIGHT_NOT_INDEPENDENT_REVIEW",
+  "source_head": "3998f96986ee4051e53558447df80ae93e590904",
+  "release_approval": false,
+  "independent_review": false,
+  "kit_version": "seekapi.t5.regression.v1",
+  "original_archive_sha256": "3729c41bfcfc1613932d8c687418ba81b6f1575c9f7d936d8bccb2a4ad9ce788",
+  "original_executable_collector_and_oracle_unchanged": true,
+  "tooling_unit_tests": {
+    "pass": 60,
+    "fail": 0
+  },
+  "before_at_482431f": {
+    "PASS": 108,
+    "FAIL": 6,
+    "INSUFFICIENT_EVIDENCE": 2
+  },
+  "current_original_spec": {
+    "PASS": 114,
+    "FAIL": 0,
+    "INSUFFICIENT_EVIDENCE": 2
+  },
+  "current_equivalent_locale_spec": {
+    "PASS": 116,
+    "FAIL": 0,
+    "INSUFFICIENT_EVIDENCE": 0
+  },
+  "remaining_original_spec_cases": [
+    "R01.locale.de",
+    "R01.locale.ar"
+  ],
+  "equivalence": "German Bild-Stripe/Bild-x402/Text-Modell labels and Arabic text or model label; exact rail and LIVE/OFF states retained. No wildcard or price/authorization relaxation.",
+  "deferred_backend_cases": 3,
+  "negative_fixture": "Expected FAIL retained after the narrow spec extension",
+  "captures_sha256": {
+    "capture.json": "e5b005e6d2b5e640e376ee65f8e517e1ebd89d57cba376f484fc4dcbcd96675e",
+    "original-advisory.json": "3aca7b8f9bdd2628e1af99e78261cb3b0ed5f91fa723ca31557dd7b7a9f08ac7",
+    "semantic-advisory.json": "441fffe489993556318befca97e58b367ab001c2de7ce2a53f885da1ae95858f"
+  },
+  "full_raw_reports": "Retained in the authorized private review context; only product QA summary is public."
+}
